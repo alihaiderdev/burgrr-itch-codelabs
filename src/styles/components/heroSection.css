@@ -1,0 +1,50 @@
+.heroSection {
+  width: 100%;
+  background: black;
+  overflow: hidden;
+  height: 600px;
+  z-index: -10;
+  object-fit: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.heroSection img {
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.heroSection .heroSectionContentWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.heroSection .heroSectionContentWrapper h1 {
+  font-size: 5rem;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  word-spacing: 5px;
+}
+.heroSection .heroSectionContentWrapper p {
+  color: #bdbdbd;
+}
+
+@media screen and (max-width: 845px) {
+  .heroSection {
+    height: 350px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .heroSection img {
+    object-fit: contain;
+  }
+}

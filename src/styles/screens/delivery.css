@@ -1,0 +1,20 @@
+.deliveryScreen {
+  width: 100%;
+  margin: 75px 0 !important;
+  text-align: center;
+  height: 26.9vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.deliveryScreen .enterZoneWrapper .enterZone {
+  background-color: #f7f7f7;
+  padding: 8px 25px;
+  outline: none;
+  width: 25%;
+  border: none;
+  border-radius: 8px 0px 0px 8px;
+}
+.deliveryScreen .enterZoneWrapper button {
+  border-radius: 0px 8px 8px 0px;
+}

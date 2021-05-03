@@ -1,0 +1,13 @@
+.contactUsScreen {
+  width: 100%;
+  margin: 75px 0 !important;
+}
+.contactUsScreen .hotelImageWrapper {
+  width: 100%;
+}
+.contactUsScreen .hotelImageWrapper img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  box-shadow: -2px 1px 19px 4px rgba(0, 0, 0, 0.24);
+}

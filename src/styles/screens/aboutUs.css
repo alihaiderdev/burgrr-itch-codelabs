@@ -1,0 +1,12 @@
+.aboutUsScreen {
+  width: 100%;
+  margin: 75px 0 !important;
+}
+.aboutUsScreen .hotelImageWrapper {
+  width: 100%;
+}
+.aboutUsScreen .hotelImageWrapper img {
+  width: 85%;
+  height: 400px;
+  box-shadow: -2px 1px 19px 4px rgba(0, 0, 0, 0.24);
+}

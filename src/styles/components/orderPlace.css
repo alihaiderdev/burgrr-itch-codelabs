@@ -1,0 +1,30 @@
+.orderPlaceScreen {
+  margin-bottom: 150px;
+  margin-top: 50px;
+}
+.orderPlaceScreen .imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.orderPlaceScreen .imageWrapper .shoppingBtnWrapper {
+  margin-top: 30px;
+}
+.orderPlaceScreen .imageWrapper .shoppingBtnWrapper button {
+  width: 250px;
+}
+.orderPlaceScreen .imageWrapper .shoppingBtnWrapper p {
+  text-align: center;
+}
+.shoppingBtnWrapper button.continueShopping {
+  display: none;
+}
+@media screen and (max-width: 845px) {
+  .shoppingBtnWrapper button.arrowBack {
+    display: none;
+  }
+  .shoppingBtnWrapper button.continueShopping {
+    display: block;
+  }
+}

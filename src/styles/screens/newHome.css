@@ -1,0 +1,182 @@
+.newHomeScreen {
+  margin: 160px 0;
+}
+.newHomeScreen .searchIconWrapper {
+  position: absolute;
+  top: 60px;
+  right: 105px;
+}
+
+.cardDetailsSeachWrapper {
+  position: absolute;
+  top: 500px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  /* margin: 0 20px; */
+  justify-content: space-around;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.detailsCard {
+  width: 600px !important;
+  min-width: 600px !important;
+  background-color: #f3f3f3;
+  box-shadow: 0px 3px 60px #00000033;
+  border-radius: 20px;
+}
+
+.newHomeScreen .detailsCard ul {
+  margin-left: 35px !important;
+  margin: 0 !important;
+}
+
+.newHomeScreen .detailsCard ul li {
+  margin-bottom: 10px;
+}
+.newHomeScreen .detailsCard ul li span {
+  color: #9c9b9b;
+  font-size: 15px;
+}
+.newHomeScreen .detailsCard .detailsCardRow {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+  margin-top: 14%;
+  margin-bottom: 20px;
+}
+
+.cardWrapperHeading {
+  background-color: #d0d0d0;
+  margin: 0;
+}
+
+.newHomeScreenSearch {
+  width: 440px;
+  height: 60px;
+  margin-top: 145px;
+}
+
+.newHomeScreenSearch input {
+  background-color: #ebebeb;
+  padding-left: 25px;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  background: #ebebeb 0% 0% no-repeat padding-box;
+  border-radius: 15px;
+}
+.newHomeScreenSearch input:focus {
+  background-color: #ebebeb;
+  border: none !important;
+  outline: none !important;
+}
+.newHomeScreenSearch button {
+  cursor: pointer;
+  position: absolute;
+  top: 13px;
+  right: 7px;
+  border: none;
+  outline: none;
+  background: transparent !important;
+}
+
+.nav-tabs {
+  border-bottom: none !important;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+}
+
+.nav-tabs .nav-item {
+  color: #9c9b9b;
+  font-family: 'UbuntuRegular';
+  font-size: 20px;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--orange);
+  border-bottom: 4px solid var(--orange);
+}
+
+.nav-link {
+  display: block;
+  padding: 0.2rem 0.5rem;
+  margin-right: 1.3rem;
+}
+
+.detailsCardLogoWrapper {
+  position: absolute;
+  top: -88px;
+  left: 12%;
+  display: flex;
+  align-items: center;
+}
+.detailsCardLogoWrapper .detailsCardLogo {
+  height: 12rem;
+  width: 12rem;
+}
+.detailsCardLogoWrapper h2 {
+  margin-top: 65px !important;
+}
+
+@media screen and (max-width: 845px) {
+  .newHomeScreen {
+    margin: 120px 0;
+  }
+  .newHomeScreenSearch {
+    width: 410px;
+    height: 45px;
+  }
+  .newHomeScreenSearch button img {
+    position: absolute;
+    top: -1px;
+    right: 7px;
+  }
+  .cardDetailsSeachWrapper form {
+    width: 100%;
+  }
+  .nav-tabs .nav-link {
+    font-size: 18px !important;
+  }
+  .mt-4 .cardWrapperHeading h2 {
+    font-size: 18px !important;
+  }
+  .searchIconWrapper {
+    display: none;
+  }
+  .searchIconWrapper a img {
+    width: 30px;
+  }
+  .cardDetailsSeachWrapper .detailsCard {
+    width: 20px;
+  }
+  .detailsCard {
+    width: 394px !important;
+    min-width: 394px !important;
+    top: 250px;
+    left: 47px;
+  }
+  .detailsCard .detailsCardLogoWrapper a img {
+    top: -38%;
+    left: 0%;
+    height: 9rem !important;
+    width: 9rem !important;
+  }
+  .detailsCard div h2 {
+    font-size: 22px;
+  }
+  .detailsCardRow .cardDetailsCol {
+    padding: 0;
+  }
+  .detailsCardRow .cardDetailsCol ul li img {
+    width: 13px;
+  }
+  .detailsCardRow .cardDetailsCol ul li span {
+    font-size: 13px;
+  }
+}

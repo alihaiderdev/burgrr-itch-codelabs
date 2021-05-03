@@ -1,0 +1,28 @@
+.quantityCount {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--orange);
+  border-radius: 10px;
+}
+.quantityCount div,
+.quantityCount .sub,
+.quantityCount .add {
+  padding: 7px 30px;
+  color: var(--orange);
+}
+.quantityCount button.sub {
+  border-right: 1px solid var(--orange);
+}
+
+.quantityCount button.add {
+  border-left: 1px solid var(--orange);
+}
+
+.quantityCount button,
+.quantityCount button,
+.add-to-cart-btn-wrapper button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 22px;
+}

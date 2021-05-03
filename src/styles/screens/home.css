@@ -1,0 +1,42 @@
+.homeScreen {
+  width: 100%;
+  margin: 75px 0 !important;
+}
+
+.homeScreen .dropdownAndSearchWrapper {
+  margin-bottom: 60px !important;
+}
+
+.homeScreen .search {
+  width: 70%;
+}
+
+.homeScreen .search .searchInput {
+  background-color: #f7f7f7;
+  padding: 16px 25px;
+  outline: none;
+  width: 100%;
+  border: none;
+  border-radius: 12px 0px 0px 12px;
+}
+.homeScreen .search button {
+  float: right;
+  padding: 16px 36px;
+  border-radius: 0px 12px 12px 0px;
+}
+
+.priceDropdown {
+  margin: 0 !important;
+}
+
+.homeScreen-priceDropdown {
+  background-color: #f7f7f7 !important;
+  position: relative !important;
+  font-family: 'UbuntuRegular';
+  border: none;
+  outline: none;
+  margin: 0;
+  width: 350px;
+  height: 60px;
+  border-radius: 10px;
+}

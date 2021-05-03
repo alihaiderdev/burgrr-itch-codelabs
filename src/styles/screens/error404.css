@@ -1,0 +1,12 @@
+.error404Screen {
+  height: 48vh !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error404Screen h1 {
+  font-size: 2.5rem;
+  color: var(--orange);
+  font-weight: bolder;
+}
