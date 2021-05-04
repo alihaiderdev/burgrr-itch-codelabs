@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/screens/newHome.css';
-import { Col, Row, Tabs, Tab, Button, Form } from 'react-bootstrap';
+import { Col, Row, Tabs, Tab, Form } from 'react-bootstrap';
 import HeroSection from '../components/HeroSection';
 import { Link } from 'react-router-dom';
 import BurgerritchLogo from '../assets/icons/BurgerritchLogo.png';
@@ -17,23 +17,36 @@ import Burger from '../assets/images/product.png';
 import Drawer from '../components/Drawer';
 import burgarCardsInfo from '../data/burgarCardsInfo';
 
-const BurgersTab = () => {
+const allInOneTab = (
+  innerTabImg,
+  innerTabTitle,
+  innerTabPrice,
+  cardLength = 12
+) => {
   return (
     <div className='mt-4'>
-      <div className='cardWrapperHeading'>
-        <h2 className='black py-2 mb-4 container-85'>Burgers</h2>
-      </div>
-      <div className='container-85 '>
+      {innerTabImg && innerTabTitle && innerTabPrice && (
+        <div className='tabInfo container-85'>
+          <div className='tabImg'>
+            <img src={innerTabImg} alt={`${innerTabTitle}-Tab-Image`} />
+          </div>
+          <div>
+            <h3 className='black m-0'>{innerTabTitle}</h3>
+            <p className='m-0'>{innerTabPrice}</p>
+          </div>
+        </div>
+      )}
+      <div className='container-85'>
         <Row>
           {burgarCardsInfo &&
-            burgarCardsInfo.map((card, index) => {
+            burgarCardsInfo.slice(0, cardLength).map((card, index) => {
               return (
                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
                   <BurgerCard
                     index={index}
                     cardImage={card.cardImage}
                     cardTitle={card.cardTitle}
-                    cardSubTitle={card.cardSubTitle}
+                    // cardSubTitle={card.cardSubTitle}
                     cardDescription={card.cardDescription}
                     cardPrice={card.cardPrice}
                   />
@@ -46,63 +59,138 @@ const BurgersTab = () => {
   );
 };
 
-const PizzasTab = () => {
-  return (
-    <div className='mt-4'>
-      <div className='cardWrapperHeading'>
-        <h2 className='black py-2 mb-4 container-85'>Pizzas</h2>
-      </div>
-      <div className='container-85 '>
-        <Row>
-          {burgarCardsInfo &&
-            burgarCardsInfo.slice(0, 8).map((card, index) => {
-              return (
-                <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-                  <BurgerCard
-                    index={index}
-                    cardImage={card.cardImage}
-                    cardTitle={card.cardTitle}
-                    cardSubTitle={card.cardSubTitle}
-                    cardDescription={card.cardDescription}
-                    cardPrice={card.cardPrice}
-                  />
-                </Col>
-              );
-            })}
-        </Row>
-      </div>
-    </div>
-  );
-};
+// const AllTab = () => {
+//   return (
+//     <div className='mt-4'>
+//       <div className='cardWrapperHeading'>
+//         <h2 className='black py-2 mb-4 container-85'>All</h2>
+//       </div>
+//       <div className='container-85 '>
+//         <Row>
+//           {burgarCardsInfo &&
+//             burgarCardsInfo.map((card, index) => {
+//               return (
+//                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
+//                   <BurgerCard
+//                     index={index}
+//                     cardImage={card.cardImage}
+//                     cardTitle={card.cardTitle}
+//                     cardSubTitle={card.cardSubTitle}
+//                     cardDescription={card.cardDescription}
+//                     cardPrice={card.cardPrice}
+//                   />
+//                 </Col>
+//               );
+//             })}
+//         </Row>
+//       </div>
+//     </div>
+//   );
+// };
 
-const AppetizersTab = () => {
-  return (
-    <div className='mt-4'>
-      <div className='cardWrapperHeading'>
-        <h2 className='black py-2 mb-4 container-85'>Appetizers</h2>
-      </div>
-      <div className='container-85 '>
-        <Row>
-          {burgarCardsInfo &&
-            burgarCardsInfo.slice(0, 5).map((card, index) => {
-              return (
-                <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-                  <BurgerCard
-                    index={index}
-                    cardImage={card.cardImage}
-                    cardTitle={card.cardTitle}
-                    cardSubTitle={card.cardSubTitle}
-                    cardDescription={card.cardDescription}
-                    cardPrice={card.cardPrice}
-                  />
-                </Col>
-              );
-            })}
-        </Row>
-      </div>
-    </div>
-  );
-};
+// const BurgersTab = () => {
+//   return (
+//     <div className='mt-4'>
+//       <div className='container-85 '>
+//         <Row>
+//           {burgarCardsInfo &&
+//             burgarCardsInfo.map((card, index) => {
+//               return (
+//                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
+//                   <BurgerCard
+//                     index={index}
+//                     cardImage={card.cardImage}
+//                     cardTitle={card.cardTitle}
+//                     cardSubTitle={card.cardSubTitle}
+//                     cardDescription={card.cardDescription}
+//                     cardPrice={card.cardPrice}
+//                   />
+//                 </Col>
+//               );
+//             })}
+//         </Row>
+//       </div>
+//     </div>
+//   );
+// };
+
+// const PizzasTab = () => {
+//   return (
+//     <div className='mt-4'>
+//       <div className='container-85 '>
+//         <Row>
+//           {burgarCardsInfo &&
+//             burgarCardsInfo.slice(0, 8).map((card, index) => {
+//               return (
+//                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
+//                   <BurgerCard
+//                     index={index}
+//                     cardImage={card.cardImage}
+//                     cardTitle={card.cardTitle}
+//                     cardSubTitle={card.cardSubTitle}
+//                     cardDescription={card.cardDescription}
+//                     cardPrice={card.cardPrice}
+//                   />
+//                 </Col>
+//               );
+//             })}
+//         </Row>
+//       </div>
+//     </div>
+//   );
+// };
+
+// const BeveragesTab = () => {
+//   return (
+//     <div className='mt-4'>
+//       <div className='container-85 '>
+//         <Row>
+//           {burgarCardsInfo &&
+//             burgarCardsInfo.slice(0, 11).map((card, index) => {
+//               return (
+//                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
+//                   <BurgerCard
+//                     index={index}
+//                     cardImage={card.cardImage}
+//                     cardTitle={card.cardTitle}
+//                     cardSubTitle={card.cardSubTitle}
+//                     cardDescription={card.cardDescription}
+//                     cardPrice={card.cardPrice}
+//                   />
+//                 </Col>
+//               );
+//             })}
+//         </Row>
+//       </div>
+//     </div>
+//   );
+// };
+
+// const AppetizersTab = () => {
+//   return (
+//     <div className='mt-4'>
+//       <div className='container-85 '>
+//         <Row>
+//           {burgarCardsInfo &&
+//             burgarCardsInfo.slice(0, 5).map((card, index) => {
+//               return (
+//                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
+//                   <BurgerCard
+//                     index={index}
+//                     cardImage={card.cardImage}
+//                     cardTitle={card.cardTitle}
+//                     cardSubTitle={card.cardSubTitle}
+//                     cardDescription={card.cardDescription}
+//                     cardPrice={card.cardPrice}
+//                   />
+//                 </Col>
+//               );
+//             })}
+//         </Row>
+//       </div>
+//     </div>
+//   );
+// };
 
 const NewHomeScreen = () => {
   const [search, setSearch] = useState('');
@@ -201,19 +289,27 @@ const NewHomeScreen = () => {
         </div>
 
         <Tabs
-          defaultActiveKey='burgers'
-          // transition={false}
+          defaultActiveKey='all'
           id='noanim-tab-example'
           className='container-85'
         >
+          <Tab eventKey='all' title='All'>
+            {allInOneTab(Burger, 'Burgers', '$$$', 6)}
+            {allInOneTab(Burger, 'Pizzas', '$$$', 8)}
+            {allInOneTab(Burger, 'Beverages', '$$$', 11)}
+            {allInOneTab(Burger, 'Appetizers', '$$$', 5)}
+          </Tab>
           <Tab eventKey='burgers' title='Burgers'>
-            <BurgersTab />
+            {allInOneTab(null, null, null, 6)}
           </Tab>
           <Tab eventKey='pizzas' title='Pizzas'>
-            <PizzasTab />
+            {allInOneTab(null, null, null, 8)}
+          </Tab>
+          <Tab eventKey='beverages' title='Beverages'>
+            {allInOneTab(null, null, null, 11)}
           </Tab>
           <Tab eventKey='appetizers' title='Appetizers'>
-            <AppetizersTab />
+            {allInOneTab(null, null, null, 5)}
           </Tab>
         </Tabs>
       </div>
@@ -223,3 +319,9 @@ const NewHomeScreen = () => {
 };
 
 export default NewHomeScreen;
+
+// <AllTab />
+// <BurgersTab />
+// <PizzasTab />
+// <BeveragesTab />
+// <AppetizersTab />

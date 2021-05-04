@@ -18,23 +18,49 @@ const Header = ({ location: { pathname } }) => {
 
   return (
     <>
-      {pathname === '/' || pathname === '/place-order' ? null : (
-        <div div className='header' style={{ backgroundColor: navBackgroundColor }}>
+      {pathname === '/' ||
+      pathname === '/place-order' ||
+      pathname === '/order-place' ? null : (
+        <div
+          div
+          className='header'
+          style={{ backgroundColor: navBackgroundColor }}
+        >
           <nav className='navbar container-85'>
             <NavLink to='/'>
               <img className='logo' src={Logo} alt='Burgerritch Logo' />
             </NavLink>
             <ul className='navLinks'>
-              <NavLink exact activeStyle={active} to='/home' className='headerNavLink white'>
+              <NavLink
+                exact
+                activeStyle={active}
+                to='/home'
+                className='headerNavLink white'
+              >
                 <li>Home</li>
               </NavLink>
-              <NavLink exact activeStyle={active} to='/about-us' className='headerNavLink white'>
+              <NavLink
+                exact
+                activeStyle={active}
+                to='/about-us'
+                className='headerNavLink white'
+              >
                 <li>About Us</li>
               </NavLink>
-              <NavLink exact activeStyle={active} to='/delivery' className='headerNavLink white'>
+              <NavLink
+                exact
+                activeStyle={active}
+                to='/delivery'
+                className='headerNavLink white'
+              >
                 <li>Delivery</li>
               </NavLink>
-              <NavLink exact activeStyle={active} to='/contact-us' className='headerNavLink white'>
+              <NavLink
+                exact
+                activeStyle={active}
+                to='/contact-us'
+                className='headerNavLink white'
+              >
                 <li>Contact Us</li>
               </NavLink>
               <li className='icon'>

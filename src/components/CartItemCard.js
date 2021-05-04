@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import '../styles/components/cartItemCard.css';
-import BurgerImage from '../assets/images/product.png';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const CartItemCard = ({ index, img, name, drink, addons, price }) => {
   const [deleteCartItem, setDeleteCartItem] = useState(true);
@@ -15,9 +15,23 @@ const CartItemCard = ({ index, img, name, drink, addons, price }) => {
             <img src={img} alt='BurgerImage' />
           </div>
         </Col>
-        <Col className='detailsCol' xs={9} sm={9} md={8} lg={8} xl={8} className='pl-0'>
+        <Col
+          className='detailsCol'
+          xs={9}
+          sm={9}
+          md={8}
+          lg={8}
+          xl={8}
+          className='pl-0'
+        >
           <div className='cartItemCardDescriptionWrapper'>
-            <h4 className='title my-2'>{name}</h4>
+            <div className='deleteCartItemWrapper'>
+              <h5 className='title mb-2'>{name}</h5>
+              <button onClick={''} className='deleteCartItem'>
+                <AiOutlineClose color='gray' size='18px' />
+              </button>
+            </div>
+
             <p className='drink mb-1 um'>
               Drink <span className='gray ml-3 ur'>{drink}</span>
             </p>
@@ -29,16 +43,23 @@ const CartItemCard = ({ index, img, name, drink, addons, price }) => {
               <div>
                 <span className='m-0'>QTY</span>
                 <div className='qtywrapper ml-3 mr-4'>
-                  <button className='sub' onClick={() => setCartItemCount(cartItemCount - 1)}>
+                  <button
+                    className='sub'
+                    disabled={cartItemCount === 0}
+                    onClick={() => setCartItemCount(cartItemCount - 1)}
+                  >
                     -
                   </button>
                   <div className='value'>{cartItemCount}</div>
-                  <button className='add' onClick={() => setCartItemCount(cartItemCount + 1)}>
+                  <button
+                    className='add'
+                    onClick={() => setCartItemCount(cartItemCount + 1)}
+                  >
                     +
                   </button>
                 </div>
               </div>
-              <h4 className='price orange m-0'>PKR {price}</h4>
+              <h5 className='price orange m-0'>PKR {price}</h5>
             </div>
           </div>
         </Col>

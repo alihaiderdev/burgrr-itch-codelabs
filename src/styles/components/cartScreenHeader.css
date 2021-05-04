@@ -34,13 +34,20 @@
 }
 
 /* cartScreenHeader Progressbar  */
-.container-30 {
+.container-30,
+.container-custom {
   width: 30%;
   height: 100px;
-  margin: 0 32% 0 auto;
   background-color: #1b1b1b;
   display: flex;
   justify-content: center;
+}
+
+.container-custom {
+  margin: 0 32% 0 auto;
+}
+.container-30 {
+  margin: 0 auto;
 }
 
 .orangeCircle {

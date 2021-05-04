@@ -1,0 +1,79 @@
+.orderPlaceScreen {
+  margin-top: 50px !important;
+  margin-bottom: 100px !important;
+}
+.orderItem {
+  border-bottom: 1px solid #707070;
+  margin-bottom: 10px;
+  padding: 0 10px 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.orderItem .orderItemDesc {
+  display: flex;
+  align-items: baseline;
+}
+.orderItem .name {
+  font-weight: 700;
+}
+.orderItem .orderItem_addOns {
+  color: #1b1b1b;
+}
+
+.yourInfo_paymentMethodWrapper {
+  margin-right: 50px;
+}
+.yourInfo_paymentMethodWrapper form .form-group #message {
+  resize: none;
+}
+.yourOrderWrapper {
+  margin-left: 50px;
+  margin-top: 10px;
+  border: 1px solid #bebebe;
+  border-radius: 15px;
+  padding: 30px 20px;
+}
+
+.yourOrderWrapper .pricesContainer .coupon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.yourOrderWrapper .pricesContainer .coupon button {
+  border: none;
+  outline: none;
+  color: var(--orange);
+  background-color: transparent;
+  padding: 5px 20px;
+  border: 1px solid var(--orange);
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.yourOrderWrapper .pricesContainer .coupon .form-control {
+  width: 100%;
+}
+
+.yourOrderWrapper .pricesContainer .yourOrderBtnContainer {
+  display: flex;
+  justify-content: center;
+}
+.yourOrderWrapper .pricesContainer .yourOrderBtnContainer button {
+  border: none;
+  outline: none;
+  background-color: var(--orange);
+  padding: 5px 20px;
+  border-radius: 5px;
+  color: white;
+  width: 65%;
+  font-size: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .yourInfo_paymentMethodWrapper {
+    margin-right: 0;
+  }
+  .yourOrderWrapper {
+    margin-left: 0;
+  }
+}

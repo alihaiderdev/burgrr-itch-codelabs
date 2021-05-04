@@ -110,12 +110,7 @@ export class PlaceOrderScreen extends Component {
       case 1:
         return (
           <>
-            <CartScreenHeader
-              onChange={this.onChange}
-              current={current}
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-            />
+            <CartScreenHeader onChange={this.onChange} current={current} />
             <div className='placeOrderScreen container-85'>
               <PaymentMethodForm
                 nextStep={this.nextStep}
@@ -128,12 +123,7 @@ export class PlaceOrderScreen extends Component {
       case 2:
         return (
           <>
-            <CartScreenHeader
-              onChange={this.onChange}
-              current={current}
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-            />
+            <CartScreenHeader onChange={this.onChange} current={current} />
             <ConfirmOrder
               firstStep={this.firstStep}
               secondStep={this.secondStep}
@@ -146,12 +136,7 @@ export class PlaceOrderScreen extends Component {
       case 3:
         return (
           <>
-            <CartScreenHeader
-              onChange={this.onChange}
-              current={current}
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-            />
+            <CartScreenHeader onChange={this.onChange} current={current} />
             <div className='placeOrderScreen container-85'>
               <OrderPLace
                 firstStep={this.firstStep}

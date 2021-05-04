@@ -3,6 +3,13 @@
   width: 100%;
   padding: 70px 0;
 }
+.footerDescription {
+  width: 70%;
+}
+.linksContainer {
+  width: 80%;
+  margin: 0 auto !important;
+}
 .linksContainer h5 {
   font-size: 22px;
 }

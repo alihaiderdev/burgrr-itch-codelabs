@@ -5,25 +5,43 @@ import { Link } from 'react-router-dom';
 import Burger from '../assets/images/product.png';
 import BurgerCardModal from './BurgerCardModal';
 
-const BurgerCard = ({ cardImage, cardTitle, cardSubTitle, cardDescription, cardPrice, index }) => {
+const BurgerCard = ({
+  cardImage,
+  cardTitle,
+  cardSubTitle,
+  cardDescription,
+  cardPrice,
+  index,
+}) => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
     <>
-      <Link key={index} to='/' className='black' onClick={() => setModalShow(true)}>
+      <Link
+        key={index}
+        to='/'
+        className='black'
+        onClick={() => setModalShow(true)}
+      >
         <div className='burgerCard'>
           <Row>
-            <Col xs={5} sm={5} md={5} lg={5} xl={5}>
+            <Col xs={3} sm={3} md={3} lg={3} xl={3} className='cardMediaCol'>
               <div className='cardMedia'>
                 <img src={cardImage && cardImage} alt='Burger' />
               </div>
             </Col>
-            <Col xs={7} sm={7} md={7} lg={7} xl={7}>
+            <Col xs={9} sm={9} md={9} lg={9} xl={9} className='cardBodyCol'>
               <div className='cardBody mx-2 my-3'>
-                <p className='um mb-0 black cardTitle'>{cardTitle && cardTitle}</p>
-                <p className='ur mb-1 cardSubTitle gray'>{cardSubTitle && cardSubTitle}</p>
-                <p className='ur mb-1 cardDescription'>{cardDescription && cardDescription}</p>
-                <p className='ur mb-0 orange'>{cardPrice && cardPrice}</p>
+                <h5 className='um mb-0 black cardTitle'>
+                  {cardTitle && cardTitle}
+                </h5>
+                <p className='ur mb-1 cardSubTitle gray'>
+                  {cardSubTitle && cardSubTitle}
+                </p>
+                <p className='ur mb-2 cardDescription'>
+                  {cardDescription && cardDescription}
+                </p>
+                <h5 className='ur mb-0 orange'>{cardPrice && cardPrice}</h5>
               </div>
             </Col>
           </Row>

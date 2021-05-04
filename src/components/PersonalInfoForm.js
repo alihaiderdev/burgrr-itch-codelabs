@@ -4,6 +4,7 @@ import '../styles/components/cartForms.css';
 import EmailAddressIcon from '../assets/icons/Form Icons/EmailAddress.svg';
 import ContactNumberIcon from '../assets/icons/Form Icons/ContactNumber.svg';
 import DeliveryAddressIcon from '../assets/icons/Form Icons/DeliveryAddress.svg';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 export class PersonalInfoForm extends Component {
   continue = (e) => {
@@ -24,10 +25,9 @@ export class PersonalInfoForm extends Component {
       handleChange,
       current,
     } = this.props;
-    console.log('{ current } : ', { current });
 
     return (
-      <div className='personalInfoForm cartForm  contaniner-85'>
+      <div className='personalInfoForm cartForm contaniner-85'>
         <Form autoComplete={true}>
           <h3 className='um black mb-4'>Your Details</h3>
 
@@ -119,6 +119,7 @@ export class PersonalInfoForm extends Component {
             onClick={this.continue}
           >
             Next
+            <AiOutlineArrowRight color='white' />
           </Button>
         </Form>
       </div>
@@ -127,11 +128,3 @@ export class PersonalInfoForm extends Component {
 }
 
 export default PersonalInfoForm;
-
-// const [name, setName] = useState('');
-// const [email, setEmail] = useState('');
-// const [contactNumber, setContactNumber] = useState('');
-// const [deliveryAddress, setdeliveryAddress] = useState('');
-// const [deliveryDateTime, setDeliveryDateTime] = useState('');
-// const [date, setDate] = useState('');
-// const [message, setMessage] = useState('');

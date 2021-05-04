@@ -4,6 +4,7 @@ import { Modal, Button, Row, Form, Col, ButtonGroup } from 'react-bootstrap';
 import BurgerIamge from '../assets/images/product.png';
 import Drawer from './Drawer';
 import { Link } from 'react-router-dom';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const BurgerCardModal = (props) => {
   const { onHide } = props;
@@ -52,8 +53,16 @@ const BurgerCardModal = (props) => {
           <img src={BurgerIamge} alt='BurgerIamge' />
         </div>
 
-        <Modal.Body className='mt-0 '>
-          <Modal.Title className='burgerModalTitle'>Big Mab</Modal.Title>
+        <Modal.Body className='mt-0'>
+          <button className='closeModal' type='button' onClick={onHide}>
+            <AiOutlineClose size='25px' />
+          </button>
+          <div className='burgerModalDetails'>
+            <h3 className='mb-0'>Big Mab</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            </p>
+          </div>
           <div className='modalBody'>
             <Form onSubmit={handleSubmitForm}>
               <div className='coldDrinks'>
@@ -278,11 +287,11 @@ const BurgerCardModal = (props) => {
                   </div>
                 </div>
               </div>
-              <Form.Group controlId='exampleForm.ControlTextarea1'>
+              <Form.Group controlId='special-message'>
                 <Form.Control
                   placeholder='Special Message'
                   as='textarea'
-                  rows={3}
+                  rows={4}
                   value={specialMessage}
                   onChange={(e) => setSpecialMessage(e.target.value)}
                 />
@@ -296,6 +305,7 @@ const BurgerCardModal = (props) => {
                       onClick={() =>
                         setAddToCartQtyCount(addToCartQtyCount - 1)
                       }
+                      disabled={addToCartQtyCount === 0}
                     >
                       -
                     </button>
@@ -312,7 +322,7 @@ const BurgerCardModal = (props) => {
                 </div>
                 <div className='add-to-cart-btn-container'>
                   <Link
-                    to='/place-order'
+                    to='/order-place'
                     className='addToCart'
                     onClick={onHide}
                   >

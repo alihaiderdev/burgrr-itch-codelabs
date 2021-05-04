@@ -13,28 +13,18 @@ import { Steps, message } from 'antd';
 import { AiOutlineCheck } from 'react-icons/ai';
 const { Step } = Steps;
 
-const CartScreenHeader = ({ current, onChange, nextStep, prevStep }) => {
+const CartScreenHeader = ({ current, onChange, location: { pathname } }) => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
-  console.log('{ current } : ', { current });
-
-  // const whiteTick = <AiOutlineCheck style={{ color: 'white' }} />;
-
   const steps = [
     {
-      title: 'First',
-      content: 'First-content',
       description: 'Persoanl Information',
     },
     {
-      title: 'Second',
-      content: 'Second-content',
       description: 'Payment Method',
     },
     {
-      title: 'Third',
-      content: 'Third-content',
       description: 'Confirm Order',
     },
   ];
@@ -42,50 +32,59 @@ const CartScreenHeader = ({ current, onChange, nextStep, prevStep }) => {
   return (
     <>
       <div className='cartScreenHeader'>
-        <div className='contact-timing-wrapper container-85'>
-          <div className='timing'>
-            <img className='icon-md' src={TimingIcon} alt='TimingIcon' />
-            <p className='ml-2'>Store Timings: Mon-Fri, 09:00 AM - 09:30 PM</p>
+        {pathname === '/order-place' ? null : (
+          <div className='contact-timing-wrapper container-85'>
+            <div className='timing'>
+              <img className='icon-md' src={TimingIcon} alt='TimingIcon' />
+              <p className='ml-2'>
+                Store Timings: Mon-Fri, 09:00 AM - 09:30 PM
+              </p>
+            </div>
+            <div className='contact'>
+              <img className='icon-sm' src={PhoneIcon} alt='PhoneIcon' />
+              <p className='ml-2'>023723728812</p>
+            </div>
           </div>
-          <div className='contact'>
-            <img className='icon-sm' src={PhoneIcon} alt='PhoneIcon' />
-            <p className='ml-2'>023723728812</p>
-          </div>
-        </div>
+        )}
+
         <div className='logo-cart-wrapper container-85'>
           <Link to='/'>
             <div className='burgerritch-logo-wrapper'>
               <img src={BurgerritchTitleLogo} alt='BurgerritchTitleLogo' />
             </div>
           </Link>
-          <div className='search-cart-wrapper'>
-            <img
-              className='icon-md'
-              src={SearchIconWhite}
-              alt='SearchIconWhite'
-            />
-            <Link onClick={showSidebar}>
+          {pathname === '/order-place' ? null : (
+            <div className='search-cart-wrapper'>
               <img
-                className='icon-md ml-4'
-                src={CartIconOrange}
-                alt='CartIconOrange'
+                className='icon-md'
+                src={SearchIconWhite}
+                alt='SearchIconWhite'
               />
-            </Link>
-          </div>
+              <Link onClick={showSidebar}>
+                <img
+                  className='icon-md ml-4'
+                  src={CartIconOrange}
+                  alt='CartIconOrange'
+                />
+              </Link>
+            </div>
+          )}
         </div>
-        <div className='container-30'>
-          {current === 3 ? (
+        {pathname === '/order-place' ? null : current === 3 ? (
+          <div className='container-30'>
             <div className='orangeCircle'>
               <AiOutlineCheck className='tickIcon' />
             </div>
-          ) : (
+          </div>
+        ) : (
+          <div className='container-custom'>
             <Steps current={current} onChange={onChange}>
               {steps.map((item) => (
                 <Step key={item.title} description={item.description} />
               ))}
             </Steps>
-          )}
-        </div>
+          </div>
+        )}
       </div>
       <Drawer showSidebar={showSidebar} sidebar={sidebar} />
     </>

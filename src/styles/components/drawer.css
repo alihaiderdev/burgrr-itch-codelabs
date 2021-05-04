@@ -49,6 +49,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: auto;
+  height: 50%;
 }
 
 .checkoutWrapper p span {

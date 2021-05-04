@@ -3,8 +3,8 @@ import { Form, Button, Col } from 'react-bootstrap';
 import '../styles/components/cartForms.css';
 
 // import VisacardImage from '../assets/images/visacard-image.png';
-import VisacardImage from '../assets/images/visacard-image.png';
-import ContactNumberIcon from '../assets/icons/Form Icons/ContactNumber.svg';
+// import VisacardImage from '../assets/images/visacard-image.png';
+// import ContactNumberIcon from '../assets/icons/Form Icons/ContactNumber.svg';
 
 export class PaymentMethodForm extends Component {
   continue = (e) => {
@@ -34,8 +34,6 @@ export class PaymentMethodForm extends Component {
             <Form.Check
               className='modalRadioButtonLabel mb-4'
               type='radio'
-              // label='Credit Card'
-              // id='creditCard'
               name='payment-method'
               value={creaditCard}
               label={creaditCard}

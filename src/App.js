@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,6 +13,7 @@ import HomeScreen from './screens/HomeScreen';
 import NewHomeScreen from './screens/NewHomeScreen';
 import Error404Screen from './screens/Error404Screen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import OrderPlaceScreen from './screens/OrderPlaceScreen';
 
 const App = () => {
   return (
@@ -25,10 +26,8 @@ const App = () => {
           <Route exact path='/about-us' component={AboutUsScreen} />
           <Route exact path='/delivery' component={DeliveryScreen} />
           <Route exact path='/contact-us' component={ContactUsScreen} />
-          {/* <Route exact path='/order-place' component={ContinueShoppingScreen} /> */}
           <Route exact path='/place-order' component={PlaceOrderScreen} />
-          {/* <Route exact path='/cart' component={CartScreen} /> */}
-
+          <Route exact path='/order-place' component={OrderPlaceScreen} />
           <Route component={Error404Screen} />
         </Switch>
         <Footer />
