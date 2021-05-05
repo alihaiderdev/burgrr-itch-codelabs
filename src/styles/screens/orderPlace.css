@@ -23,9 +23,68 @@
 .yourInfo_paymentMethodWrapper {
   margin-right: 50px;
 }
+.yourInfo_paymentMethodWrapper form .form-group {
+  position: relative;
+}
+.yourInfo_paymentMethodWrapper form .form-group .contactNumber {
+  padding-left: 80px;
+}
+.yourInfo_paymentMethodWrapper form .form-group .calenderIcon {
+  position: absolute;
+  top: 36px;
+  right: 16px;
+  background-color: white;
+}
+.yourInfo_paymentMethodWrapper form .form-group .calenderIcon1 {
+  position: absolute;
+  top: 6px;
+  right: 22px;
+  background-color: white;
+}
+.yourInfo_paymentMethodWrapper form .form-group .countryCodeDropdownArrow {
+  position: absolute;
+  top: 13px;
+  left: 42px;
+  color: white;
+  font-size: 15px;
+  font-weight: bolder;
+  z-index: 100;
+  background-color: var(--orange);
+}
+
+.yourInfo_paymentMethodWrapper form .form-group .countryCodeList {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 100%;
+  background-color: var(--orange) !important;
+  color: white !important;
+}
+
+.yourInfo_paymentMethodWrapper
+  form
+  .form-group
+  .countryCodeList::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.yourInfo_paymentMethodWrapper form .form-group span.placeholder {
+  position: absolute;
+  padding: 0 10px;
+  font-family: 'Ubunturegular';
+  color: gray;
+  top: 8px;
+  left: 15px;
+  z-index: 1;
+  background-color: white;
+}
+
 .yourInfo_paymentMethodWrapper form .form-group #message {
   resize: none;
 }
+
 .yourOrderWrapper {
   margin-left: 50px;
   margin-top: 10px;
@@ -33,7 +92,6 @@
   border-radius: 15px;
   padding: 30px 20px;
 }
-
 .yourOrderWrapper .pricesContainer .coupon {
   display: flex;
   align-items: center;
@@ -75,5 +133,21 @@
   }
   .yourOrderWrapper {
     margin-left: 0;
+  }
+  .yourOrderWrapper .pricesContainer .coupon {
+    display: flex;
+    flex-direction: column;
+  }
+  .yourOrderWrapper .pricesContainer .coupon .form-control {
+    margin-bottom: 20px;
+  }
+  .yourOrderWrapper .pricesContainer .coupon button {
+    width: 100%;
+  }
+  .yourOrderWrapper .pricesContainer .yourOrderBtnContainer {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
   }
 }

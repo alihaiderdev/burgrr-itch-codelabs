@@ -9,7 +9,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 const BurgerCardModal = (props) => {
   const { onHide } = props;
   const [modalShow, setModalShow] = useState(false);
-  const [selectDrink, setSelectDrink] = useState([
+  const [selectDrinkList, setSelectDrinkList] = useState([
     'Pepsi',
     '7UP',
     'Marinda',
@@ -19,13 +19,16 @@ const BurgerCardModal = (props) => {
     'Sprite',
     'Sting',
   ]);
-  const [selectAddons, setSelectAddons] = useState([
+  const [selectAddonsList, setSelectAddonsList] = useState([
     'Malai Roll',
     'Raita',
     'Extra Fries',
     'Extra Bread',
     ' Additional Kabab',
   ]);
+  const [drinksRadio, setDrinksRadio] = useState('Pepsi');
+  const [selectDrink, setSelectDrink] = useState('Pepsi');
+  const [selectAddOns, setSelectAddOns] = useState('Malai Roll');
   const [malaiRollCount, setMalaiRollCount] = useState(0);
   const [raitaCount, setRaitaCount] = useState(0);
   const [extraFriesCount, setextraFriesCount] = useState(0);
@@ -68,75 +71,84 @@ const BurgerCardModal = (props) => {
               <div className='coldDrinks'>
                 <div className='drinks-wrapper'>
                   <p className='um'>Select Drink</p>
-                  <Form>
-                    <Form.Group controlId='coldDrinks'>
-                      <Form.Control as='select' custom>
-                        {selectDrink &&
-                          selectDrink.map((drink, index) => (
-                            <option key={index} value={drink}>
-                              {drink}
-                            </option>
-                          ))}
-                      </Form.Control>
-                    </Form.Group>
-                  </Form>
+                  <Form.Group controlId='coldDrinks'>
+                    <Form.Control
+                      as='select'
+                      custom
+                      size='sm'
+                      value={selectDrink}
+                      onChange={(e) => setSelectDrink(e.target.value)}
+                      name='selectDrink'
+                    >
+                      {selectDrinkList &&
+                        selectDrinkList.map((d, i) => (
+                          <option key={i} value={d}>
+                            {d}
+                          </option>
+                        ))}
+                    </Form.Control>
+                  </Form.Group>
                 </div>
                 <div className='coldrink-main-container'>
-                  <div className='coldrink-container'>
-                    <Form.Check
-                      className='modalRadioButtonLabel mb-2'
-                      type='radio'
-                      label='Pepsi'
-                      name='formHorizontalRadios'
-                      id='pepsi'
-                      checked
-                    />
-                  </div>
-                  <div className='coldrink-container'>
-                    <Form.Check
-                      className='modalRadioButtonLabel mb-2'
-                      type='radio'
-                      label='Fanta'
-                      name='formHorizontalRadios'
-                      id='fanta'
-                    />
-                  </div>
-                  <div className='coldrink-container'>
-                    <Form.Check
-                      className='modalRadioButtonLabel mb-2'
-                      type='radio'
-                      label='7UP'
-                      name='formHorizontalRadios'
-                      id='7up'
-                    />
-                  </div>
-                  <div className='coldrink-container'>
-                    <Form.Check
-                      className='modalRadioButtonLabel mb-2'
-                      type='radio'
-                      label='Marinda'
-                      name='formHorizontalRadios'
-                      id='marinda'
-                    />
-                  </div>
+                  <Form.Check
+                    className='mb-2'
+                    type='radio'
+                    checked={drinksRadio === 'Pepsi'}
+                    value='Pepsi'
+                    label='Pepsi'
+                    id='Pepsi'
+                    onChange={(e) => setDrinksRadio(e.target.value)}
+                  />
+                  <Form.Check
+                    className='mb-2'
+                    type='radio'
+                    checked={drinksRadio === 'Fanta'}
+                    value='Fanta'
+                    label='Fanta'
+                    id='Fanta'
+                    onChange={(e) => setDrinksRadio(e.target.value)}
+                  />
+                  <Form.Check
+                    className='mb-2'
+                    type='radio'
+                    checked={drinksRadio === '7UP'}
+                    value='7UP'
+                    label='7UP'
+                    id='7UP'
+                    onChange={(e) => setDrinksRadio(e.target.value)}
+                  />
+                  <Form.Check
+                    className='mb-2'
+                    type='radio'
+                    checked={drinksRadio === 'Marinda'}
+                    value='Marinda'
+                    label='Marinda'
+                    id='Marinda'
+                    onChange={(e) => setDrinksRadio(e.target.value)}
+                  />
                 </div>
               </div>
 
               <div className='addOns'>
                 <div className='addons-wrapper'>
                   <p className='um'>Add-ons</p>
-                  <Form>
-                    <Form.Group controlId='addons' className='selectAddons'>
-                      <Form.Control as='select' custom>
-                        {selectAddons &&
-                          selectAddons.map((addon, index) => (
-                            <option key={index} value={addon}>
-                              {addon}
-                            </option>
-                          ))}
-                      </Form.Control>
-                    </Form.Group>
-                  </Form>
+                  <Form.Group controlId='addons' className='selectAddons'>
+                    <Form.Control
+                      as='select'
+                      custom
+                      size='sm'
+                      value={selectAddOns}
+                      onChange={(e) => setSelectAddOns(e.target.value)}
+                      name='selectAddOns'
+                    >
+                      {selectAddonsList &&
+                        selectAddonsList.map((addon, index) => (
+                          <option key={index} value={addon}>
+                            {addon}
+                          </option>
+                        ))}
+                    </Form.Control>
+                  </Form.Group>
                 </div>
                 <div className='addons-main-container'>
                   <div className='addons-container'>

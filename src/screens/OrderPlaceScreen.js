@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../styles/screens/orderPlace.css';
 import { Col, Row, Form } from 'react-bootstrap';
 import CartScreenHeader from '../components/CartScreenHeader';
 // import PersonalInfoForm from '../components/PersonalInfoForm';
 // import PaymentMethodForm from '../components/PaymentMethodForm';
 import EmailAddressIcon from '../assets/icons/Form Icons/EmailAddress.svg';
+import DeliveryDateTimeIcon from '../assets/icons/Form Icons/DeliveryDateTime.svg';
 import ContactNumberIcon from '../assets/icons/Form Icons/ContactNumber.svg';
 import DeliveryAddressIcon from '../assets/icons/Form Icons/DeliveryAddress.svg';
 import { AiOutlineCheck } from 'react-icons/ai';
+import { BsChevronDown } from 'react-icons/bs';
+
+import { countryCode } from '../data/countryList';
+import Button from '../components/Button';
+
+console.log({ countryCode });
 
 const OrderItem = (qty, price, itemName, addOns = 'Chicken Crispy Burger') => {
   return (
@@ -29,33 +36,31 @@ const OrderPlaceScreen = () => {
   const [orderInfo, setOrderInfo] = useState({
     name: '',
     email: '',
+    phoneCode: '+92',
     contactNumber: '',
     deliveryAddress: '',
     deliveryDateTime: '',
-    date: '',
     message: '',
     cardHolderName: '',
     cardNumber: '',
     expiry: '',
     cvc: '',
-    paymentMethod: ['Credit Card', 'Jazzcash', 'Easypaisa', 'Cash-on-delivery'],
   });
+  const [paymentMethod, setPaymentMethod] = useState('Credit Card');
+
   const {
     name,
     email,
+    phoneCode,
     contactNumber,
     deliveryAddress,
     deliveryDateTime,
-    // date,
     message,
     cardHolderName,
     cardNumber,
     expiry,
     cvc,
-    paymentMethod,
   } = orderInfo;
-
-  const [creaditCard, jazzCash, easyPaisa, cashOnDelivery] = paymentMethod;
 
   const onChangeHandler = (e) => {
     setOrderInfo({ ...orderInfo, [e.target.name]: e.target.value });
@@ -66,17 +71,21 @@ const OrderPlaceScreen = () => {
     console.log({
       name,
       email,
+      phoneCode,
       contactNumber,
       deliveryAddress,
       deliveryDateTime,
-      //   date,
       message,
+      paymentMethod,
       cardHolderName,
       cardNumber,
       expiry,
       cvc,
     });
   };
+
+  const selectPhoneCodeRef = useRef();
+  const focusPhoneInputText = () => selectPhoneCodeRef.current.focus();
 
   return (
     <>
@@ -92,7 +101,6 @@ const OrderPlaceScreen = () => {
                     required
                     name='name'
                     type='text'
-                    placeholder='Your Name'
                     value={name}
                     onChange={onChangeHandler}
                   />
@@ -102,7 +110,6 @@ const OrderPlaceScreen = () => {
                     required
                     name='email'
                     type='email'
-                    placeholder='Email Address'
                     value={email}
                     onChange={onChangeHandler}
                   />
@@ -113,13 +120,32 @@ const OrderPlaceScreen = () => {
                   />
                 </Form.Group>
                 <Form.Group controlId='contactNumber'>
+                  <BsChevronDown className='countryCodeDropdownArrow' />
+                  <Form.Control
+                    className='countryCodeList'
+                    as='select'
+                    size='sm'
+                    custom
+                    value={phoneCode}
+                    onChange={onChangeHandler}
+                    name='phoneCode'
+                    // onClick={focusPhoneInputText}
+                  >
+                    {countryCode &&
+                      countryCode.map((c, i) => (
+                        <option key={i} value={c}>
+                          {c}
+                        </option>
+                      ))}
+                  </Form.Control>
                   <Form.Control
                     required
+                    // ref={selectPhoneCodeRef}
                     name='contactNumber'
                     type='tel'
-                    placeholder='Contact Number'
                     value={contactNumber}
                     onChange={onChangeHandler}
+                    className='contactNumber'
                   />
                   <img
                     className='form-icon'
@@ -132,7 +158,6 @@ const OrderPlaceScreen = () => {
                     required
                     name='deliveryAddress'
                     type='tel'
-                    placeholder='Delivery Address'
                     value={deliveryAddress}
                     onChange={onChangeHandler}
                   />
@@ -142,7 +167,7 @@ const OrderPlaceScreen = () => {
                     alt='DeliveryAddressIcon'
                   />
                 </Form.Group>
-                <Form.Group controlId='date'>
+                <Form.Group controlId='deliveryDateTime'>
                   <Form.Label>Delivery Time</Form.Label>
                   <Form.Control
                     required
@@ -157,23 +182,22 @@ const OrderPlaceScreen = () => {
                     required
                     name='message'
                     as='textarea'
-                    placeholder='Message for Rider'
                     rows={5}
                     value={message}
                     onChange={onChangeHandler}
                   />
                 </Form.Group>
-
                 <h3 className='um black mb-4'>Payment Method</h3>
                 <div className='onChangeRadioBtnValue'>
                   <Form.Check
                     className='modalRadioButtonLabel mb-4'
                     type='radio'
-                    name='payment-method'
-                    value={creaditCard}
-                    label={creaditCard}
-                    id={creaditCard}
-                    selected
+                    checked={paymentMethod === 'Credit Card'}
+                    name={paymentMethod}
+                    value='Credit Card'
+                    label='Credit Card'
+                    id='Credit Card'
+                    onChange={(e) => setPaymentMethod(e.target.value)}
                   />
 
                   <Form.Group controlId='cardHolderName'>
@@ -181,7 +205,6 @@ const OrderPlaceScreen = () => {
                       required
                       name='cardHolderName'
                       type='text'
-                      placeholder='Card Holders Name'
                       value={cardHolderName}
                       onChange={onChangeHandler}
                     />
@@ -192,7 +215,6 @@ const OrderPlaceScreen = () => {
                       required
                       name='cardNumber'
                       type='tel'
-                      placeholder='Card Number'
                       value={cardNumber}
                       onChange={onChangeHandler}
                     />
@@ -204,10 +226,15 @@ const OrderPlaceScreen = () => {
                         required
                         name='expiry'
                         type='date'
-                        placeholder='Expiry'
                         value={expiry}
                         onChange={onChangeHandler}
                       />
+                      <div className='calenderIcon1'>
+                        <img
+                          src={DeliveryDateTimeIcon}
+                          alt='DeliveryDateTimeIcon'
+                        />
+                      </div>
                     </Form.Group>
 
                     <Form.Group as={Col} controlId='cvc'>
@@ -215,7 +242,6 @@ const OrderPlaceScreen = () => {
                         required
                         name='cvc'
                         type='number'
-                        placeholder='CVC'
                         value={cvc}
                         onChange={onChangeHandler}
                       />
@@ -225,26 +251,29 @@ const OrderPlaceScreen = () => {
                   <Form.Check
                     className='modalRadioButtonLabel mb-3'
                     type='radio'
-                    name='payment-method'
-                    value={jazzCash}
-                    label={jazzCash}
-                    id={jazzCash}
+                    checked={paymentMethod === 'JazzCash'}
+                    value='JazzCash'
+                    label='JazzCash'
+                    id='JazzCash'
+                    onChange={(e) => setPaymentMethod(e.target.value)}
                   />
                   <Form.Check
                     className='modalRadioButtonLabel mb-3'
                     type='radio'
-                    name='payment-method'
-                    value={easyPaisa}
-                    label={easyPaisa}
-                    id={easyPaisa}
+                    checked={paymentMethod === 'Easypaisa'}
+                    value='Easypaisa'
+                    label='Easypaisa'
+                    id='Easypaisa'
+                    onChange={(e) => setPaymentMethod(e.target.value)}
                   />
                   <Form.Check
                     className='modalRadioButtonLabel mb-4'
                     type='radio'
-                    name='payment-method'
-                    value={cashOnDelivery}
-                    label={cashOnDelivery}
-                    id={cashOnDelivery}
+                    checked={paymentMethod === 'Cash-on-delivery'}
+                    value='Cash-on-delivery'
+                    label='Cash-on-delivery'
+                    id='Cash-on-delivery'
+                    onChange={(e) => setPaymentMethod(e.target.value)}
                   />
                 </div>
               </Form>
@@ -290,6 +319,20 @@ const OrderPlaceScreen = () => {
                   </button>
                 </div>
               </div>
+              <Button
+                btnTitle='button 1'
+                backgroundColor='transparent'
+                color='orange'
+                width='200px'
+                margin='30px 0'
+                onClick={console.log('button 1')}
+              />
+              <Button backgroundColor='#F46B0D'>
+                <AiOutlineCheck />
+              </Button>
+              <Button btnTitle='button 3' backgroundColor='#F46B0D' />
+              <Button btnTitle='button 4' backgroundColor='#F46B0D' />
+              <Button btnTitle='button 5' backgroundColor='#F46B0D' />
             </div>
           </Col>
         </Row>

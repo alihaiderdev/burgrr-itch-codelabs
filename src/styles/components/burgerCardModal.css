@@ -133,57 +133,6 @@
   border-radius: 5px;
 }
 
-.form-check-label {
-  font-family: 'UbuntuRegular';
-  margin-bottom: 0;
-}
-
-.custom-control-label::before,
-.custom-file-label,
-.custom-select {
-  color: var(--orange);
-  width: 120px;
-}
-
-.custom-select {
-  border: none !important;
-  outline: none !important;
-}
-
-input[type='radio']:after {
-  border-radius: 15px;
-}
-input[type='radio']:checked {
-  border-radius: 15px;
-}
-input[type='radio']:after,
-input[type='checkbox']:after {
-  width: 15px;
-  height: 15px;
-  top: -4px;
-  left: -1px;
-  position: relative;
-  padding: 1px;
-  content: '';
-  display: inline-block;
-  visibility: visible;
-  border: 2px solid var(--orange);
-}
-
-input[type='radio']:checked:after,
-input[type='checkbox']:checked:after {
-  width: 13px;
-  height: 13px;
-  top: -5px;
-  left: 0px;
-  position: relative;
-  background-color: var(--orange);
-  content: '';
-  display: inline-block;
-  visibility: visible;
-  border: 2px solid var(--orange);
-}
-
 @media screen and (max-width: 845px) {
   .closeModal {
     display: block;

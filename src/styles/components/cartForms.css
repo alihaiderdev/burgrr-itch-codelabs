@@ -18,19 +18,11 @@
 .form-group .form-control:focus img {
   transform: translateX(100px);
 }
-
-.form-control {
-  position: relative !important;
-  font-family: 'UbuntuRegular';
-}
-
-.cartForm form .form-group .form-icon {
-  float: right;
-}
-
 .form-group {
   margin-bottom: 1rem;
-  position: relative;
+}
+.form-control {
+  font-family: 'UbuntuRegular';
 }
 img.form-icon {
   position: absolute;
