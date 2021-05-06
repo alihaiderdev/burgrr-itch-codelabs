@@ -36,6 +36,11 @@
   padding: 10px 20px;
   margin-bottom: 15px;
 }
+.selectDrink,
+.selectAddOns {
+  width: 150px !important;
+  color: var(--orange);
+}
 
 .drinks-wrapper,
 .addons-wrapper {

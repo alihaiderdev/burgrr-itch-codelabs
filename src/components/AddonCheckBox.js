@@ -8,15 +8,9 @@ const AddonCheckBox = ({
   count,
   price,
   handleCheckedCheckbox,
-  addOnCountDec,
-  addOnCountInc,
+  qtyIncHandler,
+  qtyDecHandler,
 }) => {
-  //   const addOnCountDec = (count) => {
-  //     return count - 1;
-  //   };
-  //   const addOnCountInc = (count) => {
-  //     return count + 1;
-  //   };
   return (
     <div className='addons-container' key={id}>
       <Form.Check
@@ -33,14 +27,14 @@ const AddonCheckBox = ({
           PKR <span className='price'>{price}</span>
         </span>
         <button
-          onClick={() => addOnCountDec()}
+          onClick={() => qtyDecHandler(id)}
           className='modal-counter-btn ml-2'
           disabled={count === 0}
         >
           -
         </button>
         <span className='mx-2'>{count}</span>
-        <button onClick={() => addOnCountInc()} className='modal-counter-btn'>
+        <button onClick={() => qtyIncHandler(id)} className='modal-counter-btn'>
           +
         </button>
       </div>
