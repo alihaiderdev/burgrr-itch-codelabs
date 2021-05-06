@@ -62,10 +62,7 @@
   color: white !important;
 }
 
-.yourInfo_paymentMethodWrapper
-  form
-  .form-group
-  .countryCodeList::-webkit-scrollbar {
+.yourInfo_paymentMethodWrapper form .form-group .countryCodeList::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
@@ -116,6 +113,10 @@
   display: flex;
   justify-content: center;
 }
+
+.yourOrderWrapper .pricesContainer .yourOrderBtnContainer .nextBtn {
+  display: none;
+}
 .yourOrderWrapper .pricesContainer .yourOrderBtnContainer button {
   border: none;
   outline: none;
@@ -149,5 +150,16 @@
     bottom: 30px;
     left: 0;
     width: 100%;
+  }
+  .yourOrderWrapper .pricesContainer .yourOrderBtnContainer .nextBtn {
+    display: block;
+    font-family: 'UbuntuRegular' !important;
+    font-weight: lighter !important;
+  }
+  .yourOrderWrapper .pricesContainer .yourOrderBtnContainer .tickIconBtn {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -1000%;
   }
 }

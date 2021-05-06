@@ -33,6 +33,7 @@ const OrderItem = (qty, price, itemName, addOns = 'Chicken Crispy Burger') => {
 };
 
 const OrderPlaceScreen = () => {
+  const [btnHoverAnimation, setBtnHoverAnimation] = useState('');
   const [orderInfo, setOrderInfo] = useState({
     name: '',
     email: '',
@@ -113,11 +114,7 @@ const OrderPlaceScreen = () => {
                     value={email}
                     onChange={onChangeHandler}
                   />
-                  <img
-                    className='form-icon'
-                    src={EmailAddressIcon}
-                    alt='EmailAddressIcon'
-                  />
+                  <img className='form-icon' src={EmailAddressIcon} alt='EmailAddressIcon' />
                 </Form.Group>
                 <Form.Group controlId='contactNumber'>
                   <BsChevronDown className='countryCodeDropdownArrow' />
@@ -147,11 +144,7 @@ const OrderPlaceScreen = () => {
                     onChange={onChangeHandler}
                     className='contactNumber'
                   />
-                  <img
-                    className='form-icon'
-                    src={ContactNumberIcon}
-                    alt='ContactNumberIcon'
-                  />
+                  <img className='form-icon' src={ContactNumberIcon} alt='ContactNumberIcon' />
                 </Form.Group>
                 <Form.Group controlId='address'>
                   <Form.Control
@@ -161,11 +154,7 @@ const OrderPlaceScreen = () => {
                     value={deliveryAddress}
                     onChange={onChangeHandler}
                   />
-                  <img
-                    className='form-icon'
-                    src={DeliveryAddressIcon}
-                    alt='DeliveryAddressIcon'
-                  />
+                  <img className='form-icon' src={DeliveryAddressIcon} alt='DeliveryAddressIcon' />
                 </Form.Group>
                 <Form.Group controlId='deliveryDateTime'>
                   <Form.Label>Delivery Time</Form.Label>
@@ -230,10 +219,7 @@ const OrderPlaceScreen = () => {
                         onChange={onChangeHandler}
                       />
                       <div className='calenderIcon1'>
-                        <img
-                          src={DeliveryDateTimeIcon}
-                          alt='DeliveryDateTimeIcon'
-                        />
+                        <img src={DeliveryDateTimeIcon} alt='DeliveryDateTimeIcon' />
                       </div>
                     </Form.Group>
 
@@ -287,10 +273,7 @@ const OrderPlaceScreen = () => {
               {OrderItem(5, 283, 'Chicken Nuggets')}
               <div className='pricesContainer'>
                 <Form.Group controlId='coupon' className='my-4 coupon'>
-                  <Form.Control
-                    type='text'
-                    placeholder='Discount Coupon (if any)'
-                  />
+                  <Form.Control type='text' placeholder='Discount Coupon (if any)' />
                   <button onClick={''} className='ur'>
                     Apply
                   </button>
@@ -314,8 +297,11 @@ const OrderPlaceScreen = () => {
                   </p>
                 </div>
                 <div className='yourOrderBtnContainer'>
-                  <button onClick={orderSubmitHandler}>
+                  <button className='tickIconBtn' onClick={orderSubmitHandler}>
                     <AiOutlineCheck />
+                  </button>
+                  <button className='nextBtn' onClick={orderSubmitHandler}>
+                    Next
                   </button>
                 </div>
               </div>
