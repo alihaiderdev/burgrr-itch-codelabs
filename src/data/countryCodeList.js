@@ -1,4 +1,4 @@
-export const countryInfo = [
+export const countryInfoList = [
   {
     name: 'Israel',
     dial_code: '+972',

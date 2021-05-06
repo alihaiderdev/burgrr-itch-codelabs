@@ -5,11 +5,12 @@ import BurgerIamge from '../assets/images/product.png';
 import Drawer from './Drawer';
 import { Link } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
+import AddonCheckBox from './AddonCheckBox';
 
 const BurgerCardModal = (props) => {
   const { onHide } = props;
   const [modalShow, setModalShow] = useState(false);
-  const [selectDrinkList, setSelectDrinkList] = useState([
+  const selectDrinkList = [
     'Pepsi',
     '7UP',
     'Marinda',
@@ -18,22 +19,86 @@ const BurgerCardModal = (props) => {
     'Due',
     'Sprite',
     'Sting',
-  ]);
-  const [selectAddonsList, setSelectAddonsList] = useState([
+  ];
+  const selectAddonsList = [
     'Malai Roll',
     'Raita',
     'Extra Fries',
     'Extra Bread',
-    ' Additional Kabab',
+    'Additional Kabab',
+  ];
+
+  // const [state, setState] = useState([
+  //   { name: 'foo', counter: 0 },
+  //   { name: 'far', counter: 0 },
+  //   { name: 'faz', counter: 0 },
+  // ]);
+
+  // const clickButton = () => {
+  //   // 1. Make a shallow copy of the array
+  //   let temp_state = [...state];
+
+  //   // 2. Make a shallow copy of the element you want to mutate
+  //   let temp_element = { ...temp_state[0] };
+
+  //   // 3. Update the property you're interested in
+  //   temp_element.counter = temp_element.counter + 1;
+
+  //   // 4. Put it back into our array. N.B. we *are* mutating the array here, but that's why we made a copy first
+  //   temp_state[0] = temp_element;
+
+  //   // 5. Set the state to our new copy
+  //   setState(temp_state);
+  // };
+
+  const [addOnsCheckBoxes, setAddOnsCheckBoxes] = useState([
+    {
+      id: 1,
+      value: 'Malai Roll',
+      isChecked: false,
+      count: 0,
+      price: 232,
+      // addOnCountInc: () => this.count++,
+      // addOnCountDec: () => this.count--,
+    },
+    {
+      id: 2,
+      value: 'Raita',
+      isChecked: false,
+      count: 0,
+      price: 45,
+    },
+    {
+      id: 3,
+      value: 'Extra Fries',
+      isChecked: false,
+      count: 0,
+      price: 232,
+    },
+    {
+      id: 4,
+      value: 'Extra Bread',
+      isChecked: false,
+      count: 0,
+      price: 232,
+    },
+    {
+      id: 5,
+      value: 'Additional Kabab',
+      isChecked: false,
+      count: 0,
+      price: 45,
+    },
   ]);
+
   const [drinksRadio, setDrinksRadio] = useState('Pepsi');
   const [selectDrink, setSelectDrink] = useState('Pepsi');
   const [selectAddOns, setSelectAddOns] = useState('Malai Roll');
-  const [malaiRollCount, setMalaiRollCount] = useState(0);
-  const [raitaCount, setRaitaCount] = useState(0);
-  const [extraFriesCount, setextraFriesCount] = useState(0);
-  const [extraBreadCount, setextraBreadCount] = useState(0);
-  const [additionalKababCount, setadditionalKababCount] = useState(0);
+  // const [malaiRollCount, setMalaiRollCount] = useState(0);
+  // const [raitaCount, setRaitaCount] = useState(0);
+  // const [extraFriesCount, setextraFriesCount] = useState(0);
+  // const [extraBreadCount, setextraBreadCount] = useState(0);
+  // const [additionalKababCount, setadditionalKababCount] = useState(0);
   const [specialMessage, setSpecialMessage] = useState('');
   const [addToCartQtyCount, setAddToCartQtyCount] = useState(0);
 
@@ -44,6 +109,13 @@ const BurgerCardModal = (props) => {
     e.preventDefault();
   };
 
+  const handleCheckedCheckbox = (e) => {
+    addOnsCheckBoxes.forEach((addOn) => {
+      if (addOn.value === e.target.value) addOn.isChecked = e.target.checked;
+    });
+    setAddOnsCheckBoxes({ addOnsCheckBoxes });
+    // this.setState({ fruites: fruites });
+  };
   return (
     <>
       <Modal
@@ -151,152 +223,15 @@ const BurgerCardModal = (props) => {
                   </Form.Group>
                 </div>
                 <div className='addons-main-container'>
-                  <div className='addons-container'>
-                    <Form.Check
-                      className='mb-2'
-                      type={'checkbox'}
-                      id={`default-checkbox-mr`}
-                      label={'Malai Roll'}
-                      checked
-                    />
-                    <div>
-                      <span className='ur'>
-                        PKR <span className='price'>323</span>
-                      </span>
-                      <button
-                        onClick={() => setMalaiRollCount(malaiRollCount - 1)}
-                        className='modal-counter-btn ml-2'
-                        disabled={malaiRollCount === 0}
-                      >
-                        -
-                      </button>
-                      <span className='mx-2'>{malaiRollCount}</span>
-                      <button
-                        onClick={() => setMalaiRollCount(malaiRollCount + 1)}
-                        className='modal-counter-btn'
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className='addons-container'>
-                    <Form.Check
-                      className='mb-2'
-                      type={'checkbox'}
-                      id={`default-checkbox-r`}
-                      label={'Raita'}
-                    />
-                    <div>
-                      <span className='ur'>
-                        PKR <span className='price'>45</span>
-                      </span>
-                      <button
-                        onClick={() => setRaitaCount(raitaCount - 1)}
-                        className='modal-counter-btn ml-2'
-                        disabled={malaiRollCount === 0}
-                      >
-                        -
-                      </button>
-                      <span className='mx-2'>{raitaCount}</span>
-                      <button
-                        onClick={() => setRaitaCount(raitaCount + 1)}
-                        className='modal-counter-btn'
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className='addons-container'>
-                    <Form.Check
-                      className='mb-2'
-                      type={'checkbox'}
-                      id={`default-checkbox-ef`}
-                      label={'Extra Fries'}
-                      checked
-                    />
-                    <div>
-                      <span className='ur'>
-                        PKR <span className='price'>323</span>
-                      </span>
-                      <button
-                        onClick={() => setextraFriesCount(extraFriesCount - 1)}
-                        className='modal-counter-btn ml-2'
-                        disabled={malaiRollCount === 0}
-                      >
-                        -
-                      </button>
-                      <span className='mx-2'>{extraFriesCount}</span>
-                      <button
-                        onClick={() => setextraFriesCount(extraFriesCount + 1)}
-                        className='modal-counter-btn'
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className='addons-container'>
-                    <Form.Check
-                      className='mb-2'
-                      type={'checkbox'}
-                      id={`default-checkbox-eb`}
-                      label={'Extra Bread'}
-                      checked
-                    />
-                    <div>
-                      <span className='ur'>
-                        PKR <span className='price'>323</span>
-                      </span>
-                      <button
-                        onClick={() => setextraBreadCount(extraBreadCount - 1)}
-                        className='modal-counter-btn ml-2'
-                        disabled={malaiRollCount === 0}
-                      >
-                        -
-                      </button>
-                      <span className='mx-2'>{extraBreadCount}</span>
-                      <button
-                        onClick={() => setextraBreadCount(extraBreadCount + 1)}
-                        className='modal-counter-btn'
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className='addons-container'>
-                    <Form.Check
-                      className='mb-2'
-                      type={'checkbox'}
-                      id={`default-checkbox-eb`}
-                      label={'Additional Kabab'}
-                    />
-                    <div>
-                      <span className='ur'>
-                        PKR <span className='price'>45</span>
-                      </span>
-                      <button
-                        onClick={() =>
-                          setadditionalKababCount(additionalKababCount - 1)
-                        }
-                        className='modal-counter-btn ml-2'
-                        disabled={malaiRollCount === 0}
-                      >
-                        -
-                      </button>
-                      <span className='mx-2'>{additionalKababCount}</span>
-                      <button
-                        onClick={() =>
-                          setadditionalKababCount(additionalKababCount + 1)
-                        }
-                        className='modal-counter-btn'
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
+                  {addOnsCheckBoxes &&
+                    addOnsCheckBoxes.map((addon) => {
+                      return (
+                        <AddonCheckBox
+                          {...addon}
+                          handleCheckedCheckbox={handleCheckedCheckbox}
+                        />
+                      );
+                    })}
                 </div>
               </div>
               <Form.Group controlId='special-message'>
@@ -352,3 +287,152 @@ const BurgerCardModal = (props) => {
 };
 
 export default BurgerCardModal;
+
+// <div className='addons-container'>
+//   <Form.Check
+//     className='mb-2'
+//     type={'checkbox'}
+//     onClick={handleCheckChieldElement}
+//     id={`default-checkbox-mr`}
+//     label={'Malai Roll'}
+//   />
+//   <div>
+//     <span className='ur'>
+//       PKR <span className='price'>323</span>
+//     </span>
+//     <button
+//       onClick={() => setMalaiRollCount(malaiRollCount - 1)}
+//       className='modal-counter-btn ml-2'
+//       disabled={malaiRollCount === 0}
+//     >
+//       -
+//     </button>
+//     <span className='mx-2'>{malaiRollCount}</span>
+//     <button
+//       onClick={() => setMalaiRollCount(malaiRollCount + 1)}
+//       className='modal-counter-btn'
+//     >
+//       +
+//     </button>
+//   </div>
+// </div>
+
+// <div className='addons-container'>
+//   <Form.Check
+//     className='mb-2'
+//     type={'checkbox'}
+//     onClick={handleCheckChieldElement}
+//     id={`default-checkbox-r`}
+//     label={'Raita'}
+//   />
+//   <div>
+//     <span className='ur'>
+//       PKR <span className='price'>45</span>
+//     </span>
+//     <button
+//       onClick={() => setRaitaCount(raitaCount - 1)}
+//       className='modal-counter-btn ml-2'
+//       disabled={malaiRollCount === 0}
+//     >
+//       -
+//     </button>
+//     <span className='mx-2'>{raitaCount}</span>
+//     <button
+//       onClick={() => setRaitaCount(raitaCount + 1)}
+//       className='modal-counter-btn'
+//     >
+//       +
+//     </button>
+//   </div>
+// </div>
+
+// <div className='addons-container'>
+//   <Form.Check
+//     className='mb-2'
+//     type={'checkbox'}
+//     onClick={handleCheckChieldElement}
+//     id={`default-checkbox-ef`}
+//     label={'Extra Fries'}
+//   />
+//   <div>
+//     <span className='ur'>
+//       PKR <span className='price'>323</span>
+//     </span>
+//     <button
+//       onClick={() => setextraFriesCount(extraFriesCount - 1)}
+//       className='modal-counter-btn ml-2'
+//       disabled={malaiRollCount === 0}
+//     >
+//       -
+//     </button>
+//     <span className='mx-2'>{extraFriesCount}</span>
+//     <button
+//       onClick={() => setextraFriesCount(extraFriesCount + 1)}
+//       className='modal-counter-btn'
+//     >
+//       +
+//     </button>
+//   </div>
+// </div>
+
+// <div className='addons-container'>
+//   <Form.Check
+//     className='mb-2'
+//     type={'checkbox'}
+//     onClick={handleCheckChieldElement}
+//     id={`default-checkbox-eb`}
+//     label={'Extra Bread'}
+//   />
+//   <div>
+//     <span className='ur'>
+//       PKR <span className='price'>323</span>
+//     </span>
+//     <button
+//       onClick={() => setextraBreadCount(extraBreadCount - 1)}
+//       className='modal-counter-btn ml-2'
+//       disabled={malaiRollCount === 0}
+//     >
+//       -
+//     </button>
+//     <span className='mx-2'>{extraBreadCount}</span>
+//     <button
+//       onClick={() => setextraBreadCount(extraBreadCount + 1)}
+//       className='modal-counter-btn'
+//     >
+//       +
+//     </button>
+//   </div>
+// </div>
+
+// <div className='addons-container'>
+//   <Form.Check
+//     className='mb-2'
+//     type={'checkbox'}
+//     onClick={handleCheckChieldElement}
+//     id={`default-checkbox-eb`}
+//     label={'Additional Kabab'}
+//   />
+//   <div>
+//     <span className='ur'>
+//       PKR <span className='price'>45</span>
+//     </span>
+//     <button
+//       onClick={() =>
+//         setadditionalKababCount(additionalKababCount - 1)
+//       }
+//       className='modal-counter-btn ml-2'
+//       disabled={malaiRollCount === 0}
+//     >
+//       -
+//     </button>
+//     <span className='mx-2'>{additionalKababCount}</span>
+//     <button
+//       onClick={() =>
+//         setadditionalKababCount(additionalKababCount + 1)
+//       }
+//       className='modal-counter-btn'
+//     >
+//       +
+//     </button>
+//   </div>
+// </div>

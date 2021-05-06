@@ -18,9 +18,10 @@ const Header = ({ location: { pathname } }) => {
 
   return (
     <>
-      {pathname === '/' ||
-      pathname === '/place-order' ||
-      pathname === '/order-place' ? null : (
+      {pathname === '/home' ||
+      pathname === '/about-us' ||
+      pathname === '/delivery' ||
+      pathname === '/contact-us' ? (
         <div
           div
           className='header'
@@ -74,7 +75,7 @@ const Header = ({ location: { pathname } }) => {
             </ul>
           </nav>
         </div>
-      )}
+      ) : null}
       <Drawer showSidebar={showSidebar} sidebar={sidebar} />
     </>
   );

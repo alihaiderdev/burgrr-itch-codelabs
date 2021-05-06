@@ -11,10 +11,10 @@ import DeliveryAddressIcon from '../assets/icons/Form Icons/DeliveryAddress.svg'
 import { AiOutlineCheck } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
 
-import { countryCode } from '../data/countryList';
+import { countryCode } from '../data/countryCodeList';
 import Button from '../components/Button';
 
-console.log({ countryCode });
+// console.log({ countryCode });
 
 const OrderItem = (qty, price, itemName, addOns = 'Chicken Crispy Burger') => {
   return (
@@ -319,20 +319,6 @@ const OrderPlaceScreen = () => {
                   </button>
                 </div>
               </div>
-              <Button
-                btnTitle='button 1'
-                backgroundColor='transparent'
-                color='orange'
-                width='200px'
-                margin='30px 0'
-                onClick={console.log('button 1')}
-              />
-              <Button backgroundColor='#F46B0D'>
-                <AiOutlineCheck />
-              </Button>
-              <Button btnTitle='button 3' backgroundColor='#F46B0D' />
-              <Button btnTitle='button 4' backgroundColor='#F46B0D' />
-              <Button btnTitle='button 5' backgroundColor='#F46B0D' />
             </div>
           </Col>
         </Row>

@@ -1,0 +1,58 @@
+.signupScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.signupScreen .signupForm {
+  background-color: var(--white);
+  box-shadow: 0px 3px 99px #0000001a;
+  border-radius: 12px;
+  padding: 50px 80px;
+  margin-bottom: 100px;
+  width: 40%;
+}
+.signupScreen .signupForm .form-group .form-control {
+  position: relative;
+}
+.signupScreen .signupForm .form-group img.form-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.signupScreen .signupForm p {
+  margin-bottom: 60px;
+}
+.signupScreen .signupForm .signupWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.signupScreen .signupForm .signupWrapper h1 {
+  font-weight: bolder;
+}
+.signupScreen .signupForm .signupWrapper p {
+  color: #bababa;
+  margin-bottom: 60px;
+}
+.signupScreen .signupForm .signupBtnWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signupScreen .signupForm .signupBtnWrapper button {
+  width: 75%;
+  padding: 15px 50px;
+}
+.signupScreen .alreadyAccount {
+  margin-bottom: 50px;
+}
+
+/* setup store select box styling  */
+.signupScreen form .form-group .custom-select {
+  color: var(--lgray) !important;
+  /* background-color: red !important; */
+  font-family: 'UbuntuRegular';
+  border: 1px solid #bababa !important;
+}

@@ -1,0 +1,9 @@
+.adminHeader {
+  margin-top: 50px !important;
+  margin-bottom: 50px !important;
+}
+.adminHeader nav ul li .loginBtn {
+  padding: 10px 30px;
+  border: 1px solid var(--orange);
+  border-radius: 30px;
+}

@@ -13,6 +13,7 @@ const Button = ({
   height,
   border,
   borderRadius,
+  boxShadow,
   children,
   onClick,
 }) => {
@@ -30,6 +31,7 @@ const Button = ({
             height,
             border,
             borderRadius,
+            boxShadow,
           }}
           onClick={onClick}
         >
@@ -47,6 +49,7 @@ const Button = ({
             height,
             border,
             borderRadius,
+            boxShadow,
           }}
           onClick={onClick}
         >
@@ -74,8 +77,6 @@ Button.defaultProps = {
   backgroundColor: '#F46B0D',
   padding: '15px 50px',
   margin: '0px',
-  width: '100%',
-  border: `1px solid #F46B0D`,
   borderRadius: '10px',
 };
 export default Button;
