@@ -9,8 +9,16 @@ import AddonCheckBox from './AddonCheckBox';
 
 const BurgerCardModal = (props) => {
   const { onHide } = props;
-  const [modalShow, setModalShow] = useState(false);
-  const selectDrinkList = ['Pepsi', '7UP', 'Marinda', 'Fanta', 'Coke', 'Due', 'Sprite', 'Sting'];
+  const selectDrinkList = [
+    'Pepsi',
+    '7UP',
+    'Marinda',
+    'Fanta',
+    'Coke',
+    'Due',
+    'Sprite',
+    'Sting',
+  ];
   const selectAddonsList = [
     'Malai Roll',
     'Raita',
@@ -60,14 +68,8 @@ const BurgerCardModal = (props) => {
   const [drinksRadio, setDrinksRadio] = useState('Pepsi');
   const [selectDrink, setSelectDrink] = useState('Pepsi');
   const [selectAddOns, setSelectAddOns] = useState('Malai Roll');
-  // const [malaiRollCount, setMalaiRollCount] = useState(0);
-  // const [raitaCount, setRaitaCount] = useState(0);
-  // const [extraFriesCount, setextraFriesCount] = useState(0);
-  // const [extraBreadCount, setextraBreadCount] = useState(0);
-  // const [additionalKababCount, setadditionalKababCount] = useState(0);
   const [specialMessage, setSpecialMessage] = useState('');
   const [addToCartQtyCount, setAddToCartQtyCount] = useState(0);
-
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
@@ -86,8 +88,8 @@ const BurgerCardModal = (props) => {
     const duplicateData = [...addOnsCheckBoxes];
     addOnsCheckBoxes.map((data, i) => {
       if (data.id === id) {
-        let oldCount = duplicateData[i].count;
-        duplicateData[i].count = ++oldCount;
+        let oldQty = duplicateData[i].qty;
+        duplicateData[i].qty = ++oldQty;
       }
     });
     setAddOnsCheckBoxes([...duplicateData]);
@@ -95,10 +97,10 @@ const BurgerCardModal = (props) => {
 
   const qtyDecHandler = (id) => {
     const duplicateData = [...addOnsCheckBoxes];
-    addOnsCheckBoxes.map((data, index) => {
+    addOnsCheckBoxes.map((data, i) => {
       if (data.id === id) {
-        let oldCount = duplicateData[index].count;
-        duplicateData[index].count = --oldCount;
+        let oldQty = duplicateData[i].qty;
+        duplicateData[i].qty = --oldQty;
       }
     });
     setAddOnsCheckBoxes([...duplicateData]);
@@ -106,7 +108,12 @@ const BurgerCardModal = (props) => {
 
   return (
     <>
-      <Modal {...props} size='lg' aria-labelledby='contained-modal-title-vcenter' centered>
+      <Modal
+        {...props}
+        size='lg'
+        aria-labelledby='contained-modal-title-vcenter'
+        centered
+      >
         <div className='buegerCardModalLogo'>
           <img src={BurgerIamge} alt='BurgerIamge' />
         </div>
@@ -117,7 +124,9 @@ const BurgerCardModal = (props) => {
           </button>
           <div className='burgerModalDetails'>
             <h3 className='mb-0'>Big Mab</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            </p>
           </div>
           <div className='modalBody'>
             <Form onSubmit={handleSubmitForm}>
@@ -203,10 +212,11 @@ const BurgerCardModal = (props) => {
                 </div>
                 <div className='addons-main-container'>
                   {addOnsCheckBoxes &&
-                    addOnsCheckBoxes.map((addon) => {
+                    addOnsCheckBoxes.map((addon, index) => {
                       return (
                         <AddonCheckBox
                           {...addon}
+                          index={index}
                           handleCheckedCheckbox={handleCheckedCheckbox}
                           qtyIncHandler={qtyIncHandler}
                           qtyDecHandler={qtyDecHandler}
@@ -230,7 +240,9 @@ const BurgerCardModal = (props) => {
                   <div className='add-to-cart-qty-count'>
                     <button
                       className='sub'
-                      onClick={() => setAddToCartQtyCount(addToCartQtyCount - 1)}
+                      onClick={() =>
+                        setAddToCartQtyCount(addToCartQtyCount - 1)
+                      }
                       disabled={addToCartQtyCount === 0}
                     >
                       -
@@ -238,14 +250,20 @@ const BurgerCardModal = (props) => {
                     <div className='value'>{addToCartQtyCount}</div>
                     <button
                       className='add'
-                      onClick={() => setAddToCartQtyCount(addToCartQtyCount + 1)}
+                      onClick={() =>
+                        setAddToCartQtyCount(addToCartQtyCount + 1)
+                      }
                     >
                       +
                     </button>
                   </div>
                 </div>
                 <div className='add-to-cart-btn-container'>
-                  <Link to='/order-place' className='addToCart' onClick={onHide}>
+                  <Link
+                    to='/order-place'
+                    className='addToCart'
+                    onClick={onHide}
+                  >
                     Add to Cart
                   </Link>
                 </div>

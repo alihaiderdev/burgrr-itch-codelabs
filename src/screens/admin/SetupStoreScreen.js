@@ -3,14 +3,13 @@ import '../../styles/screens/admin/signup.css';
 import { Button, Form } from 'react-bootstrap';
 import AdminHeader from '../../components/admin/AdminHeader';
 import { Link } from 'react-router-dom';
-import { countryInfoList } from '../../data/countryCodeList';
+import { countryName } from '../../data/countryCodeList';
 
 const SetupStoreScreen = () => {
-  //   console.log('countryInfoList : ', countryInfoList);
   const [setupStoreInfo, setSetupStoreInfo] = useState({
     storeName: '',
-    industry: '',
-    location: { street: '', country: 'Pakistan', state: '', city: '' },
+    industry: 'Pakistan',
+    location: { street: '', country: 'Pakistan', state: 'India', city: 'Oman' },
   });
 
   const {
@@ -20,10 +19,23 @@ const SetupStoreScreen = () => {
   } = setupStoreInfo;
 
   const onChangeHandler = (e) => {
+    const { name, value } = e.target;
     setSetupStoreInfo({
       ...setupStoreInfo,
-      ...setupStoreInfo.location,
-      [e.target.name]: e.target.value,
+      [name]: value,
+    });
+
+    // setSetupStoreInfo((prevState) => ({
+    //   ...prevState,
+    //   [name]: value,
+    // }));
+  };
+
+  const onChangeLocationHandler = (e) => {
+    const { name, value } = e.target;
+    setSetupStoreInfo({
+      ...setupStoreInfo,
+      location: { ...setupStoreInfo.location, [name]: value },
     });
   };
 
@@ -34,6 +46,7 @@ const SetupStoreScreen = () => {
       industry,
       location: { street, country, state, city },
     });
+    alert(storeName, industry, street, country, state, city);
   };
 
   return (
@@ -66,15 +79,15 @@ const SetupStoreScreen = () => {
             <Form.Control
               as='select'
               custom
-              value={country}
+              value={industry}
               onChange={onChangeHandler}
-              name='country'
+              name='industry'
             >
-              {countryInfoList &&
-                countryInfoList.map((c, i) => {
+              {countryName &&
+                countryName.map((cn, i) => {
                   return (
-                    <option key={i} value={c.name}>
-                      {c.name}
+                    <option key={i} value={cn}>
+                      {cn}
                     </option>
                   );
                 })}
@@ -84,63 +97,63 @@ const SetupStoreScreen = () => {
           <Form.Group controlId='street'>
             <Form.Label>Store Location</Form.Label>
             <Form.Control
-              required
+              // required
               name='street'
               type='text'
               value={street}
-              onChange={onChangeHandler}
+              onChange={onChangeLocationHandler}
               placeholder='Street'
             />
           </Form.Group>
-          <Form.Group controlId='location'>
+          <Form.Group controlId='country'>
             <Form.Control
               as='select'
               custom
               value={country}
-              onChange={onChangeHandler}
+              onChange={onChangeLocationHandler}
               name='country'
             >
-              {countryInfoList &&
-                countryInfoList.map((c, i) => {
+              {countryName &&
+                countryName.map((cn, i) => {
                   return (
-                    <option key={i} value={c.name}>
-                      {c.name}
+                    <option key={i} value={cn}>
+                      {cn}
                     </option>
                   );
                 })}
             </Form.Control>
           </Form.Group>
-          <Form.Group controlId='location'>
+          <Form.Group controlId='state'>
             <Form.Control
               as='select'
               custom
-              value={country}
-              onChange={onChangeHandler}
-              name='country'
+              value={state}
+              onChange={onChangeLocationHandler}
+              name='state'
             >
-              {countryInfoList &&
-                countryInfoList.map((c, i) => {
+              {countryName &&
+                countryName.map((cn, i) => {
                   return (
-                    <option key={i} value={c.name}>
-                      {c.name}
+                    <option key={i} value={cn}>
+                      {cn}
                     </option>
                   );
                 })}
             </Form.Control>
           </Form.Group>
-          <Form.Group controlId='location'>
+          <Form.Group controlId='city'>
             <Form.Control
               as='select'
               custom
-              value={country}
-              onChange={onChangeHandler}
-              name='country'
+              value={city}
+              onChange={onChangeLocationHandler}
+              name='city'
             >
-              {countryInfoList &&
-                countryInfoList.map((c, i) => {
+              {countryName &&
+                countryName.map((cn, i) => {
                   return (
-                    <option key={i} value={c.name}>
-                      {c.name}
+                    <option key={i} value={cn}>
+                      {cn}
                     </option>
                   );
                 })}
@@ -152,8 +165,10 @@ const SetupStoreScreen = () => {
             <span className='orange ur'>terms and conditions</span> to create
             our store.
           </p>
-          <div className='signupBtnWrapper sb'>
-            <Button type='submit'>Next</Button>
+          <div className='signupBtnWrapper'>
+            <Button type='submit' className='mb-4'>
+              Next
+            </Button>
             <Link to='/signup' className='orange later'>
               Later
             </Link>

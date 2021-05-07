@@ -46,7 +46,6 @@ const allInOneTab = (
                     index={index}
                     cardImage={card.cardImage}
                     cardTitle={card.cardTitle}
-                    // cardSubTitle={card.cardSubTitle}
                     cardDescription={card.cardDescription}
                     cardPrice={card.cardPrice}
                   />
@@ -58,139 +57,6 @@ const allInOneTab = (
     </div>
   );
 };
-
-// const AllTab = () => {
-//   return (
-//     <div className='mt-4'>
-//       <div className='cardWrapperHeading'>
-//         <h2 className='black py-2 mb-4 container-85'>All</h2>
-//       </div>
-//       <div className='container-85 '>
-//         <Row>
-//           {burgarCardsInfo &&
-//             burgarCardsInfo.map((card, index) => {
-//               return (
-//                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-//                   <BurgerCard
-//                     index={index}
-//                     cardImage={card.cardImage}
-//                     cardTitle={card.cardTitle}
-//                     cardSubTitle={card.cardSubTitle}
-//                     cardDescription={card.cardDescription}
-//                     cardPrice={card.cardPrice}
-//                   />
-//                 </Col>
-//               );
-//             })}
-//         </Row>
-//       </div>
-//     </div>
-//   );
-// };
-
-// const BurgersTab = () => {
-//   return (
-//     <div className='mt-4'>
-//       <div className='container-85 '>
-//         <Row>
-//           {burgarCardsInfo &&
-//             burgarCardsInfo.map((card, index) => {
-//               return (
-//                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-//                   <BurgerCard
-//                     index={index}
-//                     cardImage={card.cardImage}
-//                     cardTitle={card.cardTitle}
-//                     cardSubTitle={card.cardSubTitle}
-//                     cardDescription={card.cardDescription}
-//                     cardPrice={card.cardPrice}
-//                   />
-//                 </Col>
-//               );
-//             })}
-//         </Row>
-//       </div>
-//     </div>
-//   );
-// };
-
-// const PizzasTab = () => {
-//   return (
-//     <div className='mt-4'>
-//       <div className='container-85 '>
-//         <Row>
-//           {burgarCardsInfo &&
-//             burgarCardsInfo.slice(0, 8).map((card, index) => {
-//               return (
-//                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-//                   <BurgerCard
-//                     index={index}
-//                     cardImage={card.cardImage}
-//                     cardTitle={card.cardTitle}
-//                     cardSubTitle={card.cardSubTitle}
-//                     cardDescription={card.cardDescription}
-//                     cardPrice={card.cardPrice}
-//                   />
-//                 </Col>
-//               );
-//             })}
-//         </Row>
-//       </div>
-//     </div>
-//   );
-// };
-
-// const BeveragesTab = () => {
-//   return (
-//     <div className='mt-4'>
-//       <div className='container-85 '>
-//         <Row>
-//           {burgarCardsInfo &&
-//             burgarCardsInfo.slice(0, 11).map((card, index) => {
-//               return (
-//                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-//                   <BurgerCard
-//                     index={index}
-//                     cardImage={card.cardImage}
-//                     cardTitle={card.cardTitle}
-//                     cardSubTitle={card.cardSubTitle}
-//                     cardDescription={card.cardDescription}
-//                     cardPrice={card.cardPrice}
-//                   />
-//                 </Col>
-//               );
-//             })}
-//         </Row>
-//       </div>
-//     </div>
-//   );
-// };
-
-// const AppetizersTab = () => {
-//   return (
-//     <div className='mt-4'>
-//       <div className='container-85 '>
-//         <Row>
-//           {burgarCardsInfo &&
-//             burgarCardsInfo.slice(0, 5).map((card, index) => {
-//               return (
-//                 <Col xs={12} sm={12} md={6} lg={6} xl={4}>
-//                   <BurgerCard
-//                     index={index}
-//                     cardImage={card.cardImage}
-//                     cardTitle={card.cardTitle}
-//                     cardSubTitle={card.cardSubTitle}
-//                     cardDescription={card.cardDescription}
-//                     cardPrice={card.cardPrice}
-//                   />
-//                 </Col>
-//               );
-//             })}
-//         </Row>
-//       </div>
-//     </div>
-//   );
-// };
 
 const NewHomeScreen = () => {
   const [search, setSearch] = useState('');
@@ -207,9 +73,9 @@ const NewHomeScreen = () => {
       <div className='newHomeScreen '>
         <div className='container-85'>
           <div className='searchIconWrapper'>
-            <Link onClick={showSidebar}>
+            <button onClick={showSidebar}>
               <img src={CartIconWhite} alt='CartIconWhite' />
-            </Link>
+            </button>
           </div>
           <div className='cardDetailsSeachWrapper'>
             <div className='detailsCard'>
@@ -270,7 +136,7 @@ const NewHomeScreen = () => {
                 </Col>
               </Row>
             </div>
-            <Form autoComplete={false}>
+            <Form>
               <Form.Group controlId='serach' className='newHomeScreenSearch'>
                 <Form.Control
                   required
@@ -319,9 +185,3 @@ const NewHomeScreen = () => {
 };
 
 export default NewHomeScreen;
-
-// <AllTab />
-// <BurgersTab />
-// <PizzasTab />
-// <BeveragesTab />
-// <AppetizersTab />

@@ -5,7 +5,7 @@ const AddonCheckBox = ({
   id,
   value,
   isChecked,
-  count,
+  qty,
   price,
   handleCheckedCheckbox,
   qtyIncHandler,
@@ -29,11 +29,11 @@ const AddonCheckBox = ({
         <button
           onClick={() => qtyDecHandler(id)}
           className='modal-counter-btn ml-2'
-          disabled={count === 0}
+          disabled={qty === 0}
         >
           -
         </button>
-        <span className='mx-2'>{count}</span>
+        <span className='mx-2'>{qty}</span>
         <button onClick={() => qtyIncHandler(id)} className='modal-counter-btn'>
           +
         </button>

@@ -4,11 +4,10 @@ import '../styles/components/cartItemCard.css';
 import { AiOutlineClose } from 'react-icons/ai';
 
 const CartItemCard = ({ index, img, name, drink, addons, price }) => {
-  const [deleteCartItem, setDeleteCartItem] = useState(true);
   const [cartItemCount, setCartItemCount] = useState(0);
 
   return (
-    <div key={index} className='cartItemCard mb-4'>
+    <div key={`${index}-${Math.random()}`} className='cartItemCard mb-4'>
       <Row>
         <Col className='imgCol' xs={3} sm={3} md={4} lg={4} xl={4}>
           <div className='cartItemCardImageWrapper'>
@@ -27,7 +26,7 @@ const CartItemCard = ({ index, img, name, drink, addons, price }) => {
           <div className='cartItemCardDescriptionWrapper'>
             <div className='deleteCartItemWrapper'>
               <h5 className='title mb-2'>{name}</h5>
-              <button onClick={''} className='deleteCartItem'>
+              <button onClick={() => {}} className='deleteCartItem'>
                 <AiOutlineClose color='gray' size='18px' />
               </button>
             </div>

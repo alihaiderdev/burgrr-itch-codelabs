@@ -8,63 +8,72 @@ import BurgerImage from '../assets/images/product.png';
 const Drawer = ({ showSidebar, sidebar }) => {
   const cartItemsInfo = [
     {
-      cardimg: BurgerImage,
+      cardImg: BurgerImage,
+      cardId: Math.random(),
       cardName: 'Big Mob',
       cardDrink: 'Pepsi',
       cardAddons: 'Malai Roll, Extra Fries, ..., +1',
       cardPrice: '538',
     },
     {
-      cardimg: BurgerImage,
+      cardImg: BurgerImage,
+      cardId: Math.random(),
       cardName: 'Big Mob',
       cardDrink: 'Pepsi',
       cardAddons: 'Malai Roll, Extra Fries, ..., +1',
       cardPrice: '538',
     },
     {
-      cardimg: BurgerImage,
+      cardImg: BurgerImage,
+      cardId: Math.random(),
       cardName: 'Big Mob',
       cardDrink: 'Pepsi',
       cardAddons: 'Malai Roll, Extra Fries, ..., +1',
       cardPrice: '538',
     },
     {
-      cardimg: BurgerImage,
+      cardImg: BurgerImage,
+      cardId: Math.random(),
       cardName: 'Big Mob',
       cardDrink: 'Pepsi',
       cardAddons: 'Malai Roll, Extra Fries, ..., +1',
       cardPrice: '538',
     },
     {
-      cardimg: BurgerImage,
+      cardImg: BurgerImage,
+      cardId: Math.random(),
       cardName: 'Big Mob',
       cardDrink: 'Pepsi',
       cardAddons: 'Malai Roll, Extra Fries, ..., +1',
       cardPrice: '538',
     },
     {
-      cardimg: BurgerImage,
+      cardImg: BurgerImage,
+      cardId: Math.random(),
       cardName: 'Big Mob',
       cardDrink: 'Pepsi',
       cardAddons: 'Malai Roll, Extra Fries, ..., +1',
       cardPrice: '538',
     },
     {
-      cardimg: BurgerImage,
+      cardImg: BurgerImage,
+      cardId: Math.random(),
       cardName: 'Big Mob',
       cardDrink: 'Pepsi',
       cardAddons: 'Malai Roll, Extra Fries, ..., +1',
       cardPrice: '538',
     },
     {
-      cardimg: BurgerImage,
+      cardImg: BurgerImage,
+      cardId: Math.random(),
       cardName: 'Big Mob',
       cardDrink: 'Pepsi',
       cardAddons: 'Malai Roll, Extra Fries, ..., +1',
       cardPrice: '538',
     },
     {
-      cardimg: BurgerImage,
+      cardImg: BurgerImage,
+      cardId: Math.random(),
       cardName: 'Big Mob',
       cardDrink: 'Pepsi',
       cardAddons: 'Malai Roll, Extra Fries, ..., +1',
@@ -88,7 +97,7 @@ const Drawer = ({ showSidebar, sidebar }) => {
             return (
               <CartItemCard
                 index={i}
-                img={c.cardimg}
+                img={c.cardImg}
                 name={c.cardName}
                 drink={c.cardDrink}
                 addons={c.cardAddons}
@@ -115,7 +124,7 @@ const Drawer = ({ showSidebar, sidebar }) => {
         <p>
           *Estimated delivery time is <span>45 Minutes</span>
         </p>
-        <button onClick={''}>Checkout</button>
+        <button onClick={() => {}}>Checkout</button>
         <Link to='/' className='orange'>
           Continue Shopping
         </Link>
