@@ -1,14 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import '../styles/screens/orderPlace.css';
-import { Col, Row, Form } from 'react-bootstrap';
+import {Col, Row} from 'react-bootstrap';
 import CartScreenHeader from '../components/CartScreenHeader';
 import EmailAddressIcon from '../assets/icons/Form Icons/EmailAddress.svg';
 import DeliveryDateTimeIcon from '../assets/icons/Form Icons/DeliveryDateTime.svg';
 import ContactNumberIcon from '../assets/icons/Form Icons/ContactNumber.svg';
 import DeliveryAddressIcon from '../assets/icons/Form Icons/DeliveryAddress.svg';
-import { AiOutlineCheck } from 'react-icons/ai';
-import { BsChevronDown } from 'react-icons/bs';
-import { countryCode } from '../data/countryCodeList';
+import {AiOutlineCheck} from 'react-icons/ai';
+import {BsChevronDown} from 'react-icons/bs';
+import {countryCode} from '../data/countryCodeList';
+import {Formik, Field, Form} from 'formik';
+import * as Yup from 'yup';
+import TextField from '../components/TextField';
 
 const OrderItem = (qty, price, itemName, addOns = 'Chicken Crispy Burger') => {
   return (
@@ -39,7 +42,7 @@ const OrderPlaceScreen = () => {
     cardHolderName: '',
     cardNumber: '',
     expiry: '',
-    cvc: '',
+    cvv: '',
   });
 
   const [paymentMethod, setPaymentMethod] = useState('Credit Card');
@@ -55,11 +58,11 @@ const OrderPlaceScreen = () => {
     cardHolderName,
     cardNumber,
     expiry,
-    cvc,
+    cvv,
   } = orderInfo;
 
   const onChangeHandler = (e) => {
-    setOrderInfo({ ...orderInfo, [e.target.name]: e.target.value });
+    setOrderInfo({...orderInfo, [e.target.name]: e.target.value});
   };
 
   const orderSubmitHandler = (e) => {
@@ -76,12 +79,34 @@ const OrderPlaceScreen = () => {
       cardHolderName,
       cardNumber,
       expiry,
-      cvc,
+      cvv,
     });
   };
 
   // const selectPhoneCodeRef = useRef();
   // const focusPhoneInputText = () => selectPhoneCodeRef.current.focus();
+
+  // const validation = Yup.object({
+  //   name: Yup.string().required('Name is required'),
+  //   email: Yup.string().email('Email is invalid').required('Email is required'),
+  //   contactNumber: Yup.number()
+  //     .max(11, 'Contact number must be 11 digits or less')
+  //     .required('Contact number is required'),
+  //   deliveryAddress: Yup.string().required('Delivery Address is required'),
+  //   deliveryDateTime: Yup.string().required(
+  //     'Delivery date and time is required'
+  //   ),
+  //   message: Yup.string().required('Message is required'),
+  //   cardHolderName: Yup.string().required('Card holder name is required'),
+  //   cardNumber: Yup.number()
+  //     .max(11, 'Card number must be 19 digits or less')
+  //     .min(8, 'Card number must be 8 digits or more')
+  //     .required('Card number is required'),
+  //   expiry: Yup.date().required('Expiry date is required'),
+  //   cvv: Yup.number()
+  //     .max(3, 'CVV must be 3 digits')
+  //     .required('CVV is required'),
+  // });
 
   return (
     <>
@@ -90,7 +115,7 @@ const OrderPlaceScreen = () => {
         <Row>
           <Col xs={12} sm={12} md={6} lg={6} xl={6}>
             <div className='yourInfo_paymentMethodWrapper'>
-              <Form autoComplete onSubmit={orderSubmitHandler}>
+              <Form onSubmit={orderSubmitHandler}>
                 <h3 className='um black mb-4'>Your Details</h3>
                 <Form.Group controlId='name'>
                   <Form.Control
@@ -233,12 +258,12 @@ const OrderPlaceScreen = () => {
                       </div>
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId='cvc'>
+                    <Form.Group as={Col} controlId='cvv'>
                       <Form.Control
                         required
-                        name='cvc'
+                        name='cvv'
                         type='number'
-                        value={cvc}
+                        value={cvv}
                         onChange={onChangeHandler}
                       />
                     </Form.Group>
@@ -327,3 +352,56 @@ const OrderPlaceScreen = () => {
 };
 
 export default OrderPlaceScreen;
+
+// <Formik
+// initialValues={{
+//   name: '',
+//   email: '',
+//   phoneCode: '+92',
+//   contactNumber: '',
+//   deliveryAddress: '',
+//   deliveryDateTime: '',
+//   message: '',
+//   cardHolderName: '',
+//   cardNumber: '',
+//   expiry: '',
+//   cvv: '',
+// }}
+// validationSchema={validation}
+// >
+// {(formik) => (
+//   <>
+//     console.log('formik : ', formik)
+//     <Form onSubmit={orderSubmitHandler}>
+//       <h3 className='um black mb-4'>Your Details</h3>
+
+//       <TextField label='First Name' name='firstName' type='text' />
+//       <TextField label='Email' name='email' type='email' />
+//       <TextField
+//         label='Contact Number'
+//         name='contactNumber'
+//         type='tel'
+//       />
+//       <TextField
+//         label='Delivery Address'
+//         name='deliveryAddress'
+//         type='text'
+//       />
+//       <TextField
+//         label='Delivery Date Time'
+//         name='deliveryDateTime'
+//         type='datatime-local'
+//       />
+//       <TextField label='message' name='message' type='number' />
+//       <TextField
+//         label='Card Holder Name'
+//         name='cardHolderName'
+//         type='number'
+//       />
+//       <TextField label='Card Number' name='cardNumber' type='number' />
+//       <TextField label='Expiry' name='expiry' type='number' />
+//       <TextField label='cvv' name='cvv' type='number' />
+//     </Form>
+//   </>
+// )}
+// </Formik>

@@ -5,7 +5,7 @@ import Logo from '../assets/icons/BurgerritchLogo.png';
 import SearchIcon from '../assets/icons/Header/SearchIcon.svg';
 import CartIconOrange from '../assets/icons/Header/CartIconOrange.png';
 import CartIconWhite from '../assets/icons/Header/CartIconWhite.svg';
-import Drawer from './Drawer';
+import Drawer from './SidebarDrawer';
 
 const Header = ({ location: { pathname } }) => {
   const [sidebar, setSidebar] = useState(false);

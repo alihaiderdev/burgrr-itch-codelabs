@@ -16,7 +16,7 @@ const AddonCheckBox = ({
       <Form.Check
         className='mb-2'
         type={'checkbox'}
-        onClick={handleCheckedCheckbox}
+        onClick={() => handleCheckedCheckbox()}
         id={`${value} ${id}`}
         label={value}
         checked={isChecked}

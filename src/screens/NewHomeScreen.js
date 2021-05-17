@@ -14,7 +14,7 @@ import SearchIcon from '../assets/icons/Header/SearchIcon.svg';
 import TimingIcon from '../assets/icons/Header/Timings.svg';
 import BurgerCard from '../components/BurgerCard';
 import Burger from '../assets/images/product.png';
-import Drawer from '../components/Drawer';
+import SidebarDrawer from '../components/SidebarDrawer';
 import burgarCardsInfo from '../data/burgarCardsInfo';
 
 const allInOneTab = (
@@ -60,11 +60,21 @@ const allInOneTab = (
 
 const NewHomeScreen = () => {
   const [search, setSearch] = useState('');
-  const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  // const [sidebar, setSidebar] = useState(false);
+  // const showSidebar = () => setSidebar(!sidebar);
 
-  const formSubmitHandler = (e) => {
-    e.preventDefault();
+  const [toggleDrawer, setToggleDrawer] = useState({
+    visible: false,
+    placement: 'right',
+  });
+  const { visible, placement } = toggleDrawer;
+
+  const showDrawer = () => {
+    setToggleDrawer({ ...toggleDrawer, visible: true });
+  };
+
+  const closeDrawer = () => {
+    setToggleDrawer({ ...toggleDrawer, visible: false });
   };
 
   return (
@@ -73,7 +83,7 @@ const NewHomeScreen = () => {
       <div className='newHomeScreen '>
         <div className='container-85'>
           <div className='searchIconWrapper'>
-            <button onClick={showSidebar}>
+            <button onClick={showDrawer}>
               <img src={CartIconWhite} alt='CartIconWhite' />
             </button>
           </div>
@@ -179,7 +189,11 @@ const NewHomeScreen = () => {
           </Tab>
         </Tabs>
       </div>
-      <Drawer showSidebar={showSidebar} sidebar={sidebar} />
+      <SidebarDrawer
+        closeDrawer={closeDrawer}
+        visible={visible}
+        placement={placement}
+      />
     </>
   );
 };

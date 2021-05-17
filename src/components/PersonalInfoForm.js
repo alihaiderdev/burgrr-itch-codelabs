@@ -14,14 +14,21 @@ export class PersonalInfoForm extends Component {
 
   render() {
     const {
-      values: { name, email, contactNumber, deliveryAddress, deliveryDateTime, message },
+      values: {
+        name,
+        email,
+        contactNumber,
+        deliveryAddress,
+        deliveryDateTime,
+        message,
+      },
       handleChange,
       current,
     } = this.props;
 
     return (
       <div className='personalInfoForm cartForm contaniner-85'>
-        <Form autoComplete={true}>
+        <Form autoComplete>
           <h3 className='um black mb-4'>Your Details</h3>
 
           <Form.Group controlId='name'>
@@ -44,7 +51,11 @@ export class PersonalInfoForm extends Component {
               defaultValue={email}
               onChange={handleChange('email')}
             />
-            <img className='form-icon' src={EmailAddressIcon} alt='EmailAddressIcon' />
+            <img
+              className='form-icon'
+              src={EmailAddressIcon}
+              alt='EmailAddressIcon'
+            />
           </Form.Group>
 
           <Form.Group controlId='contactNumber'>
@@ -56,7 +67,11 @@ export class PersonalInfoForm extends Component {
               defaultValue={contactNumber}
               onChange={handleChange('contactNumber')}
             />
-            <img className='form-icon' src={ContactNumberIcon} alt='ContactNumberIcon' />
+            <img
+              className='form-icon'
+              src={ContactNumberIcon}
+              alt='ContactNumberIcon'
+            />
           </Form.Group>
 
           <Form.Group controlId='address'>
@@ -68,7 +83,11 @@ export class PersonalInfoForm extends Component {
               defaultValue={deliveryAddress}
               onChange={handleChange('deliveryAddress')}
             />
-            <img className='form-icon' src={DeliveryAddressIcon} alt='DeliveryAddressIcon' />
+            <img
+              className='form-icon'
+              src={DeliveryAddressIcon}
+              alt='DeliveryAddressIcon'
+            />
           </Form.Group>
 
           <Form.Group controlId='date'>
@@ -94,7 +113,11 @@ export class PersonalInfoForm extends Component {
             />
           </Form.Group>
 
-          <Button className='btn btn-block' type='submit' onClick={this.continue}>
+          <Button
+            className='btn btn-block'
+            type='submit'
+            onClick={this.continue}
+          >
             Next
             <AiOutlineArrowRight color='white' />
           </Button>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import '../styles/components/burgerCardModal.css';
-import { Modal, Button, Row, Form, Col, ButtonGroup } from 'react-bootstrap';
+import { Modal, Form } from 'react-bootstrap';
 import BurgerIamge from '../assets/images/product.png';
-import Drawer from './Drawer';
 import { Link } from 'react-router-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import AddonCheckBox from './AddonCheckBox';
+import SidebarDrawer from './SidebarDrawer';
 
 const BurgerCardModal = (props) => {
   const { onHide } = props;
@@ -70,8 +70,23 @@ const BurgerCardModal = (props) => {
   const [selectAddOns, setSelectAddOns] = useState('Malai Roll');
   const [specialMessage, setSpecialMessage] = useState('');
   const [addToCartQtyCount, setAddToCartQtyCount] = useState(0);
-  const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  // const [sidebar, setSidebar] = useState(false);
+  // const showSidebar = () => setSidebar(!sidebar);
+
+  const [toggleDrawer, setToggleDrawer] = useState({
+    visible: false,
+    placement: 'right',
+  });
+
+  const { visible, placement } = toggleDrawer;
+
+  const showDrawer = () => {
+    setToggleDrawer({ ...toggleDrawer, visible: true });
+  };
+
+  const closeDrawer = () => {
+    setToggleDrawer({ ...toggleDrawer, visible: false });
+  };
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -272,7 +287,11 @@ const BurgerCardModal = (props) => {
           </div>
         </Modal.Body>
       </Modal>
-      <Drawer showSidebar={showSidebar} sidebar={sidebar} />
+      <SidebarDrawer
+        closeDrawer={closeDrawer}
+        visible={visible}
+        placement={placement}
+      />
     </>
   );
 };

@@ -8,14 +8,29 @@ import CartIconOrange from '../assets/icons/Header/CartIconOrange.png';
 import CartIconWhite from '../assets/icons/Header/CartIconWhite.svg';
 import SearchIconWhite from '../assets/icons/Header/SearchIconWhite.png';
 import { Link } from 'react-router-dom';
-import Drawer from './Drawer';
+import Drawer from './SidebarDrawer';
 import { Steps, message } from 'antd';
 import { AiOutlineCheck } from 'react-icons/ai';
+import SidebarDrawer from './SidebarDrawer';
 const { Step } = Steps;
 
 const CartScreenHeader = ({ current, onChange, location: { pathname } }) => {
-  const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  // const [sidebar, setSidebar] = useState(false);
+  // const showSidebar = () => setSidebar(!sidebar);
+
+  const [toggleDrawer, setToggleDrawer] = useState({
+    visible: false,
+    placement: 'right',
+  });
+  const { visible, placement } = toggleDrawer;
+
+  const showDrawer = () => {
+    setToggleDrawer({ ...toggleDrawer, visible: true });
+  };
+
+  const closeDrawer = () => {
+    setToggleDrawer({ ...toggleDrawer, visible: false });
+  };
 
   const steps = [
     {
@@ -60,7 +75,7 @@ const CartScreenHeader = ({ current, onChange, location: { pathname } }) => {
                 src={SearchIconWhite}
                 alt='SearchIconWhite'
               />
-              <Link onClick={showSidebar}>
+              <Link onClick={showDrawer}>
                 <img
                   className='icon-md ml-4'
                   src={CartIconOrange}
@@ -86,7 +101,11 @@ const CartScreenHeader = ({ current, onChange, location: { pathname } }) => {
           </div>
         )}
       </div>
-      <Drawer showSidebar={showSidebar} sidebar={sidebar} />
+      <SidebarDrawer
+        closeDrawer={closeDrawer}
+        visible={visible}
+        placement={placement}
+      />
     </>
   );
 };
