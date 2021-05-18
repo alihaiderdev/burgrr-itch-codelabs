@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
 import '../styles/screens/orderPlace.css';
-import {Col, Row} from 'react-bootstrap';
+import {Col, Row, Form} from 'react-bootstrap';
 import CartScreenHeader from '../components/CartScreenHeader';
 import EmailAddressIcon from '../assets/icons/Form Icons/EmailAddress.svg';
 import DeliveryDateTimeIcon from '../assets/icons/Form Icons/DeliveryDateTime.svg';
@@ -9,9 +9,11 @@ import DeliveryAddressIcon from '../assets/icons/Form Icons/DeliveryAddress.svg'
 import {AiOutlineCheck} from 'react-icons/ai';
 import {BsChevronDown} from 'react-icons/bs';
 import {countryCode} from '../data/countryCodeList';
-import {Formik, Field, Form} from 'formik';
-import * as Yup from 'yup';
+
 import TextField from '../components/TextField';
+
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
 
 const OrderItem = (qty, price, itemName, addOns = 'Chicken Crispy Burger') => {
   return (
@@ -83,30 +85,50 @@ const OrderPlaceScreen = () => {
     });
   };
 
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      contactNumber: '',
+      deliveryAddress: '',
+      deliveryDateTime: '',
+      message: '',
+      cardHolderName: '',
+      cardNumber: '',
+      expiry: '',
+      cvv: '',
+    },
+
+    validationSchema: Yup.object({
+      name: Yup.string().required('Name is required'),
+      email: Yup.string()
+        .email('Email is invalid')
+        .required('Email is required'),
+      contactNumber: Yup.number()
+        .min(11, 'Contact number must be 11 digits or less')
+        .required('Contact number is required'),
+      deliveryAddress: Yup.string().required('Delivery Address is required'),
+      deliveryDateTime: Yup.string().required(
+        'Delivery date and time is required'
+      ),
+      message: Yup.string().required('Message is required'),
+      cardHolderName: Yup.string().required('Card holder name is required'),
+      cardNumber: Yup.number()
+        .min(19, 'Card number must be 19 digits or less')
+        .max(8, 'Card number must be 8 digits or more')
+        .required('Card number is required'),
+      expiry: Yup.date().required('Expiry date is required'),
+      cvv: Yup.number()
+        .max(3, 'CVV must be 3 digits')
+        .required('CVV is required'),
+    }),
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
   // const selectPhoneCodeRef = useRef();
   // const focusPhoneInputText = () => selectPhoneCodeRef.current.focus();
-
-  // const validation = Yup.object({
-  //   name: Yup.string().required('Name is required'),
-  //   email: Yup.string().email('Email is invalid').required('Email is required'),
-  //   contactNumber: Yup.number()
-  //     .max(11, 'Contact number must be 11 digits or less')
-  //     .required('Contact number is required'),
-  //   deliveryAddress: Yup.string().required('Delivery Address is required'),
-  //   deliveryDateTime: Yup.string().required(
-  //     'Delivery date and time is required'
-  //   ),
-  //   message: Yup.string().required('Message is required'),
-  //   cardHolderName: Yup.string().required('Card holder name is required'),
-  //   cardNumber: Yup.number()
-  //     .max(11, 'Card number must be 19 digits or less')
-  //     .min(8, 'Card number must be 8 digits or more')
-  //     .required('Card number is required'),
-  //   expiry: Yup.date().required('Expiry date is required'),
-  //   cvv: Yup.number()
-  //     .max(3, 'CVV must be 3 digits')
-  //     .required('CVV is required'),
-  // });
 
   return (
     <>
@@ -220,7 +242,6 @@ const OrderPlaceScreen = () => {
                     id='Credit Card'
                     onChange={(e) => setPaymentMethod(e.target.value)}
                   />
-
                   <Form.Group controlId='cardHolderName'>
                     <Form.Control
                       required
@@ -230,7 +251,6 @@ const OrderPlaceScreen = () => {
                       onChange={onChangeHandler}
                     />
                   </Form.Group>
-
                   <Form.Group controlId='cardNumber'>
                     <Form.Control
                       required
@@ -240,7 +260,6 @@ const OrderPlaceScreen = () => {
                       onChange={onChangeHandler}
                     />
                   </Form.Group>
-
                   <Form.Row>
                     <Form.Group as={Col} controlId='expiry'>
                       <Form.Control
@@ -257,7 +276,6 @@ const OrderPlaceScreen = () => {
                         />
                       </div>
                     </Form.Group>
-
                     <Form.Group as={Col} controlId='cvv'>
                       <Form.Control
                         required
@@ -268,7 +286,6 @@ const OrderPlaceScreen = () => {
                       />
                     </Form.Group>
                   </Form.Row>
-
                   <Form.Check
                     className='modalRadioButtonLabel mb-3'
                     type='radio'
@@ -298,6 +315,49 @@ const OrderPlaceScreen = () => {
                   />
                 </div>
               </Form>
+
+              {/* <form onSubmit={formik.handleSubmit}>
+                <label htmlFor='name'>Name</label>
+                <input
+                  id='name'
+                  name='name'
+                  type='text'
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.name}
+                />
+                {formik.touched.name && formik.errors.name ? (
+                  <div>{formik.errors.name}</div>
+                ) : null}
+
+                <label htmlFor='email'>Email</label>
+                <input
+                  id='email'
+                  name='email'
+                  type='email'
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <div>{formik.errors.email}</div>
+                ) : null}
+
+                <label htmlFor='contactNumber'>Contact Number</label>
+                <input
+                  id='contactNumber'
+                  name='contactNumber'
+                  type='text'
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.contactNumber}
+                />
+                {formik.touched.contactNumber && formik.errors.contactNumber ? (
+                  <div>{formik.errors.contactNumber}</div>
+                ) : null}
+
+                <button type='submit'>Submit</button>
+              </form> */}
             </div>
           </Col>
           <Col xs={12} sm={12} md={6} lg={6} xl={6}>
@@ -352,56 +412,3 @@ const OrderPlaceScreen = () => {
 };
 
 export default OrderPlaceScreen;
-
-// <Formik
-// initialValues={{
-//   name: '',
-//   email: '',
-//   phoneCode: '+92',
-//   contactNumber: '',
-//   deliveryAddress: '',
-//   deliveryDateTime: '',
-//   message: '',
-//   cardHolderName: '',
-//   cardNumber: '',
-//   expiry: '',
-//   cvv: '',
-// }}
-// validationSchema={validation}
-// >
-// {(formik) => (
-//   <>
-//     console.log('formik : ', formik)
-//     <Form onSubmit={orderSubmitHandler}>
-//       <h3 className='um black mb-4'>Your Details</h3>
-
-//       <TextField label='First Name' name='firstName' type='text' />
-//       <TextField label='Email' name='email' type='email' />
-//       <TextField
-//         label='Contact Number'
-//         name='contactNumber'
-//         type='tel'
-//       />
-//       <TextField
-//         label='Delivery Address'
-//         name='deliveryAddress'
-//         type='text'
-//       />
-//       <TextField
-//         label='Delivery Date Time'
-//         name='deliveryDateTime'
-//         type='datatime-local'
-//       />
-//       <TextField label='message' name='message' type='number' />
-//       <TextField
-//         label='Card Holder Name'
-//         name='cardHolderName'
-//         type='number'
-//       />
-//       <TextField label='Card Number' name='cardNumber' type='number' />
-//       <TextField label='Expiry' name='expiry' type='number' />
-//       <TextField label='cvv' name='cvv' type='number' />
-//     </Form>
-//   </>
-// )}
-// </Formik>

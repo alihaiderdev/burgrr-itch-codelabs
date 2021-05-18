@@ -1,0 +1,10 @@
+.offers button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.offers .discountsListWrapper li {
+  border-bottom: 1px solid rgb(212, 204, 204);
+  padding: 10px 0 5px;
+}

@@ -1,0 +1,78 @@
+.StoreSettingsDrawer .storeSettingBtn {
+  position: absolute;
+  top: 200px;
+  right: 0;
+  border-radius: 0 10px 10px 0;
+  padding: 20px;
+  border: none;
+  outline: none;
+  background-color: var(--orange);
+}
+
+.ant-drawer-left .ant-drawer-content-wrapper .ant-drawer-content {
+  background-color: #f0f0f0 !important;
+}
+
+.StoreSettingsDrawer .ant-collapse {
+  background-color: transparent !important;
+  border: none !important;
+}
+.StoreSettingsDrawer .ant-collapse .ant-collapse-item {
+  border: none !important;
+  border-radius: 5px !important;
+  margin: 15px 0;
+  background-color: white;
+}
+
+.StoreSettingsDrawer .ant-collapse .ant-collapse-item .ant-collapse-header {
+  padding-right: 16px !important;
+}
+
+.StoreSettingsDrawer .ant-collapse .ant-collapse-item .ant-collapse-content {
+  border-top: none;
+  box-shadow: 0px 3px 20px #00000010;
+}
+
+.StoreSettingsDrawer .placeOrderBtnWrappper {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.StoreSettingsDrawer .placeOrderBtnWrappper button {
+  padding: 15px 20px;
+  width: 48%;
+  border: none;
+  outline: none;
+  box-shadow: 0px 3px 12px #0000002e;
+}
+.StoreSettingsDrawer .placeOrderBtnWrappper button.placeOrderBtn {
+  border-radius: 10px;
+  border: 1px solid var(--orange);
+  background-color: transparent;
+  color: var(--orange);
+}
+.StoreSettingsDrawer .placeOrderBtnWrappper button.OrdersBtn {
+  border-radius: 10px;
+  float: right;
+  background-color: var(--orange);
+  color: white;
+}
+
+.StoreSettingsDrawer .needHelp {
+  margin-top: 120px;
+  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.StoreSettingsDrawer .needHelp a {
+  text-decoration: underline !important;
+  color: black;
+  font-size: 1rem;
+}
+.StoreSettingsDrawer .downForMaintenance button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}

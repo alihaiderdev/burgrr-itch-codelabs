@@ -1,0 +1,8 @@
+.orderSettings div button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.orderSettings div .ant-picker {
+  border-radius: 6px !important;
+}

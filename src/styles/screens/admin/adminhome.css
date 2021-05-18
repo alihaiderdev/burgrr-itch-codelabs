@@ -1,0 +1,59 @@
+.adminHomeScreen {
+  margin: 160px 0;
+}
+.adminHomeScreen .storeSettingBtn {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  border-radius: 0 10px 10px 0;
+  padding: 20px;
+  border: none;
+  outline: none;
+  background-color: var(--orange);
+}
+
+.adminHomeScreen .detailsCard {
+  position: absolute;
+  top: 670px;
+  left: 140px;
+  width: 600px !important;
+  background-color: #f3f3f3;
+  box-shadow: 0px 3px 60px #00000033;
+  border-radius: 20px;
+}
+
+.adminHomeScreen .detailsCardLogoWrapper {
+  position: absolute;
+  top: -95px;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.adminHomeScreen .detailsCardLogoWrapper .detailsCardLogo {
+  height: 12rem;
+  width: 12rem;
+}
+.adminHomeScreen .detailsCardLogoWrapper h2 {
+  margin-top: 65px !important;
+}
+
+.adminHomeScreen .detailsCard ul {
+  margin-left: 35px !important;
+  margin: 0 !important;
+}
+
+.adminHomeScreen .detailsCard ul li {
+  margin-bottom: 10px;
+}
+.adminHomeScreen .detailsCard ul li span {
+  color: #9c9b9b;
+  font-size: 15px;
+}
+.adminHomeScreen .detailsCard .detailsCardRow {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+  margin-top: 14%;
+  margin-bottom: 20px;
+}

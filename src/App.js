@@ -3,7 +3,7 @@ import './App.css';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import AboutUsScreen from './screens/AboutUsScreen';
@@ -14,9 +14,12 @@ import NewHomeScreen from './screens/NewHomeScreen';
 import Error404Screen from './screens/Error404Screen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderPlaceScreen from './screens/OrderPlaceScreen';
+
+// admin site imports
 import GetStartedScreen from './screens/admin/GetStartedScreen';
 import SignupScreen from './screens/admin/SignupScreen';
 import SetupStoreScreen from './screens/admin/SetupStoreScreen';
+import AdminHomeScreen from './screens/admin/AdminHomeScreen';
 
 const App = () => {
   return (
@@ -31,9 +34,11 @@ const App = () => {
           <Route exact path='/contact-us' component={ContactUsScreen} />
           <Route exact path='/place-order' component={PlaceOrderScreen} />
           <Route exact path='/order-place' component={OrderPlaceScreen} />
-          <Route exact path='/get-started' component={GetStartedScreen} />
-          <Route exact path='/signup' component={SignupScreen} />
-          <Route exact path='/setup-store' component={SetupStoreScreen} />
+          {/* Admin site routes */}
+          <Route exact path='/admin/get-started' component={GetStartedScreen} />
+          <Route exact path='/admin/signup' component={SignupScreen} />
+          <Route exact path='/admin/setup-store' component={SetupStoreScreen} />
+          <Route exact path='/admin/home' component={AdminHomeScreen} />
           <Route component={Error404Screen} />
         </Switch>
         <Footer />

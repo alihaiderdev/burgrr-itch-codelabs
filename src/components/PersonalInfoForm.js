@@ -1,10 +1,10 @@
-import React, { useState, Component } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import React, {useState, Component} from 'react';
+import {Form, Button} from 'react-bootstrap';
 import '../styles/components/cartForms.css';
 import EmailAddressIcon from '../assets/icons/Form Icons/EmailAddress.svg';
 import ContactNumberIcon from '../assets/icons/Form Icons/ContactNumber.svg';
 import DeliveryAddressIcon from '../assets/icons/Form Icons/DeliveryAddress.svg';
-import { AiOutlineArrowRight } from 'react-icons/ai';
+import {AiOutlineArrowRight} from 'react-icons/ai';
 
 export class PersonalInfoForm extends Component {
   continue = (e) => {
@@ -28,7 +28,7 @@ export class PersonalInfoForm extends Component {
 
     return (
       <div className='personalInfoForm cartForm contaniner-85'>
-        <Form autoComplete>
+        <Form>
           <h3 className='um black mb-4'>Your Details</h3>
 
           <Form.Group controlId='name'>

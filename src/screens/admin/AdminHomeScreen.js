@@ -1,21 +1,24 @@
 import React, {useState} from 'react';
-import '../styles/screens/newHome.css';
+import '../../styles/screens/newHome.css';
+import '../../styles/screens/admin/adminhome.css';
 import {Col, Row, Tabs, Tab, Form} from 'react-bootstrap';
-import HeroSection from '../components/HeroSection';
+import {BsGear} from 'react-icons/bs';
+
+import HeroSection from '../../components/HeroSection';
 import {Link} from 'react-router-dom';
-import BurgerritchLogo from '../assets/icons/BurgerritchLogo.png';
-import HeroSectionBgImage from '../assets/images/header-bg.png';
-import LocationIcon from '../assets/icons/Header/Location.svg';
-import PhoneNumberIcon from '../assets/icons/Header/PhoneNumber.svg';
-import PriceRangeIcon from '../assets/icons/Header/PriceRange.svg';
-import CartIconWhite from '../assets/icons/Header/CartIconWhite.svg';
-import RatingIcon from '../assets/icons/Header/Rating.svg';
-import SearchIcon from '../assets/icons/Header/SearchIcon.svg';
-import TimingIcon from '../assets/icons/Header/Timings.svg';
-import BurgerCard from '../components/BurgerCard';
-import Burger from '../assets/images/product.png';
-import SidebarDrawer from '../components/SidebarDrawer';
-import burgarCardsInfo from '../data/burgarCardsInfo';
+import BurgerritchLogo from '../../assets/icons/BurgerritchLogo.png';
+import HeroSectionBgImage from '../../assets/images/header-bg.png';
+import LocationIcon from '../../assets/icons/Header/Location.svg';
+import PhoneNumberIcon from '../../assets/icons/Header/PhoneNumber.svg';
+import PriceRangeIcon from '../../assets/icons/Header/PriceRange.svg';
+import RatingIcon from '../../assets/icons/Header/Rating.svg';
+import SearchIcon from '../../assets/icons/Header/SearchIcon.svg';
+import TimingIcon from '../../assets/icons/Header/Timings.svg';
+import BurgerCard from '../../components/admin/BurgerCard';
+import Burger from '../../assets/images/product.png';
+import StoreSettingsDrawer from '../../components/admin/StoreSettingsDrawer';
+import burgarCardsInfo from '../../data/burgarCardsInfo';
+import AdminHeader from '../../components/admin/AdminHeader';
 
 const allInOneTab = (
   innerTabImg,
@@ -58,14 +61,12 @@ const allInOneTab = (
   );
 };
 
-const NewHomeScreen = () => {
+const AdminHomeScreen = () => {
   const [search, setSearch] = useState('');
-  // const [sidebar, setSidebar] = useState(false);
-  // const showSidebar = () => setSidebar(!sidebar);
 
   const [toggleDrawer, setToggleDrawer] = useState({
     visible: false,
-    placement: 'right',
+    placement: 'left',
   });
   const {visible, placement} = toggleDrawer;
 
@@ -79,14 +80,13 @@ const NewHomeScreen = () => {
 
   return (
     <>
+      <AdminHeader />
       <HeroSection image={HeroSectionBgImage} />
-      <div className='newHomeScreen'>
+      <div className='adminHomeScreen'>
         <div className='container-85'>
-          <div className='searchIconWrapper'>
-            <button onClick={showDrawer}>
-              <img src={CartIconWhite} alt='CartIconWhite' />
-            </button>
-          </div>
+          <button className='storeSettingBtn' onClick={showDrawer}>
+            <BsGear color='white' size='30px' />
+          </button>
           <div className='cardDetailsSeachWrapper'>
             <div className='detailsCard'>
               <div className='detailsCardLogoWrapper'>
@@ -189,7 +189,7 @@ const NewHomeScreen = () => {
           </Tab>
         </Tabs>
       </div>
-      <SidebarDrawer
+      <StoreSettingsDrawer
         closeDrawer={closeDrawer}
         visible={visible}
         placement={placement}
@@ -198,4 +198,4 @@ const NewHomeScreen = () => {
   );
 };
 
-export default NewHomeScreen;
+export default AdminHomeScreen;

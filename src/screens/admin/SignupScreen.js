@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import '../../styles/screens/admin/signup.css';
-import { Button, Form } from 'react-bootstrap';
+import {Button, Form} from 'react-bootstrap';
 import AdminHeader from '../../components/admin/AdminHeader';
 import EmailAddressIcon from '../../assets/icons/Form Icons/EmailAddress.svg';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const SignupScreen = () => {
   const [signupInfo, setSignupInfo] = useState({
@@ -13,10 +13,10 @@ const SignupScreen = () => {
     confirmPassword: '',
   });
 
-  const { email, fullName, password, confirmPassword } = signupInfo;
+  const {email, fullName, password, confirmPassword} = signupInfo;
 
   const onChangeHandler = (e) => {
-    setSignupInfo({ ...signupInfo, [e.target.name]: e.target.value });
+    setSignupInfo({...signupInfo, [e.target.name]: e.target.value});
   };
 
   const signupSubmitHandler = (e) => {
@@ -51,11 +51,11 @@ const SignupScreen = () => {
               onChange={onChangeHandler}
               placeholder='someone@email.com'
             />
-            <img
+            {/* <img
               className='form-icon'
               src={EmailAddressIcon}
               alt='EmailAddressIcon'
-            />
+            /> */}
           </Form.Group>
           <Form.Group controlId='fullName'>
             <Form.Label>Fullname</Form.Label>
@@ -76,7 +76,7 @@ const SignupScreen = () => {
               type='password'
               value={password}
               onChange={onChangeHandler}
-              placeholder='............'
+              placeholder='..........'
             />
           </Form.Group>
           <Form.Group controlId='confirmPassword'>
@@ -87,7 +87,7 @@ const SignupScreen = () => {
               type='password'
               value={confirmPassword}
               onChange={onChangeHandler}
-              placeholder='............'
+              placeholder='..........'
             />
           </Form.Group>
           <p className='termConditions'>
