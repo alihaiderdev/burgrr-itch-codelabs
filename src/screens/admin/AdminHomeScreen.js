@@ -20,8 +20,10 @@ import Burger from '../../assets/images/product.png';
 import StoreSettingsDrawer from '../../components/admin/StoreSettingsDrawer';
 import burgarCardsInfo from '../../data/burgarCardsInfo';
 import AdminHeader from '../../components/admin/AdminHeader';
-
 import useWindowResize from '../../customHooks/useWindowResize';
+import EditProductIcon from '../../assets/admin-icons-images/Icons/Edit 1.svg';
+import AddNewProductIcon from '../../assets/admin-icons-images/Icons/add product.svg';
+import AddDiscountModal from '../../components/admin/AddDiscountModal';
 
 const allInOneTab = (
   innerTabImg,
@@ -65,6 +67,28 @@ const allInOneTab = (
 };
 
 const AdminHomeScreen = () => {
+  const [addDiscountModal, setAddDiscountModal] = useState(false);
+  const handleOpenAddDiscountModal = () => setAddDiscountModal(true);
+  const handleCloseAddDiscountModal = () => setAddDiscountModal(false);
+
+  const AddNewProductButton = () => {
+    return (
+      <div className='container-85'>
+        <div
+          className='addNewProductButton'
+          onClick={() => handleOpenAddDiscountModal()}
+        >
+          <img
+            className='mb-2'
+            src={AddNewProductIcon}
+            alt='AddNewProductIcon'
+          />
+          <p className='gray um'>Add New Product</p>
+        </div>
+      </div>
+    );
+  };
+
   const [search, setSearch] = useState('');
 
   const [toggleDrawer, setToggleDrawer] = useState({
@@ -83,15 +107,13 @@ const AdminHomeScreen = () => {
 
   const [height, width] = useWindowResize();
 
-  console.log({height, width});
-
   return (
     <>
       <AdminHeader />
       <HeroSection image={HeroSectionBgImage} />
       <div className='adminHomeScreen'>
         <div className='container-85'>
-          <button className='storeSettingBtn' onClick={showDrawer}>
+          <button className='storeSettingBtn' onClick={() => showDrawer()}>
             <BsGear color='white' size='30px' />
           </button>
           <div className='cardDetailsSeachWrapper'>
@@ -152,6 +174,13 @@ const AdminHomeScreen = () => {
                   </ul>
                 </Col>
               </Row>
+              <button
+                className='editProductBtn'
+                // onClick={() => handleOpenAddDiscountModal()}
+                onClick={() => showDrawer()}
+              >
+                <img src={EditProductIcon} alt='EditProductIcon' />
+              </button>
             </div>
             <Form>
               <Form.Group controlId='serach' className='newHomeScreenSearch'>
@@ -177,6 +206,7 @@ const AdminHomeScreen = () => {
           className='container-85'
         >
           <Tab eventKey='all' title='All'>
+            <AddNewProductButton />
             {allInOneTab(Burger, 'Burgers', '$$$', 6)}
             {allInOneTab(Burger, 'Pizzas', '$$$', 8)}
             {allInOneTab(Burger, 'Beverages', '$$$', 11)}
@@ -200,6 +230,10 @@ const AdminHomeScreen = () => {
         closeDrawer={closeDrawer}
         visible={visible}
         placement={placement}
+      />
+      <AddDiscountModal
+        handleCloseAddDiscountModal={handleCloseAddDiscountModal}
+        addDiscountModal={addDiscountModal}
       />
     </>
   );

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, NavLink, withRouter } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, NavLink, withRouter} from 'react-router-dom';
 import '../styles/components/header.css';
 import Logo from '../assets/icons/BurgerritchLogo.png';
 import SearchIcon from '../assets/icons/Header/SearchIcon.svg';
@@ -7,14 +7,14 @@ import CartIconOrange from '../assets/icons/Header/CartIconOrange.png';
 import CartIconWhite from '../assets/icons/Header/CartIconWhite.svg';
 import Drawer from './SidebarDrawer';
 
-const Header = ({ location: { pathname } }) => {
+const Header = ({location: {pathname}}) => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
   const navBackgroundColor =
     pathname === '/delivery' || pathname === '/order-place' ? '#1b1b1b' : '';
 
-  const active = { borderBottom: '3px solid #F46B0D' };
+  const active = {borderBottom: '3px solid #F46B0D'};
 
   return (
     <>
@@ -25,7 +25,7 @@ const Header = ({ location: { pathname } }) => {
         <div
           div
           className='header'
-          style={{ backgroundColor: navBackgroundColor }}
+          style={{backgroundColor: navBackgroundColor}}
         >
           <nav className='navbar container-85'>
             <NavLink to='/'>

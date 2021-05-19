@@ -91,17 +91,19 @@ const SignupScreen = () => {
             />
           </Form.Group>
           <p className='termConditions'>
-            *by clicking sign up button you accept our{' '}
-            <span className='orange ur'>terms and conditions</span> to create
-            our store.
+            *by clicking sign up button you accept our
+            <Link>
+              <span className='orange ur'>terms and conditions</span>
+            </Link>
+            to create our store.
           </p>
           <div className='signupBtnWrapper sb'>
             <Button type='submit'>Signup</Button>
           </div>
         </Form>
         <p className='alreadyAccount um'>
-          Already have account?{' '}
-          <Link to='/login' className='orange um'>
+          Already have account?
+          <Link to='/admin/login' className='orange um'>
             Login
           </Link>
         </p>

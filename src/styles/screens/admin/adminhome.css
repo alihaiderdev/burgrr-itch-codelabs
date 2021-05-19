@@ -1,6 +1,19 @@
 .adminHomeScreen {
   margin: 160px 0;
 }
+
+.addNewProductButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 3px 3px 12px #00000029;
+  padding: 40px;
+  cursor: pointer;
+  width: 520px;
+}
+
 .adminHomeScreen .storeSettingBtn {
   position: absolute;
   top: 200px;
@@ -37,7 +50,13 @@
 .adminHomeScreen .detailsCardLogoWrapper h2 {
   margin-top: 65px !important;
 }
-
+.adminHomeScreen .detailsCard .detailsCardRow {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+  margin-top: 14%;
+  margin-bottom: 20px;
+}
 .adminHomeScreen .detailsCard ul {
   margin-left: 35px !important;
   margin: 0 !important;
@@ -50,10 +69,11 @@
   color: #9c9b9b;
   font-size: 15px;
 }
-.adminHomeScreen .detailsCard .detailsCardRow {
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 20px;
-  margin-top: 14%;
-  margin-bottom: 20px;
+.adminHomeScreen .detailsCard .editProductBtn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  position: absolute;
+  top: 170px;
+  right: -20px;
 }
