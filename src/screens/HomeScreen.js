@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import '../styles/screens/home.css';
-import { Col, Row, Form } from 'react-bootstrap';
+import {Col, Row, Form} from 'react-bootstrap';
 import Card from '../components/Card';
 import HeroSection from '../components/HeroSection';
 
@@ -34,76 +34,76 @@ const HomeScreen = () => {
             </Form>
           </div>
           <Row>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
-            <Col xs={12} sm={12} md={3} lg={3} xl={3}>
+            <Col xs={12} sm={12} md={6} lg={4} xl={3}>
               <Card />
             </Col>
           </Row>

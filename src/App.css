@@ -525,10 +525,33 @@ input.form-control:focus {
   background: white;
 }
 
-/* formik from styling */
-label {
-  font-size: 0.7rem;
+/* Ant Designe Radio Button and Checkbox Styling  */
+.ant-radio-checked .ant-radio-inner {
+  border-color: var(--orange) !important ;
 }
+
+.ant-radio-checked .ant-radio-inner:after {
+  background-color: var(--orange);
+}
+
+.ant-radio:hover .ant-radio-inner {
+  border-color: var(--orange);
+}
+
+.ant-checkbox-wrapper-checked .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--orange);
+  border-color: var(--orange);
+}
+/* .ant-checkbox-wrapper .ant-checkbox .ant-checkbox-input:hover {
+  background-color: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: var(--orange) !important;
+}
+.ant-checkbox-wrapper .ant-checkbox .ant-checkbox-inner:focus {
+  background-color: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: var(--orange) !important;
+} */
 .error {
   position: absolute;
   color: red;

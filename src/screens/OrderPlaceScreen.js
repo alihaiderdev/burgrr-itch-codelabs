@@ -1,19 +1,20 @@
 import React, {useState, useRef, useEffect} from 'react';
 import '../styles/screens/orderPlace.css';
 import {Col, Row, Form} from 'react-bootstrap';
+import {AiOutlineCheck} from 'react-icons/ai';
+import {BsChevronDown} from 'react-icons/bs';
+import {countryCode} from '../data/countryCodeList';
+import {Radio, Input, Space} from 'antd';
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+
 import CartScreenHeader from '../components/CartScreenHeader';
 import EmailAddressIcon from '../assets/icons/Form Icons/EmailAddress.svg';
 import DeliveryDateTimeIcon from '../assets/icons/Form Icons/DeliveryDateTime.svg';
 import ContactNumberIcon from '../assets/icons/Form Icons/ContactNumber.svg';
 import DeliveryAddressIcon from '../assets/icons/Form Icons/DeliveryAddress.svg';
-import {AiOutlineCheck} from 'react-icons/ai';
-import {BsChevronDown} from 'react-icons/bs';
-import {countryCode} from '../data/countryCodeList';
 
 import TextField from '../components/TextField';
-
-import {useFormik} from 'formik';
-import * as Yup from 'yup';
 
 const OrderItem = (qty, price, itemName, addOns = 'Chicken Crispy Burger') => {
   return (
@@ -41,13 +42,14 @@ const OrderPlaceScreen = () => {
     deliveryAddress: '',
     deliveryDateTime: '',
     message: '',
+    paymentMethod: 'Credit Card',
     cardHolderName: '',
     cardNumber: '',
     expiry: '',
     cvv: '',
   });
 
-  const [paymentMethod, setPaymentMethod] = useState('Credit Card');
+  // const [paymentMethod, setPaymentMethod] = useState('Credit Card');
 
   const {
     name,
@@ -57,6 +59,7 @@ const OrderPlaceScreen = () => {
     deliveryAddress,
     deliveryDateTime,
     message,
+    paymentMethod,
     cardHolderName,
     cardNumber,
     expiry,
@@ -64,8 +67,16 @@ const OrderPlaceScreen = () => {
   } = orderInfo;
 
   const onChangeHandler = (e) => {
+    console.log('radio checked', e.target.value);
     setOrderInfo({...orderInfo, [e.target.name]: e.target.value});
   };
+
+  // onChange = (e) => {
+  //   console.log('radio checked', e.target.value);
+  //   this.setState({
+  //     value: e.target.value,
+  //   });
+  // };
 
   const orderSubmitHandler = (e) => {
     e.preventDefault();
@@ -84,48 +95,6 @@ const OrderPlaceScreen = () => {
       cvv,
     });
   };
-
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      contactNumber: '',
-      deliveryAddress: '',
-      deliveryDateTime: '',
-      message: '',
-      cardHolderName: '',
-      cardNumber: '',
-      expiry: '',
-      cvv: '',
-    },
-
-    validationSchema: Yup.object({
-      name: Yup.string().required('Name is required'),
-      email: Yup.string()
-        .email('Email is invalid')
-        .required('Email is required'),
-      contactNumber: Yup.number()
-        .min(11, 'Contact number must be 11 digits or less')
-        .required('Contact number is required'),
-      deliveryAddress: Yup.string().required('Delivery Address is required'),
-      deliveryDateTime: Yup.string().required(
-        'Delivery date and time is required'
-      ),
-      message: Yup.string().required('Message is required'),
-      cardHolderName: Yup.string().required('Card holder name is required'),
-      cardNumber: Yup.number()
-        .min(19, 'Card number must be 19 digits or less')
-        .max(8, 'Card number must be 8 digits or more')
-        .required('Card number is required'),
-      expiry: Yup.date().required('Expiry date is required'),
-      cvv: Yup.number()
-        .max(3, 'CVV must be 3 digits')
-        .required('CVV is required'),
-    }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
 
   // const selectPhoneCodeRef = useRef();
   // const focusPhoneInputText = () => selectPhoneCodeRef.current.focus();
@@ -232,7 +201,7 @@ const OrderPlaceScreen = () => {
                 </Form.Group>
                 <h3 className='um black mb-4'>Payment Method</h3>
                 <div className='onChangeRadioBtnValue'>
-                  <Form.Check
+                  {/* <Form.Check
                     className='modalRadioButtonLabel mb-4'
                     type='radio'
                     checked={paymentMethod === 'Credit Card'}
@@ -241,123 +210,91 @@ const OrderPlaceScreen = () => {
                     label='Credit Card'
                     id='Credit Card'
                     onChange={(e) => setPaymentMethod(e.target.value)}
-                  />
-                  <Form.Group controlId='cardHolderName'>
-                    <Form.Control
-                      required
-                      name='cardHolderName'
-                      type='text'
-                      value={cardHolderName}
-                      onChange={onChangeHandler}
-                    />
-                  </Form.Group>
-                  <Form.Group controlId='cardNumber'>
-                    <Form.Control
-                      required
-                      name='cardNumber'
-                      type='tel'
-                      value={cardNumber}
-                      onChange={onChangeHandler}
-                    />
-                  </Form.Group>
-                  <Form.Row>
-                    <Form.Group as={Col} controlId='expiry'>
-                      <Form.Control
-                        required
-                        name='expiry'
-                        type='date'
-                        value={expiry}
-                        onChange={onChangeHandler}
-                      />
-                      <div className='calenderIcon1'>
-                        <img
-                          src={DeliveryDateTimeIcon}
-                          alt='DeliveryDateTimeIcon'
+                  /> */}
+
+                  <Radio.Group
+                    onChange={onChangeHandler}
+                    defaultValue={paymentMethod}
+                  >
+                    <Space direction='vertical'>
+                      <Radio
+                        value={'Credit Card'}
+                        name='Credit Card'
+                        checked={paymentMethod === 'Credit Card'}
+                      >
+                        Credit Card
+                      </Radio>
+
+                      <Form.Group controlId='cardHolderName'>
+                        <Form.Control
+                          required
+                          name='cardHolderName'
+                          type='text'
+                          value={cardHolderName}
+                          onChange={onChangeHandler}
                         />
-                      </div>
-                    </Form.Group>
-                    <Form.Group as={Col} controlId='cvv'>
-                      <Form.Control
-                        required
-                        name='cvv'
-                        type='number'
-                        value={cvv}
-                        onChange={onChangeHandler}
-                      />
-                    </Form.Group>
-                  </Form.Row>
-                  <Form.Check
-                    className='modalRadioButtonLabel mb-3'
-                    type='radio'
-                    checked={paymentMethod === 'JazzCash'}
-                    value='JazzCash'
-                    label='JazzCash'
-                    id='JazzCash'
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                  />
-                  <Form.Check
-                    className='modalRadioButtonLabel mb-3'
-                    type='radio'
-                    checked={paymentMethod === 'Easypaisa'}
-                    value='Easypaisa'
-                    label='Easypaisa'
-                    id='Easypaisa'
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                  />
-                  <Form.Check
-                    className='modalRadioButtonLabel mb-4'
-                    type='radio'
-                    checked={paymentMethod === 'Cash-on-delivery'}
-                    value='Cash-on-delivery'
-                    label='Cash-on-delivery'
-                    id='Cash-on-delivery'
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                  />
+                      </Form.Group>
+                      <Form.Group controlId='cardNumber'>
+                        <Form.Control
+                          required
+                          name='cardNumber'
+                          type='tel'
+                          value={cardNumber}
+                          onChange={onChangeHandler}
+                        />
+                      </Form.Group>
+                      <Form.Row>
+                        <Form.Group as={Col} controlId='expiry'>
+                          <Form.Control
+                            required
+                            name='expiry'
+                            type='date'
+                            value={expiry}
+                            onChange={onChangeHandler}
+                          />
+                          <div className='calenderIcon1'>
+                            <img
+                              src={DeliveryDateTimeIcon}
+                              alt='DeliveryDateTimeIcon'
+                            />
+                          </div>
+                        </Form.Group>
+                        <Form.Group as={Col} controlId='cvv'>
+                          <Form.Control
+                            required
+                            name='cvv'
+                            type='number'
+                            value={cvv}
+                            onChange={onChangeHandler}
+                          />
+                        </Form.Group>
+                      </Form.Row>
+
+                      <Radio
+                        value={'JazzCash'}
+                        name='JazzCash'
+                        checked={paymentMethod === 'JazzCash'}
+                      >
+                        JazzCash
+                      </Radio>
+                      <Radio
+                        value={'Easypaisa'}
+                        name='Easypaisa'
+                        checked={paymentMethod === 'Easypaisa'}
+                      >
+                        Easypaisa
+                      </Radio>
+                      <Radio
+                        value={'Cash-on-delivery'}
+                        name='Cash-on-delivery'
+                        checked={paymentMethod === 'Cash-on-delivery'}
+                      >
+                        Cash-on-delivery
+                      </Radio>
+                    </Space>
+                  </Radio.Group>
                 </div>
               </Form>
-
-              {/* <form onSubmit={formik.handleSubmit}>
-                <label htmlFor='name'>Name</label>
-                <input
-                  id='name'
-                  name='name'
-                  type='text'
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.name}
-                />
-                {formik.touched.name && formik.errors.name ? (
-                  <div>{formik.errors.name}</div>
-                ) : null}
-
-                <label htmlFor='email'>Email</label>
-                <input
-                  id='email'
-                  name='email'
-                  type='email'
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.email}
-                />
-                {formik.touched.email && formik.errors.email ? (
-                  <div>{formik.errors.email}</div>
-                ) : null}
-
-                <label htmlFor='contactNumber'>Contact Number</label>
-                <input
-                  id='contactNumber'
-                  name='contactNumber'
-                  type='text'
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.contactNumber}
-                />
-                {formik.touched.contactNumber && formik.errors.contactNumber ? (
-                  <div>{formik.errors.contactNumber}</div>
-                ) : null}
-
-                <button type='submit'>Submit</button>
-              </form> */}
             </div>
           </Col>
           <Col xs={12} sm={12} md={6} lg={6} xl={6}>
@@ -412,3 +349,120 @@ const OrderPlaceScreen = () => {
 };
 
 export default OrderPlaceScreen;
+
+// const formik = useFormik({
+//   initialValues: {
+//     name: '',
+//     email: '',
+//     contactNumber: '',
+//     deliveryAddress: '',
+//     deliveryDateTime: '',
+//     message: '',
+//     cardHolderName: '',
+//     cardNumber: '',
+//     expiry: '',
+//     cvv: '',
+//   },
+
+//   validationSchema: Yup.object({
+//     name: Yup.string().required('Name is required'),
+//     email: Yup.string()
+//       .email('Email is invalid')
+//       .required('Email is required'),
+//     contactNumber: Yup.number()
+//       .min(11, 'Contact number must be 11 digits or less')
+//       .required('Contact number is required'),
+//     deliveryAddress: Yup.string().required('Delivery Address is required'),
+//     deliveryDateTime: Yup.string().required(
+//       'Delivery date and time is required'
+//     ),
+//     message: Yup.string().required('Message is required'),
+//     cardHolderName: Yup.string().required('Card holder name is required'),
+//     cardNumber: Yup.number()
+//       .min(19, 'Card number must be 19 digits or less')
+//       .max(8, 'Card number must be 8 digits or more')
+//       .required('Card number is required'),
+//     expiry: Yup.date().required('Expiry date is required'),
+//     cvv: Yup.number()
+//       .max(3, 'CVV must be 3 digits')
+//       .required('CVV is required'),
+//   }),
+//   onSubmit: (values) => {
+//     alert(JSON.stringify(values, null, 2));
+//   },
+// });
+
+{
+  /* <Form.Check
+                    className='modalRadioButtonLabel mb-3'
+                    type='radio'
+                    checked={paymentMethod === 'JazzCash'}
+                    value='JazzCash'
+                    label='JazzCash'
+                    id='JazzCash'
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                  />
+                  <Form.Check
+                    className='modalRadioButtonLabel mb-3'
+                    type='radio'
+                    checked={paymentMethod === 'Easypaisa'}
+                    value='Easypaisa'
+                    label='Easypaisa'
+                    id='Easypaisa'
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                  />
+                  <Form.Check
+                    className='modalRadioButtonLabel mb-4'
+                    type='radio'
+                    checked={paymentMethod === 'Cash-on-delivery'}
+                    value='Cash-on-delivery'
+                    label='Cash-on-delivery'
+                    id='Cash-on-delivery'
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                  /> */
+}
+
+{
+  /* <form onSubmit={formik.handleSubmit}>
+                <label htmlFor='name'>Name</label>
+                <input
+                  id='name'
+                  name='name'
+                  type='text'
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.name}
+                />
+                {formik.touched.name && formik.errors.name ? (
+                  <div>{formik.errors.name}</div>
+                ) : null}
+
+                <label htmlFor='email'>Email</label>
+                <input
+                  id='email'
+                  name='email'
+                  type='email'
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <div>{formik.errors.email}</div>
+                ) : null}
+
+                <label htmlFor='contactNumber'>Contact Number</label>
+                <input
+                  id='contactNumber'
+                  name='contactNumber'
+                  type='text'
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.contactNumber}
+                />
+                {formik.touched.contactNumber && formik.errors.contactNumber ? (
+                  <div>{formik.errors.contactNumber}</div>
+                ) : null}
+
+                <button type='submit'>Submit</button>
+              </form> */
+}

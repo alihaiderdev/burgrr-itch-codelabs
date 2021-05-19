@@ -33,12 +33,6 @@ const StoreSettingsDrawer = ({closeDrawer, visible, placement}) => {
     console.log(key);
   };
 
-  const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
-
   const header = (accordianHeaderTitle) => {
     return (
       <div className='accordainHeader sb '>
@@ -61,9 +55,9 @@ const StoreSettingsDrawer = ({closeDrawer, visible, placement}) => {
       key={placement}
       className='StoreSettingsDrawer'
     >
-      {/* <button className='storeSettingBtn' onClick={closeDrawer}>
+      <button className='storeSettingBtn' onClick={closeDrawer}>
         <BsGear color='white' size='30px' />
-      </button> */}
+      </button>
       <h3 className='ub my-4'>Store Settings</h3>
       <Collapse onChange={toggleCollapse} expandIconPosition='right'>
         <Panel header={header('Store Details')} key='1' showArrow={false}>

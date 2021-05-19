@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import '../styles/components/burgerCardModal.css';
-import { Modal, Form } from 'react-bootstrap';
+import {Modal, Form} from 'react-bootstrap';
 import BurgerIamge from '../assets/images/product.png';
-import { Link } from 'react-router-dom';
-import { AiOutlineClose } from 'react-icons/ai';
+import {Link} from 'react-router-dom';
+import {AiOutlineClose} from 'react-icons/ai';
 import AddonCheckBox from './AddonCheckBox';
 import SidebarDrawer from './SidebarDrawer';
+import {Radio, Space} from 'antd';
 
 const BurgerCardModal = (props) => {
-  const { onHide } = props;
+  const {onHide} = props;
   const selectDrinkList = [
     'Pepsi',
     '7UP',
@@ -78,14 +79,14 @@ const BurgerCardModal = (props) => {
     placement: 'right',
   });
 
-  const { visible, placement } = toggleDrawer;
+  const {visible, placement} = toggleDrawer;
 
   const showDrawer = () => {
-    setToggleDrawer({ ...toggleDrawer, visible: true });
+    setToggleDrawer({...toggleDrawer, visible: true});
   };
 
   const closeDrawer = () => {
-    setToggleDrawer({ ...toggleDrawer, visible: false });
+    setToggleDrawer({...toggleDrawer, visible: false});
   };
 
   const handleSubmitForm = (e) => {
@@ -121,6 +122,11 @@ const BurgerCardModal = (props) => {
     setAddOnsCheckBoxes([...duplicateData]);
   };
 
+  const onChangeHandler = (e) => {
+    console.log('radio checked', e.target.value);
+    setDrinksRadio({...drinksRadio, [e.target.name]: e.target.value});
+  };
+
   return (
     <>
       <Modal
@@ -128,8 +134,9 @@ const BurgerCardModal = (props) => {
         size='lg'
         aria-labelledby='contained-modal-title-vcenter'
         centered
+        className='burgerCardModal'
       >
-        <div className='buegerCardModalLogo'>
+        <div className='burgerCardModalLogo'>
           <img src={BurgerIamge} alt='BurgerIamge' />
         </div>
 
@@ -166,7 +173,7 @@ const BurgerCardModal = (props) => {
                   </Form.Control>
                 </div>
                 <div className='coldrink-main-container'>
-                  <Form.Check
+                  {/* <Form.Check
                     className='mb-2'
                     type='radio'
                     checked={drinksRadio === 'Pepsi'}
@@ -201,7 +208,43 @@ const BurgerCardModal = (props) => {
                     label='Marinda'
                     id='Marinda'
                     onChange={(e) => setDrinksRadio(e.target.value)}
-                  />
+                  /> */}
+
+                  <Radio.Group
+                    onChange={onChangeHandler}
+                    defaultValue={drinksRadio}
+                  >
+                    <Space direction='vertical'>
+                      <Radio
+                        value={'Pepsi'}
+                        name='Pepsi'
+                        checked={drinksRadio === 'Pepsi'}
+                      >
+                        Pepsi
+                      </Radio>
+                      <Radio
+                        value={'Fanta'}
+                        name={'Fanta'}
+                        checked={drinksRadio === 'Fanta'}
+                      >
+                        Fanta
+                      </Radio>
+                      <Radio
+                        value={'7UP'}
+                        name={'7UP'}
+                        checked={drinksRadio === '7UP'}
+                      >
+                        7UP
+                      </Radio>
+                      <Radio
+                        value={'Marinda'}
+                        name={'Marinda'}
+                        checked={drinksRadio === 'Marinda'}
+                      >
+                        Marinda
+                      </Radio>
+                    </Space>
+                  </Radio.Group>
                 </div>
               </div>
 
@@ -227,11 +270,11 @@ const BurgerCardModal = (props) => {
                 </div>
                 <div className='addons-main-container'>
                   {addOnsCheckBoxes &&
-                    addOnsCheckBoxes.map((addon, index) => {
+                    addOnsCheckBoxes.map((addon) => {
                       return (
                         <AddonCheckBox
                           {...addon}
-                          index={index}
+                          addOnsCheckBoxes={addOnsCheckBoxes}
                           handleCheckedCheckbox={handleCheckedCheckbox}
                           qtyIncHandler={qtyIncHandler}
                           qtyDecHandler={qtyDecHandler}
@@ -245,6 +288,7 @@ const BurgerCardModal = (props) => {
                   placeholder='Special Message'
                   as='textarea'
                   rows={4}
+                  className='specialMessage'
                   value={specialMessage}
                   onChange={(e) => setSpecialMessage(e.target.value)}
                 />

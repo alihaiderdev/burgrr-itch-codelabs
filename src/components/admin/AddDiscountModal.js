@@ -31,7 +31,7 @@ const AddDiscountModal = ({addDiscountModal, handleCloseAddDiscountModal}) => {
     <Modal
       show={addDiscountModal}
       onHide={handleCloseAddDiscountModal}
-      //   centered
+      className='addDiscountModal'
     >
       <Modal.Header closeButton>
         <Modal.Title>New Discount Offer</Modal.Title>

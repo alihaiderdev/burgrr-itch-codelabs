@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../../styles/screens/newHome.css';
 import '../../styles/screens/admin/adminhome.css';
+
 import {Col, Row, Tabs, Tab, Form} from 'react-bootstrap';
 import {BsGear} from 'react-icons/bs';
+import {Link} from 'react-router-dom';
 
 import HeroSection from '../../components/HeroSection';
-import {Link} from 'react-router-dom';
 import BurgerritchLogo from '../../assets/icons/BurgerritchLogo.png';
 import HeroSectionBgImage from '../../assets/images/header-bg.png';
 import LocationIcon from '../../assets/icons/Header/Location.svg';
@@ -19,6 +20,8 @@ import Burger from '../../assets/images/product.png';
 import StoreSettingsDrawer from '../../components/admin/StoreSettingsDrawer';
 import burgarCardsInfo from '../../data/burgarCardsInfo';
 import AdminHeader from '../../components/admin/AdminHeader';
+
+import useWindowResize from '../../customHooks/useWindowResize';
 
 const allInOneTab = (
   innerTabImg,
@@ -77,6 +80,10 @@ const AdminHomeScreen = () => {
   const closeDrawer = () => {
     setToggleDrawer({...toggleDrawer, visible: false});
   };
+
+  const [height, width] = useWindowResize();
+
+  console.log({height, width});
 
   return (
     <>

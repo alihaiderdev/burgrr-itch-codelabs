@@ -1,10 +1,12 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
+import {Checkbox} from 'antd';
 
 const AddonCheckBox = ({
   id,
   value,
   isChecked,
+  addOnsCheckBoxes,
   qty,
   price,
   handleCheckedCheckbox,
@@ -13,7 +15,7 @@ const AddonCheckBox = ({
 }) => {
   return (
     <div className='addons-container' key={id}>
-      <Form.Check
+      {/* <Form.Check
         className='mb-2'
         type={'checkbox'}
         onClick={() => handleCheckedCheckbox()}
@@ -21,7 +23,15 @@ const AddonCheckBox = ({
         label={value}
         checked={isChecked}
         value={value}
+      /> */}
+      <Checkbox.Group
+        options={addOnsCheckBoxes}
+        // name={value}
+        defaultValue={['Malai Roll']}
+        onChange={() => handleCheckedCheckbox()}
+        value={value}
       />
+
       <div>
         <span className='ur'>
           PKR <span className='price'>{price}</span>

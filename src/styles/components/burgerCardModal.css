@@ -1,4 +1,4 @@
-.buegerCardModalLogo {
+.burgerCardModalLogo {
   position: absolute;
   top: -64px;
   left: 40px;
@@ -8,7 +8,7 @@
   width: 140px;
   height: 140px;
 }
-.buegerCardModalLogo img {
+.burgerCardModalLogo img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -54,6 +54,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100% !important;
+  margin-bottom: 10px;
 }
 
 .addons-container div span .price {
@@ -83,7 +84,9 @@
   align-items: center;
   justify-content: space-between;
 }
-
+.specialMessage {
+  resize: none;
+}
 .add-to-cart-qty-count {
   display: flex;
   align-items: center;
