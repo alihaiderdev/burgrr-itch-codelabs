@@ -97,7 +97,7 @@ const NewHomeScreen = () => {
                 </Link>
                 <h2>burgrr*itch</h2>
               </div>
-              <Row className='detailsCardRow'>
+              <div className='detailsCardRow'>
                 <Col
                   xs={6}
                   sm={6}
@@ -142,7 +142,7 @@ const NewHomeScreen = () => {
                     </li>
                   </ul>
                 </Col>
-              </Row>
+              </div>
             </div>
           </div>
         </div>
