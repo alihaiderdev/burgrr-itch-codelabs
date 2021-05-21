@@ -199,7 +199,7 @@ const BurgerCardModal = (props) => {
                 <Form.Control
                   placeholder='Special Message'
                   as='textarea'
-                  rows={4}
+                  rows={2}
                   className='specialMessage'
                   value={specialMessage}
                   onChange={(e) => setSpecialMessage(e.target.value)}
