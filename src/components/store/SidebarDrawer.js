@@ -7,6 +7,7 @@ import { Drawer } from 'antd';
 import CartItemCard from './CartItemCard';
 
 import BurgerImage from '../../assets/images/product.png';
+import { AiOutlineClose } from 'react-icons/ai';
 
 // const Drawer = ({ showSidebar, sidebar }) => {
 //   const cartItemsInfo = [
@@ -221,12 +222,16 @@ const SidebarDrawer = ({ closeDrawer, visible, placement }) => {
       visible={visible}
       key={placement}
     >
-      <button onClick={closeDrawer} type='button' className='drawerCloseBtn'>
-        X
-      </button>
-      <div className='your-cart'>
-        <h3>Your Cart</h3>
-        <span className='yourCartCount'>2</span>
+      <div className='yourCartCloseWrapper'>
+        <div className='your-cart'>
+          <h3>Your Cart</h3>
+          <span className='yourCartCount'>2</span>
+        </div>
+        <AiOutlineClose
+          size='25px'
+          className='drawerCloseBtn'
+          onClick={closeDrawer}
+        />
       </div>
       <ul className='cartItems'>
         {cartItemsInfo &&

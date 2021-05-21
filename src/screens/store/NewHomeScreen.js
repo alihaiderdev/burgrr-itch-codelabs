@@ -84,13 +84,8 @@ const NewHomeScreen = () => {
     <>
       <HeroSection image={HeroSectionBgImage} />
       <div className='newHomeScreen'>
-        <div className='container-85'>
-          <div className='searchIconWrapper'>
-            <button onClick={showDrawer}>
-              <img src={CartIconWhite} alt='CartIconWhite' />
-            </button>
-          </div>
-          <div className='cardDetailsSeachWrapper'>
+        <div className='container-85 detailsCardWrapper'>
+          <div className='row'>
             <div className='detailsCard'>
               <div className='detailsCardLogoWrapper'>
                 <Link to='/'>
@@ -149,6 +144,15 @@ const NewHomeScreen = () => {
                 </Col>
               </Row>
             </div>
+          </div>
+        </div>
+        <div className='container-85'>
+          <div className='searchIconWrapper'>
+            <button onClick={showDrawer}>
+              <img src={CartIconWhite} alt='CartIconWhite' />
+            </button>
+          </div>
+          <div className='cardDetailsSeachWrapper'>
             <Form>
               <Form.Group controlId='serach' className='newHomeScreenSearch'>
                 <Form.Control

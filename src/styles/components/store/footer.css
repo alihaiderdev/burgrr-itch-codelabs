@@ -18,19 +18,13 @@
   padding-left: 5rem;
 }
 
-@media screen and (max-width: 845px) {
+@media screen and (max-width: 992px) {
   .linksContainer {
-    margin-bottom: 10rem !important;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 50px !important;
   }
-
   .linksContainer2 {
     padding-left: 0;
   }
 }
-
-/* footer display none  */
-/* @media screen and (max-width: 992px) {
-  .footer {
-    display: none;
-  }
-} */

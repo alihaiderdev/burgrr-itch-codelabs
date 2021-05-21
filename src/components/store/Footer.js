@@ -17,8 +17,8 @@ const Footer = ({ location: { pathname } }) => {
         <div className='footer'>
           <div className='conatiner-85'>
             <Row>
-              <Col xs={12} sm={12} md={4} lg={4} xl={4}>
-                <div className='footerDescription'>
+              <Col xs={12} sm={12} md={12} lg={4} xl={4}>
+                <div className='footerDescription linksContainer'>
                   <h5 className='mb-2 orange'>About Us</h5>
                   <p className='white'>
                     It is a long established fact that a reader will be
@@ -27,7 +27,7 @@ const Footer = ({ location: { pathname } }) => {
                   </p>
                 </div>
               </Col>
-              <Col xs={6} sm={6} md={4} lg={4} xl={4}>
+              <Col xs={12} sm={12} md={12} lg={4} xl={4}>
                 <div className='linksContainer2 linksContainer'>
                   <h5 className='mb-2 orange'>Quick Links</h5>
                   <ul>
@@ -49,7 +49,7 @@ const Footer = ({ location: { pathname } }) => {
                   </ul>
                 </div>
               </Col>
-              <Col xs={6} sm={6} md={4} lg={4} xl={4}>
+              <Col xs={12} sm={12} md={12} lg={4} xl={4}>
                 <div className='linksContainer'>
                   <h5 className='mb-2 orange'>Follow Us</h5>
                   <ul>

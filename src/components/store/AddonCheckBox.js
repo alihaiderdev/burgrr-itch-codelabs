@@ -13,6 +13,9 @@ const AddonCheckBox = ({
   qtyIncHandler,
   qtyDecHandler,
 }) => {
+  function onChange(e) {
+    console.log(`checked = ${e.target.checked}`);
+  }
   return (
     <div className='addons-container' key={id}>
       {/* <Form.Check
@@ -24,13 +27,17 @@ const AddonCheckBox = ({
         checked={isChecked}
         value={value}
       /> */}
-      <Checkbox.Group
+      {/* <Checkbox.Group
         options={addOnsCheckBoxes}
         // name={value}
         defaultValue={['Malai Roll']}
         onChange={() => handleCheckedCheckbox()}
         value={value}
-      />
+      /> */}
+
+      <Checkbox onChange={onChange} value={value} defaultChecked={value}>
+        {value}
+      </Checkbox>
 
       <div>
         <span className='ur'>

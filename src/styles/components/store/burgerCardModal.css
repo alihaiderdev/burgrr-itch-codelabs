@@ -71,23 +71,34 @@
 .form-group #special-message {
   resize: none;
 }
+
+.specialMessage {
+  resize: none;
+}
 .add-to-cart-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
-.add-to-cart-wrapper .price-qty-wrapper,
-.add-to-cart-wrapper .add-to-cart-wrapper {
-  width: 50%;
+.add-to-cart-wrapper .price-qty-wrapper {
+  width: 40%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.specialMessage {
-  resize: none;
+.add-to-cart-wrapper .price-qty-wrapper h4 {
+  font-size: 20px;
 }
-.add-to-cart-qty-count {
+.add-to-cart-wrapper .price-qty-wrapper .add-to-cart-qty-count {
+  font-size: 15px;
+}
+
+.add-to-cart-wrapper .add-to-cart-btn-container {
+  width: 30%;
+  margin-left: 50px;
+}
+.add-to-cart-wrapper .price-qty-wrapper .add-to-cart-qty-count {
   display: flex;
   align-items: center;
   border: 1px solid var(--orange);
@@ -96,7 +107,7 @@
 .add-to-cart-qty-count div,
 .add-to-cart-qty-count .sub,
 .add-to-cart-qty-count .add {
-  padding: 4px 30px;
+  padding: 3px 25px;
   color: var(--orange);
 }
 .add-to-cart-qty-count button.sub {
@@ -114,10 +125,6 @@
   outline: none !important;
   background-color: transparent;
   font-size: 22px;
-}
-.add-to-cart-btn-container {
-  width: 50%;
-  margin-left: 50px;
 }
 
 .add-to-cart-btn-container a {
@@ -141,25 +148,16 @@
   border-radius: 5px;
 }
 
-@media screen and (max-width: 845px) {
+@media screen and (max-width: 992px) {
   .closeModal {
     display: block;
   }
-
-  .coldrink-main-container,
-  .addons-main-container {
-    margin: 0;
-  }
-
-  .buegerCardModalLogo {
-    top: -43px;
-    left: 20px;
-    width: 100px;
-    height: 100px;
-  }
-  .buegerCardModalLogo img {
-    width: 100%;
-    height: 100%;
+  .burgerCardModalLogo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    top: -50px;
+    left: 15px;
   }
   .burgerModalDetails h3 {
     font-size: 20px;
@@ -167,14 +165,12 @@
   .burgerModalDetails p {
     font-size: 14px;
   }
-  .add-to-cart-wrapper .price-qty-wrapper {
-    flex-direction: row-reverse;
+  .burgerModalDetails {
+    margin-left: 30%;
   }
-}
-
-@media screen and (max-width: 992px) {
-  .closeModal {
-    display: block;
+  .coldrink-main-container,
+  .addons-main-container {
+    margin: 0;
   }
   .add-to-cart-wrapper {
     display: block;
@@ -199,24 +195,5 @@
     width: 85% !important;
     margin: 20px 0 5px;
     padding: 14px 0;
-  }
-}
-
-@media (max-width: 992px) and (min-width: 768px) {
-  .closeModal {
-    display: block;
-  }
-  .buegerCardModalLogo {
-    left: 20px;
-    width: 125px;
-    height: 125px;
-  }
-  .buegerCardModalLogo img {
-    width: 100%;
-    height: 100%;
-  }
-  .burgerModalTitle {
-    margin-left: 33%;
-    font-size: 20px;
   }
 }

@@ -1,6 +1,7 @@
 .orderPlaceScreen {
   margin-top: 50px !important;
   margin-bottom: 100px !important;
+  position: relative !important;
 }
 .orderItem {
   border-bottom: 1px solid #707070;
@@ -26,6 +27,16 @@
 .yourInfo_paymentMethodWrapper form .form-group {
   position: relative;
 }
+.yourInfo_paymentMethodWrapper form .form-group .form-control.icon-input {
+  padding-right: 40px;
+}
+.yourInfo_paymentMethodWrapper form .form-group .form-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 8px;
+  right: 15px;
+}
 .yourInfo_paymentMethodWrapper form .form-group .contactNumber {
   padding-left: 80px;
 }
@@ -41,7 +52,7 @@
   right: 22px;
   background-color: white;
 }
-.yourInfo_paymentMethodWrapper form .form-group .countryCodeDropdownArrow {
+/* .yourInfo_paymentMethodWrapper form .form-group .countryCodeDropdownArrow {
   position: absolute;
   top: 13px;
   left: 42px;
@@ -50,19 +61,49 @@
   font-weight: bolder;
   z-index: 100;
   background-color: var(--orange);
-}
+} */
 
 .yourInfo_paymentMethodWrapper form .form-group .countryCodeList {
+  /* background-color: var(--orange) !important; */
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 70px;
   height: 100%;
-  background-color: var(--orange) !important;
+}
+.yourInfo_paymentMethodWrapper form .ant-radio-group {
+  width: 100%;
+}
+.yourInfo_paymentMethodWrapper form .ant-radio-group .ant-space-vertical {
+  width: 100%;
+}
+.yourInfo_paymentMethodWrapper
+  form
+  .form-group
+  .countryCodeList
+  .ant-select-selector {
+  border-radius: 0.25rem !important;
+  align-items: center;
+  background: var(--orange);
+  color: white;
+  height: 100%;
+}
+.yourInfo_paymentMethodWrapper
+  form
+  .form-group
+  .countryCodeList
+  .ant-select-arrow {
   color: white !important;
 }
+.yourInfo_paymentMethodWrapper
+  form
+  .form-group
+  .countryCodeList
+  .ant-select-selector:hover {
+  border-color: var(--orange);
+}
 
-.yourInfo_paymentMethodWrapper form .form-group .countryCodeList::-webkit-scrollbar {
+.yourInfo_paymentMethodWrapper
+  form
+  .form-group
+  .countryCodeList::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
@@ -81,9 +122,14 @@
 .yourInfo_paymentMethodWrapper form .form-group #message {
   resize: none;
 }
+.yourInfo_paymentMethodWrapper .visaMasterCardImagesWrapper img {
+  width: 40px;
+  height: 25px;
+  object-fit: contain;
+}
 
 .yourOrderWrapper {
-  margin-left: 50px;
+  /* margin-left: 50px; */
   margin-top: 10px;
   border: 1px solid #bebebe;
   border-radius: 15px;
@@ -112,6 +158,7 @@
 .yourOrderWrapper .pricesContainer .yourOrderBtnContainer {
   display: flex;
   justify-content: center;
+  z-index: 100;
 }
 
 .yourOrderWrapper .pricesContainer .yourOrderBtnContainer .nextBtn {
@@ -125,7 +172,7 @@
   border-radius: 5px;
   color: white;
   width: 65%;
-  font-size: 25px;
+  /* font-size: px; */
 }
 
 @media screen and (max-width: 768px) {

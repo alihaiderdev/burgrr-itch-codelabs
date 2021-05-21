@@ -4,7 +4,9 @@ import '../../styles/screens/store/orderPlace.css';
 import { Col, Row, Form } from 'react-bootstrap';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
-import { Radio, Input, Space } from 'antd';
+import { Radio, Input, Space, Select } from 'antd';
+import { BiEnvelope, BiCurrentLocation } from 'react-icons/bi';
+import { FiPhone } from 'react-icons/fi';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -16,6 +18,10 @@ import EmailAddressIcon from '../../assets/icons/Form Icons/EmailAddress.svg';
 import DeliveryDateTimeIcon from '../../assets/icons/Form Icons/DeliveryDateTime.svg';
 import ContactNumberIcon from '../../assets/icons/Form Icons/ContactNumber.svg';
 import DeliveryAddressIcon from '../../assets/icons/Form Icons/DeliveryAddress.svg';
+import MasterCardImage from '../../assets/images/mastercard.png';
+import VisaCardImage from '../../assets/images/visa.png';
+
+const { Option } = Select;
 
 const OrderItem = (qty, price, itemName, addOns = 'Chicken Crispy Burger') => {
   return (
@@ -67,17 +73,15 @@ const OrderPlaceScreen = () => {
     cvv,
   } = orderInfo;
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = (e, value) => {
     console.log('radio checked', e.target.value);
+    console.log(`selected ${value}`);
     setOrderInfo({ ...orderInfo, [e.target.name]: e.target.value });
   };
 
-  // onChange = (e) => {
-  //   console.log('radio checked', e.target.value);
-  //   this.setState({
-  //     value: e.target.value,
-  //   });
-  // };
+  function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
 
   const orderSubmitHandler = (e) => {
     e.preventDefault();
@@ -105,7 +109,7 @@ const OrderPlaceScreen = () => {
       <CartScreenHeader />
       <div className='orderPlaceScreen container-85'>
         <Row>
-          <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+          <Col xs={12} sm={12} md={12} lg={6} xl={6}>
             <div className='yourInfo_paymentMethodWrapper'>
               <Form onSubmit={orderSubmitHandler}>
                 <h3 className='um black mb-4'>Your Details</h3>
@@ -116,6 +120,7 @@ const OrderPlaceScreen = () => {
                     type='text'
                     value={name}
                     onChange={onChangeHandler}
+                    placeholder='Your Name'
                   />
                 </Form.Group>
                 <Form.Group controlId='email'>
@@ -125,32 +130,25 @@ const OrderPlaceScreen = () => {
                     type='email'
                     value={email}
                     onChange={onChangeHandler}
+                    placeholder='Email Address'
+                    className='icon-input'
                   />
-                  <img
-                    className='form-icon'
-                    src={EmailAddressIcon}
-                    alt='EmailAddressIcon'
-                  />
+                  <BiEnvelope className='form-icon' />
                 </Form.Group>
                 <Form.Group controlId='contactNumber'>
-                  <BsChevronDown className='countryCodeDropdownArrow' />
-                  <Form.Control
+                  <Select
+                    defaultValue={phoneCode}
+                    style={{ width: 'auto' }}
+                    onChange={handleChange}
                     className='countryCodeList'
-                    as='select'
-                    size='sm'
-                    custom
-                    value={phoneCode}
-                    onChange={onChangeHandler}
-                    name='phoneCode'
-                    // onClick={focusPhoneInputText}
                   >
                     {countryCode &&
                       countryCode.map((c, i) => (
-                        <option key={i} value={c}>
+                        <Option key={i} value={c}>
                           {c}
-                        </option>
+                        </Option>
                       ))}
-                  </Form.Control>
+                  </Select>
                   <Form.Control
                     required
                     // ref={selectPhoneCodeRef}
@@ -158,13 +156,10 @@ const OrderPlaceScreen = () => {
                     type='tel'
                     value={contactNumber}
                     onChange={onChangeHandler}
-                    className='contactNumber'
+                    className='contactNumber icon-input'
+                    placeholder='Contact Number'
                   />
-                  <img
-                    className='form-icon'
-                    src={ContactNumberIcon}
-                    alt='ContactNumberIcon'
-                  />
+                  <FiPhone className='form-icon' />
                 </Form.Group>
                 <Form.Group controlId='address'>
                   <Form.Control
@@ -173,12 +168,10 @@ const OrderPlaceScreen = () => {
                     type='tel'
                     value={deliveryAddress}
                     onChange={onChangeHandler}
+                    className='icon-input'
+                    placeholder='Delivery Address'
                   />
-                  <img
-                    className='form-icon'
-                    src={DeliveryAddressIcon}
-                    alt='DeliveryAddressIcon'
-                  />
+                  <BiCurrentLocation className='form-icon' />
                 </Form.Group>
                 <Form.Group controlId='deliveryDateTime'>
                   <Form.Label>Delivery Time</Form.Label>
@@ -198,11 +191,12 @@ const OrderPlaceScreen = () => {
                     rows={5}
                     value={message}
                     onChange={onChangeHandler}
+                    placeholder='Message for Rider'
                   />
                 </Form.Group>
                 <h3 className='um black mb-4'>Payment Method</h3>
-                <div className='onChangeRadioBtnValue'>
-                  {/* <Form.Check
+
+                {/* <Form.Check
                     className='modalRadioButtonLabel mb-4'
                     type='radio'
                     checked={paymentMethod === 'Credit Card'}
@@ -213,11 +207,12 @@ const OrderPlaceScreen = () => {
                     onChange={(e) => setPaymentMethod(e.target.value)}
                   /> */}
 
-                  <Radio.Group
-                    onChange={onChangeHandler}
-                    defaultValue={paymentMethod}
-                  >
-                    <Space direction='vertical'>
+                <Radio.Group
+                  onChange={onChangeHandler}
+                  defaultValue={paymentMethod}
+                >
+                  <Space direction='vertical'>
+                    <div className='creditCardWrapper sb'>
                       <Radio
                         value={'Credit Card'}
                         name='Credit Card'
@@ -226,79 +221,81 @@ const OrderPlaceScreen = () => {
                         Credit Card
                       </Radio>
 
-                      <Form.Group controlId='cardHolderName'>
-                        <Form.Control
-                          required
-                          name='cardHolderName'
-                          type='text'
-                          value={cardHolderName}
-                          onChange={onChangeHandler}
-                        />
-                      </Form.Group>
-                      <Form.Group controlId='cardNumber'>
-                        <Form.Control
-                          required
-                          name='cardNumber'
-                          type='tel'
-                          value={cardNumber}
-                          onChange={onChangeHandler}
-                        />
-                      </Form.Group>
-                      <Form.Row>
-                        <Form.Group as={Col} controlId='expiry'>
-                          <Form.Control
-                            required
-                            name='expiry'
-                            type='date'
-                            value={expiry}
-                            onChange={onChangeHandler}
-                          />
-                          <div className='calenderIcon1'>
-                            <img
-                              src={DeliveryDateTimeIcon}
-                              alt='DeliveryDateTimeIcon'
-                            />
-                          </div>
-                        </Form.Group>
-                        <Form.Group as={Col} controlId='cvv'>
-                          <Form.Control
-                            required
-                            name='cvv'
-                            type='number'
-                            value={cvv}
-                            onChange={onChangeHandler}
-                          />
-                        </Form.Group>
-                      </Form.Row>
+                      <div className='visaMasterCardImagesWrapper'>
+                        <img src={VisaCardImage} alt='VisaCardImage' />
+                        <img src={MasterCardImage} alt='MasterCardImage' />
+                      </div>
+                    </div>
 
-                      <Radio
-                        value={'JazzCash'}
-                        name='JazzCash'
-                        checked={paymentMethod === 'JazzCash'}
-                      >
-                        JazzCash
-                      </Radio>
-                      <Radio
-                        value={'Easypaisa'}
-                        name='Easypaisa'
-                        checked={paymentMethod === 'Easypaisa'}
-                      >
-                        Easypaisa
-                      </Radio>
-                      <Radio
-                        value={'Cash-on-delivery'}
-                        name='Cash-on-delivery'
-                        checked={paymentMethod === 'Cash-on-delivery'}
-                      >
-                        Cash-on-delivery
-                      </Radio>
-                    </Space>
-                  </Radio.Group>
-                </div>
+                    <Form.Group controlId='cardHolderName'>
+                      <Form.Control
+                        required
+                        name='cardHolderName'
+                        type='text'
+                        value={cardHolderName}
+                        onChange={onChangeHandler}
+                        placeholder='Card Holder Name'
+                      />
+                    </Form.Group>
+                    <Form.Group controlId='cardNumber'>
+                      <Form.Control
+                        required
+                        name='cardNumber'
+                        type='tel'
+                        value={cardNumber}
+                        onChange={onChangeHandler}
+                        placeholder='Card Number'
+                      />
+                    </Form.Group>
+                    <Form.Row>
+                      <Form.Group as={Col} controlId='expiry'>
+                        <Form.Control
+                          required
+                          name='expiry'
+                          type='date'
+                          value={expiry}
+                          onChange={onChangeHandler}
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} controlId='cvv'>
+                        <Form.Control
+                          required
+                          name='cvv'
+                          type='number'
+                          value={cvv}
+                          onChange={onChangeHandler}
+                          placeholder='CVV'
+                        />
+                      </Form.Group>
+                    </Form.Row>
+
+                    <Radio
+                      value={'JazzCash'}
+                      name='JazzCash'
+                      checked={paymentMethod === 'JazzCash'}
+                    >
+                      JazzCash
+                    </Radio>
+                    <Radio
+                      value={'Easypaisa'}
+                      name='Easypaisa'
+                      checked={paymentMethod === 'Easypaisa'}
+                    >
+                      Easypaisa
+                    </Radio>
+                    <Radio
+                      value={'Cash-on-delivery'}
+                      name='Cash-on-delivery'
+                      checked={paymentMethod === 'Cash-on-delivery'}
+                    >
+                      Cash-on-delivery
+                    </Radio>
+                  </Space>
+                </Radio.Group>
               </Form>
             </div>
           </Col>
-          <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+          <Col xs={12} sm={12} md={12} lg={6} xl={6}>
             <div className='yourOrderWrapper'>
               <h3 className='um black mb-4'>Your Order</h3>
               {OrderItem(1, 283, 'Big Mac')}

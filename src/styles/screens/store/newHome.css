@@ -1,6 +1,9 @@
 .newHomeScreen {
   margin: 160px 0;
 }
+.newHomeScreen .detailsCardWrapper {
+  position: relative;
+}
 .newHomeScreen .searchIconWrapper {
   position: absolute;
   top: 60px;
@@ -14,9 +17,8 @@
 
 .newHomeScreen .detailsCard {
   position: absolute;
-  top: 500px;
-  left: 140px;
-  width: 600px !important;
+  top: -260px;
+  width: 600px;
   background-color: #f3f3f3;
   box-shadow: 0px 3px 60px #00000033;
   border-radius: 20px;
@@ -131,9 +133,14 @@
   margin-right: 1.3rem;
 }
 
-@media screen and (max-width: 845px) {
+@media screen and (max-width: 992px) {
   .newHomeScreen {
     margin: 120px 0;
+  }
+  .newHomeScreen .detailsCard {
+    top: -210px;
+    left: 0;
+    width: 100%;
   }
   .newHomeScreenSearch button img {
     top: -1px;

@@ -12,23 +12,6 @@ import SidebarDrawer from '../store/SidebarDrawer';
 
 const BurgerCardModal = (props) => {
   const { onHide } = props;
-  const selectDrinkList = [
-    'Pepsi',
-    '7UP',
-    'Marinda',
-    'Fanta',
-    'Coke',
-    'Due',
-    'Sprite',
-    'Sting',
-  ];
-  const selectAddonsList = [
-    'Malai Roll',
-    'Raita',
-    'Extra Fries',
-    'Extra Bread',
-    'Additional Kabab',
-  ];
 
   const [addOnsCheckBoxes, setAddOnsCheckBoxes] = useState([
     {
@@ -69,12 +52,8 @@ const BurgerCardModal = (props) => {
   ]);
 
   const [drinksRadio, setDrinksRadio] = useState('Pepsi');
-  const [selectDrink, setSelectDrink] = useState('Pepsi');
-  const [selectAddOns, setSelectAddOns] = useState('Malai Roll');
   const [specialMessage, setSpecialMessage] = useState('');
   const [addToCartQtyCount, setAddToCartQtyCount] = useState(0);
-  // const [sidebar, setSidebar] = useState(false);
-  // const showSidebar = () => setSidebar(!sidebar);
 
   const [toggleDrawer, setToggleDrawer] = useState({
     visible: false,
@@ -157,61 +136,8 @@ const BurgerCardModal = (props) => {
               <div className='coldDrinks'>
                 <div className='drinks-wrapper'>
                   <p className='um'>Select Drink</p>
-                  <Form.Control
-                    as='select'
-                    custom
-                    size='sm'
-                    value={selectDrink}
-                    onChange={(e) => setSelectDrink(e.target.value)}
-                    name='selectDrink'
-                    className='selectDrink'
-                  >
-                    {selectDrinkList &&
-                      selectDrinkList.map((d, i) => (
-                        <option key={i} value={d}>
-                          {d}
-                        </option>
-                      ))}
-                  </Form.Control>
                 </div>
                 <div className='coldrink-main-container'>
-                  {/* <Form.Check
-                    className='mb-2'
-                    type='radio'
-                    checked={drinksRadio === 'Pepsi'}
-                    value='Pepsi'
-                    label='Pepsi'
-                    id='Pepsi'
-                    onChange={(e) => setDrinksRadio(e.target.value)}
-                  />
-                  <Form.Check
-                    className='mb-2'
-                    type='radio'
-                    checked={drinksRadio === 'Fanta'}
-                    value='Fanta'
-                    label='Fanta'
-                    id='Fanta'
-                    onChange={(e) => setDrinksRadio(e.target.value)}
-                  />
-                  <Form.Check
-                    className='mb-2'
-                    type='radio'
-                    checked={drinksRadio === '7UP'}
-                    value='7UP'
-                    label='7UP'
-                    id='7UP'
-                    onChange={(e) => setDrinksRadio(e.target.value)}
-                  />
-                  <Form.Check
-                    className='mb-2'
-                    type='radio'
-                    checked={drinksRadio === 'Marinda'}
-                    value='Marinda'
-                    label='Marinda'
-                    id='Marinda'
-                    onChange={(e) => setDrinksRadio(e.target.value)}
-                  /> */}
-
                   <Radio.Group
                     onChange={onChangeHandler}
                     defaultValue={drinksRadio}
@@ -253,22 +179,6 @@ const BurgerCardModal = (props) => {
               <div className='addOns'>
                 <div className='addons-wrapper'>
                   <p className='um'>Add-ons</p>
-                  <Form.Control
-                    as='select'
-                    custom
-                    size='sm'
-                    value={selectAddOns}
-                    onChange={(e) => setSelectAddOns(e.target.value)}
-                    name='selectAddOns'
-                    className='selectAddOns'
-                  >
-                    {selectAddonsList &&
-                      selectAddonsList.map((addon, index) => (
-                        <option key={index} value={addon}>
-                          {addon}
-                        </option>
-                      ))}
-                  </Form.Control>
                 </div>
                 <div className='addons-main-container'>
                   {addOnsCheckBoxes &&

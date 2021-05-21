@@ -538,20 +538,12 @@ input.form-control:focus {
   border-color: var(--orange);
 }
 
-.ant-checkbox-wrapper-checked .ant-checkbox-checked .ant-checkbox-inner {
+.ant-checkbox-wrapper-checked .ant-checkbox-checked .ant-checkbox-inner,
+.ant-checkbox-wrapper .ant-checkbox-checked .ant-checkbox-inner {
   background-color: var(--orange);
   border-color: var(--orange);
 }
-/* .ant-checkbox-wrapper .ant-checkbox .ant-checkbox-input:hover {
-  background-color: var(--orange) !important;
-  border-color: var(--orange) !important;
-  color: var(--orange) !important;
-}
-.ant-checkbox-wrapper .ant-checkbox .ant-checkbox-inner:focus {
-  background-color: var(--orange) !important;
-  border-color: var(--orange) !important;
-  color: var(--orange) !important;
-} */
+
 .error {
   position: absolute;
   color: red;

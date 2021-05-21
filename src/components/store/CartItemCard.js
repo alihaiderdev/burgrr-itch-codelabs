@@ -22,7 +22,7 @@ const CartItemCard = ({ index, img, name, drink, addons, price }) => {
           md={8}
           lg={8}
           xl={8}
-          className='pl-0'
+          // className='pl-0'
         >
           <div className='cartItemCardDescriptionWrapper'>
             <div className='deleteCartItemWrapper'>
