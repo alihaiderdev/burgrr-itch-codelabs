@@ -1,20 +1,21 @@
-import React, {useState, useRef, useEffect} from 'react';
-import '../styles/screens/orderPlace.css';
-import {Col, Row, Form} from 'react-bootstrap';
-import {AiOutlineCheck} from 'react-icons/ai';
-import {BsChevronDown} from 'react-icons/bs';
-import {countryCode} from '../data/countryCodeList';
-import {Radio, Input, Space} from 'antd';
-import {useFormik} from 'formik';
+import React, { useState, useRef, useEffect } from 'react';
+import '../../styles/screens/store/orderPlace.css';
+
+import { Col, Row, Form } from 'react-bootstrap';
+import { AiOutlineCheck } from 'react-icons/ai';
+import { BsChevronDown } from 'react-icons/bs';
+import { Radio, Input, Space } from 'antd';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-import CartScreenHeader from '../components/CartScreenHeader';
-import EmailAddressIcon from '../assets/icons/Form Icons/EmailAddress.svg';
-import DeliveryDateTimeIcon from '../assets/icons/Form Icons/DeliveryDateTime.svg';
-import ContactNumberIcon from '../assets/icons/Form Icons/ContactNumber.svg';
-import DeliveryAddressIcon from '../assets/icons/Form Icons/DeliveryAddress.svg';
+import { countryCode } from '../../data/countryCodeList';
+import CartScreenHeader from '../../components/store/CartScreenHeader';
+import InputField from '../../components/formComponents/InputField';
 
-import TextField from '../components/TextField';
+import EmailAddressIcon from '../../assets/icons/Form Icons/EmailAddress.svg';
+import DeliveryDateTimeIcon from '../../assets/icons/Form Icons/DeliveryDateTime.svg';
+import ContactNumberIcon from '../../assets/icons/Form Icons/ContactNumber.svg';
+import DeliveryAddressIcon from '../../assets/icons/Form Icons/DeliveryAddress.svg';
 
 const OrderItem = (qty, price, itemName, addOns = 'Chicken Crispy Burger') => {
   return (
@@ -68,7 +69,7 @@ const OrderPlaceScreen = () => {
 
   const onChangeHandler = (e) => {
     console.log('radio checked', e.target.value);
-    setOrderInfo({...orderInfo, [e.target.name]: e.target.value});
+    setOrderInfo({ ...orderInfo, [e.target.name]: e.target.value });
   };
 
   // onChange = (e) => {

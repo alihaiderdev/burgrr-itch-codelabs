@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import '../styles/screens/delivery.css';
+import '../../styles/screens/store/delivery.css';
 
 const DeliveryScreen = () => {
   return (

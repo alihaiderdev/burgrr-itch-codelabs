@@ -1,10 +1,11 @@
 import React from 'react';
-import '../styles/components/orderPlace.css';
-import OrderPlaced from '../assets/Illustrations/OrderPlaced.svg';
+import '../../styles/components/store/orderPlace.css';
+
+import OrderPlaced from '../../assets/Illustrations/OrderPlaced.svg';
 
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 
-const OrderPLace = ({ firstStep, prevStep, nextStep, values, current }) => {
+const OrderPlace = ({ firstStep, prevStep, nextStep, values, current }) => {
   console.log('{ current } : ', { current });
 
   return (
@@ -37,4 +38,4 @@ const OrderPLace = ({ firstStep, prevStep, nextStep, values, current }) => {
   );
 };
 
-export default OrderPLace;
+export default OrderPlace;

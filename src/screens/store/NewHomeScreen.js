@@ -1,21 +1,24 @@
-import React, {useState} from 'react';
-import '../styles/screens/newHome.css';
-import {Col, Row, Tabs, Tab, Form} from 'react-bootstrap';
-import HeroSection from '../components/HeroSection';
-import {Link} from 'react-router-dom';
-import BurgerritchLogo from '../assets/icons/BurgerritchLogo.png';
-import HeroSectionBgImage from '../assets/images/header-bg.png';
-import LocationIcon from '../assets/icons/Header/Location.svg';
-import PhoneNumberIcon from '../assets/icons/Header/PhoneNumber.svg';
-import PriceRangeIcon from '../assets/icons/Header/PriceRange.svg';
-import CartIconWhite from '../assets/icons/Header/CartIconWhite.svg';
-import RatingIcon from '../assets/icons/Header/Rating.svg';
-import SearchIcon from '../assets/icons/Header/SearchIcon.svg';
-import TimingIcon from '../assets/icons/Header/Timings.svg';
-import BurgerCard from '../components/BurgerCard';
-import Burger from '../assets/images/product.png';
-import SidebarDrawer from '../components/SidebarDrawer';
-import burgarCardsInfo from '../data/burgarCardsInfo';
+import React, { useState } from 'react';
+import '../../styles/screens/store/newHome.css';
+
+import { Col, Row, Tabs, Tab, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+import BurgerCard from '../../components/store/BurgerCard';
+import HeroSection from '../../components/store/HeroSection';
+import SidebarDrawer from '../../components/store/SidebarDrawer';
+import burgarCardsInfo from '../../data/burgarCardsInfo';
+
+import BurgerritchLogo from '../../assets/icons/BurgerritchLogo.png';
+import HeroSectionBgImage from '../../assets/images/header-bg.png';
+import LocationIcon from '../../assets/icons/Header/Location.svg';
+import PhoneNumberIcon from '../../assets/icons/Header/PhoneNumber.svg';
+import PriceRangeIcon from '../../assets/icons/Header/PriceRange.svg';
+import CartIconWhite from '../../assets/icons/Header/CartIconWhite.svg';
+import RatingIcon from '../../assets/icons/Header/Rating.svg';
+import SearchIcon from '../../assets/icons/Header/SearchIcon.svg';
+import TimingIcon from '../../assets/icons/Header/Timings.svg';
+import Burger from '../../assets/images/product.png';
 
 const allInOneTab = (
   innerTabImg,
@@ -67,14 +70,14 @@ const NewHomeScreen = () => {
     visible: false,
     placement: 'right',
   });
-  const {visible, placement} = toggleDrawer;
+  const { visible, placement } = toggleDrawer;
 
   const showDrawer = () => {
-    setToggleDrawer({...toggleDrawer, visible: true});
+    setToggleDrawer({ ...toggleDrawer, visible: true });
   };
 
   const closeDrawer = () => {
-    setToggleDrawer({...toggleDrawer, visible: false});
+    setToggleDrawer({ ...toggleDrawer, visible: false });
   };
 
   return (

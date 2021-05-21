@@ -1,10 +1,12 @@
 import React from 'react';
-import '../styles/components/footer.css';
-import { Col, Row } from 'react-bootstrap';
-import FacebookImage from '../assets/icons/Social Media Icons/Facebook.svg';
-import InstagramImage from '../assets/icons/Social Media Icons/Instagram.svg';
-import TwitterImage from '../assets/icons/Social Media Icons/Twitter.svg';
+import '../../styles/components/store/footer.css';
+
 import { withRouter } from 'react-router';
+import { Col, Row } from 'react-bootstrap';
+
+import FacebookImage from '../../assets/icons/Social Media Icons/Facebook.svg';
+import InstagramImage from '../../assets/icons/Social Media Icons/Instagram.svg';
+import TwitterImage from '../../assets/icons/Social Media Icons/Twitter.svg';
 
 const Footer = ({ location: { pathname } }) => {
   return (

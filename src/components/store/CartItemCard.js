@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import '../../styles/components/store/cartItemCard.css';
+
 import { Col, Row } from 'react-bootstrap';
-import '../styles/components/cartItemCard.css';
 import { AiOutlineClose } from 'react-icons/ai';
 
 const CartItemCard = ({ index, img, name, drink, addons, price }) => {

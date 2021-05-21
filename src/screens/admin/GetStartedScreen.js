@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../styles/screens/admin/getStarted.css';
 
-import {Col, Row} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import AdminHeader from '../../components/admin/AdminHeader';
 import LandingPageImage from '../../assets/admin-icons-images/LandingPageIllustration.svg';
-import Button from '../../components/Button';
+import Button from '../../components/formComponents/Button';
 
 const GetStartedScreen = () => {
   return (

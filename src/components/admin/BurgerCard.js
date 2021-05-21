@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
-import '../../styles/components/burgerCard.css';
-import {Col, Row} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
-import BurgerCardModal from '../BurgerCardModal';
+import React, { useState } from 'react';
+import '../../styles/components/store/burgerCard.css';
+
+import { Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+import BurgerCardModal from '../store/BurgerCardModal';
 
 const BurgerCard = ({
   cardImage,

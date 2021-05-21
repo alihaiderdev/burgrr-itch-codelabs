@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/screens/error404.css';
+import '../../styles/screens/store/error404.css';
 
 const Error404Screen = ({ match, history, location }) => {
   console.log('{ match, history, location } : ', { match, history, location });

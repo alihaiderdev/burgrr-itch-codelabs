@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import '../styles/screens/placeOrder.css';
-import CartScreenHeader from '../components/CartScreenHeader';
-import PaymentMethodForm from '../components/PaymentMethodForm';
-import PersonalInfoForm from '../components/PersonalInfoForm';
-import ConfirmOrder from '../components/ConfirmOrder';
-import OrderPLace from '../components/OrderPLace';
+import '../../styles/screens/store/placeOrder.css';
+
+import CartScreenHeader from '../../components/store/CartScreenHeader';
+import PaymentMethodForm from '../../components/store/PaymentMethodForm';
+import PersonalInfoForm from '../../components/store/PersonalInfoForm';
+import ConfirmOrder from '../../components/store/ConfirmOrder';
+import OrderPLace from '../../components/store/OrderPlace';
 
 export class PlaceOrderScreen extends Component {
   state = {

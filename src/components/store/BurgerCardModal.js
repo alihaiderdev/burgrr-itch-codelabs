@@ -1,15 +1,17 @@
-import React, {useState} from 'react';
-import '../styles/components/burgerCardModal.css';
-import {Modal, Form} from 'react-bootstrap';
-import BurgerIamge from '../assets/images/product.png';
-import {Link} from 'react-router-dom';
-import {AiOutlineClose} from 'react-icons/ai';
-import AddonCheckBox from './AddonCheckBox';
-import SidebarDrawer from './SidebarDrawer';
-import {Radio, Space} from 'antd';
+import React, { useState } from 'react';
+import '../../styles/components/store/burgerCardModal.css';
+
+import { Modal, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { AiOutlineClose } from 'react-icons/ai';
+import { Radio, Space } from 'antd';
+
+import BurgerIamge from '../../assets/images/product.png';
+import AddonCheckBox from '../store/AddonCheckBox';
+import SidebarDrawer from '../store/SidebarDrawer';
 
 const BurgerCardModal = (props) => {
-  const {onHide} = props;
+  const { onHide } = props;
   const selectDrinkList = [
     'Pepsi',
     '7UP',
@@ -79,14 +81,14 @@ const BurgerCardModal = (props) => {
     placement: 'right',
   });
 
-  const {visible, placement} = toggleDrawer;
+  const { visible, placement } = toggleDrawer;
 
   const showDrawer = () => {
-    setToggleDrawer({...toggleDrawer, visible: true});
+    setToggleDrawer({ ...toggleDrawer, visible: true });
   };
 
   const closeDrawer = () => {
-    setToggleDrawer({...toggleDrawer, visible: false});
+    setToggleDrawer({ ...toggleDrawer, visible: false });
   };
 
   const handleSubmitForm = (e) => {
@@ -124,7 +126,7 @@ const BurgerCardModal = (props) => {
 
   const onChangeHandler = (e) => {
     console.log('radio checked', e.target.value);
-    setDrinksRadio({...drinksRadio, [e.target.name]: e.target.value});
+    setDrinksRadio({ ...drinksRadio, [e.target.name]: e.target.value });
   };
 
   return (

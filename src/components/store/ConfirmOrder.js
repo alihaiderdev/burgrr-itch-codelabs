@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import '../../styles/components/store/cartForms.css';
+
 import { Row, Col, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import '../styles/components/cartForms.css';
+
 import CartItemCard from './CartItemCard';
-import BurgerImage from '../assets/images/product.png';
+import BurgerImage from '../../assets/images/product.png';
 
 export class ConfirmOrder extends Component {
   continue = (e) => {

@@ -3,19 +3,21 @@ import './App.css';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import AboutUsScreen from './screens/AboutUsScreen';
-import ContactUsScreen from './screens/ContactUsScreen';
-import DeliveryScreen from './screens/DeliveryScreen';
-import HomeScreen from './screens/HomeScreen';
-import NewHomeScreen from './screens/NewHomeScreen';
-import Error404Screen from './screens/Error404Screen';
-import PlaceOrderScreen from './screens/PlaceOrderScreen';
-import OrderPlaceScreen from './screens/OrderPlaceScreen';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Footer from './components/store/Footer';
+import Header from './components/store/Header';
 
-// admin site imports
+// store side imports
+import AboutUsScreen from './screens/store/AboutUsScreen';
+import ContactUsScreen from './screens/store/ContactUsScreen';
+import DeliveryScreen from './screens/store/DeliveryScreen';
+import HomeScreen from './screens/store/HomeScreen';
+import NewHomeScreen from './screens/store/NewHomeScreen';
+import Error404Screen from './screens/store/Error404Screen';
+import PlaceOrderScreen from './screens/store/PlaceOrderScreen';
+import OrderPlaceScreen from './screens/store/OrderPlaceScreen';
+
+// admin side imports
 import GetStartedScreen from './screens/admin/GetStartedScreen';
 import SignupScreen from './screens/admin/SignupScreen';
 import LoginScreen from './screens/admin/LoginScreen';

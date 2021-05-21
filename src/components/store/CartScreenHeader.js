@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+
+import '../../styles/components/store/cartScreenHeader.css';
+
 import { withRouter } from 'react-router';
-import '../styles/components/cartScreenHeader.css';
-import TimingIcon from '../assets/icons/Header/Timings.svg';
-import PhoneIcon from '../assets/icons/Header/PhoneNumber.svg';
-import BurgerritchTitleLogo from '../assets/icons/BurgerritchTitleLogo.png';
-import CartIconOrange from '../assets/icons/Header/CartIconOrange.png';
-import CartIconWhite from '../assets/icons/Header/CartIconWhite.svg';
-import SearchIconWhite from '../assets/icons/Header/SearchIconWhite.png';
 import { Link } from 'react-router-dom';
-import Drawer from './SidebarDrawer';
 import { Steps, message } from 'antd';
 import { AiOutlineCheck } from 'react-icons/ai';
+
 import SidebarDrawer from './SidebarDrawer';
+import BurgerritchTitleLogo from '../../assets/icons/BurgerritchTitleLogo.png';
+import TimingIcon from '../../assets/icons/Header/Timings.svg';
+import PhoneIcon from '../../assets/icons/Header/PhoneNumber.svg';
+import CartIconOrange from '../../assets/icons/Header/CartIconOrange.png';
+import CartIconWhite from '../../assets/icons/Header/CartIconWhite.svg';
+import SearchIconWhite from '../../assets/icons/Header/SearchIconWhite.png';
+
 const { Step } = Steps;
 
 const CartScreenHeader = ({ current, onChange, location: { pathname } }) => {

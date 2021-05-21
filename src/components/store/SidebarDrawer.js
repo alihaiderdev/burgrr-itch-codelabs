@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import '../../styles/components/store/sidebarDrawer.css';
+
+import { Link } from 'react-router-dom';
+import { Drawer } from 'antd';
+
 import CartItemCard from './CartItemCard';
-import '../styles/components/sidebarDrawer.css';
-import {Link} from 'react-router-dom';
-import {Drawer} from 'antd';
-import BurgerImage from '../assets/images/product.png';
+
+import BurgerImage from '../../assets/images/product.png';
 
 // const Drawer = ({ showSidebar, sidebar }) => {
 //   const cartItemsInfo = [
@@ -134,7 +137,7 @@ import BurgerImage from '../assets/images/product.png';
 
 // export default Drawer;
 
-const SidebarDrawer = ({closeDrawer, visible, placement}) => {
+const SidebarDrawer = ({ closeDrawer, visible, placement }) => {
   const cartItemsInfo = [
     {
       cardImg: BurgerImage,

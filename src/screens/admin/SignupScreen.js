@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import '../../styles/screens/admin/signup.css';
-import {Button, Form} from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import AdminHeader from '../../components/admin/AdminHeader';
 import EmailAddressIcon from '../../assets/icons/Form Icons/EmailAddress.svg';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SignupScreen = () => {
   const [signupInfo, setSignupInfo] = useState({
@@ -13,10 +13,10 @@ const SignupScreen = () => {
     confirmPassword: '',
   });
 
-  const {email, fullName, password, confirmPassword} = signupInfo;
+  const { email, fullName, password, confirmPassword } = signupInfo;
 
   const onChangeHandler = (e) => {
-    setSignupInfo({...signupInfo, [e.target.name]: e.target.value});
+    setSignupInfo({ ...signupInfo, [e.target.name]: e.target.value });
   };
 
   const signupSubmitHandler = (e) => {
@@ -102,7 +102,7 @@ const SignupScreen = () => {
           </div>
         </Form>
         <p className='alreadyAccount um'>
-          Already have account?
+          Already have account?{' '}
           <Link to='/admin/login' className='orange um'>
             Login
           </Link>

@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
-import '../styles/screens/home.css';
-import {Col, Row, Form} from 'react-bootstrap';
-import Card from '../components/Card';
-import HeroSection from '../components/HeroSection';
+import React, { useState } from 'react';
+import '../../styles/screens/store/home.css';
+import { Col, Row, Form } from 'react-bootstrap';
+
+import Card from '../../components/store/Card';
+import HeroSection from '../../components/store/HeroSection';
 
 const HomeScreen = () => {
   const [search, setSearch] = useState('');

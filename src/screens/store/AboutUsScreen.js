@@ -1,9 +1,12 @@
 import React from 'react';
-import '../styles/screens/aboutUs.css';
-import HotelImage from '../assets/images/aboutus-page-image.jpg';
+import '../../styles/screens/store/aboutUs.css';
+
 import { Col, Container, Row } from 'react-bootstrap';
-import HeroSection from '../components/HeroSection';
-import HeroSectionImage from '../assets/images/hero-section-image.jpg';
+
+import HeroSection from '../../components/store/HeroSection';
+
+import HotelImage from '../../assets/images/aboutus-page-image.jpg';
+// import HeroSectionImage from '../../assets/images/hero-section-image.jpg';
 
 const AboutUsScreen = () => {
   return (
@@ -22,16 +25,18 @@ const AboutUsScreen = () => {
               </div>
             </Col>
             <Col xs={12} sm={12} md={6} lg={6} xl={5}>
-              <h3 className='um mb-4 black'>History</h3>
               <p className='ur m-0'>
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                egestas. Ut arcu libero, pulvinar non massa sed, accumsan scelerisque dui. Morbi
-                purus mauris, vulputate quis felis nec, fermentum aliquam orci. Quisque ornare
-                iaculis placerat. Class aptent taciti sociosqu ad.Pellentesque habitant morbi
-                tristique senectus et netus et malesuada fames ac turpis egestas. Ut arcu libero,
-                pulvinar non massa sed, accumsan scelerisque dui. Morbi purus mauris, vulputate quis
-                felis nec, fermentum aliquam orci. Quisque ornare iaculis placerat. Class aptent
-                taciti sociosqu ad.
+                <h3 className='um mb-4 black'>History</h3>
+                Pellentesque habitant morbi tristique senectus et netus et
+                malesuada fames ac turpis egestas. Ut arcu libero, pulvinar non
+                massa sed, accumsan scelerisque dui. Morbi purus mauris,
+                vulputate quis felis nec, fermentum aliquam orci. Quisque ornare
+                iaculis placerat. Class aptent taciti sociosqu ad.Pellentesque
+                habitant morbi tristique senectus et netus et malesuada fames ac
+                turpis egestas. Ut arcu libero, pulvinar non massa sed, accumsan
+                scelerisque dui. Morbi purus mauris, vulputate quis felis nec,
+                fermentum aliquam orci. Quisque ornare iaculis placerat. Class
+                aptent taciti sociosqu ad.
               </p>
             </Col>
           </Row>

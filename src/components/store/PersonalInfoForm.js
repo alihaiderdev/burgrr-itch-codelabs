@@ -1,10 +1,12 @@
-import React, {useState, Component} from 'react';
-import {Form, Button} from 'react-bootstrap';
-import '../styles/components/cartForms.css';
-import EmailAddressIcon from '../assets/icons/Form Icons/EmailAddress.svg';
-import ContactNumberIcon from '../assets/icons/Form Icons/ContactNumber.svg';
-import DeliveryAddressIcon from '../assets/icons/Form Icons/DeliveryAddress.svg';
-import {AiOutlineArrowRight} from 'react-icons/ai';
+import React, { useState, Component } from 'react';
+import '../../styles/components/store/cartForms.css';
+
+import { Form, Button } from 'react-bootstrap';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+
+import EmailAddressIcon from '../../assets/icons/Form Icons/EmailAddress.svg';
+import ContactNumberIcon from '../../assets/icons/Form Icons/ContactNumber.svg';
+import DeliveryAddressIcon from '../../assets/icons/Form Icons/DeliveryAddress.svg';
 
 export class PersonalInfoForm extends Component {
   continue = (e) => {

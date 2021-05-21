@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import '../styles/components/burgerCard.css';
+
+import '../../styles/components/store/burgerCard.css';
+
 import { Col, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Burger from '../assets/images/product.png';
-import BurgerCardModal from './BurgerCardModal';
+
+import Burger from '../../assets/images/product.png';
+import BurgerCardModal from '../store/BurgerCardModal';
 
 const BurgerCard = ({
   cardImage,

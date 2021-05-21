@@ -1,7 +1,8 @@
 import React, { useState, Component } from 'react';
-import { Form, Button, Col } from 'react-bootstrap';
-import '../styles/components/cartForms.css';
 
+import '../../styles/components/store/cartForms.css';
+
+import { Form, Button, Col } from 'react-bootstrap';
 // import VisacardImage from '../assets/images/visacard-image.png';
 // import VisacardImage from '../assets/images/visacard-image.png';
 // import ContactNumberIcon from '../assets/icons/Form Icons/ContactNumber.svg';

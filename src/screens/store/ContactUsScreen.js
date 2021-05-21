@@ -1,9 +1,12 @@
 import React from 'react';
-import '../styles/screens/contactUs.css';
+import '../../styles/screens/store/contactUs.css';
+
 import { Col, Container, Row } from 'react-bootstrap';
-import HotelImage from '../assets/images/aboutus-page-image.jpg';
-import PhoneIcon from '../assets/icons/Header/PhoneNumber.svg';
-import HeroSection from '../components/HeroSection';
+
+import HeroSection from '../../components/store/HeroSection';
+
+import HotelImage from '../../assets/images/aboutus-page-image.jpg';
+import PhoneIcon from '../../assets/icons/Header/PhoneNumber.svg';
 
 const ContactUsScreen = () => {
   return (

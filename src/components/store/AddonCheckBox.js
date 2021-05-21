@@ -1,6 +1,6 @@
 import React from 'react';
-import {Form} from 'react-bootstrap';
-import {Checkbox} from 'antd';
+import { Form } from 'react-bootstrap';
+import { Checkbox } from 'antd';
 
 const AddonCheckBox = ({
   id,

@@ -1,7 +1,10 @@
 import React from 'react';
-import '../styles/components/card.css';
-import Burger from '../assets/images/product.png';
+
+import '../../styles/components/store/card.css';
+
 import { Link } from 'react-router-dom';
+
+import Burger from '../../assets/images/product.png';
 
 const Card = () => {
   return (

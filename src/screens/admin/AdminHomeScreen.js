@@ -1,12 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import '../../styles/screens/newHome.css';
+import React, { useState } from 'react';
+import '../../styles/screens/store/newHome.css';
 import '../../styles/screens/admin/adminhome.css';
 
-import {Col, Row, Tabs, Tab, Form} from 'react-bootstrap';
-import {BsGear} from 'react-icons/bs';
-import {Link} from 'react-router-dom';
+import { Col, Row, Tabs, Tab, Form } from 'react-bootstrap';
+import { BsGear } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
-import HeroSection from '../../components/HeroSection';
+import HeroSection from '../../components/store/HeroSection';
+import BurgerCard from '../../components/admin/BurgerCard';
+import StoreSettingsDrawer from '../../components/admin/StoreSettingsDrawer';
+import AdminHeader from '../../components/admin/AdminHeader';
+import AddDiscountModal from '../../components/admin/AddDiscountModal';
+
 import BurgerritchLogo from '../../assets/icons/BurgerritchLogo.png';
 import HeroSectionBgImage from '../../assets/images/header-bg.png';
 import LocationIcon from '../../assets/icons/Header/Location.svg';
@@ -15,15 +20,11 @@ import PriceRangeIcon from '../../assets/icons/Header/PriceRange.svg';
 import RatingIcon from '../../assets/icons/Header/Rating.svg';
 import SearchIcon from '../../assets/icons/Header/SearchIcon.svg';
 import TimingIcon from '../../assets/icons/Header/Timings.svg';
-import BurgerCard from '../../components/admin/BurgerCard';
 import Burger from '../../assets/images/product.png';
-import StoreSettingsDrawer from '../../components/admin/StoreSettingsDrawer';
 import burgarCardsInfo from '../../data/burgarCardsInfo';
-import AdminHeader from '../../components/admin/AdminHeader';
 import useWindowResize from '../../customHooks/useWindowResize';
 import EditProductIcon from '../../assets/admin-icons-images/Icons/Edit 1.svg';
 import AddNewProductIcon from '../../assets/admin-icons-images/Icons/add product.svg';
-import AddDiscountModal from '../../components/admin/AddDiscountModal';
 
 const allInOneTab = (
   innerTabImg,
@@ -95,14 +96,14 @@ const AdminHomeScreen = () => {
     visible: false,
     placement: 'left',
   });
-  const {visible, placement} = toggleDrawer;
+  const { visible, placement } = toggleDrawer;
 
   const showDrawer = () => {
-    setToggleDrawer({...toggleDrawer, visible: true});
+    setToggleDrawer({ ...toggleDrawer, visible: true });
   };
 
   const closeDrawer = () => {
-    setToggleDrawer({...toggleDrawer, visible: false});
+    setToggleDrawer({ ...toggleDrawer, visible: false });
   };
 
   const [height, width] = useWindowResize();
