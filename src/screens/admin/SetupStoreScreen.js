@@ -32,12 +32,12 @@ const SetupStoreScreen = ({ history }) => {
   ]);
   const [setupStoreInfo, setSetupStoreInfo] = useState({
     storeName: '',
-    industry: '',
+    industry: 'Food',
     location: {
       street: '',
-      country: '',
-      state: '',
-      city: '',
+      country: 'Pakistan',
+      state: 'Sindh',
+      city: 'Karachi',
     },
   });
 
@@ -56,12 +56,12 @@ const SetupStoreScreen = ({ history }) => {
   };
 
   const onChangeLocationHandler = (e) => {
-    const { value } = e.target;
-    console.log('state : ', value);
-    // setSetupStoreInfo({
-    //   ...setupStoreInfo,
-    //   location: { ...setupStoreInfo.location, [name]: value },
-    // });
+    const { name, value } = e.target;
+    // console.log('state : ', value);
+    setSetupStoreInfo({
+      ...setupStoreInfo,
+      location: { ...setupStoreInfo.location, [name]: value },
+    });
   };
 
   const setupStoreSubmitHandler = (e) => {
@@ -109,7 +109,7 @@ const SetupStoreScreen = ({ history }) => {
               size='large'
               defaultValue={industry}
               style={{ width: '100%' }}
-              onChange={handleChange}
+              onChange={onChangeHandler}
               showSearch
               name='industry'
               value={industry}
