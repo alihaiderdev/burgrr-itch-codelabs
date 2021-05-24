@@ -34,8 +34,11 @@
 }
 
 .StoreSettingsDrawer .placeOrderBtnWrappper {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .StoreSettingsDrawer .placeOrderBtnWrappper button {

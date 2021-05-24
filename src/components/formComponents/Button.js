@@ -3,57 +3,69 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = ({
+  title,
+  type,
+  btnType,
+  onClick,
   icon,
-  btnTitle,
   color,
   backgroundColor,
-  padding,
-  margin,
-  width,
-  height,
   border,
-  borderRadius,
-  boxShadow,
-  children,
-  onClick,
+  outline,
+  style,
 }) => {
   return (
     <>
-      {icon ? (
+      {btnType === 'text' ? (
         <button
-          className='buttonOrange'
+          type={type}
+          className='customButton'
           style={{
-            color,
-            backgroundColor,
-            padding,
-            margin,
-            width,
-            height,
+            backgroundColor: 'transparent',
+            color: '#fd7e14',
             border,
-            borderRadius,
-            boxShadow,
+            outline,
+            ...style,
+            textAlign: 'center',
           }}
           onClick={onClick}
         >
-          {children}
+          {icon && icon}
+          {title && title}
+        </button>
+      ) : btnType === 'outline' ? (
+        <button
+          type={type}
+          className='customButton'
+          style={{
+            backgroundColor: 'transparent',
+            color: '#fd7e14',
+            border: '1px solid #fd7e14',
+            outline,
+            ...style,
+            textAlign: 'center',
+          }}
+          onClick={onClick}
+        >
+          {icon && icon}
+          {title && title}
         </button>
       ) : (
         <button
-          className='buttonOrange'
+          type={type}
+          className='customButton'
           style={{
-            color,
             backgroundColor,
-            padding,
-            margin,
-            width,
-            height,
+            color,
             border,
-            borderRadius,
-            boxShadow,
+            outline,
+            ...style,
+            textAlign: 'center',
           }}
           onClick={onClick}
         >
-          {btnTitle && btnTitle}
+          {icon && icon}
+          {title && title}
         </button>
       )}
     </>
@@ -61,22 +73,18 @@ const Button = ({
 };
 
 Button.propTypes = {
+  type: PropTypes.string,
+  btnType: PropTypes.string,
   icon: PropTypes.element,
   btnTitle: PropTypes.string,
-  color: PropTypes.string,
-  backgroundColor: PropTypes.string,
-  padding: PropTypes.string,
-  margin: PropTypes.string,
-  width: PropTypes.string,
-  height: PropTypes.string,
-  borderRadius: PropTypes.string,
 };
 
 Button.defaultProps = {
+  type: 'contained',
   color: 'white',
-  backgroundColor: '#F46B0D',
-  padding: '15px 50px',
-  margin: '0px',
-  borderRadius: '10px',
+  backgroundColor: '#fd7e14',
+  border: 'none',
+  outline: 'none',
+  fontFamily: 'UbuntuRegular',
 };
 export default Button;

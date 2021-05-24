@@ -161,20 +161,6 @@
   z-index: 100;
 }
 
-.yourOrderWrapper .pricesContainer .yourOrderBtnContainer .nextBtn {
-  display: none;
-}
-.yourOrderWrapper .pricesContainer .yourOrderBtnContainer button {
-  border: none;
-  outline: none;
-  background-color: var(--orange);
-  padding: 5px 20px;
-  border-radius: 5px;
-  color: white;
-  width: 65%;
-  /* font-size: px; */
-}
-
 @media screen and (max-width: 768px) {
   .yourInfo_paymentMethodWrapper {
     margin-right: 0;

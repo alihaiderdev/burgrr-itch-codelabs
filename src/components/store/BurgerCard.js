@@ -20,12 +20,7 @@ const BurgerCard = ({
 
   return (
     <>
-      <Link
-        key={index}
-        to='/'
-        className='black'
-        onClick={() => setModalShow(true)}
-      >
+      <Link key={index} className='black' onClick={() => setModalShow(true)}>
         <div className='burgerCard'>
           <Row>
             <Col xs={3} sm={3} md={3} lg={3} xl={3} className='cardMediaCol'>

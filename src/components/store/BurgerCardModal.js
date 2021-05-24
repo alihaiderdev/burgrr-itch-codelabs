@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import '../../styles/components/store/burgerCardModal.css';
 
 import { Modal, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { AiOutlineClose } from 'react-icons/ai';
+import { Link, withRouter } from 'react-router-dom';
+import { AiOutlineArrowRight, AiOutlineClose } from 'react-icons/ai';
 import { Radio, Space } from 'antd';
 
 import BurgerIamge from '../../assets/images/product.png';
 import AddonCheckBox from '../store/AddonCheckBox';
 import SidebarDrawer from '../store/SidebarDrawer';
+import Button from '../formComponents/Button';
 
 const BurgerCardModal = (props) => {
-  const { onHide } = props;
+  const { onHide, history } = props;
 
   const [addOnsCheckBoxes, setAddOnsCheckBoxes] = useState([
     {
@@ -229,14 +230,26 @@ const BurgerCardModal = (props) => {
                     </button>
                   </div>
                 </div>
+
                 <div className='add-to-cart-btn-container'>
-                  <Link
-                    to='/order-place'
-                    className='addToCart'
-                    onClick={onHide}
-                  >
-                    Add to Cart
-                  </Link>
+                  <Button
+                    onClick={() => {
+                      history.push('/order-place');
+                    }}
+                    title='Add to Cart'
+                    style={{
+                      padding: '10px 0',
+                      borderRadius: '10px',
+                      width: '100%',
+                    }}
+                    // icon={
+                    //   <AiOutlineArrowRight
+                    //     color='white'
+                    //     size='25px'
+                    //     className='btn-icon'
+                    //   />
+                    // }
+                  />
                 </div>
               </div>
             </Form>
@@ -252,4 +265,4 @@ const BurgerCardModal = (props) => {
   );
 };
 
-export default BurgerCardModal;
+export default withRouter(BurgerCardModal);

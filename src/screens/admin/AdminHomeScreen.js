@@ -96,6 +96,7 @@ const AdminHomeScreen = () => {
     visible: false,
     placement: 'left',
   });
+
   const { visible, placement } = toggleDrawer;
 
   const showDrawer = () => {

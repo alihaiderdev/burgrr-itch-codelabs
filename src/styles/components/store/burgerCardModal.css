@@ -127,17 +127,6 @@
   font-size: 22px;
 }
 
-.add-to-cart-btn-container a {
-  background-color: var(--orange);
-  padding: 10px 0;
-  display: block;
-  text-align: center;
-  font-family: 'UbuntuRegular' !important;
-  color: white;
-  border-radius: 10px;
-  width: 100% !important;
-}
-
 .modal-counter-btn {
   border: none;
   outline: none;

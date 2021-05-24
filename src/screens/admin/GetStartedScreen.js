@@ -8,7 +8,7 @@ import AdminHeader from '../../components/admin/AdminHeader';
 import LandingPageImage from '../../assets/admin-icons-images/LandingPageIllustration.svg';
 import Button from '../../components/formComponents/Button';
 
-const GetStartedScreen = () => {
+const GetStartedScreen = ({ history }) => {
   return (
     <>
       <AdminHeader />
@@ -23,13 +23,18 @@ const GetStartedScreen = () => {
                 The All-in-One Online Ordering & Logistics Platform that your
                 users & team will love.
               </p>
-              <Link to='/admin/signup'>
-                <Button
-                  btnTitle='Get Started'
-                  borderRadius='35px'
-                  boxShadow='0px 15px 25px #00000029'
-                />
-              </Link>
+              <Button
+                onClick={() => {
+                  history.push('/admin/signup');
+                }}
+                type='button'
+                title='Get Started'
+                style={{
+                  borderRadius: '35px',
+                  boxShadow: '0px 15px 25px #00000029',
+                  padding: '20px 75px',
+                }}
+              />
             </div>
           </Col>
           <Col xs={12} sm={12} md={6} lg={6} xl={6}>

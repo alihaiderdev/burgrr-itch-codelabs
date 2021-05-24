@@ -1,15 +1,44 @@
 import React, { useState } from 'react';
 import '../../styles/screens/admin/signup.css';
-import { Button, Form } from 'react-bootstrap';
-import AdminHeader from '../../components/admin/AdminHeader';
-import { Link } from 'react-router-dom';
-import { countryName } from '../../data/countryCodeList';
 
-const SetupStoreScreen = () => {
+import { Form } from 'react-bootstrap';
+import { Select } from 'antd';
+import { Link } from 'react-router-dom';
+
+import AdminHeader from '../../components/admin/AdminHeader';
+import { countryName } from '../../data/countryCodeList';
+import Button from '../../components/formComponents/Button';
+import cityList from '../../data/List';
+
+const { Option } = Select;
+
+const SetupStoreScreen = ({ history }) => {
+  const [industryList, setIndustryList] = useState([
+    'Clothes',
+    'Food',
+    'Vegetable',
+    'Meals',
+    'Patroleum',
+    'Automobile',
+  ]);
+  const [stateList, setStateList] = useState([
+    'Sindh',
+    'Azad Jammu and Kashmir',
+    'Balochistan',
+    'Gilgit-Baltistan',
+    'Islamabad Capital Territory',
+    'Khyber Pakhtunkhwa',
+    'Punjab',
+  ]);
   const [setupStoreInfo, setSetupStoreInfo] = useState({
     storeName: '',
-    industry: 'Pakistan',
-    location: { street: '', country: 'Pakistan', state: 'India', city: 'Oman' },
+    industry: '',
+    location: {
+      street: '',
+      country: '',
+      state: '',
+      city: '',
+    },
   });
 
   const {
@@ -24,19 +53,15 @@ const SetupStoreScreen = () => {
       ...setupStoreInfo,
       [name]: value,
     });
-
-    // setSetupStoreInfo((prevState) => ({
-    //   ...prevState,
-    //   [name]: value,
-    // }));
   };
 
   const onChangeLocationHandler = (e) => {
-    const { name, value } = e.target;
-    setSetupStoreInfo({
-      ...setupStoreInfo,
-      location: { ...setupStoreInfo.location, [name]: value },
-    });
+    const { value } = e.target;
+    console.log('state : ', value);
+    // setSetupStoreInfo({
+    //   ...setupStoreInfo,
+    //   location: { ...setupStoreInfo.location, [name]: value },
+    // });
   };
 
   const setupStoreSubmitHandler = (e) => {
@@ -46,8 +71,12 @@ const SetupStoreScreen = () => {
       industry,
       location: { street, country, state, city },
     });
-    alert(storeName, industry, street, country, state, city);
+    history.push('/admin/home');
   };
+
+  function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
 
   return (
     <>
@@ -76,7 +105,24 @@ const SetupStoreScreen = () => {
 
           <Form.Group controlId='industry'>
             <Form.Label>Select your Industry</Form.Label>
-            <Form.Control
+            <Select
+              size='large'
+              defaultValue={industry}
+              style={{ width: '100%' }}
+              onChange={handleChange}
+              showSearch
+              name='industry'
+              value={industry}
+            >
+              {/* <Option value=''>Industry</Option> */}
+              {industryList &&
+                industryList.map((s, i) => (
+                  <Option key={i} value={s}>
+                    {s}
+                  </Option>
+                ))}
+            </Select>
+            {/* <Form.Control
               as='select'
               custom
               value={industry}
@@ -91,7 +137,7 @@ const SetupStoreScreen = () => {
                     </option>
                   );
                 })}
-            </Form.Control>
+            </Form.Control> */}
           </Form.Group>
 
           <Form.Group controlId='street'>
@@ -106,7 +152,24 @@ const SetupStoreScreen = () => {
             />
           </Form.Group>
           <Form.Group controlId='country'>
-            <Form.Control
+            <Select
+              size='large'
+              defaultValue={country}
+              style={{ width: '100%' }}
+              onChange={onChangeLocationHandler}
+              showSearch
+              name='country'
+              value={country}
+            >
+              {/* <Option value=''>Country</Option> */}
+              {countryName &&
+                countryName.map((c, i) => (
+                  <Option key={i} value={c}>
+                    {c}
+                  </Option>
+                ))}
+            </Select>
+            {/* <Form.Control
               as='select'
               custom
               value={country}
@@ -121,10 +184,27 @@ const SetupStoreScreen = () => {
                     </option>
                   );
                 })}
-            </Form.Control>
+            </Form.Control> */}
           </Form.Group>
           <Form.Group controlId='state'>
-            <Form.Control
+            <Select
+              size='large'
+              defaultValue={state}
+              style={{ width: '100%' }}
+              onChange={onChangeLocationHandler}
+              showSearch
+              name='state'
+              value={state}
+            >
+              {/* <Option value=''>State</Option> */}
+              {stateList &&
+                stateList.map((c, i) => (
+                  <Option key={i} value={c}>
+                    {c}
+                  </Option>
+                ))}
+            </Select>
+            {/* <Form.Control
               as='select'
               custom
               value={state}
@@ -139,10 +219,27 @@ const SetupStoreScreen = () => {
                     </option>
                   );
                 })}
-            </Form.Control>
+            </Form.Control> */}
           </Form.Group>
           <Form.Group controlId='city'>
-            <Form.Control
+            <Select
+              size='large'
+              defaultValue={city}
+              style={{ width: '100%' }}
+              onChange={onChangeLocationHandler}
+              showSearch
+              name='city'
+              value={city}
+            >
+              {/* <Option value=''>City</Option> */}
+              {cityList &&
+                cityList.map((c, i) => (
+                  <Option key={i} value={c}>
+                    {c}
+                  </Option>
+                ))}
+            </Select>
+            {/* <Form.Control
               as='select'
               custom
               value={city}
@@ -157,7 +254,7 @@ const SetupStoreScreen = () => {
                     </option>
                   );
                 })}
-            </Form.Control>
+            </Form.Control> */}
           </Form.Group>
 
           <p className='termConditions'>
@@ -166,9 +263,16 @@ const SetupStoreScreen = () => {
             our store.
           </p>
           <div className='signupBtnWrapper'>
-            <Button type='submit' className='mb-4'>
-              Next
-            </Button>
+            <Button
+              title='Next'
+              type='submit'
+              className='mb-4'
+              style={{
+                borderRadius: '5px',
+                padding: '15px 50px',
+                marginBottom: '24px',
+              }}
+            />
             <Link to='/signup' className='orange later'>
               Later
             </Link>

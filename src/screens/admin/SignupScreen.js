@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import '../../styles/screens/admin/signup.css';
-import { Button, Form } from 'react-bootstrap';
-import AdminHeader from '../../components/admin/AdminHeader';
-import EmailAddressIcon from '../../assets/icons/Form Icons/EmailAddress.svg';
+
+import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const SignupScreen = () => {
+import AdminHeader from '../../components/admin/AdminHeader';
+import EmailAddressIcon from '../../assets/icons/Form Icons/EmailAddress.svg';
+import Button from '../../components/formComponents/Button';
+
+const SignupScreen = ({ history }) => {
   const [signupInfo, setSignupInfo] = useState({
     email: '',
     fullName: '',
     password: '',
     confirmPassword: '',
   });
-
   const { email, fullName, password, confirmPassword } = signupInfo;
 
   const onChangeHandler = (e) => {
@@ -27,6 +29,7 @@ const SignupScreen = () => {
       password,
       confirmPassword,
     });
+    history.push('/admin/setup-store');
   };
   return (
     <>
@@ -44,23 +47,16 @@ const SignupScreen = () => {
           <Form.Group controlId='email'>
             <Form.Label>Email Address</Form.Label>
             <Form.Control
-              required
               name='email'
               type='email'
               value={email}
               onChange={onChangeHandler}
               placeholder='someone@email.com'
             />
-            {/* <img
-              className='form-icon'
-              src={EmailAddressIcon}
-              alt='EmailAddressIcon'
-            /> */}
           </Form.Group>
           <Form.Group controlId='fullName'>
             <Form.Label>Fullname</Form.Label>
             <Form.Control
-              required
               name='fullName'
               type='text'
               value={fullName}
@@ -71,7 +67,6 @@ const SignupScreen = () => {
           <Form.Group controlId='password'>
             <Form.Label>Password</Form.Label>
             <Form.Control
-              required
               name='password'
               type='password'
               value={password}
@@ -82,7 +77,6 @@ const SignupScreen = () => {
           <Form.Group controlId='confirmPassword'>
             <Form.Label>Confirm Password</Form.Label>
             <Form.Control
-              required
               name='confirmPassword'
               type='password'
               value={confirmPassword}
@@ -91,14 +85,26 @@ const SignupScreen = () => {
             />
           </Form.Group>
           <p className='termConditions'>
-            *by clicking sign up button you accept our
+            * by clicking sign up button you accept our{' '}
             <Link>
               <span className='orange ur'>terms and conditions</span>
-            </Link>
+            </Link>{' '}
             to create our store.
           </p>
           <div className='signupBtnWrapper sb'>
-            <Button type='submit'>Signup</Button>
+            {/* <button type='submit'>Signup</button> */}
+
+            <Button
+              title='Signup'
+              type='submit'
+              style={{
+                borderRadius: '35px',
+                boxShadow: '0px 15px 25px #00000029',
+                width: '75%',
+                padding: '15px 50px',
+                borderRadius: '5px',
+              }}
+            />
           </div>
         </Form>
         <p className='alreadyAccount um'>

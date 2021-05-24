@@ -3,6 +3,7 @@ import '../../styles/screens/store/newHome.css';
 
 import { Col, Row, Tabs, Tab, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
 
 import BurgerCard from '../../components/store/BurgerCard';
 import HeroSection from '../../components/store/HeroSection';
@@ -149,7 +150,8 @@ const NewHomeScreen = () => {
         <div className='container-85'>
           <div className='searchIconWrapper'>
             <button onClick={showDrawer}>
-              <img src={CartIconWhite} alt='CartIconWhite' />
+              {/* <img src={CartIconWhite} alt='CartIconWhite' /> */}
+              <FaShoppingCart color='white' size='35px' />
             </button>
           </div>
           <div className='cardDetailsSeachWrapper'>

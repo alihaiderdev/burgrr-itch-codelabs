@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import '../../styles/screens/store/orderPlace.css';
 
 import { Col, Row, Form } from 'react-bootstrap';
-import { AiOutlineCheck } from 'react-icons/ai';
+import { AiOutlineArrowRight, AiOutlineCheck } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
 import { Radio, Input, Space, Select } from 'antd';
 import { BiEnvelope, BiCurrentLocation } from 'react-icons/bi';
@@ -20,6 +20,7 @@ import ContactNumberIcon from '../../assets/icons/Form Icons/ContactNumber.svg';
 import DeliveryAddressIcon from '../../assets/icons/Form Icons/DeliveryAddress.svg';
 import MasterCardImage from '../../assets/images/mastercard.png';
 import VisaCardImage from '../../assets/images/visa.png';
+import Button from '../../components/formComponents/Button';
 
 const { Option } = Select;
 
@@ -307,9 +308,17 @@ const OrderPlaceScreen = () => {
                     type='text'
                     placeholder='Discount Coupon (if any)'
                   />
-                  <button onClick={() => {}} className='ur'>
-                    Apply
-                  </button>
+
+                  <Button
+                    title='Apply'
+                    btnType='outline'
+                    // onClick={() => console.log('Clicked')}
+                    style={{
+                      borderRadius: '5px',
+                      padding: '5px 20px',
+                      marginLeft: '10px',
+                    }}
+                  />
                 </Form.Group>
                 <div className='price'>
                   <p className='sb'>
@@ -330,12 +339,29 @@ const OrderPlaceScreen = () => {
                   </p>
                 </div>
                 <div className='yourOrderBtnContainer'>
-                  <button className='tickIconBtn' onClick={orderSubmitHandler}>
-                    <AiOutlineCheck />
-                  </button>
-                  <button className='nextBtn' onClick={orderSubmitHandler}>
-                    Next
-                  </button>
+                  <Button
+                    className='tickIconBtn'
+                    onClick={orderSubmitHandler}
+                    style={{
+                      padding: '10px 20px',
+                      borderRadius: '5px',
+                      width: '65%',
+                      textAlign: 'center',
+                    }}
+                    icon={
+                      <AiOutlineArrowRight
+                        color='white'
+                        size='25px'
+                        className='btn-icon'
+                      />
+                    }
+                  />
+                  <Button
+                    // className='nextBtn'
+                    style={{ display: 'none' }}
+                    onClick={orderSubmitHandler}
+                    btnTitle='Next'
+                  />
                 </div>
               </div>
             </div>
