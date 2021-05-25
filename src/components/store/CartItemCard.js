@@ -8,7 +8,7 @@ const CartItemCard = ({ index, img, name, drink, addons, price }) => {
   const [cartItemCount, setCartItemCount] = useState(0);
 
   return (
-    <div key={`${index}-${Math.random()}`} className='cartItemCard mb-4'>
+    <div className='cartItemCard mb-4'>
       <Row>
         <Col className='imgCol' xs={3} sm={3} md={4} lg={4} xl={4}>
           <div className='cartItemCardImageWrapper'>

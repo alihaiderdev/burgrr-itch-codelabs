@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import '../../styles/components/store/burgerCardModal.css';
 
 import { Modal, Form } from 'react-bootstrap';
-import { Link, withRouter } from 'react-router-dom';
-import { AiOutlineArrowRight, AiOutlineClose } from 'react-icons/ai';
+import { withRouter } from 'react-router-dom';
+import { AiOutlineClose } from 'react-icons/ai';
 import { Radio, Space } from 'antd';
 
 import BurgerIamge from '../../assets/images/product.png';
@@ -55,6 +55,7 @@ const BurgerCardModal = (props) => {
   const [drinksRadio, setDrinksRadio] = useState('Pepsi');
   const [specialMessage, setSpecialMessage] = useState('');
   const [addToCartQtyCount, setAddToCartQtyCount] = useState(0);
+  const [selectedAddOns, setSelectedAddOns] = useState([]);
 
   const [toggleDrawer, setToggleDrawer] = useState({
     visible: false,
@@ -146,7 +147,7 @@ const BurgerCardModal = (props) => {
                     <Space direction='vertical'>
                       <Radio
                         value={'Pepsi'}
-                        name='Pepsi'
+                        name={'Pepsi'}
                         checked={drinksRadio === 'Pepsi'}
                       >
                         Pepsi
@@ -191,6 +192,8 @@ const BurgerCardModal = (props) => {
                           handleCheckedCheckbox={handleCheckedCheckbox}
                           qtyIncHandler={qtyIncHandler}
                           qtyDecHandler={qtyDecHandler}
+                          selectedAddOns={selectedAddOns}
+                          setSelectedAddOns={setSelectedAddOns}
                         />
                       );
                     })}
@@ -242,13 +245,6 @@ const BurgerCardModal = (props) => {
                       borderRadius: '10px',
                       width: '100%',
                     }}
-                    // icon={
-                    //   <AiOutlineArrowRight
-                    //     color='white'
-                    //     size='25px'
-                    //     className='btn-icon'
-                    //   />
-                    // }
                   />
                 </div>
               </div>
