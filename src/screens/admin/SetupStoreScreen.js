@@ -47,20 +47,21 @@ const SetupStoreScreen = ({ history }) => {
     location: { street, country, state, city },
   } = setupStoreInfo;
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = (e,i) => {
     const { name, value } = e.target;
+    console.log(e.target,"state",e,i)
     setSetupStoreInfo({
       ...setupStoreInfo,
       [name]: value,
     });
   };
 
-  const onChangeLocationHandler = (e) => {
-    const { name, value } = e.target;
-    // console.log('state : ', value);
+  const onChangeLocationHandler = (e, n) => {
+    // const { name, value } = e.target;
+    console.log('state : ', e, n);
     setSetupStoreInfo({
       ...setupStoreInfo,
-      location: { ...setupStoreInfo.location, [name]: value },
+      location: { ...setupStoreInfo.location, [n]: e },
     });
   };
 
@@ -109,10 +110,8 @@ const SetupStoreScreen = ({ history }) => {
               size='large'
               defaultValue={industry}
               style={{ width: '100%' }}
-              onChange={onChangeHandler}
+              onChange={(e)=>onChangeHandler(e,'industry')}
               showSearch
-              name='industry'
-              value={industry}
             >
               {/* <Option value=''>Industry</Option> */}
               {industryList &&
@@ -147,7 +146,7 @@ const SetupStoreScreen = ({ history }) => {
               name='street'
               type='text'
               value={street}
-              onChange={onChangeLocationHandler}
+              onChange={(e)=>onChangeLocationHandler(e, "street")}
               placeholder='Street'
             />
           </Form.Group>
@@ -156,9 +155,8 @@ const SetupStoreScreen = ({ history }) => {
               size='large'
               defaultValue={country}
               style={{ width: '100%' }}
-              onChange={onChangeLocationHandler}
+              onChange={(e)=>onChangeLocationHandler(e,"country")}
               showSearch
-              name='country'
               value={country}
             >
               {/* <Option value=''>Country</Option> */}
@@ -191,9 +189,8 @@ const SetupStoreScreen = ({ history }) => {
               size='large'
               defaultValue={state}
               style={{ width: '100%' }}
-              onChange={onChangeLocationHandler}
+              onChange={(e)=>onChangeLocationHandler(e,"state")}
               showSearch
-              name='state'
               value={state}
             >
               {/* <Option value=''>State</Option> */}
@@ -226,9 +223,8 @@ const SetupStoreScreen = ({ history }) => {
               size='large'
               defaultValue={city}
               style={{ width: '100%' }}
-              onChange={onChangeLocationHandler}
+              onChange={(e)=>onChangeLocationHandler(e,"city")}
               showSearch
-              name='city'
               value={city}
             >
               {/* <Option value=''>City</Option> */}
