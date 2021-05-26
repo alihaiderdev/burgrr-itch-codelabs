@@ -13,13 +13,14 @@ const Button = ({
   border,
   outline,
   style,
+  classname,
 }) => {
   return (
     <>
       {btnType === 'text' ? (
         <button
           type={type}
-          className='customButton'
+          className={`customButton ${classname}`}
           style={{
             backgroundColor: 'transparent',
             color: '#fd7e14',
@@ -36,7 +37,7 @@ const Button = ({
       ) : btnType === 'outline' ? (
         <button
           type={type}
-          className='customButton'
+          className={`customButton ${classname}`}
           style={{
             backgroundColor: 'transparent',
             color: '#fd7e14',
@@ -53,7 +54,7 @@ const Button = ({
       ) : (
         <button
           type={type}
-          className='customButton'
+          className={`customButton ${classname}`}
           style={{
             backgroundColor,
             color,

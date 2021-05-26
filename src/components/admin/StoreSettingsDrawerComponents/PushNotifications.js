@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
-import {Form} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Form } from 'react-bootstrap';
 import '../../../styles/components/admin/StoreSettingsDrawerComponents/pushNotifications.css';
+import Button from '../../formComponents/Button';
 
 const PushNotifications = () => {
   const [pushNotifications, setPushNotifications] = useState({
@@ -8,7 +9,7 @@ const PushNotifications = () => {
     email: '',
   });
 
-  const {phoneNumber, email} = pushNotifications;
+  const { phoneNumber, email } = pushNotifications;
 
   const onChangeHandler = (e) => {
     setPushNotifications({
@@ -17,13 +18,17 @@ const PushNotifications = () => {
     });
   };
 
+  const pushNotificationsSubmitHandler = (e) => {
+    e.preventDefault();
+    console.log({ phoneNumber, email });
+  };
+
   return (
     <div className='pushNotifications'>
-      <Form>
+      <Form onSubmit={pushNotificationsSubmitHandler}>
         <Form.Group controlId='phoneNumber'>
           <Form.Label>Phone Number</Form.Label>
           <Form.Control
-            required
             name='phoneNumber'
             type='tel'
             value={phoneNumber}
@@ -34,7 +39,6 @@ const PushNotifications = () => {
         <Form.Group controlId='email'>
           <Form.Label>Email</Form.Label>
           <Form.Control
-            required
             name='email'
             type='email'
             value={email}
@@ -42,6 +46,29 @@ const PushNotifications = () => {
             placeholder='someone@email.com'
           />
         </Form.Group>
+        <div className='sb'>
+          <Button
+            title='Cancle'
+            btnType='outline'
+            type='button'
+            className='mb-4'
+            style={{
+              borderRadius: '5px',
+              padding: '8px 50px',
+              margin: '10px 0',
+            }}
+          />
+          <Button
+            title='Save Changes'
+            type='submit'
+            className='mb-4'
+            style={{
+              borderRadius: '5px',
+              padding: '10px 50px',
+              margin: '10px 0',
+            }}
+          />
+        </div>
       </Form>
     </div>
   );

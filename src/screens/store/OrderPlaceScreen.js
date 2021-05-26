@@ -234,8 +234,6 @@ const OrderPlaceScreen = () => {
                 <Form.Group controlId='deliveryDateTime'>
                   <Form.Label>Delivery Time</Form.Label>
                   <TimePicker
-                    // value={deliveryDateTime}
-                    // use12Hours
                     defaultValue={moment('12:00:00', format)}
                     format={format}
                     onChange={handleTimeChange}

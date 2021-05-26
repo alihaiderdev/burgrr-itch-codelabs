@@ -1,45 +1,63 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import '../../../styles/components/admin/StoreSettingsDrawerComponents/paymentSetup.css';
 
-import {Form} from 'react-bootstrap';
-import {Radio, Space} from 'antd';
+import { Form } from 'react-bootstrap';
+import { Radio, Space, Checkbox } from 'antd';
+import Button from '../../formComponents/Button';
 
 const PaymentSetup = () => {
-  const [paymentMethod, setPaymentMethod] = useState('Cash on Delivery');
+  const [options, setOptions] = useState([
+    { label: 'Cash on Delivery', value: 'Cash on Delivery' },
+    { label: 'Card on Delivery', value: 'Card on Delivery' },
+  ]);
+  // const options = [
+  //   { label: 'Cash on Delivery', value: 'Cash on Delivery' },
+  //   { label: 'Card on Delivery', value: 'Card on Delivery' },
+  // ];
+  let selectedMethods = [];
+  const selectedOptions = (selectedValues) => {
+    selectedMethods = selectedValues;
+    console.log({ selectedValues });
+  };
 
-  const onChange = (e) => {
-    console.log('radio checked : ', e.target.value);
-    setPaymentMethod(e.target.value);
+  const paymentSetupSubmitHandler = (e) => {
+    e.preventDefault();
+    console.log({ selectedMethods });
   };
 
   return (
     <div className='paymentSetup'>
-      {/* <Form>
-        <Form.Check
-          className='mb-3 ur'
-          type='radio'
-          checked={paymentMethod === 'Cash on Delivery'}
-          value='Cash on Delivery'
-          label='Cash on Delivery'
-          id='Cash on Delivery'
-          onChange={(e) => setPaymentMethod(e.target.value)}
+      <Form onSubmit={paymentSetupSubmitHandler}>
+        <Checkbox.Group
+          options={options}
+          defaultValue={['Cash on Delivery']}
+          onChange={selectedOptions}
         />
-        <Form.Check
-          className='mb-3 ur'
-          type='radio'
-          checked={paymentMethod === 'Card on Delivery'}
-          value='Card on Delivery'
-          label='Card on Delivery'
-          id='Card on Delivery'
-          onChange={(e) => setPaymentMethod(e.target.value)}
-        />
-      </Form> */}
-      <Radio.Group onChange={onChange} value={paymentMethod}>
-        <Space direction='vertical'>
-          <Radio value={'Cash on Delivery'}>Cash on Delivery</Radio>
-          <Radio value={'Card on Delivery'}>Card on Delivery</Radio>
-        </Space>
-      </Radio.Group>
+
+        <div className='sb'>
+          <Button
+            title='Cancle'
+            btnType='outline'
+            type='button'
+            className='mb-4'
+            style={{
+              borderRadius: '5px',
+              padding: '8px 50px',
+              margin: '10px 0',
+            }}
+          />
+          <Button
+            title='Save Changes'
+            type='submit'
+            className='mb-4'
+            style={{
+              borderRadius: '5px',
+              padding: '10px 50px',
+              margin: '10px 0',
+            }}
+          />
+        </div>
+      </Form>
     </div>
   );
 };

@@ -3,8 +3,16 @@
   outline: none;
   background-color: transparent;
 }
+.offers div {
+  cursor: pointer;
+}
 
-.offers .discountsListWrapper li {
-  border-bottom: 1px solid rgb(212, 204, 204);
+.offers .discountsListWrapper li,
+.offers .couponsListWrapper li {
+  border-bottom: 2px solid rgb(212, 204, 204);
   padding: 10px 0 5px;
+}
+.offers .discountsListWrapper li:last-child,
+.offers .couponsListWrapper li:last-child {
+  border-bottom: none;
 }

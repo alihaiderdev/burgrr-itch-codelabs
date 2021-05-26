@@ -13,6 +13,16 @@ import cityList from '../../data/List';
 const { Option } = Select;
 
 const SetupStoreScreen = ({ history }) => {
+  const [setupStoreInfo, setSetupStoreInfo] = useState({
+    storeName: '',
+    industry: 'Food',
+    location: {
+      street: '',
+      country: 'Pakistan',
+      state: 'Sindh',
+      city: 'Karachi',
+    },
+  });
   const [industryList, setIndustryList] = useState([
     'Clothes',
     'Food',
@@ -30,16 +40,6 @@ const SetupStoreScreen = ({ history }) => {
     'Khyber Pakhtunkhwa',
     'Punjab',
   ]);
-  const [setupStoreInfo, setSetupStoreInfo] = useState({
-    storeName: '',
-    industry: 'Food',
-    location: {
-      street: '',
-      country: 'Pakistan',
-      state: 'Sindh',
-      city: 'Karachi',
-    },
-  });
 
   const {
     storeName,
@@ -47,21 +47,31 @@ const SetupStoreScreen = ({ history }) => {
     location: { street, country, state, city },
   } = setupStoreInfo;
 
-  const onChangeHandler = (e,i) => {
-    const { name, value } = e.target;
-    console.log(e.target,"state",e,i)
+  const handleOnChangeStoreName = (e) => {
     setSetupStoreInfo({
       ...setupStoreInfo,
-      [name]: value,
+      storeName: e.target.value,
+    });
+  };
+  const handleOnChangeStreet = (e) => {
+    setSetupStoreInfo({
+      ...setupStoreInfo,
+      location: { ...setupStoreInfo.location, street: e.target.value },
     });
   };
 
-  const onChangeLocationHandler = (e, n) => {
-    // const { name, value } = e.target;
-    console.log('state : ', e, n);
+  const onChangeHandler = (v, n) => {
+    console.log({ v, n });
     setSetupStoreInfo({
       ...setupStoreInfo,
-      location: { ...setupStoreInfo.location, [n]: e },
+      [n]: v,
+    });
+  };
+
+  const onChangeLocationHandler = (v, n) => {
+    setSetupStoreInfo({
+      ...setupStoreInfo,
+      location: { ...setupStoreInfo.location, [n]: v },
     });
   };
 
@@ -72,12 +82,8 @@ const SetupStoreScreen = ({ history }) => {
       industry,
       location: { street, country, state, city },
     });
-    history.push('/admin/home');
+    history.push('/admin/pricing');
   };
-
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
 
   return (
     <>
@@ -99,7 +105,7 @@ const SetupStoreScreen = ({ history }) => {
               name='storeName'
               type='text'
               value={storeName}
-              onChange={onChangeHandler}
+              onChange={handleOnChangeStoreName}
               placeholder='i.e, Burger O Clock'
             />
           </Form.Group>
@@ -110,10 +116,9 @@ const SetupStoreScreen = ({ history }) => {
               size='large'
               defaultValue={industry}
               style={{ width: '100%' }}
-              onChange={(e)=>onChangeHandler(e,'industry')}
+              onChange={(e) => onChangeHandler(e, 'industry')}
               showSearch
             >
-              {/* <Option value=''>Industry</Option> */}
               {industryList &&
                 industryList.map((s, i) => (
                   <Option key={i} value={s}>
@@ -121,32 +126,15 @@ const SetupStoreScreen = ({ history }) => {
                   </Option>
                 ))}
             </Select>
-            {/* <Form.Control
-              as='select'
-              custom
-              value={industry}
-              onChange={onChangeHandler}
-              name='industry'
-            >
-              {countryName &&
-                countryName.map((cn, i) => {
-                  return (
-                    <option key={i} value={cn}>
-                      {cn}
-                    </option>
-                  );
-                })}
-            </Form.Control> */}
           </Form.Group>
 
           <Form.Group controlId='street'>
             <Form.Label>Store Location</Form.Label>
             <Form.Control
-              // required
               name='street'
               type='text'
               value={street}
-              onChange={(e)=>onChangeLocationHandler(e, "street")}
+              onChange={handleOnChangeStreet}
               placeholder='Street'
             />
           </Form.Group>
@@ -155,11 +143,10 @@ const SetupStoreScreen = ({ history }) => {
               size='large'
               defaultValue={country}
               style={{ width: '100%' }}
-              onChange={(e)=>onChangeLocationHandler(e,"country")}
+              onChange={(e) => onChangeLocationHandler(e, 'country')}
               showSearch
               value={country}
             >
-              {/* <Option value=''>Country</Option> */}
               {countryName &&
                 countryName.map((c, i) => (
                   <Option key={i} value={c}>
@@ -167,33 +154,16 @@ const SetupStoreScreen = ({ history }) => {
                   </Option>
                 ))}
             </Select>
-            {/* <Form.Control
-              as='select'
-              custom
-              value={country}
-              onChange={onChangeLocationHandler}
-              name='country'
-            >
-              {countryName &&
-                countryName.map((cn, i) => {
-                  return (
-                    <option key={i} value={cn}>
-                      {cn}
-                    </option>
-                  );
-                })}
-            </Form.Control> */}
           </Form.Group>
           <Form.Group controlId='state'>
             <Select
               size='large'
               defaultValue={state}
               style={{ width: '100%' }}
-              onChange={(e)=>onChangeLocationHandler(e,"state")}
+              onChange={(e) => onChangeLocationHandler(e, 'state')}
               showSearch
               value={state}
             >
-              {/* <Option value=''>State</Option> */}
               {stateList &&
                 stateList.map((c, i) => (
                   <Option key={i} value={c}>
@@ -201,33 +171,16 @@ const SetupStoreScreen = ({ history }) => {
                   </Option>
                 ))}
             </Select>
-            {/* <Form.Control
-              as='select'
-              custom
-              value={state}
-              onChange={onChangeLocationHandler}
-              name='state'
-            >
-              {countryName &&
-                countryName.map((cn, i) => {
-                  return (
-                    <option key={i} value={cn}>
-                      {cn}
-                    </option>
-                  );
-                })}
-            </Form.Control> */}
           </Form.Group>
           <Form.Group controlId='city'>
             <Select
               size='large'
               defaultValue={city}
               style={{ width: '100%' }}
-              onChange={(e)=>onChangeLocationHandler(e,"city")}
+              onChange={(e) => onChangeLocationHandler(e, 'city')}
               showSearch
               value={city}
             >
-              {/* <Option value=''>City</Option> */}
               {cityList &&
                 cityList.map((c, i) => (
                   <Option key={i} value={c}>
@@ -235,22 +188,6 @@ const SetupStoreScreen = ({ history }) => {
                   </Option>
                 ))}
             </Select>
-            {/* <Form.Control
-              as='select'
-              custom
-              value={city}
-              onChange={onChangeLocationHandler}
-              name='city'
-            >
-              {countryName &&
-                countryName.map((cn, i) => {
-                  return (
-                    <option key={i} value={cn}>
-                      {cn}
-                    </option>
-                  );
-                })}
-            </Form.Control> */}
           </Form.Group>
 
           <p className='termConditions'>

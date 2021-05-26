@@ -1,0 +1,9 @@
+.pricingScreen div {
+  text-align: center;
+}
+.pricingScreen .row .col-md-4 {
+  text-align: center;
+}
+.pricingScreen .row {
+  margin: 50px 0 100px;
+}

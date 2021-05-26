@@ -96,6 +96,12 @@ form {
   justify-content: space-around;
 }
 
+.se {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .center {
   display: flex;
   align-items: center;
@@ -590,6 +596,26 @@ input.form-control:focus {
   font-family: UbuntuRegular;
 }
 
+.ant-checkbox-group {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.ant-checkbox-group .ant-checkbox-wrapper {
+  margin-bottom: 10px !important;
+}
+
+.ant-select-selector:hover {
+  border-color: var(--orange) !important;
+}
+.ant-select-selector:focus {
+  box-shadow: none !important;
+}
+
+.ant-input-group-wrapper .ant-input-wrapper.ant-input-group input:focus,
+.ant-input-group-wrapper .ant-input-wrapper.ant-input-group input:hover {
+  border-color: var(--orange);
+}
 /* .form-group .form-control {
   background-color: transparent !important;
 } */
