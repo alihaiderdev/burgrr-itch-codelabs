@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="58.041" height="58.041" viewBox="0 0 58.041 58.041">
+  <defs>
+    <filter id="Ellipse_73" x="0" y="0" width="58.041" height="58.041" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <path id="Path_274" data-name="Path 274" d="M-342.538,296.423h-12.667v5.252h7.292c-.68,3.337-3.522,5.252-7.292,5.252a8.017,8.017,0,0,1-8.033-8.033,8.017,8.017,0,0,1,8.033-8.033,7.859,7.859,0,0,1,5.005,1.792l3.955-3.955a13.532,13.532,0,0,0-8.96-3.4A13.555,13.555,0,0,0-368.8,298.894a13.555,13.555,0,0,0,13.594,13.594c6.8,0,12.976-4.943,12.976-13.594A11.278,11.278,0,0,0-342.538,296.423Z" transform="translate(368.8 -285.3)"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1530" data-name="Group 1530" transform="translate(388.891 -268.7)">
+    <g transform="matrix(1, 0, 0, 1, -388.89, 268.7)" filter="url(#Ellipse_73)">
+      <circle id="Ellipse_73-2" data-name="Ellipse 73" cx="20.021" cy="20.021" r="20.021" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <g id="Group_1529" data-name="Group 1529" transform="translate(-373.156 281.25)">
+      <g id="Group_1523" data-name="Group 1523" transform="translate(0 0)" clip-path="url(#clip-path)">
+        <path id="Path_273" data-name="Path 273" d="M-370.8,310.366V294.3l10.5,8.033Z" transform="translate(369.564 -288.739)" fill="#fbbc05"/>
+      </g>
+      <g id="Group_1524" data-name="Group 1524" transform="translate(0 0)" clip-path="url(#clip-path)">
+        <path id="Path_275" data-name="Path 275" d="M-370.8,290.1l10.5,8.033,4.325-3.769,14.83-2.41V283.3H-370.8Z" transform="translate(369.564 -284.536)" fill="#ea4335"/>
+      </g>
+      <g id="Group_1526" data-name="Group 1526" transform="translate(0 0)">
+        <g id="Group_1525" data-name="Group 1525" clip-path="url(#clip-path)">
+          <path id="Path_277" data-name="Path 277" d="M-370.8,306.163l18.538-14.212,4.882.618,6.241-9.269v29.66H-370.8Z" transform="translate(369.564 -284.536)" fill="#34a853"/>
+        </g>
+      </g>
+      <g id="Group_1528" data-name="Group 1528" transform="translate(0 0)">
+        <g id="Group_1527" data-name="Group 1527" clip-path="url(#clip-path)">
+          <path id="Path_279" data-name="Path 279" d="M-336.173,317.163l-19.156-14.83-2.472-1.854,21.627-6.179Z" transform="translate(364.597 -288.739)" fill="#4285f4"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

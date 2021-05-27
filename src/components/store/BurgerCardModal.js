@@ -177,7 +177,6 @@ const BurgerCardModal = (props) => {
                   </Radio.Group>
                 </div>
               </div>
-
               <div className='addOns'>
                 <div className='addons-wrapper'>
                   <p className='um'>Add-ons</p>

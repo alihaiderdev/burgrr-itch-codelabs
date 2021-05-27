@@ -22,6 +22,7 @@ import InputField from '../../components/formComponents/InputField';
 import MasterCardImage from '../../assets/images/mastercard.png';
 import VisaCardImage from '../../assets/images/visa.png';
 import Button from '../../components/formComponents/Button';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 const { Option } = Select;
 
@@ -42,6 +43,8 @@ const OrderItem = (qty, price, itemName, addOns = 'Chicken Crispy Burger') => {
 };
 
 const OrderPlaceScreen = () => {
+  ScrollToTop();
+
   // console.log(`selected :  ${value}`);
 
   const [orderInfo, setOrderInfo] = useState({
@@ -173,7 +176,6 @@ const OrderPlaceScreen = () => {
                 <h3 className='um black mb-4'>Your Details</h3>
                 <Form.Group controlId='name'>
                   <Form.Control
-                    required
                     name='name'
                     type='text'
                     value={name}
@@ -183,7 +185,6 @@ const OrderPlaceScreen = () => {
                 </Form.Group>
                 <Form.Group controlId='email'>
                   <Form.Control
-                    required
                     name='email'
                     type='email'
                     value={email}
@@ -208,7 +209,6 @@ const OrderPlaceScreen = () => {
                       ))}
                   </Select>
                   <Form.Control
-                    required
                     // ref={selectPhoneCodeRef}
                     name='contactNumber'
                     type='tel'
@@ -221,7 +221,6 @@ const OrderPlaceScreen = () => {
                 </Form.Group>
                 <Form.Group controlId='address'>
                   <Form.Control
-                    required
                     name='deliveryAddress'
                     type='tel'
                     value={deliveryAddress}
@@ -242,7 +241,6 @@ const OrderPlaceScreen = () => {
                 </Form.Group>
                 <Form.Group controlId='message'>
                   <Form.Control
-                    required
                     name='message'
                     as='textarea'
                     rows={5}
@@ -275,7 +273,6 @@ const OrderPlaceScreen = () => {
 
                     <Form.Group controlId='cardHolderName'>
                       <Form.Control
-                        required
                         name='cardHolderName'
                         type='text'
                         value={cardHolderName}
@@ -285,7 +282,6 @@ const OrderPlaceScreen = () => {
                     </Form.Group>
                     <Form.Group controlId='cardNumber'>
                       <Form.Control
-                        required
                         name='cardNumber'
                         type='tel'
                         value={cardNumber}
@@ -301,17 +297,9 @@ const OrderPlaceScreen = () => {
                           format={dateFormatList}
                           onChange={handleDateChange}
                         />
-                        {/* <Form.Control
-                          required
-                          name='expiry'
-                          type='date'
-                          value={expiry}
-                          onChange={onChangeHandler}
-                        /> */}
                       </Form.Group>
                       <Form.Group as={Col} controlId='cvv'>
                         <Form.Control
-                          required
                           name='cvv'
                           type='text'
                           value={cvv}

@@ -3,13 +3,15 @@ import '../../styles/screens/admin/whyUs.css';
 
 import AdminHeader from '../../components/admin/AdminHeader';
 
-const whyUsScreen = () => {
+const WhyUsScreen = () => {
   return (
     <>
       <AdminHeader />
-      <div className='whyUsScreen container-85'>whyUsScreen</div>
+      <div className='whyUsScreen container-85 container-y center'>
+        WhyUsScreen
+      </div>
     </>
   );
 };
 
-export default whyUsScreen;
+export default WhyUsScreen;

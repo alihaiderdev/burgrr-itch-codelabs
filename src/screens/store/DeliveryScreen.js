@@ -1,8 +1,11 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import '../../styles/screens/store/delivery.css';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 const DeliveryScreen = () => {
+  ScrollToTop();
+
   return (
     <div className='deliveryScreen'>
       <Container>

@@ -16,7 +16,7 @@ const PricingCard = ({
   return (
     <>
       {title === 'Custom' ? (
-        <div className='pricingCard'>
+        <div className='pricingCard pricingCardFixed'>
           <div className='pricingCard-header'>
             {mostValued && <span className='mostValued'>{mostValued}</span>}
             {title && <h4 className='m-0 white'>{title}</h4>}
@@ -35,7 +35,7 @@ const PricingCard = ({
             <div className='pricingCard-footer'>
               <Button
                 classname='ur'
-                title={btnTitle}
+                title={btnTitle[0]}
                 type='button'
                 style={{
                   borderRadius: '5px',
@@ -43,7 +43,8 @@ const PricingCard = ({
                   width: '70%',
                 }}
                 onClick={() => {
-                  history.push('/admin/home');
+                  alert(btnTitle[1]);
+                  history.push('/admin/checkout');
                 }}
               />
               {message && <p className='mt-4 mb-0 ur gray'>{message}</p>}
@@ -69,7 +70,7 @@ const PricingCard = ({
           <div className='pricingCard-footer'>
             <Button
               classname='ur'
-              title={btnTitle}
+              title={btnTitle[0]}
               type='submit'
               style={{
                 borderRadius: '5px',
@@ -77,7 +78,8 @@ const PricingCard = ({
                 width: '70%',
               }}
               onClick={() => {
-                history.push('/admin/home');
+                alert(btnTitle[1]);
+                history.push('/admin/checkout');
               }}
             />
             {message && <p className='mt-4 mb-0 ur gray'>{message}</p>}

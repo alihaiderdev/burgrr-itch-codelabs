@@ -3,12 +3,18 @@ import '../../styles/screens/admin/signup.css';
 
 import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { GoPrimitiveDot } from 'react-icons/go';
 
 import AdminHeader from '../../components/admin/AdminHeader';
 import EmailAddressIcon from '../../assets/icons/Form Icons/EmailAddress.svg';
 import Button from '../../components/formComponents/Button';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
+import FacebookIcon from '../../assets/icons/FacebookIcon.svg';
+import GoogleIcon from '../../assets/icons/GoogleIcon.svg';
 
 const SignupScreen = ({ history }) => {
+  ScrollToTop();
+
   const [signupInfo, setSignupInfo] = useState({
     email: '',
     fullName: '',
@@ -29,7 +35,7 @@ const SignupScreen = ({ history }) => {
       password,
       confirmPassword,
     });
-    history.push('/admin/setup-store');
+    history.push('/admin/login');
   };
   return (
     <>
@@ -71,7 +77,7 @@ const SignupScreen = ({ history }) => {
               type='password'
               value={password}
               onChange={onChangeHandler}
-              placeholder='..........'
+              placeholder='......'
             />
           </Form.Group>
           <Form.Group controlId='confirmPassword'>
@@ -81,7 +87,7 @@ const SignupScreen = ({ history }) => {
               type='password'
               value={confirmPassword}
               onChange={onChangeHandler}
-              placeholder='..........'
+              placeholder='......'
             />
           </Form.Group>
           <p className='termConditions'>
@@ -92,11 +98,10 @@ const SignupScreen = ({ history }) => {
             to create our store.
           </p>
           <div className='signupBtnWrapper sb'>
-            {/* <button type='submit'>Signup</button> */}
-
             <Button
               title='Signup'
               type='submit'
+              classname='mb-4'
               style={{
                 borderRadius: '35px',
                 boxShadow: '0px 15px 25px #00000029',
@@ -106,13 +111,30 @@ const SignupScreen = ({ history }) => {
               }}
             />
           </div>
+          <div className='center'>
+            <p className='ur mb-3'>Or Continue with</p>
+            <div className='socialMediaLoginWrapper mb-2 aic'>
+              <button
+                className='button p-0'
+                onClick={() => alert('Login With FaceBoook')}
+              >
+                <img src={FacebookIcon} alt='FacebookIcon' />
+              </button>
+              <button
+                className='button p-0'
+                onClick={() => alert('Login With Google')}
+              >
+                <img src={GoogleIcon} alt='GoogleIcon' />
+              </button>
+            </div>
+            <p className='alreadyAccount um m-0'>
+              Already have account?{' '}
+              <Link to='/admin/login' className='orange um'>
+                Login
+              </Link>
+            </p>
+          </div>
         </Form>
-        <p className='alreadyAccount um'>
-          Already have account?{' '}
-          <Link to='/admin/login' className='orange um'>
-            Login
-          </Link>
-        </p>
       </div>
     </>
   );

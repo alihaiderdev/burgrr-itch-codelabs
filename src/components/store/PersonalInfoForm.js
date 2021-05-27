@@ -35,7 +35,6 @@ export class PersonalInfoForm extends Component {
 
           <Form.Group controlId='name'>
             <Form.Control
-              required
               name='name'
               type='text'
               placeholder='Your Name'
@@ -46,7 +45,6 @@ export class PersonalInfoForm extends Component {
 
           <Form.Group controlId='email'>
             <Form.Control
-              required
               name='email'
               type='email'
               placeholder='Email Address'
@@ -62,7 +60,6 @@ export class PersonalInfoForm extends Component {
 
           <Form.Group controlId='contactNumber'>
             <Form.Control
-              required
               name='contactNumber'
               type='tel'
               placeholder='Contact Number'
@@ -78,7 +75,6 @@ export class PersonalInfoForm extends Component {
 
           <Form.Group controlId='address'>
             <Form.Control
-              required
               name='deliveryAddress'
               type='tel'
               placeholder='Delivery Address'
@@ -95,7 +91,6 @@ export class PersonalInfoForm extends Component {
           <Form.Group controlId='date'>
             <Form.Label>Delivery Time</Form.Label>
             <Form.Control
-              required
               name='deliveryDateTime'
               type='datetime-local'
               defaultValue={deliveryDateTime}
@@ -105,7 +100,6 @@ export class PersonalInfoForm extends Component {
 
           <Form.Group controlId='Message'>
             <Form.Control
-              required
               name='message'
               as='textarea'
               placeholder='Message for Rider'

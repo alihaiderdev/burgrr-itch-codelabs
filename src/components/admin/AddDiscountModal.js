@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
-import {Col, Form, Modal} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Col, Form, Modal } from 'react-bootstrap';
 import '../../styles/components/admin/addDiscountModal.css';
+import Button from '../formComponents/Button';
 
-const AddDiscountModal = ({addDiscountModal, handleCloseAddDiscountModal}) => {
+const AddDiscountModal = ({
+  addDiscountModal,
+  handleCloseAddDiscountModal,
+}) => {
   const [addDiscountInfo, setAddDiscountInfo] = useState({
     discountTitle: '',
     discount: '',
@@ -10,11 +14,13 @@ const AddDiscountModal = ({addDiscountModal, handleCloseAddDiscountModal}) => {
     maximumPurchase: '',
   });
 
-  const {discountTitle, discount, manimumPurchase, maximumPurchase} =
+  const { discountTitle, discount, manimumPurchase, maximumPurchase } =
     addDiscountInfo;
 
   const onChangeHandler = (e) => {
-    setAddDiscountInfo({...addDiscountInfo, [e.target.name]: e.target.value});
+    const { name, value } = e.target;
+
+    setAddDiscountInfo({ ...addDiscountInfo, [name]: value });
   };
 
   const addDiscountSubmitHandler = (e) => {
@@ -25,6 +31,7 @@ const AddDiscountModal = ({addDiscountModal, handleCloseAddDiscountModal}) => {
       manimumPurchase,
       maximumPurchase,
     });
+    handleCloseAddDiscountModal();
   };
 
   return (
@@ -46,7 +53,6 @@ const AddDiscountModal = ({addDiscountModal, handleCloseAddDiscountModal}) => {
             <Form.Group as={Col} controlId='discountTitle'>
               <Form.Label>Discount Title</Form.Label>
               <Form.Control
-                required
                 name='discountTitle'
                 type='text'
                 value={discountTitle}
@@ -57,7 +63,6 @@ const AddDiscountModal = ({addDiscountModal, handleCloseAddDiscountModal}) => {
             <Form.Group as={Col} controlId='discount'>
               <Form.Label>Discount</Form.Label>
               <Form.Control
-                required
                 name='discount'
                 type='number'
                 value={discount}
@@ -70,7 +75,6 @@ const AddDiscountModal = ({addDiscountModal, handleCloseAddDiscountModal}) => {
             <Form.Group as={Col} controlId='manimumPurchase'>
               <Form.Label>Minimum Purchase</Form.Label>
               <Form.Control
-                required
                 name='manimumPurchase'
                 type='number'
                 value={manimumPurchase}
@@ -81,7 +85,6 @@ const AddDiscountModal = ({addDiscountModal, handleCloseAddDiscountModal}) => {
             <Form.Group as={Col} controlId='maximumPurchase'>
               <Form.Label>Maximum Purchase</Form.Label>
               <Form.Control
-                required
                 name='maximumPurchase'
                 type='number'
                 value={maximumPurchase}
@@ -90,18 +93,30 @@ const AddDiscountModal = ({addDiscountModal, handleCloseAddDiscountModal}) => {
               />
             </Form.Group>
           </Form.Row>
-          <Modal.Footer>
-            <button className='ur cancle' onClick={handleCloseAddDiscountModal}>
-              Cancel
-            </button>
-            <button
-              type='submit'
-              className='ur'
+          <div className='fe'>
+            <Button
+              title='Cancle'
+              btnType='outline'
+              type='button'
+              className='mb-4'
+              style={{
+                borderRadius: '5px',
+                padding: '8px 50px',
+                margin: '0 0 0 15px',
+              }}
               onClick={handleCloseAddDiscountModal}
-            >
-              Add Discount
-            </button>
-          </Modal.Footer>
+            />
+            <Button
+              title='Add Discount'
+              type='submit'
+              className='mb-4'
+              style={{
+                borderRadius: '5px',
+                padding: '10px 50px',
+                margin: '0 0 0 15px',
+              }}
+            />
+          </div>
         </Form>
       </Modal.Body>
     </Modal>

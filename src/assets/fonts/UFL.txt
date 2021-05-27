@@ -68,7 +68,7 @@ the new work, appended to that name.
 
 3) The name(s) of the Copyright Holder(s) and any contributor to the
 Font Software shall not be used to promote, endorse or advertise any
-Modified Version, except (i) as required by this licence, (ii) to
+Modified Version, except (i) as  by this licence, (ii) to
 acknowledge the contribution(s) of the Copyright Holder(s) or (iii) with
 their explicit written permission.
 

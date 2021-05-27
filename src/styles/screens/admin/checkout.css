@@ -1,0 +1,15 @@
+.pricingCard .checkout-cart-body {
+  padding: 20px 40px;
+}
+
+.checkoutScreen form .form-group div .visaMasterCardImagesWrapper img {
+  width: 40px;
+}
+/* .checkoutScreen form .row {
+  box-sizing: border-box !important;
+} */
+.checkoutScreen form .checkOutScreenBtnWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}

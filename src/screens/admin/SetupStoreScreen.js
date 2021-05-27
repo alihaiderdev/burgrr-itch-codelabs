@@ -9,10 +9,13 @@ import AdminHeader from '../../components/admin/AdminHeader';
 import { countryName } from '../../data/countryCodeList';
 import Button from '../../components/formComponents/Button';
 import cityList from '../../data/List';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 const { Option } = Select;
 
 const SetupStoreScreen = ({ history }) => {
+  ScrollToTop();
+
   const [setupStoreInfo, setSetupStoreInfo] = useState({
     storeName: '',
     industry: 'Food',
@@ -101,7 +104,6 @@ const SetupStoreScreen = ({ history }) => {
           <Form.Group controlId='storeName'>
             <Form.Label>Store Name</Form.Label>
             <Form.Control
-              required
               name='storeName'
               type='text'
               value={storeName}
@@ -206,7 +208,7 @@ const SetupStoreScreen = ({ history }) => {
                 marginBottom: '24px',
               }}
             />
-            <Link to='/signup' className='orange later'>
+            <Link to='/admin/get-started' className='orange later'>
               Later
             </Link>
           </div>

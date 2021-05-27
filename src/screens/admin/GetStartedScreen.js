@@ -7,8 +7,11 @@ import { Link } from 'react-router-dom';
 import AdminHeader from '../../components/admin/AdminHeader';
 import LandingPageImage from '../../assets/admin-icons-images/LandingPageIllustration.svg';
 import Button from '../../components/formComponents/Button';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 const GetStartedScreen = ({ history }) => {
+  ScrollToTop();
+
   return (
     <>
       <AdminHeader />

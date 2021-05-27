@@ -69,10 +69,12 @@ const AdminHeader = ({ location: { pathname } }, props) => {
       {pathname === '/admin/get-started' ||
       pathname === '/admin/signup' ||
       pathname === '/admin/setup-store' ||
+      pathname === '/admin/pricing' ||
+      pathname === '/admin/checkout' ||
       pathname === '/admin/login' ||
+      pathname === '/admin/forget-password' ||
       pathname === '/admin/why-us' ||
-      pathname === '/admin/our-solution' ||
-      pathname === '/admin/pricing' ? (
+      pathname === '/admin/our-solution' ? (
         <nav>
           <ul className='aic m-0'>
             <li className='nav-item'>

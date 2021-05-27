@@ -10,6 +10,7 @@
   --dgray: '#9C9B9B';
   --white: '#FFFFFF';
   --black: '#1B1B1B';
+  --dark-black: '#000000';
   --gray: '#cecece';
   --body: '#fcfcfc';
 }
@@ -102,10 +103,17 @@ form {
   justify-content: space-evenly;
 }
 
+.fe {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .center {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .conatiner-85 {
@@ -197,7 +205,11 @@ form {
   margin-top: 80px !important;
   margin-bottom: 80px !important;
 }
-
+.button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
 li {
   list-style: none !important;
 }
@@ -616,9 +628,47 @@ input.form-control:focus {
 .ant-input-group-wrapper .ant-input-wrapper.ant-input-group input:hover {
   border-color: var(--orange);
 }
-/* .form-group .form-control {
-  background-color: transparent !important;
-} */
+
+input[type='password']::placeholder {
+  font-size: 3.5rem;
+  color: var(--dark-black) !important;
+}
+
+.ant-select-selector .ant-select-selection-item {
+  color: var(--gray);
+  font-family: 'UbuntuRegular';
+}
+
+/* ant modal styling  */
+
+.ant-modal-header {
+  border-bottom: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: none !important;
+}
+.ant-modal-close {
+  display: none;
+}
+.ant-modal-content {
+  background-color: #f3f3f3 !important;
+}
+.ant-modal-content,
+.ant-modal-header {
+  border-radius: 25px !important;
+}
+
+.ant-modal-body {
+  padding: 30px 40px !important;
+}
+.ant-modal-footer {
+  border-top: none !important;
+}
+
+textarea {
+  resize: none !important;
+}
 @media screen and (max-width: 600px) {
   .ant-drawer-content-wrapper {
     width: 100% !important;

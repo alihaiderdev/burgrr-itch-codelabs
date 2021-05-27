@@ -10,7 +10,7 @@
   border-radius: 12px;
   padding: 50px 80px;
   margin-bottom: 100px;
-  width: 40%;
+  width: 35%;
 }
 .signupScreen .signupForm .form-group .form-control {
   position: relative;
@@ -45,9 +45,6 @@
 .signupScreen .signupForm .signupBtnWrapper button {
   width: 75%;
   padding: 15px 50px;
-}
-.signupScreen .alreadyAccount {
-  margin-bottom: 50px;
 }
 
 /* setup store styling  */

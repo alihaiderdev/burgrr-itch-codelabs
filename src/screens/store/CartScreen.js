@@ -4,8 +4,11 @@ import CartScreenHeader from '../components/CartScreenHeader';
 import PersonalInfoForm from '../components/PersonalInfoForm';
 import PaymentMethodForm from '../components/PaymentMethodForm';
 import ConfirmOrderForm from '../components/ConfirmOrder';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 const CartScreen = () => {
+  ScrollToTop();
+
   const [step, setStep] = useState(1);
 
   const [formFields, setFormFields] = useState({
@@ -68,7 +71,11 @@ const CartScreen = () => {
         <>
           <CartScreenHeader />
           <div className='cartScreen container-85'>
-            <PersonalInfoForm nextStep={nextStep} values={values} handleChange={handleChange} />
+            <PersonalInfoForm
+              nextStep={nextStep}
+              values={values}
+              handleChange={handleChange}
+            />
           </div>
         </>
       );
@@ -77,7 +84,11 @@ const CartScreen = () => {
         <>
           <CartScreenHeader />
           <div className='cartScreen container-85'>
-            <PaymentMethodForm nextStep={nextStep} values={values} handleChange={handleChange} />
+            <PaymentMethodForm
+              nextStep={nextStep}
+              values={values}
+              handleChange={handleChange}
+            />
           </div>
         </>
       );

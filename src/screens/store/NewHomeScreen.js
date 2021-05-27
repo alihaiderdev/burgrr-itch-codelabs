@@ -20,6 +20,7 @@ import RatingIcon from '../../assets/icons/Header/Rating.svg';
 import SearchIcon from '../../assets/icons/Header/SearchIcon.svg';
 import TimingIcon from '../../assets/icons/Header/Timings.svg';
 import Burger from '../../assets/images/product.png';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 const allInOneTab = (
   innerTabImg,
@@ -63,6 +64,8 @@ const allInOneTab = (
 };
 
 const NewHomeScreen = () => {
+  ScrollToTop();
+
   const [search, setSearch] = useState('');
   const [toggleDrawer, setToggleDrawer] = useState({
     visible: false,
@@ -155,7 +158,6 @@ const NewHomeScreen = () => {
             <Form>
               <Form.Group controlId='serach' className='newHomeScreenSearch'>
                 <Form.Control
-                  required
                   name='search'
                   type='text'
                   placeholder='Search'

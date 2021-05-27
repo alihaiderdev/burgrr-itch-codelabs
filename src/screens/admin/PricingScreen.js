@@ -5,8 +5,11 @@ import { Col, Row } from 'react-bootstrap';
 
 import AdminHeader from '../../components/admin/AdminHeader';
 import PricingCard from '../../components/admin/PricingCard';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 const PricingScreen = () => {
+  ScrollToTop();
+
   const platinumCardFeatures = [
     'OrderNow Website',
     'Unlimited Business (One Country)',
@@ -46,7 +49,7 @@ const PricingScreen = () => {
               title='Platinum'
               price='PKR 4999/ month'
               features={platinumCardFeatures}
-              btnTitle='Next'
+              btnTitle={['Next', 'Platinum Plan Selected']}
             />
           </Col>
           <Col sm={12} md={4}>
@@ -55,7 +58,7 @@ const PricingScreen = () => {
               title='Diamond'
               price='PKR 9999/ month'
               features={diamondCardFeatures}
-              btnTitle='Next'
+              btnTitle={['Next', 'Diamond Plan Selected']}
             />
           </Col>
           <Col sm={12} md={4}>
@@ -63,7 +66,7 @@ const PricingScreen = () => {
               title='Custom'
               price='Come Inbox'
               features={customCardFeatures}
-              btnTitle='Next'
+              btnTitle={['Next', 'Custom Plan Selected']}
               message='We are always there for you…! :)'
             />
           </Col>

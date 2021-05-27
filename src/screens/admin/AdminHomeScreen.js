@@ -25,6 +25,7 @@ import burgarCardsInfo from '../../data/burgarCardsInfo';
 import useWindowResize from '../../customHooks/useWindowResize';
 import EditProductIcon from '../../assets/admin-icons-images/Icons/Edit 1.svg';
 import AddNewProductIcon from '../../assets/admin-icons-images/Icons/add product.svg';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 const allInOneTab = (
   innerTabImg,
@@ -68,6 +69,8 @@ const allInOneTab = (
 };
 
 const AdminHomeScreen = () => {
+  ScrollToTop();
+
   const [addDiscountModal, setAddDiscountModal] = useState(false);
   const handleOpenAddDiscountModal = () => setAddDiscountModal(true);
   const handleCloseAddDiscountModal = () => setAddDiscountModal(false);
@@ -187,7 +190,6 @@ const AdminHomeScreen = () => {
             <Form>
               <Form.Group controlId='serach' className='newHomeScreenSearch'>
                 <Form.Control
-                  required
                   name='search'
                   type='text'
                   placeholder='Search'

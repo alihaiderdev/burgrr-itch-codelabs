@@ -4,8 +4,11 @@ import { Col, Row, Form } from 'react-bootstrap';
 
 import Card from '../../components/store/Card';
 import HeroSection from '../../components/store/HeroSection';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 const HomeScreen = () => {
+  ScrollToTop();
+
   const [search, setSearch] = useState('');
 
   return (

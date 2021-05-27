@@ -6,6 +6,7 @@ import PaymentMethodForm from '../../components/store/PaymentMethodForm';
 import PersonalInfoForm from '../../components/store/PersonalInfoForm';
 import ConfirmOrder from '../../components/store/ConfirmOrder';
 import OrderPLace from '../../components/store/OrderPlace';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 export class PlaceOrderScreen extends Component {
   state = {

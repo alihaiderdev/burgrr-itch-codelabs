@@ -1,0 +1,29 @@
+.loginScreen form .form-group {
+  position: relative;
+}
+.loginScreen form .form-group .form-control {
+  padding-right: 35px;
+}
+.loginScreen form .form-group .envelopIcon {
+  position: absolute;
+  top: 42px;
+  right: 10px;
+}
+.loginScreen form .form-group button {
+  position: absolute;
+  top: 38px;
+  right: 10px;
+}
+.loginScreen form .forgetPassword {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.loginScreen form .forgetPassword a {
+  color: var(--dark-black);
+  text-decoration: underline !important;
+  font-family: 'UbuntuMedium';
+  margin-bottom: 10px;
+}
+.loginScreen form .socialMediaLoginWrapper {
+}

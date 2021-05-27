@@ -1,0 +1,10 @@
+.editFooterModal form .form-group p {
+  background-color: #efefef;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.25rem;
+  padding: 7px 12px;
+  font-family: 'UbuntuMedium';
+}
+.editFooterModal form .form-group .row {
+  box-sizing: border-box !important;
+}

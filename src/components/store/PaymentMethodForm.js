@@ -44,7 +44,6 @@ export class PaymentMethodForm extends Component {
 
             <Form.Group controlId='cardHolderName'>
               <Form.Control
-                required
                 name='cardHolderName'
                 type='text'
                 placeholder='Card Holders Name'
@@ -55,7 +54,6 @@ export class PaymentMethodForm extends Component {
 
             <Form.Group controlId='cardNumber'>
               <Form.Control
-                required
                 name='cardNumber'
                 type='tel'
                 placeholder='Card Number'
@@ -67,7 +65,6 @@ export class PaymentMethodForm extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId='expiry'>
                 <Form.Control
-                  required
                   name='expiry'
                   type='date'
                   placeholder='Expiry'
@@ -78,7 +75,6 @@ export class PaymentMethodForm extends Component {
 
               <Form.Group as={Col} controlId='cvc'>
                 <Form.Control
-                  required
                   name='cvc'
                   type='number'
                   placeholder='CVC'

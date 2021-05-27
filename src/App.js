@@ -18,6 +18,8 @@ import PlaceOrderScreen from './screens/store/PlaceOrderScreen';
 import OrderPlaceScreen from './screens/store/OrderPlaceScreen';
 
 // admin side imports
+import AdminFooter from './components/admin/AdminFooter';
+
 import GetStartedScreen from './screens/admin/GetStartedScreen';
 import SignupScreen from './screens/admin/SignupScreen';
 import LoginScreen from './screens/admin/LoginScreen';
@@ -25,11 +27,16 @@ import SetupStoreScreen from './screens/admin/SetupStoreScreen';
 import AdminHomeScreen from './screens/admin/AdminHomeScreen';
 import OrdersScreen from './screens/admin/OrdersScreen';
 import StatsScreen from './screens/admin/StatsScreen';
-import whyUsScreen from './screens/admin/WhyUsScreen';
+import WhyUsScreen from './screens/admin/WhyUsScreen';
 import OurSolutionScreen from './screens/admin/OurSolutionScreen';
 import PricingScreen from './screens/admin/PricingScreen';
+import CheckoutScreen from './screens/admin/CheckoutScreen';
+import ForgetPasswordScreen from './screens/admin/ForgetPasswordScreen';
+// import { ScrollToTop   } from './utilities/ReuseableFunctions';
 
 const App = () => {
+  // ScrollToTop();
+
   return (
     <>
       <Router>
@@ -42,21 +49,27 @@ const App = () => {
           <Route exact path='/contact-us' component={ContactUsScreen} />
           <Route exact path='/place-order' component={PlaceOrderScreen} />
           <Route exact path='/order-place' component={OrderPlaceScreen} />
-          {/* Admin site routes */}
+
           <Route exact path='/admin/get-started' component={GetStartedScreen} />
           <Route exact path='/admin/signup' component={SignupScreen} />
-          <Route exact path='/admin/login' component={LoginScreen} />
           <Route exact path='/admin/setup-store' component={SetupStoreScreen} />
+          <Route exact path='/admin/pricing' component={PricingScreen} />
+          <Route exact path='/admin/checkout' component={CheckoutScreen} />
+          <Route exact path='/admin/login' component={LoginScreen} />
+          <Route
+            exact
+            path='/admin/forget-password'
+            component={ForgetPasswordScreen}
+          />
           <Route exact path='/admin/home' component={AdminHomeScreen} />
           <Route exact path='/admin/orders' component={OrdersScreen} />
           <Route exact path='/admin/stats' component={StatsScreen} />
-          <Route exact path='/admin/why-us' component={whyUsScreen} />
+          <Route exact path='/admin/why-us' component={WhyUsScreen} />
           <Route
             exact
             path='/admin/our-solution'
             component={OurSolutionScreen}
           />
-          <Route exact path='/admin/pricing' component={PricingScreen} />
           <Route component={Error404Screen} />
         </Switch>
         <Footer />

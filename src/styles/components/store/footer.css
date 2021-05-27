@@ -1,17 +1,25 @@
 .footer {
+  position: relative;
   background-color: #1b1b1b;
   width: 100%;
   padding: 70px 0;
 }
-.footerDescription {
-  width: 70%;
+.footer button {
+  background-color: white;
+  padding: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: -30px;
+  right: 7%;
+  box-shadow: 0px 3px 25px #00000029;
 }
+
 .footer .container-85 .row div.col-xl-4 .linksContainer ul li {
   margin-bottom: 0.5rem;
 }
 .linksContainer {
   width: 80%;
-  margin: 0 auto !important;
+  margin: 0 auto 0 0 !important;
 }
 .linksContainer h5 {
   font-size: 22px;
@@ -20,7 +28,14 @@
 .linksContainer2 {
   padding-left: 5rem;
 }
-
+.footer .row .linksContainer2 .followUsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.footer .row .linksContainer2 .followUsWrapper a svg {
+  margin-right: 10px;
+}
 @media screen and (max-width: 992px) {
   .linksContainer {
     width: 100%;

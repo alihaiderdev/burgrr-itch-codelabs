@@ -7,8 +7,11 @@ import HeroSection from '../../components/store/HeroSection';
 
 import HotelImage from '../../assets/images/aboutus-page-image.jpg';
 import PhoneIcon from '../../assets/icons/Header/PhoneNumber.svg';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 
 const ContactUsScreen = () => {
+  ScrollToTop();
+
   return (
     <>
       <HeroSection

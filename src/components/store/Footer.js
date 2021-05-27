@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/components/store/footer.css';
 
 import { withRouter } from 'react-router';
 import { Col, Row } from 'react-bootstrap';
+import { ImFacebook2 } from 'react-icons/im';
+import { AiFillInstagram } from 'react-icons/ai';
+import { FaTwitterSquare } from 'react-icons/fa';
+import { MdModeEdit } from 'react-icons/md';
+import EditFooterModal from '../modals/EditFooterModal';
 
-import FacebookImage from '../../assets/icons/Social Media Icons/Facebook.svg';
-import InstagramImage from '../../assets/icons/Social Media Icons/Instagram.svg';
-import TwitterImage from '../../assets/icons/Social Media Icons/Twitter.svg';
+// import FacebookImage from '../../assets/icons/Social Media Icons/Facebook.svg';
+// import InstagramImage from '../../assets/icons/Social Media Icons/Instagram.svg';
+// import TwitterImage from '../../assets/icons/Social Media Icons/Twitter.svg';
+// import Icon from '../Icon';
 
 const Footer = ({ location: { pathname } }) => {
+  const [editFooterModal, setEditFooterModal] = useState(false);
+  const handleOpenEditFooterModal = () => setEditFooterModal(true);
+  const handleCloseEditFooterModal = () => setEditFooterModal(false);
+
   return (
     <>
-      {pathname === '/get-started' ||
-      pathname === '/signup' ||
-      pathname === '/setup-store' ? null : (
+      {pathname === '/' ||
+      pathname === '/home' ||
+      pathname === '/about-us' ||
+      pathname === '/delivery' ||
+      pathname === '/contact-us' ||
+      pathname === '/place-order' ||
+      pathname === '/order-place' ? (
         <div className='footer'>
           <div className='container-85'>
             <Row>
@@ -29,58 +43,92 @@ const Footer = ({ location: { pathname } }) => {
               </Col>
               <Col xs={12} sm={12} md={12} lg={4} xl={4}>
                 <div className='linksContainer2 linksContainer'>
-                  <h5 className='mb-2 orange'>Quick Links</h5>
-                  <ul>
-                    <li>
-                      <a href='#link1' className='white'>
-                        Link 1
-                      </a>
-                    </li>
-                    <li>
-                      <a href='#link2' className='white'>
-                        Link 2
-                      </a>
-                    </li>
-                    <li>
-                      <a href='#link3' className='white'>
-                        Link 3
-                      </a>
-                    </li>
-                  </ul>
+                  <h5 className='mb-2 orange'>Follow Us</h5>
+                  <div className='followUsWrapper'>
+                    <a href='' target='_blank'>
+                      <ImFacebook2 color='white' size='20px' />
+                    </a>
+                    <a href='' target='_blank'>
+                      <AiFillInstagram color='white' size='28px' />
+                    </a>
+                    <a href='' target='_blank'>
+                      <FaTwitterSquare color='white' size='22px' />
+                    </a>
+                  </div>
                 </div>
               </Col>
               <Col xs={12} sm={12} md={12} lg={4} xl={4}>
                 <div className='linksContainer'>
-                  <h5 className='mb-2 orange'>Follow Us</h5>
+                  <h5 className='mb-2 orange'>Contact Us</h5>
                   <ul>
                     <a href='#facebook'>
-                      <li className='mb-2 white'>
-                        <img
-                          className='mr-3'
-                          src={FacebookImage}
-                          alt='faceboook'
-                        />
-                        Facebook
-                      </li>
+                      <li className='mb-2 white'>Someone@email.com</li>
                     </a>
                     <a href='#instagram'>
-                      <li className='mb-2 white'>
-                        <img
-                          className='mr-3'
-                          src={InstagramImage}
-                          alt='instagram'
-                        />
-                        Instagram
-                      </li>
+                      <li className='mb-2 white'>+92 309-2422648</li>
                     </a>
                     <a href='#twitter'>
                       <li className='mb-2 white'>
-                        <img
-                          className='mr-3'
-                          src={TwitterImage}
-                          alt='twitter'
-                        />
-                        Twitter
+                        Block 4, Gulshan Iqbal, Karachi, Sindh.
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </div>
+      ) : (
+        <div className='footer'>
+          <button
+            className='editBtnWrapper button'
+            onClick={() => {
+              handleOpenEditFooterModal();
+            }}
+          >
+            <MdModeEdit className='gray' size='30' />
+          </button>
+          <div className='container-85'>
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={4} xl={4}>
+                <div className='footerDescription linksContainer'>
+                  <h5 className='mb-2 orange'>About Us</h5>
+                  <p className='white'>
+                    It is a long established fact that a reader will be
+                    distracted by the readable content of a page when looking at
+                    its layout. The point of using more-or-less
+                  </p>
+                </div>
+              </Col>
+              <Col xs={12} sm={12} md={12} lg={4} xl={4}>
+                <div className='linksContainer2 linksContainer'>
+                  <h5 className='mb-2 orange'>Follow</h5>
+                  <div className='followUsWrapper'>
+                    <a href='' target='_blank'>
+                      <ImFacebook2 color='white' size='20px' />
+                    </a>
+                    <a href='' target='_blank'>
+                      <AiFillInstagram color='white' size='28px' />
+                    </a>
+                    <a href='' target='_blank'>
+                      <FaTwitterSquare color='white' size='22px' />
+                    </a>
+                  </div>
+                </div>
+              </Col>
+              <Col xs={12} sm={12} md={12} lg={4} xl={4}>
+                <div className='linksContainer'>
+                  <h5 className='mb-2 orange'>Contact Us</h5>
+                  <ul>
+                    <a href='#facebook'>
+                      <li className='mb-2 white'>Someone@email.com</li>
+                    </a>
+                    <a href='#instagram'>
+                      <li className='mb-2 white'>+92 309-2422648</li>
+                    </a>
+                    <a href='#twitter'>
+                      <li className='mb-2 white'>
+                        Block 4, Gulshan Iqbal, Karachi, Sindh.
                       </li>
                     </a>
                   </ul>
@@ -90,6 +138,10 @@ const Footer = ({ location: { pathname } }) => {
           </div>
         </div>
       )}
+      <EditFooterModal
+        editFooterModal={editFooterModal}
+        handleCloseEditFooterModal={handleCloseEditFooterModal}
+      />
     </>
   );
 };

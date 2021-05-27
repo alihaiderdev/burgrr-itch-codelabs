@@ -6,9 +6,12 @@ import { Col, Container, Row } from 'react-bootstrap';
 import HeroSection from '../../components/store/HeroSection';
 
 import HotelImage from '../../assets/images/aboutus-page-image.jpg';
+import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 // import HeroSectionImage from '../../assets/images/hero-section-image.jpg';
 
 const AboutUsScreen = () => {
+  ScrollToTop();
+
   return (
     <>
       <HeroSection

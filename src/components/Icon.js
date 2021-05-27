@@ -1,5 +1,26 @@
 import React from 'react';
 
+// facebook
+import { ImFacebook2 } from 'react-icons/im';
+
+// instagram
+import { AiFillInstagram } from 'react-icons/ai';
+
+// twitter
+import { FaTwitterSquare } from 'react-icons/fa';
+
+// open eye password
+import { AiFillEye } from 'react-icons/ai';
+
+// close eye password
+import { AiFillEyeInvisible } from 'react-icons/ai';
+
+// email envelop
+import { BiEnvelope } from 'react-icons/bi';
+
+// arrow left
+import { HiArrowLeft } from 'react-icons/hi';
+
 // edit
 import { MdModeEdit } from 'react-icons/md';
 
@@ -45,8 +66,12 @@ import { IoIosArrowDropupCircle } from 'react-icons/io';
 // arrow down collapse
 import { IoIosArrowDropdownCircle } from 'react-icons/io';
 
-const Icon = ({ children }) => {
-  return <div className='icon'>{children}</div>;
+const Icon = ({ children, style, onClick }) => {
+  return (
+    <div className='icon' style={style} onClick={onClick}>
+      {children}
+    </div>
+  );
 };
 
 export default Icon;
