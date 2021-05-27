@@ -64,9 +64,6 @@ const allInOneTab = (
 
 const NewHomeScreen = () => {
   const [search, setSearch] = useState('');
-  // const [sidebar, setSidebar] = useState(false);
-  // const showSidebar = () => setSidebar(!sidebar);
-
   const [toggleDrawer, setToggleDrawer] = useState({
     visible: false,
     placement: 'right',
@@ -98,10 +95,10 @@ const NewHomeScreen = () => {
                 </Link>
                 <h2>burgrr*itch</h2>
               </div>
-              <div className='detailsCardRow'>
+              <div className='detailsCardRow row'>
                 <Col
-                  xs={6}
-                  sm={6}
+                  xs={12}
+                  sm={12}
                   md={6}
                   lg={6}
                   xl={6}
@@ -125,8 +122,8 @@ const NewHomeScreen = () => {
                   </ul>
                 </Col>
                 <Col
-                  xs={6}
-                  sm={6}
+                  xs={12}
+                  sm={12}
                   md={6}
                   lg={6}
                   xl={6}
@@ -151,7 +148,7 @@ const NewHomeScreen = () => {
           <div className='searchIconWrapper'>
             <button onClick={showDrawer}>
               {/* <img src={CartIconWhite} alt='CartIconWhite' /> */}
-              <FaShoppingCart color='white' size='35px' />
+              <FaShoppingCart color='white' size='35px' className='cartIcon' />
             </button>
           </div>
           <div className='cardDetailsSeachWrapper'>

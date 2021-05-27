@@ -1,0 +1,9 @@
+.publishStore form p {
+  margin: 0;
+  font-family: UbuntuMedium;
+}
+.publishStore form a {
+  color: black;
+  text-decoration: underline !important;
+  font-family: UbuntuBold;
+}

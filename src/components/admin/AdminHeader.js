@@ -1,10 +1,10 @@
 import React from 'react';
-import {Link, NavLink, withRouter} from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import '../../styles/components/admin/adminHeader.css';
 import AdminHeaderLogo from '../../assets/admin-icons-images/AdminLogo.svg';
 import NotificationBellIcon from '../../assets/admin-icons-images/Icons/notifications.svg';
 
-const AdminHeader = ({location: {pathname}}, props) => {
+const AdminHeader = ({ location: { pathname } }, props) => {
   // console.log('props : ', props);
   const active = {
     borderBottom: '3px solid #F46B0D',
@@ -68,6 +68,7 @@ const AdminHeader = ({location: {pathname}}, props) => {
       )}
       {pathname === '/admin/get-started' ||
       pathname === '/admin/signup' ||
+      pathname === '/admin/setup-store' ||
       pathname === '/admin/login' ||
       pathname === '/admin/why-us' ||
       pathname === '/admin/our-solution' ||

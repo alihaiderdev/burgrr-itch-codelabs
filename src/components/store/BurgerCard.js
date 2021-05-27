@@ -39,7 +39,9 @@ const BurgerCard = ({
                 <p className='ur mb-2 cardDescription'>
                   {cardDescription && cardDescription}
                 </p>
-                <h5 className='ur mb-0 orange'>{cardPrice && cardPrice}</h5>
+                <h5 className='ur mb-0 orange price'>
+                  {cardPrice && cardPrice}
+                </h5>
               </div>
             </Col>
           </Row>

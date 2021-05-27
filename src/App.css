@@ -96,6 +96,12 @@ form {
   justify-content: space-around;
 }
 
+.se {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .center {
   display: flex;
   align-items: center;
@@ -549,6 +555,70 @@ input.form-control:focus {
   color: red;
   font-size: 0.6rem;
 }
+
+.ant-picker {
+  padding: 6px 12px !important;
+  border-radius: 3px !important;
+}
+.ant-picker.ant-picker-focused {
+  border: 1px solid #ced4da !important;
+  box-shadow: none !important;
+}
+.ant-picker:hover {
+  border-color: var(--orange) !important;
+}
+.ant-picker
+  .ant-picker-input
+  .ant-picker-suffix
+  .anticon.anticon-clock-circle
+  svg,
+.ant-picker
+  .ant-picker-input
+  .ant-picker-clear
+  .anticon.anticon-close-circle
+  svg,
+.ant-picker .ant-picker-input .ant-picker-suffix .anticon.anticon-calendar svg {
+  width: 1.3em;
+  height: 1.3em;
+  color: gray;
+}
+
+.ant-picker
+  .ant-picker-input
+  .ant-picker-suffix
+  .anticon.anticon-calendar
+  svg
+  .ant-picker-suffix {
+  margin-left: 0 !important;
+}
+.ant-picker .ant-picker-input input[title] {
+  color: gray;
+  font-family: UbuntuRegular;
+}
+
+.ant-checkbox-group {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.ant-checkbox-group .ant-checkbox-wrapper {
+  margin-bottom: 10px !important;
+}
+
+.ant-select-selector:hover {
+  border-color: var(--orange) !important;
+}
+.ant-select-selector:focus {
+  box-shadow: none !important;
+}
+
+.ant-input-group-wrapper .ant-input-wrapper.ant-input-group input:focus,
+.ant-input-group-wrapper .ant-input-wrapper.ant-input-group input:hover {
+  border-color: var(--orange);
+}
+/* .form-group .form-control {
+  background-color: transparent !important;
+} */
 @media screen and (max-width: 600px) {
   .ant-drawer-content-wrapper {
     width: 100% !important;

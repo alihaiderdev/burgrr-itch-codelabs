@@ -15,7 +15,7 @@ const Footer = ({ location: { pathname } }) => {
       pathname === '/signup' ||
       pathname === '/setup-store' ? null : (
         <div className='footer'>
-          <div className='conatiner-85'>
+          <div className='container-85'>
             <Row>
               <Col xs={12} sm={12} md={12} lg={4} xl={4}>
                 <div className='footerDescription linksContainer'>
@@ -31,17 +31,17 @@ const Footer = ({ location: { pathname } }) => {
                 <div className='linksContainer2 linksContainer'>
                   <h5 className='mb-2 orange'>Quick Links</h5>
                   <ul>
-                    <li className='mb-2'>
+                    <li>
                       <a href='#link1' className='white'>
                         Link 1
                       </a>
                     </li>
-                    <li className='mb-2'>
+                    <li>
                       <a href='#link2' className='white'>
                         Link 2
                       </a>
                     </li>
-                    <li className='mb-2'>
+                    <li>
                       <a href='#link3' className='white'>
                         Link 3
                       </a>

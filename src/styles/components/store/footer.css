@@ -6,6 +6,9 @@
 .footerDescription {
   width: 70%;
 }
+.footer .container-85 .row div.col-xl-4 .linksContainer ul li {
+  margin-bottom: 0.5rem;
+}
 .linksContainer {
   width: 80%;
   margin: 0 auto !important;
@@ -26,5 +29,28 @@
   }
   .linksContainer2 {
     padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .footer .container-85 .row div.col-xl-4 .linksContainer h5 {
+    font-size: 16px;
+  }
+  .footer .container-85 .row div.col-xl-4 .linksContainer p {
+    font-size: 12px;
+  }
+  .footer .container-85 .row div.col-xl-4 .linksContainer {
+    margin-bottom: 10px !important;
+  }
+  .footer .container-85 .row div.col-xl-4 .linksContainer ul li {
+    margin: 0;
+    font-size: 12px;
+  }
+  .footer .container-85 .row div.col-xl-4 .linksContainer ul li a {
+    font-size: 12px;
+  }
+  .footer .container-85 .row div.col-xl-4 .linksContainer ul li img {
+    width: 22px;
+    height: 22px;
   }
 }

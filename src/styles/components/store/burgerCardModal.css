@@ -186,3 +186,130 @@
     padding: 14px 0;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modal-body
+    .burgerModalDetails
+    h3 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modal-body
+    .burgerModalDetails
+    p {
+    font-size: 12px;
+  }
+  .burgerCardModal .modal-dialog .modal-content .burgerCardModalLogo {
+    width: 80px;
+    height: 80px;
+    top: -30px;
+  }
+  .burgerCardModal .modal-dialog .modal-content .burgerCardModalLogo img {
+    width: 100%;
+    height: 100%;
+  }
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modalBody
+    form
+    .addOns
+    .addons-main-container
+    .addons-container
+    div
+    span,
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modalBody
+    form
+    .addOns
+    .addons-main-container
+    .addons-container
+    label
+    span {
+    font-size: 12px;
+  }
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modalBody
+    form
+    .addOns
+    .addons-main-container
+    .addons-container
+    div
+    button.modal-counter-btn {
+    margin-left: 2px !important;
+    padding: 0px 5px;
+  }
+  .burgerCardModal .modal-dialog .modal-content .modalBody form .addOns,
+  .burgerCardModal .modal-dialog .modal-content .modalBody form .coldDrinks {
+    padding: 10px;
+  }
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modalBody
+    form
+    .add-to-cart-wrapper
+    h4 {
+    /* padding: 10px; */
+    font-size: 16px;
+  }
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modalBody
+    form
+    .add-to-cart-wrapper
+    .price-qty-wrapper {
+    margin: 20px 0;
+  }
+
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modalBody
+    form
+    .add-to-cart-wrapper
+    .add-to-cart-qty-count {
+    border-radius: 5px;
+  }
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modalBody
+    form
+    .add-to-cart-wrapper
+    .add-to-cart-qty-count
+    button {
+    font-size: 16px;
+  }
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modalBody
+    form
+    .add-to-cart-wrapper
+    .add-to-cart-btn-container {
+    font-size: 16px;
+  }
+  .burgerCardModal
+    .modal-dialog
+    .modal-content
+    .modalBody
+    form
+    .add-to-cart-wrapper
+    .add-to-cart-btn-container
+    button {
+    font-size: 14px;
+    padding: 7px 0 !important;
+  }
+}

@@ -5,7 +5,6 @@
   width: 100% !important;
   padding: 10px 17px;
   margin-bottom: 25px;
-  width: auto;
 }
 .burgerCard .row {
   display: flex;
@@ -38,15 +37,27 @@
   height: 100%;
 }
 
-@media (max-width: 1146px) {
+@media screen and (max-width: 450px) {
+  .burgerCard .row .cardMediaCol .cardMedia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+    width: 75px;
+  }
+
+  .cardMedia img {
+    width: 50%;
+    height: 50%;
+  }
   .cardBody p {
+    font-size: 12px;
+  }
+  .cardBody h5 {
     font-size: 14px;
   }
-}
-
-@media (min-width: 1200px) and(max-width:1448px) {
-  .cardBody p {
-    font-size: 16px;
+  .cardBody .price {
+    font-size: 13px;
   }
 }
 

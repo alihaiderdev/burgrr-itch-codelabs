@@ -1456,7 +1456,7 @@ export const countryName = [
   'Virgin Islands, U.S.',
 ];
 
-export const countryCode = [
+export const countryCodeList = [
   '+972',
   '+93',
   '+355',
