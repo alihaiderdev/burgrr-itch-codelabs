@@ -1,0 +1,91 @@
+.addproductModal .modal-dialog {
+    margin: 5.75rem auto !important;
+    margin-left: 450px !important;
+  }
+  .addproductModal .grayClr {
+    color: #b3b9bf !important;
+  }
+  .addproductModal .rowWidth {
+    width: 100%;
+  }
+  .addproductModal .formGrouppad{
+    padding: 0;
+  }
+  .addproductModal .modalbtnFooter{
+    float: right;
+    margin-top: 20px;
+  }
+  .addproductModal .labelStyle{
+    color: black;
+    font-weight: 700;
+    font-family: 'UbuntuLight';
+  }
+  .addproductModal .input{
+    border-radius: 5px;
+    border-color: #bfbfbf;
+  }
+  .addproductModal .text_area{
+    resize: none;
+  }
+  .addproductModal .mt20{
+    margin-top: 20px;
+  }
+  .addproductModal .mgleft{
+    margin-left: 0 !important;
+  }
+  .addproductModal .input::placeholder {
+    color: #bfbfbf;
+    font-size: 14px;
+  }
+  .addproductModal .modal-dialog .modal-content {
+    width: 900px !important;
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    background: #f3f3f3 !important;
+  }
+  .addproductModal .modal-dialog .modal-content .modal-header {
+    border-bottom: none !important;
+    padding-bottom: 0;
+  }
+  .addproductModal .modal-dialog .modal-content .modal-body {
+    padding-top: 0 !important;
+  }
+  .addproductModal .imgDiv{
+    height: 100%;
+    width: 100%;
+  }
+  .addproductModal .imgDiv img{
+    height: 100%;
+    width: 100%;
+  }
+  .addproductModal
+    .modal-dialog
+    .modal-content
+    .modal-body
+    form
+    .form-row
+    .form-group
+    .form-label {
+    font-size: 15px !important;
+    font-size: 'UbuntuRegular';
+  }
+  
+  .addproductModal .modal-dialog .modal-content .modal-body form button {
+    border: none;
+    outline: none;
+    padding: 10px 40px;
+    color: white;
+    background-color: var(--orange);
+    border-radius: 6px;
+  }
+  .addproductModal .modal-dialog .modal-content .modal-body form button.cancle {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 10px 40px;
+    color: var(--orange);
+    border-radius: 6px;
+    /* border: 1px solid var(--orange); */
+  }
+  

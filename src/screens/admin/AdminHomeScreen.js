@@ -11,6 +11,7 @@ import BurgerCard from '../../components/admin/BurgerCard';
 import StoreSettingsDrawer from '../../components/admin/StoreSettingsDrawer';
 import AdminHeader from '../../components/admin/AdminHeader';
 import AddDiscountModal from '../../components/admin/AddDiscountModal';
+import AddProductModal from '../../components/admin/AddProductModal';
 
 import BurgerritchLogo from '../../assets/icons/BurgerritchLogo.png';
 import HeroSectionBgImage from '../../assets/images/header-bg.png';
@@ -68,16 +69,16 @@ const allInOneTab = (
 };
 
 const AdminHomeScreen = () => {
-  const [addDiscountModal, setAddDiscountModal] = useState(false);
-  const handleOpenAddDiscountModal = () => setAddDiscountModal(true);
-  const handleCloseAddDiscountModal = () => setAddDiscountModal(false);
+  const [addProductModal, setAddProductModal] = useState(false);
+  const handleOpenAddProductModal = () => setAddProductModal(true);
+  const handleCloseAddProductModal = () => setAddProductModal(false);
 
   const AddNewProductButton = () => {
     return (
       <div className='container-85'>
         <div
           className='addNewProductButton'
-          onClick={() => handleOpenAddDiscountModal()}
+          onClick={() => handleOpenAddProductModal()}
         >
           <img
             className='mb-2'
@@ -233,9 +234,9 @@ const AdminHomeScreen = () => {
         visible={visible}
         placement={placement}
       />
-      <AddDiscountModal
-        handleCloseAddDiscountModal={handleCloseAddDiscountModal}
-        addDiscountModal={addDiscountModal}
+      <AddProductModal
+        handleCloseAddproductModal={handleCloseAddProductModal}
+        addproductModal={addProductModal}
       />
     </>
   );
