@@ -27,6 +27,9 @@ const CustomModal = ({
   console.log({
     linkPath,
   });
+  const maskBgColor = {
+    backgroundColor: '#403b3be0',
+  };
   return (
     <Modal
       visible={open}
@@ -40,6 +43,7 @@ const CustomModal = ({
       width={width}
       centered={centered}
       footer={null}
+      maskStyle={maskBgColor}
       className={classname}
     >
       <div className='sb mb-2'>

@@ -12,6 +12,7 @@ import AdminHeader from '../../components/admin/AdminHeader';
 import Button from '../../components/formComponents/Button';
 import AuthScreensWrapper from '../../components/admin/AuthScreensWrapper';
 import InputField from '../../components/formComponents/InputField';
+import { Link } from 'react-router-dom';
 
 const EditProfileScreeen = ({ history }) => {
   const initialValues = {
@@ -64,6 +65,7 @@ const EditProfileScreeen = ({ history }) => {
                     label='Password'
                     placeholder='.....'
                   />
+                  <Link to='/admin/forget-password'>Change</Link>
                 </div>
                 <div className='editProfileWrapper'>
                   <h1>Profile</h1>
