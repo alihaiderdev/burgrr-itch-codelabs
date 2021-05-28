@@ -1,0 +1,24 @@
+.ant-modal-body .sb h3.modalTitle {
+  position: relative;
+}
+.ant-modal-body a.undoLink {
+  text-decoration: underline !important;
+}
+.ant-modal-body .sb .modalTitle.modalTitleSuccess span {
+  position: absolute;
+  bottom: -5px;
+  left: 2px;
+  /* display: block !important; */
+  width: 68px;
+  height: 5px;
+  background-color: #24be59;
+}
+.ant-modal-body .sb h3.modalTitleDelete span {
+  position: absolute;
+  bottom: -5px;
+  left: 2px;
+  /* display: block !important; */
+  width: 68px;
+  height: 5px;
+  background-color: #fd2b2a;
+}

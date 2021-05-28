@@ -32,6 +32,7 @@ import OurSolutionScreen from './screens/admin/OurSolutionScreen';
 import PricingScreen from './screens/admin/PricingScreen';
 import CheckoutScreen from './screens/admin/CheckoutScreen';
 import ForgetPasswordScreen from './screens/admin/ForgetPasswordScreen';
+import EditProfileScreen from './screens/admin/EditProfileScreen';
 // import { ScrollToTop   } from './utilities/ReuseableFunctions';
 
 const App = () => {
@@ -60,6 +61,11 @@ const App = () => {
             exact
             path='/admin/forget-password'
             component={ForgetPasswordScreen}
+          />
+          <Route
+            exact
+            path='/admin/edit-profile'
+            component={EditProfileScreen}
           />
           <Route exact path='/admin/home' component={AdminHomeScreen} />
           <Route exact path='/admin/orders' component={OrdersScreen} />

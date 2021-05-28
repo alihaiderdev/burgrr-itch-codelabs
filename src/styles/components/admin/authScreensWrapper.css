@@ -1,0 +1,18 @@
+.authScreensWrapper {
+  background-color: var(--white);
+  box-shadow: 0px 3px 99px #0000001a;
+  border-radius: 12px;
+  /* padding: 50px 80px; */
+  margin-bottom: 100px;
+  /* width: 35%; */
+}
+.authScreensWrapper .authScreensWrapperHeader {
+  text-align: center;
+}
+.authScreensWrapper .authScreensWrapperHeader h1 {
+  font-weight: bolder;
+}
+.authScreensWrapper .authScreensWrapperHeader p {
+  color: #bababa;
+  margin-bottom: 60px;
+}

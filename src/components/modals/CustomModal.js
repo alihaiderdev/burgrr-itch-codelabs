@@ -1,10 +1,15 @@
 import React, { useMemo } from 'react';
+import '../../styles/components/modals/customModal.css';
 
 import { Modal } from 'antd';
 // import { AiOutlineClose } from 'react-icons/ai';
 import { IoCloseSharp } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const CustomModal = ({
+  linkTitle,
+  linkPath,
+  type,
   modalTitle,
   modalDescription,
   bodyStyle,
@@ -19,20 +24,9 @@ const CustomModal = ({
   width,
   classname,
 }) => {
-  // console.log({
-  //   modalTitle,
-  //   modalDescription,
-  //   open,
-  //   closeIcon,
-  //   closable,
-  //   bodyStyle,
-  //   title,
-  //   style,
-  //   centered,
-  //   onClose,
-  //   children,
-  //   width,
-  // });
+  console.log({
+    linkPath,
+  });
   return (
     <Modal
       visible={open}
@@ -40,27 +34,60 @@ const CustomModal = ({
       closable={closable}
       // title={title}
       bodyStyle={bodyStyle}
-      centered={centered}
       style={style}
       onOk={onClose}
       onCancel={onClose}
       width={width}
+      centered={centered}
       footer={null}
       className={classname}
     >
       <div className='sb mb-2'>
-        {modalTitle && (
-          <h3 className='modalTitle m-0' style={{ fontWeight: 'bolder' }}>
-            {modalTitle}
-          </h3>
-        )}
+        {type === 'success'
+          ? modalTitle && (
+              <h3
+                className='modalTitle modalTitleSuccess mb-2'
+                style={{ fontWeight: 'bolder' }}
+              >
+                {modalTitle}
+                <span></span>
+              </h3>
+            )
+          : type === 'delete' || type === 'confirm'
+          ? modalTitle && (
+              <h3
+                className='modalTitle modalTitleDelete mb-2'
+                style={{ fontWeight: 'bolder' }}
+              >
+                {modalTitle}
+                <span></span>
+              </h3>
+            )
+          : modalTitle && (
+              <h3 className='modalTitle m-0' style={{ fontWeight: 'bolder' }}>
+                {modalTitle}
+              </h3>
+            )}
+
         <button className='button' onClick={onClose}>
           <IoCloseSharp size='25px' color='#9C9B9B' />
         </button>
       </div>
-      {modalDescription && (
-        <h6 className='modalDescription um gray mb-4'>{modalDescription}</h6>
-      )}
+      {modalDescription ? (
+        <h6 className='modalDescription um gray mb-4'>
+          {modalDescription}{' '}
+          {modalDescription && linkTitle && linkPath ? (
+            <a
+              target='_blank'
+              href={linkPath}
+              className='undoLink'
+              onClick={() => onClose()}
+            >
+              {linkTitle}
+            </a>
+          ) : null}
+        </h6>
+      ) : null}
       {children}
     </Modal>
   );

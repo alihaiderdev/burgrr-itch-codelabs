@@ -1,22 +1,72 @@
-import React from 'react';
-import { ErrorMessage, useField } from 'formik';
+import React, { useEffect, useState } from 'react';
 
-const InputField = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
-  console.log({ field, meta });
+import { ErrorMessage, Field, useField } from 'formik';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+
+const InputField = ({ type, name, label, placeholder, children }) => {
+  let inputIcon = null;
+  // console.log(icon);
+  // const [input, setInput] = useState(name);
+  const [passwordToggleIcon, setPasswordToggleIcon] = useState(false);
+
+  const handleClickShowPassword = () => {
+    setPasswordToggleIcon(!passwordToggleIcon);
+  };
+
+  // let inputValue = '';
+  // useEffect(() => {
+  //   if (name !== '') {
+  //     inputValue = document.getElementById(name).value;
+  //     console.log('inputValue : ', inputValue);
+  //   }
+  // }, [name]);
+
   return (
-    <div className='mb-2'>
-      <label htmlFor={field.name}>{label}</label>
-      <input
-        className={`form-control shadow-none ${
-          meta.touched && meta.error && 'is-invalid'
-        }`}
-        {...field}
-        {...props}
-        autoComplete={false}
-      />
-      <ErrorMessage name={field.name} />
-    </div>
+    <>
+      {type === 'password' && (
+        <div className='formControl'>
+          {label && <label htmlFor='name'>{label}</label>}
+          <Field
+            className='inputPassword'
+            type={passwordToggleIcon ? 'text' : 'password'}
+            name={name}
+            id={name}
+            placeholder={placeholder}
+          />
+          <div id='error'>
+            <ErrorMessage name={name} />
+          </div>
+          <button
+            type='button'
+            className='button passwordToggleIcon'
+            onClick={handleClickShowPassword}
+          >
+            {passwordToggleIcon ? (
+              <AiFillEye size='20px' className='grayIcon' />
+            ) : (
+              <AiFillEyeInvisible size='20px' className='grayIcon' />
+            )}
+          </button>
+        </div>
+      )}
+
+      {type === 'email' || type === 'text' ? (
+        <div className='formControl'>
+          {label && <label htmlFor='name'>{label}</label>}
+          <Field
+            className='input'
+            type={type ? type : 'text'}
+            name={name}
+            id={name}
+            placeholder={placeholder}
+          />
+          <div id='error'>
+            <ErrorMessage name={name} />
+          </div>
+          {children && children}
+        </div>
+      ) : null}
+    </>
   );
 };
 

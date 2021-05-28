@@ -14,18 +14,149 @@
   --gray: '#cecece';
   --body: '#fcfcfc';
 }
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+
+@font-face {
+  font-family: 'UbuntuBold';
+  src: url(./assets/fonts/Ubuntu-Bold.ttf);
 }
+@font-face {
+  font-family: 'UbuntuBoldItalic';
+  src: url(./assets/fonts/Ubuntu-BoldItalic.ttf);
+}
+@font-face {
+  font-family: 'UbuntuItalic';
+  src: url(./assets/fonts/Ubuntu-Italic.ttf);
+}
+@font-face {
+  font-family: 'UbuntuLight';
+  src: url(./assets/fonts/Ubuntu-Light.ttf);
+}
+@font-face {
+  font-family: 'UbuntuLightItalic';
+  src: url(./assets/fonts/Ubuntu-LightItalic.ttf);
+}
+@font-face {
+  font-family: 'UbuntuMedium';
+  src: url(./assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+  font-family: 'UbuntuMediumItalic';
+  src: url(./assets/fonts/Ubuntu-MediumItalic.ttf);
+}
+@font-face {
+  font-family: 'UbuntuRegular';
+  src: url(./assets/fonts/Ubuntu-Regular.ttf);
+}
+
+.ub {
+  font-family: 'UbuntuBold';
+}
+.ubi {
+  font-family: 'UbuntuBoldItalic';
+}
+.ui {
+  font-family: 'UbuntuItalic';
+}
+.ul {
+  font-family: 'UbuntuLight';
+}
+.uli {
+  font-family: 'UbuntuLightItalic';
+}
+.um {
+  font-family: 'UbuntuMedium';
+}
+.umi {
+  font-family: 'UbuntuMediumItalic';
+}
+.ur {
+  font-family: 'UbuntuRegular';
+}
+
+* {
+  font-family: 'UbuntuMedium';
+}
+
 body {
   background-color: var(--body);
 }
 
-form {
+textarea {
+  resize: none !important;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='tel'],
+textarea {
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: black;
+  font-family: 'UbuntuRegular';
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
+input[type='tel']:focus,
+textarea:focus {
+  border: 1px solid var(--orange) !important;
+}
+
+input[type='text']::placeholder,
+input[type='email']::placeholder,
+input[type='password']::placeholder,
+input[type='number']::placeholder,
+input[type='tel']::placeholder,
+textarea::placeholder {
+  color: #bababa !important;
+}
+
+.formControl #error {
+  font-family: 'UbuntuRegular';
+  margin-bottom: 15px;
+  color: red;
+}
+
+.formControl label {
+  color: #212529 !important;
+}
+
+.formControl {
   position: relative;
 }
+
+.formControl .passwordToggleIcon svg,
+.formControl svg {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+}
+
+.formControl .passwordToggleIcon .grayIcon,
+.formControl .grayIcon {
+  color: #bababa !important;
+}
+
+.formControl .input,
+.formControl .inputPassword {
+  outline: none;
+}
+
+.formControl .inputPassword,
+.formControl .input {
+  padding-right: 35px;
+}
+
 .orange {
   color: var(--orange) !important;
 }
@@ -121,68 +252,6 @@ form {
   margin: 0 auto !important;
 }
 
-@font-face {
-  font-family: 'UbuntuBold';
-  src: url(./assets/fonts/Ubuntu-Bold.ttf);
-}
-@font-face {
-  font-family: 'UbuntuBoldItalic';
-  src: url(./assets/fonts/Ubuntu-BoldItalic.ttf);
-}
-@font-face {
-  font-family: 'UbuntuItalic';
-  src: url(./assets/fonts/Ubuntu-Italic.ttf);
-}
-@font-face {
-  font-family: 'UbuntuLight';
-  src: url(./assets/fonts/Ubuntu-Light.ttf);
-}
-@font-face {
-  font-family: 'UbuntuLightItalic';
-  src: url(./assets/fonts/Ubuntu-LightItalic.ttf);
-}
-@font-face {
-  font-family: 'UbuntuMedium';
-  src: url(./assets/fonts/Ubuntu-Medium.ttf);
-}
-@font-face {
-  font-family: 'UbuntuMediumItalic';
-  src: url(./assets/fonts/Ubuntu-MediumItalic.ttf);
-}
-@font-face {
-  font-family: 'UbuntuRegular';
-  src: url(./assets/fonts/Ubuntu-Regular.ttf);
-}
-
-.ub {
-  font-family: 'UbuntuBold';
-}
-.ubi {
-  font-family: 'UbuntuBoldItalic';
-}
-.ui {
-  font-family: 'UbuntuItalic';
-}
-.ul {
-  font-family: 'UbuntuLight';
-}
-.uli {
-  font-family: 'UbuntuLightItalic';
-}
-.um {
-  font-family: 'UbuntuMedium';
-}
-.umi {
-  font-family: 'UbuntuMediumItalic';
-}
-.ur {
-  font-family: 'UbuntuRegular';
-}
-
-/* all root or global variables d */
-* {
-  font-family: 'UbuntuMedium';
-}
 .icon-sm {
   height: 1.5rem !important;
   width: 1.5rem !important;
@@ -439,7 +508,7 @@ h6 {
 /* All media queries  */
 
 /* global styling for input fields  */
-textarea:focus,
+/* textarea:focus,
 select:focus,
 textarea.form-control:focus,
 input.form-control:focus,
@@ -453,18 +522,6 @@ input[type='number']:focus,
 [type='tel'].form-control:focus,
 [contenteditable].form-control:focus {
   box-shadow: inset 0 -1px 0 #ddd;
-}
-
-/* .form-check-label {
-  font-family: 'UbuntuRegular';
-  margin-bottom: 0;
-}
-
-.custom-control-label::before,
-.custom-file-label,
-.custom-select {
-  color: var(--orange);
-  width: 500px;
 } */
 
 .form-group .custom-select.custom-select-sm option,
@@ -499,7 +556,6 @@ input[type='checkbox']:after {
   content: '';
   display: inline-block;
   visibility: visible;
-
   border: 1px solid #bdbdbd;
 }
 
@@ -514,8 +570,6 @@ input[type='checkbox']:checked:after {
   content: '';
   display: inline-block;
   visibility: visible;
-  /* margin: 0.5px; */
-  /* border: 1px solid var(--orange); */
 }
 
 ::-webkit-calendar-picker-indicator {
@@ -560,12 +614,6 @@ input.form-control:focus {
 .ant-checkbox-wrapper .ant-checkbox-checked .ant-checkbox-inner {
   background-color: var(--orange);
   border-color: var(--orange);
-}
-
-.error {
-  position: absolute;
-  color: red;
-  font-size: 0.6rem;
 }
 
 .ant-picker {
@@ -666,9 +714,6 @@ input[type='password']::placeholder {
   border-top: none !important;
 }
 
-textarea {
-  resize: none !important;
-}
 @media screen and (max-width: 600px) {
   .ant-drawer-content-wrapper {
     width: 100% !important;

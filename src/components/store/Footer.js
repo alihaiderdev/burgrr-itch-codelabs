@@ -8,6 +8,7 @@ import { AiFillInstagram } from 'react-icons/ai';
 import { FaTwitterSquare } from 'react-icons/fa';
 import { MdModeEdit } from 'react-icons/md';
 import EditFooterModal from '../modals/EditFooterModal';
+import AlertModal from '../modals/AlertModal';
 
 // import FacebookImage from '../../assets/icons/Social Media Icons/Facebook.svg';
 // import InstagramImage from '../../assets/icons/Social Media Icons/Instagram.svg';
@@ -18,6 +19,10 @@ const Footer = ({ location: { pathname } }) => {
   const [editFooterModal, setEditFooterModal] = useState(false);
   const handleOpenEditFooterModal = () => setEditFooterModal(true);
   const handleCloseEditFooterModal = () => setEditFooterModal(false);
+
+  const [alertModal, setAlertModal] = useState(false);
+  const handleOpenAlertModal = () => setAlertModal(true);
+  const handleCloseAlertModal = () => setAlertModal(false);
 
   return (
     <>
@@ -84,6 +89,7 @@ const Footer = ({ location: { pathname } }) => {
             className='editBtnWrapper button'
             onClick={() => {
               handleOpenEditFooterModal();
+              // handleOpenAlertModal();
             }}
           >
             <MdModeEdit className='gray' size='30' />
@@ -142,6 +148,33 @@ const Footer = ({ location: { pathname } }) => {
         editFooterModal={editFooterModal}
         handleCloseEditFooterModal={handleCloseEditFooterModal}
       />
+      {/* <AlertModal
+        type='success'
+        modalTitle='Confirm Delete'
+        modalDescription='Please confirm that you want to delete item'
+        openAlertModal={alertModal}
+        closeAlertModal={handleCloseAlertModal}
+        btn1Title='Cancel'
+        btn2Title='Delete'
+        btnColor='#24be59'
+      /> */}
+      {/* <AlertModal
+        type='success'
+        modalTitle='Deleted Successfully!'
+        modalDescription='Extra has been deleted successfully. If you think it was a mistake.'
+        linkTitle='Undo'
+        linkPath='/admin/home'
+        openAlertModal={alertModal}
+        closeAlertModal={handleCloseAlertModal}
+        width={700}
+        modalPosition={100}
+        btn1Title='Cancel'
+        btn2Title='Okay'
+        btnColor='#24be59' // green
+        // btnColor='#fd2b2a' // red
+        // btnColor='#F46B0D' // orange
+        // centered={true}
+      /> */}
     </>
   );
 };

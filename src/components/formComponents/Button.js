@@ -14,6 +14,7 @@ const Button = ({
   outline,
   style,
   classname,
+  children,
 }) => {
   return (
     <>
@@ -31,8 +32,8 @@ const Button = ({
           }}
           onClick={onClick}
         >
-          {icon && icon}
           {title && title}
+          {children}
         </button>
       ) : btnType === 'outline' ? (
         <button
@@ -48,8 +49,9 @@ const Button = ({
           }}
           onClick={onClick}
         >
-          {icon && icon}
+          {/* {icon && icon} */}
           {title && title}
+          {children}
         </button>
       ) : (
         <button
@@ -65,8 +67,9 @@ const Button = ({
           }}
           onClick={onClick}
         >
-          {icon && icon}
+          {/* {icon && icon} */}
           {title && title}
+          {children}
         </button>
       )}
     </>

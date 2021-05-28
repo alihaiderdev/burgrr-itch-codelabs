@@ -20,6 +20,7 @@ const AdminHeader = ({ location: { pathname } }, props) => {
       </Link>
       {(pathname === '/admin/home' ||
         pathname === '/admin/stats' ||
+        pathname === '/admin/edit-profile' ||
         pathname === '/admin/orders') && (
         <nav>
           <ul className='aic m-0'>

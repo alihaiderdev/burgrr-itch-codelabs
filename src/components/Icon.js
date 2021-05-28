@@ -1,5 +1,8 @@
 import React from 'react';
 
+// logout
+import { IoLogOutOutline } from 'react-icons/io5';
+
 // facebook
 import { ImFacebook2 } from 'react-icons/im';
 

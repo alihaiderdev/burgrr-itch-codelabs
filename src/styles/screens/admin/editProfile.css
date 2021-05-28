@@ -1,0 +1,10 @@
+.editProfileScreen form .infoWrapper {
+  /* width: 100%; */
+  display: flex;
+}
+.editProfileScreen .authScreensWrapper form .editInfoWrapper {
+  width: 65%;
+}
+.editProfileScreen .authScreensWrapper form .editProfileWrapper {
+  width: 35%;
+}
