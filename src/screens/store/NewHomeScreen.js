@@ -154,22 +154,20 @@ const NewHomeScreen = () => {
               <FaShoppingCart color='white' size='35px' className='cartIcon' />
             </button>
           </div>
-          <div className='cardDetailsSeachWrapper'>
-            <Form>
-              <Form.Group controlId='serach' className='newHomeScreenSearch'>
-                <Form.Control
-                  name='search'
-                  type='text'
-                  placeholder='Search'
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-                <button type='submit' className='searchButton'>
-                  <img src={SearchIcon} alt='SearchIcon' />
-                </button>
-              </Form.Group>
-            </Form>
-          </div>
+          <Form>
+            <Form.Group controlId='serach' className='newHomeScreenSearch'>
+              <Form.Control
+                name='search'
+                type='text'
+                placeholder='Search'
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <button type='submit' className='searchButton'>
+                <img src={SearchIcon} alt='SearchIcon' />
+              </button>
+            </Form.Group>
+          </Form>
         </div>
 
         <Tabs

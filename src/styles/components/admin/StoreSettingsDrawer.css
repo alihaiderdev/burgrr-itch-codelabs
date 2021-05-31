@@ -83,7 +83,7 @@
   background-color: transparent;
 }
 
-.ant-collapse-item-active .ant-collapse-header .accordainHeader button {
+.ant-collapse-item-active .ant-collapse-header .accordainHeader div {
   transform: rotate(180deg);
 }
 

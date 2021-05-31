@@ -112,6 +112,7 @@ const BurgerCardModal = (props) => {
 
   return (
     <>
+      {/* className='burgerCardModal' */}
       <Modal
         {...props}
         size='lg'
@@ -129,9 +130,7 @@ const BurgerCardModal = (props) => {
           </button>
           <div className='burgerModalDetails'>
             <h3 className='mb-0'>Big Mab</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur</p>
           </div>
           <div className='modalBody'>
             <Form onSubmit={handleSubmitForm}>
@@ -140,37 +139,18 @@ const BurgerCardModal = (props) => {
                   <p className='um'>Select Drink</p>
                 </div>
                 <div className='coldrink-main-container'>
-                  <Radio.Group
-                    onChange={onChangeHandler}
-                    defaultValue={drinksRadio}
-                  >
+                  <Radio.Group onChange={onChangeHandler} defaultValue={drinksRadio}>
                     <Space direction='vertical'>
-                      <Radio
-                        value={'Pepsi'}
-                        name={'Pepsi'}
-                        checked={drinksRadio === 'Pepsi'}
-                      >
+                      <Radio value={'Pepsi'} name={'Pepsi'} checked={drinksRadio === 'Pepsi'}>
                         Pepsi
                       </Radio>
-                      <Radio
-                        value={'Fanta'}
-                        name={'Fanta'}
-                        checked={drinksRadio === 'Fanta'}
-                      >
+                      <Radio value={'Fanta'} name={'Fanta'} checked={drinksRadio === 'Fanta'}>
                         Fanta
                       </Radio>
-                      <Radio
-                        value={'7UP'}
-                        name={'7UP'}
-                        checked={drinksRadio === '7UP'}
-                      >
+                      <Radio value={'7UP'} name={'7UP'} checked={drinksRadio === '7UP'}>
                         7UP
                       </Radio>
-                      <Radio
-                        value={'Marinda'}
-                        name={'Marinda'}
-                        checked={drinksRadio === 'Marinda'}
-                      >
+                      <Radio value={'Marinda'} name={'Marinda'} checked={drinksRadio === 'Marinda'}>
                         Marinda
                       </Radio>
                     </Space>
@@ -214,9 +194,7 @@ const BurgerCardModal = (props) => {
                   <div className='add-to-cart-qty-count'>
                     <button
                       className='sub'
-                      onClick={() =>
-                        setAddToCartQtyCount(addToCartQtyCount - 1)
-                      }
+                      onClick={() => setAddToCartQtyCount(addToCartQtyCount - 1)}
                       disabled={addToCartQtyCount === 0}
                     >
                       -
@@ -224,9 +202,7 @@ const BurgerCardModal = (props) => {
                     <div className='value'>{addToCartQtyCount}</div>
                     <button
                       className='add'
-                      onClick={() =>
-                        setAddToCartQtyCount(addToCartQtyCount + 1)
-                      }
+                      onClick={() => setAddToCartQtyCount(addToCartQtyCount + 1)}
                     >
                       +
                     </button>
@@ -251,11 +227,7 @@ const BurgerCardModal = (props) => {
           </div>
         </Modal.Body>
       </Modal>
-      <SidebarDrawer
-        closeDrawer={closeDrawer}
-        visible={visible}
-        placement={placement}
-      />
+      <SidebarDrawer closeDrawer={closeDrawer} visible={visible} placement={placement} />
     </>
   );
 };

@@ -50,7 +50,7 @@ const CustomModal = ({
         {type === 'success'
           ? modalTitle && (
               <h3
-                className='modalTitle modalTitleSuccess mb-2'
+                className='modalTitle modalTitleSuccess mb-2 black'
                 style={{ fontWeight: 'bolder' }}
               >
                 {modalTitle}
@@ -60,15 +60,17 @@ const CustomModal = ({
           : type === 'delete' || type === 'confirm'
           ? modalTitle && (
               <h3
-                className='modalTitle modalTitleDelete mb-2'
+                className='modalTitle modalTitleDelete mb-2 black'
                 style={{ fontWeight: 'bolder' }}
               >
                 {modalTitle}
-                <span></span>
               </h3>
             )
           : modalTitle && (
-              <h3 className='modalTitle m-0' style={{ fontWeight: 'bolder' }}>
+              <h3
+                className='modalTitle m-0 black'
+                style={{ fontWeight: 'bolder' }}
+              >
                 {modalTitle}
               </h3>
             )}
@@ -84,7 +86,7 @@ const CustomModal = ({
             <a
               target='_blank'
               href={linkPath}
-              className='undoLink'
+              className='undoLink blue'
               onClick={() => onClose()}
             >
               {linkTitle}

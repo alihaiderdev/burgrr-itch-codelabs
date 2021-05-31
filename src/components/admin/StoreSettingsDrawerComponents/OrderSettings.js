@@ -4,16 +4,33 @@ import '../../../styles/components/admin/StoreSettingsDrawerComponents/orderSett
 import { DatePicker, Space, TimePicker } from 'antd';
 import moment from 'moment';
 import { BsToggleOff, BsToggleOn } from 'react-icons/bs';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+
 import Button from '../../formComponents/Button';
-import { Form } from 'react-bootstrap';
+import Icon from '../../Icon';
 
 // import ToggleOnIcon from '../../../assets/admin-icons-images/Icons/Toggle-On.svg';
 // import ToggleOffIcon from '../../../assets/admin-icons-images/Icons/Toggle-Off.svg';
-import Icon from '../../Icon';
 
 // const { RangePicker } = DatePicker;
 
 const OrderSettings = () => {
+  // const initialValues = {
+  //   acceptOrders: true,
+  //   upTill: '',
+  // };
+
+  // const validationSchema = Yup.object({
+  //   acceptOrders: Yup.string.required('Required!'),
+  //   upTill: Yup.string().required('Required!'),
+  // });
+
+  // const onSubmit = (values, onSubmitProps) => {
+  //   console.log('Form Data : ', values);
+  //   onSubmitProps.resetForm();
+  // };
+
   const [orderSettingsInfo, setOrderSettingsInfo] = useState({
     acceptOrders: true,
     upTill: '',
@@ -21,7 +38,6 @@ const OrderSettings = () => {
 
   const { acceptOrders, upTill } = orderSettingsInfo;
 
-  const [dontAcceptOrderToggle, setDontAcceptOrderToggle] = useState(true);
   const format = 'h:mm:ss A';
 
   const handleUpTillTimeChange = (time, timeString) => {

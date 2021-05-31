@@ -1,6 +1,18 @@
 .adminHomeScreen {
   margin: 160px 0;
 }
+.adminHomeScreen form .form-group {
+  position: relative;
+}
+.adminHomeScreen form .form-group .form-control {
+  padding-right: 50px;
+}
+
+.adminHomeScreen form .form-group button {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+}
 
 .addNewProductButton {
   display: flex;

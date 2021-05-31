@@ -5,6 +5,112 @@
 .editProfileScreen .authScreensWrapper form .editInfoWrapper {
   width: 65%;
 }
+.editProfileScreen .authScreensWrapper form .editInfoWrapper a {
+  text-decoration: underline !important;
+}
 .editProfileScreen .authScreensWrapper form .editProfileWrapper {
   width: 35%;
+  padding: 50px;
 }
+
+.editProfileScreen .authScreensWrapper form .editProfileWrapper .image-upload {
+  width: 200px;
+  height: 200px;
+}
+
+.editProfileScreen
+  .authScreensWrapper
+  form
+  .editProfileWrapper
+  .image-upload
+  label
+  .imageWrapper {
+  position: relative;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+/* 
+.editProfileScreen
+  .authScreensWrapper
+  form
+  .editProfileWrapper
+  .image-upload
+  label
+  .profileImage {
+  cursor: pointer;
+} */
+
+.editProfileScreen
+  .authScreensWrapper
+  form
+  .editProfileWrapper
+  .image-upload
+  label
+  .uploadIcon {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #4845458c;
+  width: 100%;
+  height: 35%;
+}
+
+.editProfileScreen
+  .authScreensWrapper
+  form
+  .editProfileWrapper
+  .image-upload
+  > input {
+  display: none;
+}
+/* 
+.editProfileScreen .authScreensWrapper form .editProfileWrapper img {
+  width: 75%;
+  height: 75%;
+  cursor: pointer;
+}
+.editProfileScreen
+  .authScreensWrapper
+  form
+  .editProfileWrapper
+  .ant-upload-picture-card-wrapper {
+  width: 75%;
+  height: 75%;
+}
+.editProfileScreen
+  .authScreensWrapper
+  form
+  .editProfileWrapper
+  .ant-upload-picture-card-wrapper
+  .ant-upload-list-picture-card {
+  width: 75%;
+  height: 75%;
+  margin: 0 !important;
+}
+
+.editProfileScreen
+  .authScreensWrapper
+  form
+  .editProfileWrapper
+  .ant-upload-picture-card-wrapper
+  .ant-upload-list-picture-card
+  .ant-upload-select-picture-card {
+  width: 75%;
+  height: 75%;
+  margin: 0 !important;
+}
+.editProfileScreen
+  .authScreensWrapper
+  form
+  .editProfileWrapper
+  .ant-upload-picture-card-wrapper
+  .ant-upload-list-picture-card
+  .ant-upload-select-picture-card
+  .ant-upload {
+  width: 75%;
+  height: 75%;
+} */

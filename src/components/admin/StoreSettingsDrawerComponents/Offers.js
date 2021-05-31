@@ -10,7 +10,7 @@ import { RiDeleteBin5Fill } from 'react-icons/ri';
 // import ToggleOffIcon from '../../../assets/admin-icons-images/Icons/Toggle-Off.svg';
 import Icon from '../../Icon';
 
-const Offers = ({ handleOpenAddDiscountModal, closeDrawer }) => {
+const Offers = ({ handleOpenAddDiscountModal, handleOpenAddCouponModal, closeDrawer }) => {
   const [discountToggle, setDiscountToggle] = useState(false);
   const [couponToggle, setCouponToggle] = useState(true);
 
@@ -22,14 +22,15 @@ const Offers = ({ handleOpenAddDiscountModal, closeDrawer }) => {
           <div className='actions'>
             <RiDeleteBin5Fill
               color='red'
-              style={{ cursor: 'pointer' }}
-              size='25px'
+              style={{ cursor: 'pointer', marginRight: '10px' }}
+              size='20px'
               onClick={() => alert('Deleted')}
             />
             <MdModeEdit
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: 'pointer', marginRight: '10px' }}
               size='25px'
               onClick={() => {
+                closeDrawer();
                 handleOpenAddDiscountModal();
               }}
             />
@@ -58,15 +59,16 @@ const Offers = ({ handleOpenAddDiscountModal, closeDrawer }) => {
           <div className='actions'>
             <RiDeleteBin5Fill
               color='red'
-              style={{ cursor: 'pointer' }}
-              size='25px'
+              style={{ cursor: 'pointer', marginRight: '10px' }}
+              size='20px'
               onClick={() => alert('Deleted')}
             />
             <MdModeEdit
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: 'pointer', marginRight: '10px' }}
               size='25px'
               onClick={() => {
-                handleOpenAddDiscountModal();
+                closeDrawer();
+                handleOpenAddCouponModal();
               }}
             />
             <button onClick={() => setCouponToggle(!couponToggle)}>
@@ -106,7 +108,7 @@ const Offers = ({ handleOpenAddDiscountModal, closeDrawer }) => {
         className='ub aic'
         onClick={() => {
           closeDrawer();
-          handleOpenAddDiscountModal();
+          handleOpenAddCouponModal();
         }}
       >
         Coupons <Icon children={<MdAddCircle size='25px' />} />

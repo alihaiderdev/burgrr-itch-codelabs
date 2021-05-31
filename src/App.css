@@ -13,6 +13,7 @@
   --dark-black: '#000000';
   --gray: '#cecece';
   --body: '#fcfcfc';
+  --blue: blue;
 }
 
 @font-face {
@@ -121,29 +122,26 @@ textarea::placeholder {
   color: #bababa !important;
 }
 
+.formControl {
+  position: relative;
+  margin-bottom: 20px;
+}
 .formControl #error {
   font-family: 'UbuntuRegular';
   margin-bottom: 15px;
   color: red;
 }
-
 .formControl label {
   color: #212529 !important;
 }
-
-.formControl {
-  position: relative;
-}
-
-.formControl .passwordToggleIcon svg,
-.formControl svg {
+.formControl div.formInputIcon,
+.formControl button {
   position: absolute;
-  top: 40px;
+  top: 37px;
   right: 10px;
 }
 
-.formControl .passwordToggleIcon .grayIcon,
-.formControl .grayIcon {
+.grayIcon {
   color: #bababa !important;
 }
 
@@ -157,17 +155,28 @@ textarea::placeholder {
   padding-right: 35px;
 }
 
-.orange {
+/* react bootstrap input field styling  */
+.form-group .form-control:focus {
+  box-shadow: none !important;
+}
+.form-control .orange {
   color: var(--orange) !important;
 }
 
+.blue {
+  color: var(--blue) !important;
+}
+
+.orange {
+  color: var(--orange) !important;
+}
 .bg-orange {
   background-color: var(--orange) !important;
 }
+
 .gray {
   color: var(--gray) !important;
 }
-
 .bg-gray {
   background-color: var(--gray) !important;
 }
@@ -175,7 +184,6 @@ textarea::placeholder {
 .lgray {
   color: var(--lgray) !important;
 }
-
 .bg-lgray {
   background-color: var(--lgray) !important;
 }
@@ -298,18 +306,17 @@ li {
   font-family: 'UbuntuLight';
 }
 
-/* a {
+a {
   text-decoration: none !important;
-} */
+}
 
-/* h1,
-h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a {
   color: var(--orange) !important;
-} */
+}
 
 .m-0 {
   margin: 0;
@@ -701,6 +708,7 @@ input[type='password']::placeholder {
 }
 .ant-modal-content {
   background-color: #f3f3f3 !important;
+  background-color: #ffffff !important;
 }
 .ant-modal-content,
 .ant-modal-header {
@@ -712,6 +720,58 @@ input[type='password']::placeholder {
 }
 .ant-modal-footer {
   border-top: none !important;
+}
+
+/* ant design image upload customization  */
+
+/* large preview of antd image  */
+/* 
+body img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body {
+  margin: 0 !important;
+} */
+.ant-modal-content
+  .ant-modal-body
+  .antd-img-crop-control
+  .ant-slider
+  .ant-slider-track {
+  background-color: var(--orange);
+}
+.ant-modal-content
+  .ant-modal-body
+  .antd-img-crop-control
+  .ant-slider
+  .ant-slider-handle {
+  border: solid 2px var(--orange);
+}
+
+.ant-modal-content .ant-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.ant-modal-content .ant-modal-footer .ant-btn {
+  background-color: transparent;
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  padding: 20px 40px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.ant-modal-content .ant-modal-footer .ant-btn-primary {
+  background-color: var(--orange);
+  color: white;
+  padding: 21px 40px;
+  border: none;
+  outline: none;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 600px) {

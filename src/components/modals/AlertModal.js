@@ -4,22 +4,25 @@ import '../../styles/components/modals/alertModal.css';
 import Button from '../formComponents/Button';
 import CustomModal from './CustomModal';
 
-const AlertModal = ({
-  openAlertModal,
-  closeAlertModal,
-  modalTitle,
-  modalDescription,
-  children,
-  linkTitle,
-  linkPath,
-  type,
-  width,
-  modalPosition,
-  centered,
-  btn1Title,
-  btn2Title,
-  btnColor,
-}) => {
+const AlertModal = (props) => {
+  console.log({ props });
+  const {
+    openAlertModal,
+    closeAlertModal,
+    modalTitle,
+    modalDescription,
+    children,
+    linkTitle,
+    linkPath,
+    type,
+    width,
+    modalPosition,
+    centered,
+    btn1Title,
+    btn2Title,
+    btnColor,
+  } = props;
+
   console.log({
     linkPath,
   });

@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { ErrorMessage, Field, useField } from 'formik';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
-const InputField = ({ type, name, label, placeholder, children }) => {
-  let inputIcon = null;
+const InputField = (props) => {
+  const { type, name, label, placeholder, children, disabled, value } = props;
+  // let inputIcon = null;
   // console.log(icon);
   // const [input, setInput] = useState(name);
   const [passwordToggleIcon, setPasswordToggleIcon] = useState(false);
-
   const handleClickShowPassword = () => {
     setPasswordToggleIcon(!passwordToggleIcon);
   };
@@ -32,8 +32,10 @@ const InputField = ({ type, name, label, placeholder, children }) => {
             name={name}
             id={name}
             placeholder={placeholder}
+            disabled={disabled ? disabled : false}
+            value={value && value}
           />
-          <div id='error'>
+          <div id='error' className='m-0'>
             <ErrorMessage name={name} />
           </div>
           <button
@@ -59,11 +61,13 @@ const InputField = ({ type, name, label, placeholder, children }) => {
             name={name}
             id={name}
             placeholder={placeholder}
+            disabled={disabled ? disabled : false}
+            value={value && value}
           />
           <div id='error'>
             <ErrorMessage name={name} />
           </div>
-          {children && children}
+          <div className='formInputIcon'>{children && children}</div>
         </div>
       ) : null}
     </>
