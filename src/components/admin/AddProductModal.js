@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Col, Form, Modal} from 'react-bootstrap';
 import '../../styles/components/admin/addProductModal.css';
 import Logo from '../../assets/images/product.png';
+import { MdAddCircle } from 'react-icons/md';
 
 const AddProductModal = ({addproductModal, handleCloseAddproductModal}) => {
   const [addproductInfo, setAddproductInfo] = useState({
@@ -16,6 +17,23 @@ const AddProductModal = ({addproductModal, handleCloseAddproductModal}) => {
 
   const onChangeHandler = (e) => {
     setAddproductInfo({...addproductInfo, [e.target.name]: e.target.value});
+  };
+
+  const Addextra = () => {
+    // setAddproductInfo({...addproductInfo, [e.target.name]: e.target.value});
+    return (
+      <div>
+         <Form.Control
+          className="input col-11"
+          required
+          name='extras'
+          type='text'
+          onChange={onChangeHandler}
+          placeholder=''
+        />
+      </div>
+    )
+    
   };
 
   const addproductSubmitHandler = (e) => {
@@ -82,7 +100,6 @@ const AddProductModal = ({addproductModal, handleCloseAddproductModal}) => {
                 required
                 name='category'
                 as="select"
-                value={manimumPurchase}
                 onChange={onChangeHandler}
                 placeholder='42434'
               >
@@ -99,7 +116,6 @@ const AddProductModal = ({addproductModal, handleCloseAddproductModal}) => {
                 required
                 name='maximumPurchase'
                 type='number'
-                value={maximumPurchase}
                 onChange={onChangeHandler}
                 placeholder='42434'
               />
@@ -108,17 +124,19 @@ const AddProductModal = ({addproductModal, handleCloseAddproductModal}) => {
           <Form.Row>
             <Form.Group as={Col} controlId='manimumPurchase' className="formGrouppad">
               <Form.Label>Extras</Form.Label>
+              <Addextra/>
               <div className="row mgleft">
               <Form.Control
-                className="input extrainput col-10"
+                className="input col-11"
                 required
                 name='extras'
                 type='text'
-                value={manimumPurchase}
                 onChange={onChangeHandler}
-                placeholder='42434'
+                placeholder=''
               />
-              <span className="col-2">Add</span>
+              <span className="col-1 extrainput">
+                <MdAddCircle className="addicon"/>
+                Add</span>
               </div>
             </Form.Group>
           </Form.Row>

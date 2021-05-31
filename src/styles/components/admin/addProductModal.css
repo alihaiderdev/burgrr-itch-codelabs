@@ -33,6 +33,17 @@
   .addproductModal .mgleft{
     margin-left: 0 !important;
   }
+  .addproductModal .addicon{
+    margin-right: 5px;
+    font-size: 23px;
+    color: #fd7e14;
+    cursor: pointer;
+  }
+  .addproductModal .extrainput{
+    padding-right: 0 !important;
+    padding-left: 10px !important;
+    padding-top: 5px;
+  }
   .addproductModal .input::placeholder {
     color: #bfbfbf;
     font-size: 14px;
