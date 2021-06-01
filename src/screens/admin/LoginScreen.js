@@ -19,13 +19,14 @@ import InputField from '../../components/formComponents/InputField';
 const LoginScreen = ({ history }) => {
   ScrollToTop();
 
-  const dispatch = useDispatch();
-  const userLogin = useSelector((state) => state.userLogin);
-
   const initialValues = {
     email: '',
     password: '',
   };
+
+  const dispatch = useDispatch();
+  // const userLogin = useSelector((state) => state.userLogin);
+  // const { loading, userInfo, error } = userLogin;
 
   const onSubmit = (values) => {
     console.log('Form Data : ', values);

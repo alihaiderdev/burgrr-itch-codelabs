@@ -26,8 +26,14 @@ import useWindowResize from '../../customHooks/useWindowResize';
 import EditProductIcon from '../../assets/admin-icons-images/Icons/Edit 1.svg';
 import AddNewProductIcon from '../../assets/admin-icons-images/Icons/add product.svg';
 import { ScrollToTop } from '../../utilities/ReuseableFunctions';
+import AlertToast from '../../components/AlertToast';
 
-const allInOneTab = (innerTabImg, innerTabTitle, innerTabPrice, cardLength = 12) => {
+const allInOneTab = (
+  innerTabImg,
+  innerTabTitle,
+  innerTabPrice,
+  cardLength = 12
+) => {
   return (
     <div className='mt-4'>
       {innerTabImg && innerTabTitle && innerTabPrice && (
@@ -73,8 +79,15 @@ const AdminHomeScreen = () => {
   const AddNewProductButton = () => {
     return (
       <div className='container-85'>
-        <div className='addNewProductButton' onClick={() => handleOpenAddDiscountModal()}>
-          <img className='mb-2' src={AddNewProductIcon} alt='AddNewProductIcon' />
+        <div
+          className='addNewProductButton'
+          onClick={() => handleOpenAddDiscountModal()}
+        >
+          <img
+            className='mb-2'
+            src={AddNewProductIcon}
+            alt='AddNewProductIcon'
+          />
           <p className='gray um'>Add New Product</p>
         </div>
       </div>
@@ -111,12 +124,23 @@ const AdminHomeScreen = () => {
             <div className='detailsCard'>
               <div className='detailsCardLogoWrapper'>
                 <Link to='/'>
-                  <img src={BurgerritchLogo} alt='BurgerritchLogo' className='detailsCardLogo' />
+                  <img
+                    src={BurgerritchLogo}
+                    alt='BurgerritchLogo'
+                    className='detailsCardLogo'
+                  />
                 </Link>
                 <h2>burgrr*itch</h2>
               </div>
               <Row className='detailsCardRow'>
-                <Col xs={6} sm={6} md={6} lg={6} xl={6} className='cardDetailsCol'>
+                <Col
+                  xs={6}
+                  sm={6}
+                  md={6}
+                  lg={6}
+                  xl={6}
+                  className='cardDetailsCol'
+                >
                   <ul className='m-0'>
                     <li>
                       <img src={LocationIcon} alt='LocationIcon' />
@@ -128,11 +152,20 @@ const AdminHomeScreen = () => {
                     </li>
                     <li>
                       <img src={TimingIcon} alt='TimingIcon' />
-                      <span className='ur ml-2'>Mon-Fri, 09:00 AM - 09:30 PM</span>
+                      <span className='ur ml-2'>
+                        Mon-Fri, 09:00 AM - 09:30 PM
+                      </span>
                     </li>
                   </ul>
                 </Col>
-                <Col xs={6} sm={6} md={6} lg={6} xl={6} className='cardDetailsCol'>
+                <Col
+                  xs={6}
+                  sm={6}
+                  md={6}
+                  lg={6}
+                  xl={6}
+                  className='cardDetailsCol'
+                >
                   <ul className='m-0'>
                     <li>
                       <img src={RatingIcon} alt='RatingIcon' />
@@ -170,7 +203,11 @@ const AdminHomeScreen = () => {
           </div>
         </div>
 
-        <Tabs defaultActiveKey='all' id='noanim-tab-example' className='container-85'>
+        <Tabs
+          defaultActiveKey='all'
+          id='noanim-tab-example'
+          className='container-85'
+        >
           <Tab eventKey='all' title='All'>
             <AddNewProductButton />
             {allInOneTab(Burger, 'Burgers', '$$$', 6)}
@@ -192,7 +229,13 @@ const AdminHomeScreen = () => {
           </Tab>
         </Tabs>
       </div>
-      <StoreSettingsDrawer closeDrawer={closeDrawer} visible={visible} placement={placement} />
+
+      <AlertToast />
+      <StoreSettingsDrawer
+        closeDrawer={closeDrawer}
+        visible={visible}
+        placement={placement}
+      />
     </>
   );
 };

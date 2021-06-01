@@ -98,7 +98,7 @@ const SetupStoreScreen = ({ history }) => {
           descrption='Tell us about your business'
           style={{ width: '40%', padding: '50px' }}
         >
-          <Form autoComplete onSubmit={setupStoreSubmitHandler} className='signupForm'>
+          <Form onSubmit={setupStoreSubmitHandler} className='signupForm'>
             <Form.Group controlId='storeName'>
               <Form.Label>Store Name</Form.Label>
               <Form.Control
@@ -192,7 +192,8 @@ const SetupStoreScreen = ({ history }) => {
 
             <p className='termConditions'>
               *by clicking sign up button you accept our{' '}
-              <span className='orange ur'>terms and conditions</span> to create our store.
+              <span className='orange ur'>terms and conditions</span> to create
+              our store.
             </p>
             <div className='center mt-4'>
               <Button
