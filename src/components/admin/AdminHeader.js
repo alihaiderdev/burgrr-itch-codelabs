@@ -74,6 +74,7 @@ const AdminHeader = ({ location: { pathname } }, props) => {
       pathname === '/admin/checkout' ||
       pathname === '/admin/login' ||
       pathname === '/admin/forget-password' ||
+      pathname === '/admin/change-password' ||
       pathname === '/admin/why-us' ||
       pathname === '/admin/our-solution' ? (
         <nav>

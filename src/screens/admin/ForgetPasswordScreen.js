@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/screens/admin/forgetPassword.css';
-// import '../../styles/screens/admin/login.css';
 
 import { BiEnvelope } from 'react-icons/bi';
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 

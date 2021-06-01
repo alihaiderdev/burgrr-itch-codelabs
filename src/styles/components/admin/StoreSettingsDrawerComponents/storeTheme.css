@@ -1,0 +1,49 @@
+.storeTheme .yellow-theme {
+  background-color: #00000010;
+}
+.storeTheme .theme-options {
+  display: flex;
+}
+.storeTheme .theme-options div {
+  cursor: pointer;
+  width: 54px;
+  height: 54px;
+  border-radius: 4px;
+  margin: 2px 5px;
+  border: 3px solid #aaa3a310;
+  border-radius: 10px;
+  display: inline-block;
+  /* opacity: 0.5; */
+}
+
+.storeTheme .theme-options div.active {
+  border: 3px solid rgb(78, 211, 118);
+}
+
+#yellow-theme {
+  background-color: #feb82b;
+}
+
+#purple-theme {
+  background-color: #8f84e0;
+}
+
+#black-theme {
+  background-color: #1b1b1b;
+}
+
+#orange-theme {
+  background-color: #f46b0d;
+}
+
+#dark-purple-theme {
+  background-color: #372e69;
+}
+
+#light-purple-theme {
+  background-color: #cabcf7;
+}
+
+#green-theme {
+  background-color: #2e8301;
+}

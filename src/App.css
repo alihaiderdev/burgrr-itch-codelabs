@@ -12,8 +12,37 @@
   --black: '#1B1B1B';
   --dark-black: '#000000';
   --gray: '#cecece';
-  --body: '#fcfcfc';
+  /* --body: '#fcfcfc'; */
   --blue: blue;
+  --yellow: #feb82b;
+  --purple: #8f84e0;
+  --black: #1b1b1b;
+  --orange: #f46b0d;
+  --dark-purple: #372e69;
+  --light-purple: #cabcf7;
+  --green: #2e8301;
+}
+
+body.yellow-theme {
+  background-color: var(--yellow);
+}
+body.purple-theme {
+  background-color: var(--purple);
+}
+body.black-theme {
+  background-color: var(--black);
+}
+body.orange-theme {
+  background-color: var(--orange);
+}
+body.dark-purple-theme {
+  background-color: var(--dark-purple);
+}
+body.light-purple-theme {
+  background-color: var(--light-purple);
+}
+body.green-theme {
+  background-color: var(--green);
 }
 
 @font-face {
@@ -76,10 +105,6 @@
 
 * {
   font-family: 'UbuntuMedium';
-}
-
-body {
-  background-color: var(--body);
 }
 
 textarea {

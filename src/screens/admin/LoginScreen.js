@@ -6,6 +6,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { BiEnvelope } from 'react-icons/bi';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AdminHeader from '../../components/admin/AdminHeader';
 import { ScrollToTop } from '../../utilities/ReuseableFunctions';
@@ -14,10 +15,12 @@ import FacebookIcon from '../../assets/icons/FacebookIcon.svg';
 import GoogleIcon from '../../assets/icons/GoogleIcon.svg';
 import AuthScreensWrapper from '../../components/admin/AuthScreensWrapper';
 import InputField from '../../components/formComponents/InputField';
-import Icon from './../../components/Icon';
 
 const LoginScreen = ({ history }) => {
   ScrollToTop();
+
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
 
   const initialValues = {
     email: '',

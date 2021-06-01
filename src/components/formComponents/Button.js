@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -16,6 +16,19 @@ const Button = ({
   classname,
   children,
 }) => {
+  let activeColorTheme = '';
+  const [colorTheme, setColorTheme] = useState('orange-theme');
+
+  useEffect(() => {
+    // check for selected theme from local storage
+    const currentColorTheme = localStorage.getItem('theme-color');
+    // if found set selected theme value in state
+    if (currentColorTheme) {
+      setColorTheme(currentColorTheme);
+      activeColorTheme = currentColorTheme;
+    }
+  }, [colorTheme]);
+
   return (
     <>
       {btnType === 'text' ? (
@@ -87,6 +100,7 @@ Button.defaultProps = {
   type: 'contained',
   color: 'white',
   backgroundColor: '#fd7e14',
+  // backgroundColor: `${activeColorTheme}`,
   border: 'none',
   outline: 'none',
   fontFamily: 'UbuntuRegular',
