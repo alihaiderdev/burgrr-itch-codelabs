@@ -73,6 +73,7 @@ const ForgetPasswordScreen = ({ history }) => {
   const onSubmitEmail = (values) => {
     const { email } = values;
     console.log('Form Data : ', values);
+
     if (email !== '') {
       openResetLinkAlertModal();
     }

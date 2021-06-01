@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { BiEnvelope } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import AdminHeader from '../../components/admin/AdminHeader';
 import { ScrollToTop } from '../../utilities/ReuseableFunctions';
@@ -15,33 +16,59 @@ import FacebookIcon from '../../assets/icons/FacebookIcon.svg';
 import GoogleIcon from '../../assets/icons/GoogleIcon.svg';
 import AuthScreensWrapper from '../../components/admin/AuthScreensWrapper';
 import InputField from '../../components/formComponents/InputField';
+import { login } from '../../store/actions/userActions';
+import Message from '../../components/Message';
+import Loader from '../../components/Loader';
 
 const LoginScreen = ({ history }) => {
   ScrollToTop();
 
   const initialValues = {
-    email: '',
+    emailAddress: '',
     password: '',
   };
 
   const dispatch = useDispatch();
-  // const userLogin = useSelector((state) => state.userLogin);
-  // const { loading, userInfo, error } = userLogin;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { loading, userInfo, error } = userLogin;
 
-  const onSubmit = (values) => {
+  console.log({ userInfo });
+
+  const onSubmit = (values, { resetForm }) => {
     console.log('Form Data : ', values);
-    history.push('/admin/setup-store');
+    const { emailAddress, password } = values;
+    dispatch(login(emailAddress, password));
+    // toast.success('Hello', {
+    //   position: toast.POSITION.TOP_CENTER,
+    // });
+    // resetForm();
+    // history.push('/admin/setup-store');
+
+    toast('🦄 Wow so easy!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   const validationSchema = Yup.object({
-    email: Yup.string().email('Invalid Email Format').required('Required!'),
+    emailAddress: Yup.string()
+      .email('Invalid Email Format')
+      .required('Required!'),
     password: Yup.string().required('Required!'),
   });
 
   return (
     <>
       <AdminHeader />
+
       <div className='loginScreen container-85 center'>
+        {error && <Message variant='danger'>{error}</Message>}
+        {loading && <Loader />}
         <AuthScreensWrapper
           title='Login'
           descrption='To Access Your Online Store'
@@ -55,7 +82,7 @@ const LoginScreen = ({ history }) => {
             <Form>
               <InputField
                 type='email'
-                name='email'
+                name='emailAddress'
                 label='Email'
                 placeholder='someone@gmail.com'
               >

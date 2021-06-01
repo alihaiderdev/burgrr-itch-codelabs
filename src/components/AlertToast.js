@@ -1,6 +1,5 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
 
 const AlertToast = () => {
   const CustomToast = ({ closeToast }) => {

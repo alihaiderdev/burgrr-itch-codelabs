@@ -5,8 +5,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
-import { cartReducer } from './reducers/cartReducers';
-import { userLoginReducer } from './reducers/userReducers';
+import {
+  userChangePasswordReducer,
+  userForgetPasswordReducer,
+  userLoginReducer,
+} from './reducers/userReducers';
 
 // const persistConfig = {
 //   key: 'root',
@@ -21,14 +24,24 @@ import { userLoginReducer } from './reducers/userReducers';
 //   return { store, persistor }
 // }
 
+const userInfoFromStorage = localStorage.getItem('userInfo')
+  ? JSON.parse(localStorage.getItem('userInfo'))
+  : null;
+
+const initialState = {
+  userLogin: { userInfo: userInfoFromStorage },
+};
+
 const reducer = combineReducers({
-  cart: cartReducer,
   userLogin: userLoginReducer,
+  userForgetPassword: userForgetPasswordReducer,
+  userChangePassword: userChangePasswordReducer,
 });
 const middleware = [thunk];
 
 const store = createStore(
   reducer,
+  initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 );
 

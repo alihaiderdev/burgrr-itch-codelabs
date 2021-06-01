@@ -2,8 +2,12 @@ import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
+// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import axios from 'axios';
+import { createBrowserHistory } from 'history';
 
 import Footer from './components/store/Footer';
 import Header from './components/store/Header';
@@ -35,10 +39,25 @@ import CheckoutScreen from './screens/admin/CheckoutScreen';
 import ForgetPasswordScreen from './screens/admin/ForgetPasswordScreen';
 import EditProfileScreen from './screens/admin/EditProfileScreen';
 import ChangePasswordScreen from './screens/admin/ChangePasswordScreen';
+import store from './store';
 // import { ScrollToTop   } from './utilities/ReuseableFunctions';
+
+const history = createBrowserHistory();
 
 const App = () => {
   // ScrollToTop();
+
+  const tokenFromStorage = localStorage.getItem('auth-token')
+    ? JSON.parse(localStorage.getItem('auth-token'))
+    : null;
+
+  console.log({ tokenFromStorage });
+
+  axios.defaults.baseURL = 'http://ordering.api.codelabs.inc';
+  axios.defaults.headers.common['Authorization'] = `Bearer ${tokenFromStorage}`;
+  axios.defaults.headers.post['Content-Type'] =
+    'application/x-www-form-urlencoded';
+  // axios.defaults.headers.post['Content-Type'] = 'application/json';
 
   return (
     <>

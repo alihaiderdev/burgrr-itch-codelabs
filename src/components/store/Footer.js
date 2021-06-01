@@ -88,8 +88,8 @@ const Footer = ({ location: { pathname } }) => {
           <button
             className='editBtnWrapper button'
             onClick={() => {
-              handleOpenEditFooterModal();
-              // handleOpenAlertModal();
+              // handleOpenEditFooterModal();
+              handleOpenAlertModal();
             }}
           >
             <MdModeEdit className='gray' size='30' />
@@ -144,11 +144,11 @@ const Footer = ({ location: { pathname } }) => {
           </div>
         </div>
       )}
-      <EditFooterModal
+      {/* <EditFooterModal
         editFooterModal={editFooterModal}
         handleCloseEditFooterModal={handleCloseEditFooterModal}
-      />
-      {/* <AlertModal
+      /> */}
+      <AlertModal
         type='success'
         modalTitle='Confirm Delete'
         modalDescription='Please confirm that you want to delete item'
@@ -157,7 +157,7 @@ const Footer = ({ location: { pathname } }) => {
         btn1Title='Cancel'
         btn2Title='Delete'
         btnColor='#24be59'
-      /> */}
+      />
       {/* <AlertModal
         type='success'
         modalTitle='Deleted Successfully!'
