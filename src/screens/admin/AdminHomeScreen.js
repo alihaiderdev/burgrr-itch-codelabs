@@ -230,7 +230,6 @@ const AdminHomeScreen = () => {
         </Tabs>
       </div>
 
-      <AlertToast />
       <StoreSettingsDrawer
         closeDrawer={closeDrawer}
         visible={visible}

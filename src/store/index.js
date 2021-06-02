@@ -7,9 +7,16 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 
 import {
   userChangePasswordReducer,
-  userForgetPasswordReducer,
+  userForgotPasswordReducer,
   userLoginReducer,
+  userRegisterReducer,
 } from './reducers/userReducers';
+import {
+  cityListReducer,
+  countryListReducer,
+  industryListReducer,
+  stateListReducer,
+} from './reducers/setupStoreReducers';
 
 // const persistConfig = {
 //   key: 'root',
@@ -24,24 +31,29 @@ import {
 //   return { store, persistor }
 // }
 
-const userInfoFromStorage = localStorage.getItem('userInfo')
-  ? JSON.parse(localStorage.getItem('userInfo'))
-  : null;
+// const userInfoFromStorage = localStorage.getItem('userInfo')
+//   ? JSON.parse(localStorage.getItem('userInfo'))
+//   : null;
 
-const initialState = {
-  userLogin: { userInfo: userInfoFromStorage },
-};
+// const initialState = {
+//   userLogin: { userInfo: userInfoFromStorage },
+// };
 
 const reducer = combineReducers({
+  userRegister: userRegisterReducer,
   userLogin: userLoginReducer,
-  userForgetPassword: userForgetPasswordReducer,
+  userForgotPassword: userForgotPasswordReducer,
   userChangePassword: userChangePasswordReducer,
+  countryList: countryListReducer,
+  stateList: stateListReducer,
+  cityList: cityListReducer,
+  industryList: industryListReducer,
 });
 const middleware = [thunk];
 
 const store = createStore(
   reducer,
-  initialState,
+  // initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 );
 

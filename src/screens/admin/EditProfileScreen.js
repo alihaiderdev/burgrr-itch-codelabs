@@ -3,10 +3,11 @@
 import React, { useState } from 'react';
 import '../../styles/screens/admin/editProfile.css';
 
-import { Formik, Form } from 'formik';
+import { Formik, Form, useFormik } from 'formik';
 import * as Yup from 'yup';
 import { BiEnvelope } from 'react-icons/bi';
 import { IoLogOutOutline } from 'react-icons/io5';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Upload, message } from 'antd';
 import ImgCrop from 'antd-img-crop';
@@ -18,11 +19,11 @@ import AuthScreensWrapper from '../../components/admin/AuthScreensWrapper';
 import InputField from '../../components/formComponents/InputField';
 import { ScrollToTop } from '../../utilities/ReuseableFunctions';
 import EditProfileImagePlacholder from '../../assets/icons/user.svg';
-
-const { Dragger } = Upload;
+import { logout } from '../../store/actions/userActions';
 
 const EditProfileScreeen = ({ history }) => {
   ScrollToTop();
+  const dispatch = useDispatch();
 
   const [imageInfo, setImageInfo] = useState({ file: null, base64URL: '' });
 
@@ -85,6 +86,17 @@ const EditProfileScreeen = ({ history }) => {
     // profileImage: Yup.string().required('Required!'),
   });
 
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
+  });
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    history.push('/admin/home');
+  };
+
   return (
     <>
       <AdminHeader />
@@ -94,114 +106,124 @@ const EditProfileScreeen = ({ history }) => {
           descrption='Setup your profile'
           style={{ width: '50%', padding: '50px' }}
         >
-          <Formik
+          {/* <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
-          >
-            {(formik) => {
-              // console.log({ formik });
-              return (
-                <Form>
-                  <div className='infoWrapper'>
-                    <div className='editInfoWrapper'>
-                      <InputField
-                        type='text'
-                        name='name'
-                        label='Name'
-                        placeholder='Enter your name'
-                      />
-                      <InputField
-                        type='email'
-                        name='email'
-                        label='Email'
-                        placeholder='Enter your email'
-                        // disabled
-                        // value='ali@gmail.com'
-                      >
-                        <BiEnvelope className='grayIcon icon' size='20px' />
-                      </InputField>
-                      <InputField
-                        type='password'
-                        name='password'
-                        label='Password'
-                        placeholder='.....'
-                      />
-                      <Link to='/admin/forget-password' className='blue'>
-                        Change
-                      </Link>
-                    </div>
-                    <div className='editProfileWrapper'>
-                      <div class='image-upload'>
-                        <label for='file-input'>
-                          {base64URL && base64URL.length > 0 ? (
-                            <>
-                              <div className='imageWrapper'>
-                                <img
-                                  src={base64URL}
-                                  alt='Profile Pic'
-                                  className='profileImage'
-                                />
-                                <div className='uploadIcon center'>
-                                  <IoCameraSharp size='40px' color='white' />
-                                </div>
-                              </div>
-                            </>
-                          ) : (
-                            <>
-                              <div className='imageWrapper'>
-                                <img
-                                  src={EditProfileImagePlacholder}
-                                  alt='EditProfileImagePlacholder'
-                                  className='profileImage'
-                                />
-                                <div className='uploadIcon center'>
-                                  <IoCameraSharp size='40px' color='white' />
-                                </div>
-                              </div>
-                            </>
-                          )}
-                        </label>
-                        <input
-                          id='file-input'
-                          accept='image/*'
-                          type='file'
-                          onChange={handleFileInputChange}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className='fe mt-4'>
-                    <Button
-                      title='Logout'
-                      type='button'
-                      btnType='text'
-                      onClick={() => history.push('/admin/home')}
-                      style={{
-                        borderRadius: '35px',
-                        // width: '25%',
-                        padding: '12px 30px',
-                        borderRadius: '5px',
-                      }}
-                    >
-                      <IoLogOutOutline size='25' />
-                    </Button>
-                    <Button
-                      title='Save Changes'
-                      type='submit'
-                      style={{
-                        borderRadius: '35px',
-                        boxShadow: '0px 15px 25px #00000029',
-                        width: '35%',
-                        padding: '12px 50px',
-                        borderRadius: '5px',
-                      }}
-                    />
-                  </div>
-                </Form>
-              );
-            }}
-          </Formik>
+          > */}
+          <form onSubmit={formik.handleSubmit}>
+            <div className='infoWrapper'>
+              <div className='editInfoWrapper'>
+                <InputField
+                  type='text'
+                  name='name'
+                  label='Name'
+                  placeholder='Enter your name'
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.name}
+                  touched={formik.touched.name}
+                  errors={formik.errors.name}
+                />
+                <InputField
+                  type='email'
+                  name='email'
+                  label='Email'
+                  placeholder='Enter your email'
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                  touched={formik.touched.email}
+                  errors={formik.errors.email}
+                  // disabled
+                  // value='ali@gmail.com'
+                >
+                  <BiEnvelope className='grayIcon icon' size='20px' />
+                </InputField>
+                <InputField
+                  type='password'
+                  name='password'
+                  label='Password'
+                  placeholder='.....'
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                  touched={formik.touched.password}
+                  errors={formik.errors.password}
+                />
+                <Link to='/admin/forgot-password' className='blue'>
+                  Change
+                </Link>
+              </div>
+              <div className='editProfileWrapper'>
+                <div class='image-upload'>
+                  <label for='file-input'>
+                    {base64URL && base64URL.length > 0 ? (
+                      <>
+                        <div className='imageWrapper'>
+                          <img
+                            src={base64URL}
+                            alt='Profile Pic'
+                            className='profileImage'
+                          />
+                          <div className='uploadIcon center'>
+                            <IoCameraSharp size='40px' color='white' />
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className='imageWrapper'>
+                          <img
+                            src={EditProfileImagePlacholder}
+                            alt='EditProfileImagePlacholder'
+                            className='profileImage'
+                          />
+                          <div className='uploadIcon center'>
+                            <IoCameraSharp size='40px' color='white' />
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </label>
+                  <input
+                    id='file-input'
+                    accept='image/*'
+                    type='file'
+                    onChange={handleFileInputChange}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className='fe mt-4'>
+              <Button
+                title='Logout'
+                type='button'
+                btnType='text'
+                onClick={() => logoutHandler()}
+                style={{
+                  borderRadius: '35px',
+                  // width: '25%',
+                  padding: '12px 30px',
+                  borderRadius: '5px',
+                }}
+              >
+                <IoLogOutOutline size='25' />
+              </Button>
+              <Button
+                title='Save Changes'
+                type='submit'
+                style={{
+                  borderRadius: '35px',
+                  boxShadow: '0px 15px 25px #00000029',
+                  width: '35%',
+                  padding: '12px 50px',
+                  borderRadius: '5px',
+                }}
+              />
+            </div>
+          </form>
+          {/* </Formik> */}
         </AuthScreensWrapper>
       </div>
     </>

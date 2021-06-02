@@ -4,7 +4,7 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import { Router, Switch, Route } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import { createBrowserHistory } from 'history';
@@ -36,10 +36,11 @@ import WhyUsScreen from './screens/admin/WhyUsScreen';
 import OurSolutionScreen from './screens/admin/OurSolutionScreen';
 import PricingScreen from './screens/admin/PricingScreen';
 import CheckoutScreen from './screens/admin/CheckoutScreen';
-import ForgetPasswordScreen from './screens/admin/ForgetPasswordScreen';
+import ForgotPasswordScreen from './screens/admin/ForgotPasswordScreen';
 import EditProfileScreen from './screens/admin/EditProfileScreen';
 import ChangePasswordScreen from './screens/admin/ChangePasswordScreen';
 import store from './store';
+import { ToastContainer } from 'react-toastify';
 // import { ScrollToTop   } from './utilities/ReuseableFunctions';
 
 const history = createBrowserHistory();
@@ -47,20 +48,21 @@ const history = createBrowserHistory();
 const App = () => {
   // ScrollToTop();
 
-  const tokenFromStorage = localStorage.getItem('auth-token')
-    ? JSON.parse(localStorage.getItem('auth-token'))
+  const tokenFromStorage = localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo'))
     : null;
 
-  console.log({ tokenFromStorage });
-
   axios.defaults.baseURL = 'http://ordering.api.codelabs.inc';
-  axios.defaults.headers.common['Authorization'] = `Bearer ${tokenFromStorage}`;
+  axios.defaults.headers.common[
+    'Authorization'
+  ] = `Bearer ${tokenFromStorage.userInfo.token}`;
   axios.defaults.headers.post['Content-Type'] =
     'application/x-www-form-urlencoded';
   // axios.defaults.headers.post['Content-Type'] = 'application/json';
 
   return (
     <>
+      {/* <Router history={history}> */}
       <Router>
         <Header />
         <Switch>
@@ -80,8 +82,8 @@ const App = () => {
           <Route exact path='/admin/login' component={LoginScreen} />
           <Route
             exact
-            path='/admin/forget-password'
-            component={ForgetPasswordScreen}
+            path='/admin/forgot-password'
+            component={ForgotPasswordScreen}
           />
           <Route
             exact
@@ -102,9 +104,11 @@ const App = () => {
             path='/admin/our-solution'
             component={OurSolutionScreen}
           />
-          <Route component={Error404Screen} />
+          <Route path='*' component={Error404Screen} />
         </Switch>
         <Footer />
+
+        <ToastContainer />
       </Router>
     </>
   );

@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/screens/admin/signup.css';
 
 import { Form } from 'react-bootstrap';
 import { Select } from 'antd';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getCityList,
+  getCountryList,
+  getIndustryList,
+  getStateList,
+} from '../../store/actions/setupStoreActions';
 
 import AdminHeader from '../../components/admin/AdminHeader';
 import { countryName } from '../../data/countryCodeList';
@@ -17,6 +24,31 @@ const { Option } = Select;
 const SetupStoreScreen = ({ history }) => {
   ScrollToTop();
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getIndustryList());
+    dispatch(getCountryList());
+    dispatch(getStateList(1));
+    dispatch(getCityList(1));
+  }, [dispatch, getCountryList, getStateList, getCityList, getIndustryList]);
+
+  const { countries } = useSelector((state) => state.countryList);
+  // const countrylist =
+  // countries.result.countryList && countries.result.countryList.slice();
+
+  const { states } = useSelector((state) => state.stateList);
+  // const statelist =
+  // countries.result.stateList && countries.result.stateList.slice();
+
+  const { cities } = useSelector((state) => state.cityList);
+  // const citylist =
+  // countries.result.cityList && countries.result.cityList.slice();
+
+  const { industries } = useSelector((state) => state.industryList);
+  // const { industries } = industrylist;
+  // console.log('industryList :  ', industrylist);
+
   const [setupStoreInfo, setSetupStoreInfo] = useState({
     storeName: '',
     industry: 'Food',
@@ -27,6 +59,7 @@ const SetupStoreScreen = ({ history }) => {
       city: 'Karachi',
     },
   });
+
   const [industryList, setIndustryList] = useState([
     'Clothes',
     'Food',
@@ -35,6 +68,7 @@ const SetupStoreScreen = ({ history }) => {
     'Patroleum',
     'Automobile',
   ]);
+
   const [stateList, setStateList] = useState([
     'Sindh',
     'Azad Jammu and Kashmir',
@@ -88,6 +122,11 @@ const SetupStoreScreen = ({ history }) => {
     });
     history.push('/admin/pricing');
   };
+
+  console.log({ industries });
+  console.log({ countries });
+  console.log({ states });
+  console.log({ cities });
 
   return (
     <>
@@ -153,6 +192,14 @@ const SetupStoreScreen = ({ history }) => {
                       {c}
                     </Option>
                   ))}
+
+                {/* {countries.result !== null &&
+                  countrylist &&
+                  countrylist.map((c, i) => (
+                    <Option key={i} value={c.name}>
+                      {c.name}
+                    </Option>
+                  ))} */}
               </Select>
             </Form.Group>
             <Form.Group controlId='state'>

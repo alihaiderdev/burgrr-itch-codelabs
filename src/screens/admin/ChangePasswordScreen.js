@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/screens/admin/changePassword.css';
 
-import { Formik, Form } from 'formik';
+import { Formik, Form, useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 
@@ -58,6 +58,12 @@ const ChangePasswordScreen = () => {
     }
   };
 
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
+  });
+
   return (
     <>
       <AdminHeader />
@@ -69,61 +75,71 @@ const ChangePasswordScreen = () => {
           descrption='Enter old and new password to change your current password'
           style={{ width: '35%', padding: '50px' }}
         >
-          <Formik
+          {/* <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
-          >
-            {(formik) => {
-              console.log({ formik });
-              return (
-                <Form>
-                  <InputField
-                    type='password'
-                    name='oldPassword'
-                    label='Old Password'
-                    placeholder='.....'
-                  />
-                  <InputField
-                    type='password'
-                    name='newPassword'
-                    label='New Password'
-                    placeholder='.....'
-                  />
-                  <InputField
-                    type='password'
-                    name='newConfirmPassword'
-                    label='New Confirm Password'
-                    placeholder='.....'
-                  />
-                  <div className='center my-4'>
-                    <Button
-                      title='Change Password'
-                      type='submit'
-                      style={{
-                        borderRadius: '5px',
-                        padding: '15px 50px',
-                        marginTop: '24px',
-                        fontFamily: 'Ubunturegular',
-                        width: '70%',
-                      }}
-                    />
-                  </div>
-                  <AlertModal
-                    type='success'
-                    modalTitle='Password Change Succeffully!'
-                    modalDescription='Your password has been updated, now you can access your account using new password'
-                    openAlertModal={alertChangePasswordModal}
-                    closeAlertModal={closeChangePasswordAlertModal}
-                    width={800}
-                    modalPosition={100}
-                    btn2Title='Okay'
-                    btnColor='#24be59' // green
-                  />
-                </Form>
-              );
-            }}
-          </Formik>
+          > */}
+          <form onSubmit={formik.handleSubmit}>
+            <InputField
+              type='password'
+              name='oldPassword'
+              label='Old Password'
+              placeholder='.....'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.oldPassword}
+              touched={formik.touched.oldPassword}
+              errors={formik.errors.oldPassword}
+            />
+            <InputField
+              type='password'
+              name='newPassword'
+              label='New Password'
+              placeholder='.....'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.newPassword}
+              touched={formik.touched.newPassword}
+              errors={formik.errors.newPassword}
+            />
+            <InputField
+              type='password'
+              name='newConfirmPassword'
+              label='New Confirm Password'
+              placeholder='.....'
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.newConfirmPassword}
+              touched={formik.touched.newConfirmPassword}
+              errors={formik.errors.newConfirmPassword}
+            />
+            <div className='center my-4'>
+              <Button
+                title='Change Password'
+                type='submit'
+                style={{
+                  borderRadius: '5px',
+                  padding: '15px 50px',
+                  marginTop: '24px',
+                  fontFamily: 'Ubunturegular',
+                  width: '70%',
+                }}
+              />
+            </div>
+            <AlertModal
+              type='success'
+              modalTitle='Password Change Succeffully!'
+              modalDescription='Your password has been updated, now you can access your account using new password'
+              openAlertModal={alertChangePasswordModal}
+              closeAlertModal={closeChangePasswordAlertModal}
+              width={800}
+              modalPosition={100}
+              btn2Title='Okay'
+              btnColor='#24be59' // green
+            />
+          </form>
+          {/* </Formik> */}
         </AuthScreensWrapper>
       </div>
     </>

@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 const CustomModal = ({
   linkTitle,
-  linkPath,
   type,
   modalTitle,
   modalDescription,
@@ -24,9 +23,6 @@ const CustomModal = ({
   width,
   classname,
 }) => {
-  console.log({
-    linkPath,
-  });
   const maskBgColor = {
     backgroundColor: '#403b3be0',
   };
@@ -82,10 +78,9 @@ const CustomModal = ({
       {modalDescription ? (
         <h6 className='modalDescription um gray mb-4'>
           {modalDescription}{' '}
-          {modalDescription && linkTitle && linkPath ? (
+          {modalDescription && linkTitle ? (
             <a
               target='_blank'
-              href={linkPath}
               className='undoLink blue'
               onClick={() => onClose()}
             >

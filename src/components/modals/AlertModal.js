@@ -5,7 +5,6 @@ import Button from '../formComponents/Button';
 import CustomModal from './CustomModal';
 
 const AlertModal = (props) => {
-  console.log({ props });
   const {
     openAlertModal,
     closeAlertModal,
@@ -13,7 +12,6 @@ const AlertModal = (props) => {
     modalDescription,
     children,
     linkTitle,
-    linkPath,
     type,
     width,
     modalPosition,
@@ -23,9 +21,6 @@ const AlertModal = (props) => {
     btnColor,
   } = props;
 
-  console.log({
-    linkPath,
-  });
   const btnOutlineStyle = {
     borderColor: btnColor ? btnColor : '#F46B0D',
     color: btnColor ? btnColor : '#F46B0D',
@@ -48,7 +43,6 @@ const AlertModal = (props) => {
         modalTitle={modalTitle}
         modalDescription={modalDescription}
         linkTitle={linkTitle}
-        linkPath={linkPath}
         width={width}
         centered={centered}
         style={{ top: modalPosition }}

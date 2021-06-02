@@ -1,48 +1,63 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const AlertToast = () => {
-  const CustomToast = ({ closeToast }) => {
-    return (
-      <div>
-        CustomToast Notification ! <button onClick={closeToast}>Close</button>
-      </div>
-    );
-  };
+// toast transitions : bounce , slide , zoom , flip
+// toast type : info , success , warning , error , default, dark
 
-  const notify = () => {
-    console.log('Notify');
-    toast('Default Notification !');
+const AlertToast = ({ type, position, autoClose, message, transition }) => {
+  // toast.configure();
+  // const CustomToast = ({ closeToast }) => {
+  //   return (
+  //     <div>
+  //       CustomToast Notification ! <button onClick={closeToast}>Close</button>
+  //     </div>
+  //   );
+  // };
+  switch (type) {
+    case type === 'info':
+      return toast.info(`${message}`, {
+        position: position ? position : 'top-right',
+        autoClose: autoClose ? autoClose : 5000,
+        pauseOnHover: true,
+        transition: transition ? transition : 'bounce',
+      });
+    case type === 'success':
+      return toast.success(`${message}`, {
+        position: position ? position : 'top-right',
+        autoClose: autoClose ? autoClose : 5000,
+        pauseOnHover: true,
+        transition: transition ? transition : 'bounce',
+      });
+    case type === 'warning':
+      return toast.warning(`${message}`, {
+        position: position ? position : 'top-right',
+        autoClose: autoClose ? autoClose : 5000,
+        pauseOnHover: true,
+        transition: transition ? transition : 'bounce',
+      });
+    case type === 'error':
+      return toast.error(`${message}`, {
+        position: position ? position : 'top-right',
+        autoClose: autoClose ? autoClose : 5000,
+        pauseOnHover: true,
+        transition: transition ? transition : 'bounce',
+      });
+    case type === 'dark':
+      return toast.dark(`${message}`, {
+        position: position ? position : 'top-right',
+        autoClose: autoClose ? autoClose : 5000,
+        pauseOnHover: true,
+        transition: transition ? transition : 'bounce',
+      });
 
-    toast.success('Success Notification !', {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: false,
-    });
-
-    toast.error('Error Notification !', {
-      position: toast.POSITION.TOP_LEFT,
-      autoClose: 10000,
-    });
-
-    toast.warn('Warning Notification !', {
-      position: toast.POSITION.BOTTOM_LEFT,
-    });
-
-    toast.info('Info Notification !', {
-      position: toast.POSITION.BOTTOM_CENTER,
-    });
-
-    toast.info(<CustomToast />, {
-      position: toast.POSITION.BOTTOM_CENTER,
-    });
-
-    toast('Custom Style Notification with css class!', {
-      position: toast.POSITION.BOTTOM_RIGHT,
-      className: 'foo-bar',
-    });
-  };
-
-  return <button onClick={notify}>Notify</button>;
+    default:
+      return toast(`${message}`, {
+        position: position ? position : 'top-right',
+        autoClose: autoClose ? autoClose : 5000,
+        pauseOnHover: true,
+        transition: transition ? transition : 'bounce',
+      });
+  }
 };
 
 export default AlertToast;
