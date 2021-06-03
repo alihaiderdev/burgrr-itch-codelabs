@@ -1,25 +1,27 @@
 #message p {
-  margin: 0;
+  /* color: red; */
+  opacity: 0.5;
+  transition: 0.3s;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
-
-/* Add a green text color and a checkmark when the requirements are right */
-.valid {
-  color: green;
+#message p .crossIcon {
+  opacity: 0;
+  /* color: red; */
 }
-
-.valid:before {
-  position: relative;
-  left: -35px;
-  content: '✔';
+#message p .tickIcon {
+  opacity: 1;
+  /* color: green; */
 }
-
-/* Add a red text color and an "x" when the requirements are wrong */
-.invalid {
-  color: red;
+#message p .icon {
+  position: absolute;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  line-height: 30px;
+  font-size: large;
 }
-
-.invalid:before {
-  position: relative;
-  left: -35px;
-  content: '✖';
+#message p span {
+  margin-left: 30px;
 }

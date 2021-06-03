@@ -17,25 +17,30 @@ import {
   USER_EDIT_PROFILE_FAIL,
 } from '../constants/userConstants';
 
-export const userRegisterReducer = (state = {}, action) => {
+export const userRegisterReducer = (
+  state = { registerUserInfo: {} },
+  action
+) => {
   const { payload, type } = action;
   switch (type) {
     case USER_REGISTER_REQUEST:
-      return { loading: true };
+      return { ...state, loading: true };
     case USER_REGISTER_SUCCESS:
-      return { loading: false, userInfo: payload };
+      return { loading: false, registerUserInfo: payload };
     default:
       return state;
   }
 };
 
-export const userLoginReducer = (state = { userInfo: {} }, action) => {
-  const { payload, type } = action;
+export const userLoginReducer = (
+  state = { loginUserInfo: {} },
+  { payload, type }
+) => {
   switch (type) {
     case USER_LOGIN_REQUEST:
       return { ...state, loading: true };
     case USER_LOGIN_SUCCESS:
-      return { loading: false, userInfo: payload };
+      return { loading: false, loginUserInfo: payload };
     case USER_LOGOUT:
       return {};
     default:

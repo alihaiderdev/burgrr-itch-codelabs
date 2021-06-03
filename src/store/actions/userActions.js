@@ -19,36 +19,31 @@ import {
   USER_EDIT_PROFILE_FAIL,
 } from '../constants/userConstants';
 
-// import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from 'history';
 import { toast } from 'react-toastify';
+import AlertToast from '../../components/AlertToast';
 
-// const history = createBrowserHistory();
+const history = createBrowserHistory();
 
 export const register = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST });
   const { data } = await axios.post('/api/users', { name, email, password });
   dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
   dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
-  localStorage.setItem('userInfo', JSON.stringify(data));
 };
 
 export const login = (emailAddress, password) => async (dispatch) => {
   dispatch({ type: USER_LOGIN_REQUEST });
   const { data } = await axios.post('/Login', { emailAddress, password });
   dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
-  console.log('Response : ', data);
 
-  if (data.result !== null) {
-    localStorage.setItem('userInfo', JSON.stringify(data.result));
-    // localStorage.setItem('auth-token', JSON.stringify(data.result.token));
-  }
   if (data.response.responseCode === 0 && data.response.responseMessage) {
     toast.success(`${data.response.responseMessage}`, {
       position: 'top-right',
       autoClose: 5000,
       pauseOnHover: true,
     });
-    // history.push('/admin/home');
+    // <AlertToast message={data.response.responseMessage} type='success' />;
   } else
     toast.error(`${data.response.responseMessage}`, {
       position: 'top-right',
@@ -62,20 +57,34 @@ export const forgotPassword = (emailAddress) => async (dispatch) => {
   const { data } = await axios.post('/ForgotPassword', { emailAddress });
   console.log('forgotPassword : ', data);
   dispatch({ type: USER_FORGOT_PASSWORD_SUCCESS, payload: data });
+  if (data.response.responseCode === 0 && data.response.responseMessage) {
+    toast.success(`${data.response.responseMessage}`, {
+      position: 'top-right',
+      autoClose: 5000,
+      pauseOnHover: true,
+    });
+  } else
+    toast.error(`${data.response.responseMessage}`, {
+      position: 'top-right',
+      autoClose: 5000,
+      pauseOnHover: true,
+    });
 };
 
 export const changePassword =
-  (oldPassword, newPassword) => async (dispatch) => {
+  (userId, oldPassword, newPassword) => async (dispatch) => {
     dispatch({ type: USER_CHANGE_PASSWORD_REQUEST });
     const { data } = await axios.post('/ChangePassword', {
+      userId,
       oldPassword,
       newPassword,
     });
-    console.log('action : ', { oldPassword, newPassword });
+    console.log('changePassword  : ', data);
     dispatch({ type: USER_CHANGE_PASSWORD_SUCCESS, payload: data });
   };
 
 export const logout = () => (dispatch) => {
-  localStorage.removeItem('userInfo');
+  // localStorage.removeItem('userInfo');
+  // localStorage.removeItem('auth-token');
   dispatch({ type: USER_LOGOUT });
 };

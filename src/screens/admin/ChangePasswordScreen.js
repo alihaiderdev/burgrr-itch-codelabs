@@ -30,6 +30,10 @@ const ChangePasswordScreen = () => {
     newConfirmPassword: '',
   };
 
+  // const {
+  //   userInfo: { userId },
+  // } = JSON.parse(localStorage.getItem('userInfo'));
+
   const dispatch = useDispatch();
   const userChangePassword = useSelector((state) => state.userChangePassword);
   const {
@@ -102,6 +106,7 @@ const ChangePasswordScreen = () => {
               value={formik.values.newPassword}
               touched={formik.touched.newPassword}
               errors={formik.errors.newPassword}
+              passwordValidations={true}
             />
             <InputField
               type='password'
@@ -113,6 +118,7 @@ const ChangePasswordScreen = () => {
               value={formik.values.newConfirmPassword}
               touched={formik.touched.newConfirmPassword}
               errors={formik.errors.newConfirmPassword}
+              passwordValidations={true}
             />
             <div className='center my-4'>
               <Button

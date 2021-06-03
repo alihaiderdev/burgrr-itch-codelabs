@@ -4,7 +4,8 @@ import { toast } from 'react-toastify';
 // toast transitions : bounce , slide , zoom , flip
 // toast type : info , success , warning , error , default, dark
 
-const AlertToast = ({ type, position, autoClose, message, transition }) => {
+const AlertToast = ({ type, message, position, autoClose, transition }) => {
+  console.log({ type, message });
   // toast.configure();
   // const CustomToast = ({ closeToast }) => {
   //   return (

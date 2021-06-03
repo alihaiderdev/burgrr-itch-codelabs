@@ -122,6 +122,7 @@ const SignupScreen = ({ history }) => {
               value={formik.values.password}
               touched={formik.touched.password}
               errors={formik.errors.password}
+              passwordValidations={true}
             />
             <InputField
               type='password'
@@ -133,6 +134,7 @@ const SignupScreen = ({ history }) => {
               value={formik.values.confirmPassword}
               touched={formik.touched.confirmPassword}
               errors={formik.errors.confirmPassword}
+              passwordValidations={true}
             />
 
             <p className='termConditions'>

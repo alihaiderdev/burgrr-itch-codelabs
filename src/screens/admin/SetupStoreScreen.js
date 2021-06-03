@@ -6,6 +6,7 @@ import { Select } from 'antd';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  getAllLists,
   getCityList,
   getCountryList,
   getIndustryList,
@@ -27,10 +28,11 @@ const SetupStoreScreen = ({ history }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getIndustryList());
-    dispatch(getCountryList());
-    dispatch(getStateList(1));
-    dispatch(getCityList(1));
+    // dispatch(getIndustryList());
+    // dispatch(getCountryList());
+    // dispatch(getStateList(1));
+    // dispatch(getCityList(1));
+    dispatch(getAllLists());
   }, [dispatch, getCountryList, getStateList, getCityList, getIndustryList]);
 
   const { countries } = useSelector((state) => state.countryList);
@@ -48,6 +50,8 @@ const SetupStoreScreen = ({ history }) => {
   const { industries } = useSelector((state) => state.industryList);
   // const { industries } = industrylist;
   // console.log('industryList :  ', industrylist);
+
+  const { allLists } = useSelector((state) => state.allLists);
 
   const [setupStoreInfo, setSetupStoreInfo] = useState({
     storeName: '',
@@ -123,10 +127,39 @@ const SetupStoreScreen = ({ history }) => {
     history.push('/admin/pricing');
   };
 
-  console.log({ industries });
-  console.log({ countries });
-  console.log({ states });
-  console.log({ cities });
+  // console.log({ industries });
+  // console.log({ countries });
+  // console.log({ states });
+  // console.log({ cities });
+  console.log('allLists : ', allLists);
+
+  const industriesList =
+    allLists &&
+    allLists.result &&
+    allLists.result.industries &&
+    allLists.result.industries.result &&
+    allLists.result.industries.result.industries &&
+    allLists.result.industries.result.industries;
+
+  const countriesList =
+    allLists &&
+    allLists.result &&
+    allLists.result.countries &&
+    allLists.result.countries.result &&
+    allLists.result.countries.result.countryList &&
+    allLists.result.countries.result.countryList;
+
+  const statesList =
+    countriesList &&
+    countriesList.map((s, i) => {
+      if (s.states && s.states.length > 0) {
+        return s.states;
+      } else {
+      }
+    });
+
+  console.log('statesList : ', statesList);
+  const citiesList = '';
 
   return (
     <>

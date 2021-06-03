@@ -5,6 +5,8 @@ import {
   GET_COUNTRY_LIST_SUCCESS,
   GET_INDUSTRY_LIST_REQUEST,
   GET_INDUSTRY_LIST_SUCCESS,
+  GET_ALL_LISTS_REQUEST,
+  GET_ALL_LISTS_SUCCESS,
   GET_STATE_LIST_REQUEST,
   GET_STATE_LIST_SUCCESS,
 } from '../constants/setupStoreConstants';
@@ -54,6 +56,17 @@ export const industryListReducer = (
       return { ...state, loading: true };
     case GET_INDUSTRY_LIST_SUCCESS:
       return { loading: false, industries: payload };
+    default:
+      return state;
+  }
+};
+
+export const allListsReducer = (state = {}, { payload, type }) => {
+  switch (type) {
+    case GET_ALL_LISTS_REQUEST:
+      return { ...state, loading: true };
+    case GET_ALL_LISTS_SUCCESS:
+      return { loading: false, allLists: payload };
     default:
       return state;
   }

@@ -24,14 +24,17 @@ const LoginScreen = ({ location, history }) => {
   ScrollToTop();
 
   const dispatch = useDispatch();
-  const userLogin = useSelector((state) => state.userLogin);
-  const { loading, userInfo, error } = userLogin;
+  const { loading, loginUserInfo } = useSelector((state) => state.userLogin);
 
   useEffect(() => {
-    if (userInfo.response && userInfo.response.responseCode === 0) {
-      history.push('/admin/home');
+    if (loginUserInfo) {
+      if (loginUserInfo.response.responseCode === 0) {
+        history.push('/admin/home');
+      } else {
+        history.push('/admin/login');
+      }
     }
-  }, [history, userInfo]);
+  }, [history, loginUserInfo]);
 
   const initialValues = {
     emailAddress: '',
@@ -102,7 +105,7 @@ const LoginScreen = ({ location, history }) => {
 
             <div className='fe'>
               <Link className='black' to='/admin/forgot-password'>
-                Forget Password
+                Forgot Password
               </Link>
             </div>
             <div className='center'>

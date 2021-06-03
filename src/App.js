@@ -4,7 +4,6 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-// import { Router, Switch, Route } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import { createBrowserHistory } from 'history';
@@ -41,6 +40,7 @@ import EditProfileScreen from './screens/admin/EditProfileScreen';
 import ChangePasswordScreen from './screens/admin/ChangePasswordScreen';
 import store from './store';
 import { ToastContainer } from 'react-toastify';
+
 // import { ScrollToTop   } from './utilities/ReuseableFunctions';
 
 const history = createBrowserHistory();
@@ -48,14 +48,12 @@ const history = createBrowserHistory();
 const App = () => {
   // ScrollToTop();
 
-  const tokenFromStorage = localStorage.getItem('userInfo')
-    ? JSON.parse(localStorage.getItem('userInfo'))
+  const tokenFromStorage = localStorage.getItem('auth-token')
+    ? JSON.parse(localStorage.getItem('auth-token'))
     : null;
 
   axios.defaults.baseURL = 'http://ordering.api.codelabs.inc';
-  axios.defaults.headers.common[
-    'Authorization'
-  ] = `Bearer ${tokenFromStorage.userInfo.token}`;
+  axios.defaults.headers.common['Authorization'] = `Bearer ${tokenFromStorage}`;
   axios.defaults.headers.post['Content-Type'] =
     'application/x-www-form-urlencoded';
   // axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -66,6 +64,9 @@ const App = () => {
       <Router>
         <Header />
         <Switch>
+          {/* Public Routes */}
+          <Route exact path='/admin/login' component={LoginScreen} />
+          <Route exact path='/admin/signup' component={SignupScreen} />
           <Route exact path='/' component={NewHomeScreen} />
           <Route exact path='/home' component={HomeScreen} />
           <Route exact path='/about-us' component={AboutUsScreen} />
@@ -74,12 +75,12 @@ const App = () => {
           <Route exact path='/place-order' component={PlaceOrderScreen} />
           <Route exact path='/order-place' component={OrderPlaceScreen} />
 
+          {/* Private Routes */}
+          <Route exact path='/admin/home' component={AdminHomeScreen} />
           <Route exact path='/admin/get-started' component={GetStartedScreen} />
-          <Route exact path='/admin/signup' component={SignupScreen} />
           <Route exact path='/admin/setup-store' component={SetupStoreScreen} />
-          <Route exact path='/admin/pricing' component={PricingScreen} />
           <Route exact path='/admin/checkout' component={CheckoutScreen} />
-          <Route exact path='/admin/login' component={LoginScreen} />
+          <Route exact path='/admin/pricing' component={PricingScreen} />
           <Route
             exact
             path='/admin/forgot-password'
@@ -95,7 +96,6 @@ const App = () => {
             path='/admin/edit-profile'
             component={EditProfileScreen}
           />
-          <Route exact path='/admin/home' component={AdminHomeScreen} />
           <Route exact path='/admin/orders' component={OrdersScreen} />
           <Route exact path='/admin/stats' component={StatsScreen} />
           <Route exact path='/admin/why-us' component={WhyUsScreen} />

@@ -11,35 +11,35 @@ import {
   userLoginReducer,
   userRegisterReducer,
 } from './reducers/userReducers';
+
 import {
+  allListsReducer,
   cityListReducer,
   countryListReducer,
   industryListReducer,
   stateListReducer,
 } from './reducers/setupStoreReducers';
 
-// const persistConfig = {
-//   key: 'root',
-//   storage,
-// };
+const persistConfig = {
+  key: 'root',
+  storage,
+  // in this way we can only persist that reducers into local storage that we want
+  whitelist: ['userRegister', 'userLogin'],
+};
 
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const userInfoFromStorage = localStorage.getItem('login-user-info')
+//   ? JSON.parse(localStorage.getItem('login-user-info'))
+//   : null;
 
-// export default () => {
-//   let store = createStore(persistedReducer)
-//   let persistor = persistStore(store)
-//   return { store, persistor }
-// }
-
-// const userInfoFromStorage = localStorage.getItem('userInfo')
-//   ? JSON.parse(localStorage.getItem('userInfo'))
+// const tokenFromStorage = localStorage.getItem('auth-token')
+//   ? JSON.parse(localStorage.getItem('auth-token'))
 //   : null;
 
 // const initialState = {
-//   userLogin: { userInfo: userInfoFromStorage },
+//   userLogin: { loginUserInfo: userInfoFromStorage },
 // };
 
-const reducer = combineReducers({
+const rootReducer = combineReducers({
   userRegister: userRegisterReducer,
   userLogin: userLoginReducer,
   userForgotPassword: userForgotPasswordReducer,
@@ -48,13 +48,27 @@ const reducer = combineReducers({
   stateList: stateListReducer,
   cityList: cityListReducer,
   industryList: industryListReducer,
+  allLists: allListsReducer,
 });
+
+// const middleware = [thunk];
+// const store = createStore(
+//   rootReducer,
+//   initialState,
+//   composeWithDevTools(applyMiddleware(...middleware))
+// );
+// export default store;
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 const middleware = [thunk];
 
-const store = createStore(
-  reducer,
+// export const reduxStore = () => {
+let store = createStore(
+  persistedReducer,
   // initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 );
-
-export default store;
+let persistor = persistStore(store);
+export const reduxStore = { store, persistor };
+// };

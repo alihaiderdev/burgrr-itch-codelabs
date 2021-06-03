@@ -9,6 +9,8 @@ import {
   GET_CITY_LIST_REQUEST,
   GET_INDUSTRY_LIST_REQUEST,
   GET_INDUSTRY_LIST_SUCCESS,
+  GET_ALL_LISTS_REQUEST,
+  GET_ALL_LISTS_SUCCESS,
 } from '../constants/setupStoreConstants';
 
 export const getCountryList = () => async (dispatch) => {
@@ -33,4 +35,10 @@ export const getIndustryList = () => async (dispatch) => {
   dispatch({ type: GET_INDUSTRY_LIST_REQUEST });
   const { data } = await axios.get(`/GetIndustries`);
   dispatch({ type: GET_INDUSTRY_LIST_SUCCESS, payload: data });
+};
+
+export const getAllLists = () => async (dispatch) => {
+  dispatch({ type: GET_ALL_LISTS_REQUEST });
+  const { data } = await axios.get(`/GetWebAppConfiguration`);
+  dispatch({ type: GET_ALL_LISTS_SUCCESS, payload: data });
 };

@@ -3,7 +3,10 @@ import React, { useEffect, useState } from 'react';
 import '../../styles/components/formComponents/inputField.css';
 
 import { ErrorMessage, Field, useField } from 'formik';
+
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { TiDeleteOutline as CrossIcon } from 'react-icons/ti';
+import { CgCheckO as TickIcon } from 'react-icons/cg';
 import PasswordStrengthBar from 'react-password-strength-bar';
 
 const InputField = (props) => {
@@ -19,71 +22,72 @@ const InputField = (props) => {
     value,
     touched,
     errors,
+    passwordValidations,
   } = props;
+
+  console.log({ passwordValidations });
 
   const [passwordToggleIcon, setPasswordToggleIcon] = useState(false);
   const handleClickShowPassword = () => {
     setPasswordToggleIcon(!passwordToggleIcon);
   };
 
-  var password = document.getElementById('password');
-  var letter = document.getElementById('letter');
-  var capital = document.getElementById('capital');
-  var number = document.getElementById('number');
-  var length = document.getElementById('length');
-
-  // // When the user clicks on the password field, show the message box
-  // password.onfocus = function () {
-  //   document.getElementById('message').style.display = 'block';
-  // };
-
-  // // When the user clicks outside of the password field, hide the message box
-  // password.onblur = function () {
-  //   document.getElementById('message').style.display = 'none';
-  // };
-
-  // When the user starts to type something inside the password field
-  const onKeyUpHandler = () => {
-    // Validate lowercase letters
-    var lowerCaseLetters = /[a-z]/g;
-    if (value.match(lowerCaseLetters)) {
-      letter.classList.remove('invalid');
-      letter.classList.add('valid');
-    } else {
-      letter.classList.remove('valid');
-      letter.classList.add('invalid');
-    }
-
-    // Validate capital letters
-    var upperCaseLetters = /[A-Z]/g;
-    if (value.match(upperCaseLetters)) {
-      capital.classList.remove('invalid');
-      capital.classList.add('valid');
-    } else {
-      capital.classList.remove('valid');
-      capital.classList.add('invalid');
-    }
-
-    // Validate numbers
-    var numbers = /[0-9]/g;
-    if (value.match(numbers)) {
-      number.classList.remove('invalid');
-      number.classList.add('valid');
-    } else {
-      number.classList.remove('valid');
-      number.classList.add('invalid');
-    }
-
-    // Validate length
-    if (value.length >= 8) {
-      length.classList.remove('invalid');
-      length.classList.add('valid');
-    } else {
-      length.classList.remove('valid');
-      length.classList.add('invalid');
+  const valid = (item, v_icon, inv_icon) => {
+    if (
+      document.querySelector(`#${item}`) &&
+      document.querySelector(`#${item} .${v_icon}`) &&
+      document.querySelector(`#${item} .${inv_icon}`)
+    ) {
+      document.querySelector(`#${item}`).style.opacity = '1';
+      document.querySelector(`#${item} .${v_icon}`).style.opacity = '1';
+      document.querySelector(`#${item} .${inv_icon}`).style.opacity = '0';
     }
   };
 
+  const inValid = (item, v_icon, inv_icon) => {
+    if (
+      document.querySelector(`#${item}`) &&
+      document.querySelector(`#${item} .${v_icon}`) &&
+      document.querySelector(`#${item} .${inv_icon}`)
+    ) {
+      document.querySelector(`#${item}`).style.opacity = '0.5';
+      document.querySelector(`#${item} .${v_icon}`).style.opacity = '0';
+      document.querySelector(`#${item} .${inv_icon}`).style.opacity = '1';
+    }
+  };
+
+  if (value.match(/[a-z]/) != null) {
+    valid('lower', 'tickIcon', 'crossIcon');
+  } else {
+    inValid('lower', 'tickIcon', 'crossIcon');
+  }
+
+  if (value.match(/[A-Z]/) != null) {
+    valid('upper', 'tickIcon', 'crossIcon');
+  } else {
+    inValid('upper', 'tickIcon', 'crossIcon');
+  }
+
+  if (value.match(/[0-9]/) != null) {
+    valid('number', 'tickIcon', 'crossIcon');
+  } else {
+    inValid('number', 'tickIcon', 'crossIcon');
+  }
+
+  // if (value.match(/[$&+,:;=?@#|'<>.-^*()%!]/g) != null) {
+  if (value.match(/[!@#$%^&*+,:;=?|'"<>.-]/) != null) {
+    valid('symbol', 'tickIcon', 'crossIcon');
+  } else {
+    inValid('symbol', 'tickIcon', 'crossIcon');
+  }
+
+  if (value.length > 7) {
+    valid('more8', 'tickIcon', 'crossIcon');
+  } else {
+    inValid('more8', 'tickIcon', 'crossIcon');
+  }
+
+  const onChangeE = (e) => console.log('e : ', e);
   return (
     <>
       {type === 'password' && (
@@ -111,21 +115,14 @@ const InputField = (props) => {
             disabled={disabled ? disabled : false}
             placeholder={placeholder}
             onChange={onChange}
-            onBlur={() => {
-              onBlur();
-              document.getElementById('message').style.display = 'none';
-            }}
-            onFocus={() =>
-              (document.getElementById('message').style.display = 'block')
-            }
-            onkeyup={() => onKeyUpHandler()}
+            onBlur={onBlur}
             value={value}
-            pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
-            title='Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters'
           />
-          <div className='passwordStrengthBarContainer'>
-            <PasswordStrengthBar password={value} />
-          </div>
+          {passwordValidations === true && (
+            <div className='passwordStrengthBarContainer'>
+              <PasswordStrengthBar password={value} />
+            </div>
+          )}
 
           {touched && errors && (
             <div id='error' className='error m-0'>
@@ -133,21 +130,51 @@ const InputField = (props) => {
             </div>
           )}
 
-          <div id='message'>
-            <h6 className='black'>Password must contain the following:</h6>
-            <p id='letter' class='invalid'>
-              A <b>lowercase</b> letter
-            </p>
-            <p id='capital' class='invalid'>
-              A <b>capital (uppercase)</b> letter
-            </p>
-            <p id='number' class='invalid'>
-              A <b>number</b>
-            </p>
-            <p id='length' class='invalid'>
-              Minimum <b>8 characters</b>
-            </p>
-          </div>
+          {value.length > 0 && passwordValidations === true && (
+            <div id='message'>
+              <h6 className='black'>Password must contain the following:</h6>
+              <p id='lower' className='invalid'>
+                <CrossIcon className='crossIcon icon' />
+                <TickIcon className='tickIcon icon' />
+                <span>
+                  {' '}
+                  A <b>small (lowercase)</b> letter
+                </span>
+              </p>
+              <p id='upper' className='invalid'>
+                <CrossIcon className='crossIcon icon' />
+                <TickIcon className='tickIcon icon' />
+                <span>
+                  {' '}
+                  A <b>capital (uppercase)</b> letter
+                </span>
+              </p>
+              <p id='number' className='invalid'>
+                <CrossIcon className='crossIcon icon' />
+                <TickIcon className='tickIcon icon' />
+                <span>
+                  {' '}
+                  A <b>number</b>
+                </span>
+              </p>
+              <p id='symbol' className='invalid'>
+                <CrossIcon className='crossIcon icon' />
+                <TickIcon className='tickIcon icon' />
+                <span>
+                  {' '}
+                  <b>Special</b> Characters
+                </span>
+              </p>
+              <p id='more8' className='invalid'>
+                <CrossIcon className='crossIcon icon' />
+                <TickIcon className='tickIcon icon' />
+                <span>
+                  {' '}
+                  Minimum <b>8 characters</b>
+                </span>
+              </p>
+            </div>
+          )}
 
           <button
             type='button'
